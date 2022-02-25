@@ -38,7 +38,7 @@ router.post('/products', async (req, res, next) => {
             shippingFrom
         } = req.body;
 
-        const newProduct = new CiteModel({
+        const newProduct = new ProductModel({
             name,
             description,
             price,
