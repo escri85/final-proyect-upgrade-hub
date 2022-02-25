@@ -16,7 +16,7 @@ module.exports = {
   },
 
   registerPost: (req, res, next) => {
-    console.log('Llega petición');
+
     const { password, email } = req.body;
 
     if(!password || !email ) {
