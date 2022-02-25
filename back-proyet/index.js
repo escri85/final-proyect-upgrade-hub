@@ -4,7 +4,7 @@ const passport = require('passport');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+// const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv').config({path:'./.env.local'})
 
 //rutas de productos y usuario
