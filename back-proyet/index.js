@@ -16,8 +16,6 @@ const dotenv = require('dotenv').config({path:'./.env.local'})
 const PORT = process.env.PORT || 5000;
 const server = express();
 
-
-
 const {connectToDb} = require('./config/db')
 connectToDb()
 

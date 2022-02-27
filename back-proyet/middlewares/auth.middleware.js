@@ -1,6 +1,6 @@
 const isAuthenticated = (req, res, next) => {
     if(req.isAuthenticated()) {
-      return next();  
+        return next();  
     } else {
         return res.send(403);
     }

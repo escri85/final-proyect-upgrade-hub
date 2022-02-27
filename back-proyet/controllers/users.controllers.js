@@ -3,7 +3,6 @@ const User = require('../models/User');
 
 
 module.exports = {
- 
   checkSession: async (req, res, next) => {
       if(req.user) {
         let userRegister = req.user;
@@ -16,7 +15,6 @@ module.exports = {
   },
 
   registerPost: (req, res, next) => {
-
     const { password, email } = req.body;
 
     if(!password || !email ) {

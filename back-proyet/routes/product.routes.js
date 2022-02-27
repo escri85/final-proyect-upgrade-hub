@@ -31,19 +31,25 @@ router.post('/products', async (req, res, next) => {
 
     try {
         const {
-            name,
+            title,
             description,
             price,
             stock,
-            shippingFrom
+            shippingFrom,
+            rate,
+            category,
+            image
         } = req.body;
 
-        const newProduct = new CiteModel({
-            name,
+        const newProduct = new ProductModel({
+            title,
             description,
             price,
             stock,
-            shippingFrom
+            shippingFrom,
+            rate,
+            category,
+            image
         });
         console.log("He creado el objeto");
         const productCreated = await newProduct.save();
