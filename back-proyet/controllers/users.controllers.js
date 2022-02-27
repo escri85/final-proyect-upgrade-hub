@@ -15,8 +15,6 @@ module.exports = {
   },
 
   registerPost: (req, res, next) => {
-    console.log('Llega petición');
-    console.log("Estoy en el register->", req.body)
     const { password, email } = req.body;
 
     if(!password || !email ) {
