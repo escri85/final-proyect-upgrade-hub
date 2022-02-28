@@ -1,5 +1,4 @@
-import { GET_PRODUCTS } from "../actions/apiActions";
-
+import { GET_PRODUCTS, GET_PRODUCTS_ERROR } from "../actions/apiActions";
 const INITIAL_STATE = ({
 
     products: [],
@@ -20,6 +19,12 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
                 
             }
 
+        case GET_PRODUCTS_ERROR: 
+            return { 
+                ...state,
+                error: true,
+            }    
+        
         default:
             return state
 
