@@ -35,10 +35,10 @@ router.post('/products', async (req, res, next) => {
             description,
             price,
             stock,
-            shippingFrom,
-            rate,
-            category,
-            image
+            shoppingFrom,
+            image,
+            rating,
+            categorie,
         } = req.body;
 
         const newProduct = new ProductModel({
@@ -46,9 +46,9 @@ router.post('/products', async (req, res, next) => {
             description,
             price,
             stock,
-            shippingFrom,
-            rate,
-            category,
+            shoppingFrom,
+            rating,
+            categorie,
             image
         });
         console.log("He creado el objeto");
