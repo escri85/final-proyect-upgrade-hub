@@ -1,5 +1,6 @@
 import './App.scss';
 
+
 //Router-dom
 import {
   Routes,
@@ -8,6 +9,7 @@ import {
 
 //Componentes
 import Gallery from './components/Gallery/Gallery';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Gallery/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }
