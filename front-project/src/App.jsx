@@ -1,4 +1,5 @@
 import './App.scss';
+import Header from './components/Header/Header';
 
 
 //Router-dom
@@ -15,6 +16,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div className="App">
+      <Header/>
       <Routes>
         <Route path="/" element={<Gallery/>}/>
       </Routes>
