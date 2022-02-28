@@ -1,5 +1,5 @@
 const mongoose =require("mongoose")
-
+//Esto es un esquema
 const Schema = mongoose.Schema
 
 const productSchema = new Schema({
