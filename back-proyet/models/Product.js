@@ -1,5 +1,5 @@
 const mongoose =require("mongoose")
-
+//Esto es un esquema
 const Schema = mongoose.Schema
 
 const productSchema = new Schema({
@@ -7,9 +7,9 @@ const productSchema = new Schema({
     description:{type:String,required:true},
     price:{type:Number,required:true},
     stock:{type:Number},
-    shippingFrom:{type:String},
-    rate: {type: Number, required: true},
-    category: {type: String, required: true},
+    shoppingFrom:{type:String},
+    rating: {type: Number, required: true},
+    categorie: {type: String, required: true},
     image: {type: String, required: true},
 },{
     timestamps:true
