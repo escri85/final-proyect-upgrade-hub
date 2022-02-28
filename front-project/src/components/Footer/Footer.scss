@@ -13,20 +13,21 @@
     opacity: 50%;
     padding: 20px 10px;
     width: 100%;
+    
 }
 
-.footer-distributed .footer-left,
-.footer-distributed .footer-right{
+ .footer-left{
 	display: inline-block;
 	vertical-align: top;
+    width: 40%;
 }
 
 /* Footer left */
 
-.footer-distributed .footer-left{
-	width: 40%;
-    margin-left: 10%;
-}
+// .footer-distributed .footer-left{
+	
+   
+// }
 
 /* The company logo */
 
@@ -51,15 +52,12 @@
 }
 
 
-/* Footer Right */
 
-.footer-distributed .footer-right{
 
-    width: 20%;
-}
 
-.footer-distributed .footer-company-about{
-    float: right;
+
+.footer-distributed .footer-rrss{
+    
 	line-height: 20px;
 	color:  #242527;
 	font-size: 13px;

@@ -15,8 +15,8 @@ const Footer = () => {
           <p class="footer-company-name"> 2022</p>
         </div>
   
-        <div class="footer-right">
-          <p class="footer-company-about">
+        <div class="footer-rrss">
+          <p>
             iconos RRSS
           </p>
         </div>
