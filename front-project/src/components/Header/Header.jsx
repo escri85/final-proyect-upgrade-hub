@@ -3,7 +3,7 @@ import Navbar from "./Navbar/Navbar";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <div className="header__sup">
         <p>ayuda y contacto</p>
         <p>Envios y devoluciones gratuitos*</p>
@@ -11,7 +11,6 @@ const Header = () => {
       </div>
       <div className="header__title">
         <h1>STORE</h1>
-        <p>ropa y complementos</p>
       </div>
       <Navbar />
     </div>
