@@ -1,4 +1,4 @@
-import { Gallery, Footer, Header } from './components';
+import { Gallery, Footer, Header, Cart, AddProduct} from './components';
 import Home from './pages/Home/Home';
 import {
   Routes,
@@ -15,6 +15,8 @@ function App() {
         <Route path='/'>
           <Route path="/" element={<Home/>}/>
           <Route path='/gallery' element={<Gallery/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/add' element={<AddProduct/>}/>
         </Route>
       </Routes>
       <Footer/>

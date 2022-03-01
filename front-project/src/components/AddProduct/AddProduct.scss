@@ -1,0 +1,12 @@
+
+
+.addProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 2%;
+    ::placeholder{
+        text-align: center;
+    }
+}

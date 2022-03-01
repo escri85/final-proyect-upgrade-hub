@@ -3,10 +3,10 @@ import React from 'react';
 import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-//   const navigate = useNavigate()
+  const navigate = useNavigate()
 
     const items = [
         {
@@ -45,12 +45,18 @@ const Navbar = () => {
         {
             label:'Subir producto',
             icon:'pi pi-fw pi-plus',
+            command: () => {
+                navigate("/add");
+               },
         },
 
    
         {
             label: "Carrito",
             icon: 'pi pi-fw pi-shopping-cart',
+            command: () => {
+                 navigate("/cart");
+                },
             // items: [
             //     {
             //         label: 'Edit',
