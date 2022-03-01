@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getToApi } from '../../redux/actions/apiActions';
 
+
 const Gallery = (props) => {
 
     useEffect(() => {
@@ -14,7 +15,7 @@ const Gallery = (props) => {
     return (<div className="container">
         {
             props.data.map(product => 
-                    <div className="el-wrapper">
+                    <div key={product._id} className="el-wrapper">
                     <div className="box-up">
                         <img className="img" src={product.image} alt=""/>
                         <div className="img-info">
@@ -31,7 +32,7 @@ const Gallery = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart" href="#">
+                        <a className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
                             <span className="txt">Añadir al carrito</span>
