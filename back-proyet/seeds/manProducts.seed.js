@@ -5,7 +5,6 @@ const {
 } = require('../config/db');
 const ManProductsModel = require('../models/ManProducts');
 
-
 const manProductsArray = [
     {
         "title": "PANTALONES STRAIGHT FIT",
