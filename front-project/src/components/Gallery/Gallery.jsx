@@ -2,7 +2,7 @@ import './Gallery.scss';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getToApi } from '../../redux/actions/apiActions';
-
+import { Rating } from 'primereact/rating';
 
 const Gallery = (props) => {
 
@@ -19,10 +19,11 @@ const Gallery = (props) => {
                     <div className="box-up">
                         <img className="img" src={product.image} alt=""/>
                         <div className="img-info">
-                        <div className="info-inner">
-                            <span className="p-name">{product.title}</span>
-                            <span className="p-company">{product.categorie}</span>
-                        </div>
+                            <div className="info-inner">
+                                <span className="p-name">{product.title}</span>
+                                <span className="p-company">{product.categorie}</span>
+                                <Rating value={product.rating} readOnly stars={5} cancel={false} /> 
+                            </div>
                             <div className="a-size">{product.description}</div>
                         </div>
                     </div>
