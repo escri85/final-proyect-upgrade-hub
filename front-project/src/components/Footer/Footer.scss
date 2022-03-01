@@ -8,11 +8,14 @@
 
 
 .footer-distributed{
+	position: absolute;
+	bottom: 0;
     overflow: hidden;
     background-color: #f1f1f1;
     opacity: 50%;
     padding: 20px 10px;
     width: 100%;
+	
     
 }
 
@@ -22,14 +25,6 @@
     width: 40%;
 }
 
-/* Footer left */
-
-// .footer-distributed .footer-left{
-	
-   
-// }
-
-/* The company logo */
 
 .footer-distributed h3{
 	color:  #271927;
@@ -43,28 +38,29 @@
 
 
 
-
-.footer-distributed .footer-company-name{
+.footer-distributed .footer-year{
 	color:  #222;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
 }
 
-
-
-
-
-
-.footer-distributed .footer-rrss{
-    
-	line-height: 20px;
-	color:  #242527;
-	font-size: 13px;
-	font-weight: normal;
-	margin-right:  10px;
+.footer-rrss{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
+.icon{
+	
+
+	width: 22px;
+	height: 22px;
+	margin-left: 10px;
+	margin-top: 10px;
+	color: lightseagreen;
+
+}
 
 
 
