@@ -25,7 +25,7 @@ const Footer = () => {
           <a href="www.twitter.com"><FontAwesomeIcon  className='icon' icon={faTwitter} /></a>
           </p>
         </div>
-          <p class="footer-year"> 2022</p>
+          <p className="footer-year"> 2022</p>
       </footer>
   
 
