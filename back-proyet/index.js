@@ -7,8 +7,13 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 //rutas de productos y usuario
+
+/* ANOTACIÓN: REFACTORIZAR ROUTER*/
 const userRouter = require('./routes/user.routes')
 const productRouter =require('./routes/product.routes')
+const accesoriesRouter = require('./routes/accesories.routes')
+const sneakersRouter = require('./routes/sneakers.routes')
+
 
 const dotenv = require('dotenv').config({path:'./.env.local'})
 
@@ -57,6 +62,8 @@ server.use((req, res, next) => {
   
   server.use("/auth", userRouter);
   server.use("/management",productRouter)
+  server.use("/", accesoriesRouter)
+  server.use("/", sneakersRouter)
 
   
   server.use('*', (req, res, next) => {

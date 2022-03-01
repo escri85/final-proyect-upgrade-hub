@@ -10,11 +10,12 @@ const productSchema = new Schema({
     shoppingFrom:{type:String},
     rating: {type: Number, required: true},
     categorie: {type: String, required: true},
+    subCategorie: {type: String, required: true},
     image: {type: String, required: true},
 },{
     timestamps:true
 })
 
-const Footwear = mongoose.model("Footwear",productSchema)
+const SneakersModel = mongoose.model("Sneakers",productSchema)
 
-module.exports = Footwear;
+module.exports = SneakersModel;

@@ -15,6 +15,6 @@ const productSchema = new Schema({
     timestamps:true
 })
 
-const Accessories = mongoose.model("Accessories",productSchema)
+const AccessoriesModel = mongoose.model("Accessories",productSchema)
 
-module.exports = Accessories;
+module.exports = AccessoriesModel;
