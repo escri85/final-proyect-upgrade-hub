@@ -1,32 +1,142 @@
 import axios from 'axios';
 
-export const GET_PRODUCTS = "[Api] getProducts";
-export const GET_PRODUCTS_ERROR = "[Api] getProductsError";
+export const GET_ACCESSORIES = "[Api] getAccessories";
+export const GET_ACCESORIES_ERROR = "[Api] getAccessoriesError";
 
-const getProducts = (data) => ({
+export const GET_MANCLOTHES = "[Api] getManClothes";
+export const GET_MANCLOTHES_ERROR = "[Api] getManClothesError";
 
-    type: GET_PRODUCTS,
+export const GET_WOMENCLOTHES = "[Api] getWomenClothes";
+export const GET_WOMENCLOTHES_ERROR = "[Api] getWomenClothesError";
+
+export const GET_SHOES = "[Api] getShoes";
+export const GET_SHOES_ERROR = "[Api] getShoesError";
+
+
+//ACCESORIES
+
+const getAccesories = (data) => ({
+
+    type: GET_ACCESSORIES,
 
     payload: data,
 
 });
 
-const getProductsError = () => ({
-    type: GET_PRODUCTS_ERROR
+const getAccesoriesError = () => ({
+    type: GET_ACCESORIES_ERROR
 })
 
-export const getToApi = () => {
+//MANCLOTHES
+
+const getManClothes = (data) => ({
+
+    type: GET_MANCLOTHES,
+
+    payload: data,
+
+});
+
+const getManClothesError = () => ({
+    type: GET_MANCLOTHES_ERROR
+})
+
+//WOMANCLOTHES
+
+const getWomenClothes = (data) => ({
+
+    type: GET_WOMENCLOTHES,
+
+    payload: data,
+
+});
+
+const getWomenClothesError = () => ({
+    type: GET_WOMENCLOTHES_ERROR
+})
+
+//SHOES
+
+const getShoes = (data) => ({
+
+    type: GET_SHOES,
+
+    payload: data,
+
+});
+
+const getShoesError = () => ({
+    type: GET_SHOES_ERROR
+})
+
+//ACCESORIES
+
+export const getAccesoriesToApi = () => {
 
     return async (dispatch) => {
 
         try{
-        const result = await axios.get('http://localhost:4000/management/products');
-        const data = result.data;
-        dispatch(getProducts(data));
-        console.log(data)
+            const result = await axios.get('http://localhost:4000/accesories');
+            const data = result.data;
+            dispatch(getAccesories(data));
+            console.log(data)
         } catch (error) {
             console.log(error);
-            dispatch(getProductsError());
+            dispatch(getAccesoriesError());
+        }        
+    }
+}
+
+//MANCLOTHES
+
+export const getManClothesToApi = () => {
+
+    return async (dispatch) => {
+
+        try{
+            const result = await axios.get('http://localhost:4000/man');
+            const data = result.data;
+            dispatch(getManClothes(data));
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+            dispatch(getManClothesError());
+        }        
+    }
+}
+
+//WOMENCLOTHES
+
+export const getWomenClothesToApi = () => {
+
+    return async (dispatch) => {
+
+        try{
+            const result = await axios.get('http://localhost:4000/woman');
+            const data = result.data;
+            dispatch(getWomenClothes(data));
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+            dispatch(getWomenClothesError());
+        }        
+    }
+}
+
+//SHOES
+
+export const getShoesToApi = () => {
+
+    return async (dispatch) => {
+
+        try{
+            const result = await axios.get('http://localhost:4000/sneakers');
+            const data = result.data;
+            dispatch(getShoes(data));
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+            dispatch(getShoesError());
         }        
     }
 }
