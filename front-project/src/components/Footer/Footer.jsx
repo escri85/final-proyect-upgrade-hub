@@ -1,4 +1,7 @@
 import './Footer.scss' 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGitlab, faInstagram, faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 
 
@@ -12,14 +15,17 @@ const Footer = () => {
             Upgrade<span>Store</span>
           </h3>
   
-          <p class="footer-company-name"> 2022</p>
         </div>
   
         <div class="footer-rrss">
           <p>
-            iconos RRSS
+          <a href="www.instagram.com"><FontAwesomeIcon className='icon' icon={faInstagram} /></a>
+          <a href="www.facebook.com"><FontAwesomeIcon className='icon' icon={faFacebook} /></a>
+          <a href="www.tiktok.com"><FontAwesomeIcon className='icon' icon={faTiktok}  /></a>
+          <a href="www.twitter.com"><FontAwesomeIcon  className='icon' icon={faTwitter} /></a>
           </p>
         </div>
+          <p class="footer-year"> 2022</p>
       </footer>
   
 
