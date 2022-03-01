@@ -1,10 +1,9 @@
-import './Gallery.scss';
+import './WomenShoesPage.scss';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getToApi } from '../../redux/actions/apiActions';
 import { Rating } from 'primereact/rating';
 
-const Gallery = (props) => {
+const WomanShoesPage = (props) => {
 
     // useEffect(() => {
     //     props.dispatch(getToApi())
@@ -53,6 +52,6 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps)(Gallery);
+export default connect(mapStateToProps)(WomanShoesPage);
 
 
