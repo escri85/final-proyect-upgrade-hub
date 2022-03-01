@@ -32,7 +32,7 @@ const productArray = [{
         "price": 10.95,
         "stock": 4,
         "shoppingFrom": "Italia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/4548/037/050/2/w/2850/4548037050_1_1_1.jpg?ts=1645782103380",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/4548/037/050/2/w/1126/4548037050_6_1_1.jpg?ts=1645700139825",
         "rating": 5,
         "categorie": "Complementos"
     },
@@ -42,7 +42,7 @@ const productArray = [{
         "price": 10.95,
         "stock": 9,
         "shoppingFrom": "Italia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/4548/038/615/2/w/1126/4548038615_2_1_1.jpg?ts=1645714708176",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/4548/038/615/2/w/1126/4548038615_6_2_1.jpg?ts=1645700141219",
         "rating": 4,
         "categorie": "Complementos"
     },
@@ -62,7 +62,7 @@ const productArray = [{
         "price": 15.95,
         "stock": 3,
         "shoppingFrom": "Italia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/4736/077/330/2/w/1126/4736077330_2_1_1.jpg?ts=1645188634167",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/4736/077/330/2/w/1126/4736077330_6_1_1.jpg?ts=1645085686774",
         "rating": 5,
         "categorie": "Complementos"
     },
@@ -82,7 +82,7 @@ const productArray = [{
         "price": 22.95,
         "stock": 8,
         "shoppingFrom": "Francia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/6399/010/700/2/w/1126/6399010700_2_1_1.jpg?ts=1645456122666",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/6399/007/716/2/w/1126/6399007716_6_3_1.jpg?ts=1645446854265",
         "rating": 4,
         "categorie": "Complementos"
     },
@@ -102,7 +102,7 @@ const productArray = [{
         "price": 25.95,
         "stock": 10,
         "shoppingFrom": "Italia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/2495/007/800/2/w/1126/2495007800_1_1_1.jpg?ts=1645118860261",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/2495/007/800/2/w/1126/2495007800_6_3_1.jpg?ts=1644839016806",
         "rating": 5,
         "categorie": "Complementos"
     },
@@ -113,7 +113,7 @@ const productArray = [{
         "price": 16.95,
         "stock": 9,
         "shoppingFrom": "Francia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/0653/038/800/2/w/1126/0653038800_2_1_1.jpg?ts=1644571016456",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/0653/038/800/2/w/1126/0653038800_6_4_1.jpg?ts=1644573949029",
         "rating": 3,
         "categorie": "Complementos"
     },
@@ -123,7 +123,7 @@ const productArray = [{
         "price": 16.95,
         "stock": 2,
         "shoppingFrom": "Francia",
-        "image": "https://static.zara.net/photos///2022/V/0/1/p/0653/038/712/2/w/2850/0653038712_2_1_1.jpg?ts=1644571022504",
+        "image": "https://static.zara.net/photos///2022/V/0/1/p/0653/038/712/2/w/1126/0653038712_6_2_1.jpg?ts=1644573947264",
         "rating": 4,
         "categorie": "Complementos"
     },
@@ -143,7 +143,7 @@ const productArray = [{
         "price": 10.95,
         "stock": 2,
         "shoppingFrom": "Francia",
-        "image": "https://static.zara.net/photos///2021/I/0/1/p/3739/214/800/2/w/1126/3739214800_1_1_1.jpg?ts=1631109363061",
+        "image": "https://static.zara.net/photos///2021/I/0/1/p/3739/214/800/2/w/1126/3739214800_6_1_1.jpg?ts=1631029842750",
         "rating": 4,
         "categorie": "Complementos"
     },

@@ -9,15 +9,15 @@ const Footer = () => {
     return (
 
 
-        <footer class="footer-distributed">
-        <div class="footer-left">
+        <footer className="footer-distributed">
+        <div className="footer-left">
           <h3>
             Upgrade<span>Store</span>
           </h3>
   
         </div>
   
-        <div class="footer-rrss">
+        <div className="footer-rrss">
           <p>
           <a href="www.instagram.com"><FontAwesomeIcon className='icon' icon={faInstagram} /></a>
           <a href="www.facebook.com"><FontAwesomeIcon className='icon' icon={faFacebook} /></a>
