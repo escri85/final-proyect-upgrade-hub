@@ -18,12 +18,16 @@ import {CartPage} from './pages/CartPage/CartPage'
 //SCSS
 import './App.scss';
 
+//Context 
+const cartContext = React.createContext()
+
 function App() {
 
   const [cart, setCart] = useState([]);
 
   return (
-        <div className="App">
+      <div className="App">
+        <cartContext.Provider value={cart}>
           <Header/>
             <Routes>
               <Route path='/'>
@@ -38,7 +42,8 @@ function App() {
               </Route>
             </Routes>
           <Footer/>
-        </div>
+        </cartContext.Provider>  
+      </div>
   );
 }
 
