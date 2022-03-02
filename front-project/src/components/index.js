@@ -9,5 +9,5 @@ export {
     Footer,
     Gallery,
     Header,
-    AddProduct
+    AddProduct,
 }

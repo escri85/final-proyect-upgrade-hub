@@ -1,11 +1,25 @@
 import React from "react";
 import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
-
 import { useNavigate } from "react-router-dom";
+import { Modal, Button, Input, Text, Container, Row, Col, Checkbox  } from '@nextui-org/react';
+
+/*
+APUNTES:
+
+Si no hay usuario -> añadir botón de login y seguir mostrando registro.
+Si hay usuario -> ocultar botones y mostrar logout & perfil.
+*/
+
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const [visible, setVisible] = React.useState(false);
+    const handler = () => setVisible(true);
+    const closeHandler = () => {
+        setVisible(false);
+        console.log('closed');
+    };
 
     const items = [
         {
@@ -104,7 +118,13 @@ const Navbar = () => {
             //  navigate("/login");
             // },
             },
-            { label: "Sign Out", icon: "pi pi-fw pi-power-off" },
+            { label: "Sign Out",
+            icon: "pi pi-fw pi-power-off",
+            command: () =>{
+                setVisible(true);
+            }
+            },
+
         ],
         },
     ];
@@ -128,6 +148,60 @@ const Navbar = () => {
         <div className="card">
             <Menubar model={items} start={start} end={end} />
         </div>
+        <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+    >
+        <Modal.Header>
+            <Text id="modal-title" size={18}>
+                {/* Texto alternativo */}
+            <Text b size={18}>
+                Registro de usuarios
+            </Text>
+            </Text>
+        </Modal.Header>
+        <Modal.Body>
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="lg"
+                placeholder="Email"
+                /* contentLeft={<Mail />} */
+            />
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="lg"
+                placeholder="Password"
+                /* contentLeft={<Password />} */
+            />
+            <Row justify="space-between">
+            <Checkbox>
+                <Text size={14}>
+                Recordar credenciales
+                </Text>
+            </Checkbox>
+            <Text size={14}>
+                <a href="#">Ya tengo cuenta</a>
+            </Text>
+            </Row>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button auto flat color="error" onClick={closeHandler}>
+            Cerrar
+            </Button>
+            <Button auto onClick={closeHandler}>
+            Registrarme
+            </Button>
+        </Modal.Footer>
+    </Modal>
         </div>
     );
 };
