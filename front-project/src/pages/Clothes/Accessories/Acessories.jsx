@@ -31,7 +31,7 @@ const Accesories = (props) => {
                             <div className="info-inner">
                                 <span className="p-name">{product.title}</span>
                                 <span className="p-company">{product.categorie}</span>
-                                <Rating value={product.rating} readOnly stars={5} cancel={false} /> 
+                                <Rating value={product.rating} readOnly stars={5} cancel={false} />
                             </div>
                             <div className="a-size">{product.description}</div>
                         </div>
