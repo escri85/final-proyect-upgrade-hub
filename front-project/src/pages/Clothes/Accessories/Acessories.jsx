@@ -1,14 +1,22 @@
 import './Accesories.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { getAccesoriesToApi } from '../../../redux/actions/apiActions';
 
 const Accesories = (props) => {
 
+    const [productsCart] = useState([])
+
+    const addToCart = (product) => {
+        productsCart.unshift(product);
+        props.setCart(productsCart)
+        console.log(props.cart);
+    }
+
+
     useEffect(() => {
         props.dispatch(getAccesoriesToApi())
-        console.log(props.data);
             //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
@@ -33,12 +41,12 @@ const Accesories = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart"  >
-                        <span className="price">{product.price}€</span>
-                        <span className="add-to-cart">
-                            <span className="txt">Añadir al carrito</span>
-                        </span>
-                        </a>
+                        <div className="cart"  >
+                            <span className="price">{product.price}€</span>
+                            <span className="add-to-cart">
+                                <span onClick={()=>addToCart(product)} className="txt">Añadir al carrito</span>
+                            </span>
+                        </div>
                     </div>
                     </div>
             )

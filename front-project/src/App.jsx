@@ -18,34 +18,27 @@ import {CartPage} from './pages/CartPage/CartPage'
 //SCSS
 import './App.scss';
 
-
-//Context
-const cartContext = React.createContext()
-
-
 function App() {
-  
-  const [cart, setCart] = useState([]);
+
+  const [cart, setCart] = useState([{}]);
 
   return (
-    <div className="App">
-      <cartContext.Provider value={cart}>
-        <Header/>
-          <Routes>
-            <Route path='/'>
-              <Route path="/" element={<Home/>}/>
-              <Route path='/accessories' element={<Accessories/>}/>
-              <Route path='/man' element={<ManClothesPage setCart = {setCart}/>}/>
-              <Route path='/manshoes' element={<ManShoesPage/>} setCart = {setCart}/>
-              <Route path='/women' element={<WomanClothesPage/>} setCart = {setCart}/>
-              <Route path='/womenshoes' element={<WomenShoesPage/>} setCart = {setCart}/>
-              <Route path='/cart' element={<CartPage />} setCart = {setCart}/>
-              <Route path='/add' element={<AddProduct/>}/>
-            </Route>
-          </Routes>
-        <Footer/>
-      </cartContext.Provider>  
-    </div>
+        <div className="App">
+          <Header/>
+            <Routes>
+              <Route path='/'>
+                <Route path="/" element={<Home/>}/>
+                <Route path='/accessories' element={<Accessories cart={cart} setCart={setCart}/>}/>
+                <Route path='/man' element={<ManClothesPage cart={cart} setCart={setCart}/>}/>
+                <Route path='/manshoes' element={<ManShoesPage/>} cart={cart} setCart={setCart}/>
+                <Route path='/women' element={<WomanClothesPage/>} cart={cart} setCart={setCart}/>
+                <Route path='/womenshoes' element={<WomenShoesPage/>} cart={cart} setCart={setCart}/>
+                <Route path='/cart' element={<CartPage />} cart={cart} setCart = {setCart}/>
+                <Route path='/add' element={<AddProduct/>}/>
+              </Route>
+            </Routes>
+          <Footer/>
+        </div>
   );
 }
 

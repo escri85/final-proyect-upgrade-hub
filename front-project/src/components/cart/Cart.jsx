@@ -1,14 +1,12 @@
 import './Cart.scss'
 
-const Cart = () => {
+const Cart = (props) => {
+
+  console.log(props.cart);
 
   return (
     
-    
-    
-    <div>Cart</div>
-  
-  
+    <h1>Hola</h1>
   
     )
 }
