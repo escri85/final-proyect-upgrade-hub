@@ -1,11 +1,10 @@
 import Cart from '../../components/Cart/Cart'
 import './CartPage.scss'
 
-export const CartPage = (props) => {
-
+export const CartPage = ({cart, setCart}) => {
 
     return (<div>
         
-        <Cart cart= {props.cart} setCart={props.setCart}></Cart>
+        <Cart cart= {cart} setCart={setCart}></Cart>
 
         </div>)}

@@ -20,7 +20,7 @@ import './App.scss';
 
 function App() {
 
-  const [cart, setCart] = useState([{}]);
+  const [cart, setCart] = useState([]);
 
   return (
         <div className="App">
@@ -33,7 +33,7 @@ function App() {
                 <Route path='/manshoes' element={<ManShoesPage/>} cart={cart} setCart={setCart}/>
                 <Route path='/women' element={<WomanClothesPage/>} cart={cart} setCart={setCart}/>
                 <Route path='/womenshoes' element={<WomenShoesPage/>} cart={cart} setCart={setCart}/>
-                <Route path='/cart' element={<CartPage />} cart={cart} setCart = {setCart}/>
+                <Route path='/cart' element={<CartPage cart={cart} setCart = {setCart}/>} />
                 <Route path='/add' element={<AddProduct/>}/>
               </Route>
             </Routes>

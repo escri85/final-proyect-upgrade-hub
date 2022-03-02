@@ -8,10 +8,11 @@ const Accesories = (props) => {
 
     const [productsCart] = useState([])
 
+    console.log(props);
+
     const addToCart = (product) => {
         productsCart.unshift(product);
-        props.setCart(productsCart)
-        console.log(props.cart);
+        props.setCart(productsCart);
     }
 
 
