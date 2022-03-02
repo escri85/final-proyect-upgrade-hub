@@ -1,28 +1,18 @@
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage } from './pages';
 import { Footer, Header, AddProduct} from './components';
 import Home from './pages/Home/Home';
 import {
   Routes,
   Route,
 } from "react-router-dom";
-
 import React, { useState } from 'react';
-
-//Pages
-import Accessories from './pages/Clothes/Accessories/Acessories';
-import ManClothesPage from './pages/Clothes/ManClothesPage/ManClothesPage';
-import ManShoesPage from './pages/Clothes/ManShoesPage/ManShoesPage';
-import WomanClothesPage from './pages/Clothes/WomenClothesPage/WomanClothesPage';
-import WomenShoesPage from './pages/Clothes/WomenShoesPage/WomenShoesPage';
-import {CartPage} from './pages/CartPage/CartPage'
-
-//SCSS
 import './App.scss';
 
-//Context 
+
+//Context
 const cartContext = React.createContext()
 
 function App() {
-
   const [cart, setCart] = useState([]);
 
   return (
@@ -42,7 +32,7 @@ function App() {
               </Route>
             </Routes>
           <Footer/>
-        </cartContext.Provider>  
+        </cartContext.Provider>
       </div>
   );
 }
