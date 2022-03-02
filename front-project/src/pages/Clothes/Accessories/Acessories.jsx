@@ -42,10 +42,10 @@ const Accesories = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <div className="cart"  >
+                        <div className="cart">
                             <span className="price">{product.price}€</span>
                             <span className="add-to-cart">
-                                <span onClick={()=>addToCart(product)} className="txt">Añadir al carrito</span>
+                                <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
                             </span>
                         </div>
                     </div>
