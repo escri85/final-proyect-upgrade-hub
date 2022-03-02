@@ -1,6 +1,6 @@
 import './Footer.scss' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGitlab, faInstagram, faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import {  faInstagram, faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 
 
