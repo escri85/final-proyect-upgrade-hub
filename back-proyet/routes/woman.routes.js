@@ -1,10 +1,10 @@
 const express = require('express');
-const ManProducts = require('../models/ManProducts');
+const WomensProducts = require('../models/WomensProducts');
 const router = express.Router();
 
-router.get('/manproducts', async (req, res, next) =>{
+router.get('woman', async(req, res, next) =>{
     try{
-        const results = await ManProducts.find();
+        const results = await WomensProducts.find();
         console.log(results);
         return res.status(200).json(results);
     }catch(error){
@@ -12,10 +12,10 @@ router.get('/manproducts', async (req, res, next) =>{
     }
 });
 
-router.post('manproducts', async(req, res, next) =>{
+router.post('/woman', async(req, res, next) =>{
     try{
         const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
-        const newManProduct = new ManProducts({
+        const newWomanProduct = new WomensProducts({
             title,
             description,
             price,
@@ -25,19 +25,20 @@ router.post('manproducts', async(req, res, next) =>{
             categorie,
             image
         });
-        console.log('Nuevo producto de hombre creado');
-        const manProductCreated = await new newManProduct.save();
-        console.log('Producto de hombre añadido');
+        console.log('Nueva producto de mujer creado');
+        const womanProductCreated = await new newWomanProduct.save();
+        console.log('Nuevo producto de mujer añadido');
+        return res.status(201).json(womanProductCreated);
     }catch(error){
         return next(error);
     }
-})
+});
 
-router.delete('/manproducts/:id', async(req, res, next) =>{
+router.delete('woman/:id', async(req, res, next) =>{
     try{
         const {id} = req.params;
-        await ManProducts.findByIdAndDelete(id);
-        return res.status(200).json('Producto de hombre eliminado')
+        await WomensProducts.findByIdAndDelete(id);
+        return res.status(200).json('Producto de mujer eliminado');
     }catch(error){
         return next(error);
     }
