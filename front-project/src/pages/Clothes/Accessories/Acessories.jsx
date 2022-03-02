@@ -2,14 +2,15 @@ import './Accesories.scss';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
+import { getAccesoriesToApi } from '../../../redux/actions/apiActions';
 
 const Accesories = (props) => {
 
-    // useEffect(() => {
-    //     props.dispatch(getToApi())
-    //     console.log(props.data);
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    useEffect(() => {
+        props.dispatch(getAccesoriesToApi())
+        console.log(props.data);
+            //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     return (<div className="container">
         {
@@ -48,7 +49,7 @@ const Accesories = (props) => {
 
 const mapStateToProps = (state) => ({
 
-    data: state.api.products,
+    data: state.api.accessories,
 
 })
 
