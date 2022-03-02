@@ -2,14 +2,15 @@ import './ManClothesPage.scss';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
+import { getManClothesToApi } from '../../../redux/actions/apiActions';
 
 const ManClothesPage = (props) => {
 
-    // useEffect(() => {
-    //     props.dispatch(getToApi())
-    //     console.log(props.data);
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    useEffect(() => {
+        props.dispatch(getManClothesToApi())
+        console.log(props.data);
+           //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     return (<div className="container">
         {
@@ -48,7 +49,7 @@ const ManClothesPage = (props) => {
 
 const mapStateToProps = (state) => ({
 
-    data: state.api.products,
+    data: state.api.manClothes,
 
 })
 

@@ -1,15 +1,25 @@
 import './Accesories.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
+import { getAccesoriesToApi } from '../../../redux/actions/apiActions';
 
 const Accesories = (props) => {
 
-    // useEffect(() => {
-    //     props.dispatch(getToApi())
-    //     console.log(props.data);
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    const [productsCart] = useState([])
+
+    console.log(props);
+
+    const addToCart = (product) => {
+        productsCart.unshift(product);
+        props.setCart(productsCart);
+    }
+
+
+    useEffect(() => {
+        props.dispatch(getAccesoriesToApi())
+            //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     return (<div className="container">
         {
@@ -32,12 +42,12 @@ const Accesories = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart"  >
-                        <span className="price">{product.price}€</span>
-                        <span className="add-to-cart">
-                            <span className="txt">Añadir al carrito</span>
-                        </span>
-                        </a>
+                        <div className="cart"  >
+                            <span className="price">{product.price}€</span>
+                            <span className="add-to-cart">
+                                <span onClick={()=>addToCart(product)} className="txt">Añadir al carrito</span>
+                            </span>
+                        </div>
                     </div>
                     </div>
             )
@@ -48,7 +58,7 @@ const Accesories = (props) => {
 
 const mapStateToProps = (state) => ({
 
-    data: state.api.products,
+    data: state.api.accessories,
 
 })
 

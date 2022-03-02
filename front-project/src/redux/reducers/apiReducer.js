@@ -1,9 +1,15 @@
-import { GET_ACCESORIES_ERROR, GET_ACCESSORIES, GET_MANCLOTHES, GET_MANCLOTHES_ERROR, GET_WOMENCLOTHES, GET_WOMENCLOTHES_ERROR } from "../actions/apiActions";
+import { GET_ACCESORIES_ERROR, GET_ACCESSORIES, GET_MANCLOTHES, GET_MANCLOTHES_ERROR, GET_SHOES, GET_SHOES_ERROR, GET_WOMENCLOTHES, GET_WOMENCLOTHES_ERROR } from "../actions/apiActions";
 
 
 const INITIAL_STATE = ({
 
-    products: [],
+    accessories: [],
+
+    manClothes: [],
+
+    womenClothes: [],
+
+    sneakers: [],
 
     error: null,
 
@@ -16,7 +22,7 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
         case GET_ACCESSORIES : 
             return {
                 ...state,
-                products: action.payload,            
+                accessories: action.payload,            
             }
 
         case GET_ACCESORIES_ERROR: 
@@ -28,7 +34,7 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
         case GET_MANCLOTHES : 
             return {
                 ...state,
-                products: action.payload,
+                manClothes: action.payload,
             }
 
         case GET_MANCLOTHES_ERROR: 
@@ -40,10 +46,22 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
         case GET_WOMENCLOTHES : 
             return {
                 ...state,
-                products: action.payload,
+                womenClothes: action.payload,
             }
 
         case GET_WOMENCLOTHES_ERROR: 
+            return { 
+                ...state,
+                error: true,
+            }
+            
+        case GET_SHOES : 
+            return {
+                ...state,
+                sneakers: action.payload,
+            }
+
+        case GET_SHOES_ERROR: 
             return { 
                 ...state,
                 error: true,

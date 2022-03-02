@@ -76,7 +76,7 @@ export const getAccesoriesToApi = () => {
     return async (dispatch) => {
 
         try{
-            const result = await axios.get('http://localhost:4000/accesories');
+            const result = await axios.get('http://localhost:4000/accessories');
             const data = result.data;
             dispatch(getAccesories(data));
             console.log(data)
