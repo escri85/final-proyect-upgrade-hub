@@ -10,7 +10,7 @@ const productSchema = new Schema({
     shoppingFrom:{type:String},
     rating: {type: Number, required: true},
     categorie: {type: String, required: true},
-    subCategorie: {type: String, required: true},
+    subcategorie: {type: String, required: true},
     image: {type: String, required: true},
 },{
     timestamps:true
