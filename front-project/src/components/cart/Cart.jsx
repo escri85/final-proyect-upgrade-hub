@@ -7,6 +7,12 @@ import Button from 'react-bootstrap/Button'
 const Cart = ({cart, setCart}) => {
 
 
+  const deleteFromCart = () => {
+
+    console.log("Has intentado borrar uno");
+
+  }
+
   
   return (<div>
     
@@ -25,7 +31,7 @@ const Cart = ({cart, setCart}) => {
                 <Card.Text>
                   {element.price} €
                 </Card.Text>
-                <Button variant="primary">Eliminar</Button>
+                <Button onClick={deleteFromCart} variant="primary">Eliminar</Button>
               </Card.Body>
             </Card>
           )}

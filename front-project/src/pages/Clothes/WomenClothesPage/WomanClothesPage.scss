@@ -8,6 +8,7 @@
 }
 
 .el-wrapper {
+
     width: 360px;
     height: 400px;
     padding: 15px;
@@ -21,6 +22,8 @@
     max-width: 280px;
     // max-height: 320px;
 }
+
+
 
 @media (max-width: 991px) {
     .el-wrapper {
@@ -183,6 +186,18 @@
     font-family: 'PT Sans', sans-serif;
     color: #828282;
     opacity: 0;
+    h5{
+    background: #974745;
+    opacity: 70%;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 0;
+    color: #fff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    
+  }
+
 }
 
 .a-size .size {
@@ -250,10 +265,18 @@
     transform: translate(-50%, -50%);
 }
 
-.cart .add-to-cart .txt {
+.cart .add-to-cart{
     font-size: 12px;
     color: #fff;
     letter-spacing: 0.045em;
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+.txt {
+
+    background: none;
+    font-size: 25px;
+    width: 150px;
+    height: 50px;
 }
