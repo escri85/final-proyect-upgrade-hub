@@ -32,6 +32,7 @@ const sneakersProductsArray = [
         "title": "Forum Low ",
         "description": " Esta versión luce un diseño con los colores clásicos que podría lucir cualquier equipo en la cancha y que nos recuerda que no estaríamos donde estamos sin la ayuda de los demás.",
         "stock": 33,
+        "price": 120,
         "shoppingFrom": "Alemania",
         "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/75aee7eb0fc343d484c9adf30019d225_9366/Zapatilla_Forum_Low_Blanco_GY8556_01_standard.jpg",
         "rating": 3.1,
@@ -214,7 +215,7 @@ const sneakersProductsArray = [
         "categorie": "Sneakers",
         "subcategorie":"Woman",
     },
-
+//Hasta aqui bien
 
 
 
@@ -263,6 +264,7 @@ const sneakersProductsArray = [
         "categorie": "Sneakers",
         "subcategorie":"Woman",
     },
+    //Hasta aqui bien
 {
         "title": "Nike Air Max Pre-Day",
         "description": "Lleva el look de las zapatillas de running Nike tradicionales a una nueva dimensión.",
@@ -272,6 +274,7 @@ const sneakersProductsArray = [
         "rating": 5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "price": 59,
     },
 {
         "title": "Air Force 1 '07",
@@ -413,10 +416,12 @@ mongoose.connect(URL, CONFIG_DB)
 .then(async () =>{
     console.log('Se está ejecutando la seed de zapatillas, todo ok!');
     const sneakersProductsContent = await SneakersModel.find();
+    console.log(sneakersProductsContent);
     (sneakersProductsContent) ? await SneakersModel.collection.drop() : '';
 })
 .catch(error =>console.log('Error buscando en la DB'))
 .then(async () =>{
+    console.log(sneakersProductsArray)
     await SneakersModel.insertMany(sneakersProductsArray);
     console.log('Nuevas zapatillas añadidas!');
 })

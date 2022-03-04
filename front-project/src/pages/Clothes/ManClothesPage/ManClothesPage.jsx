@@ -1,5 +1,5 @@
 import './ManClothesPage.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { getManClothesToApi } from '../../../redux/actions/apiActions';
@@ -11,6 +11,16 @@ const ManClothesPage = (props) => {
         console.log(props.data);
            //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+
+    const [productsCart] = useState([])
+
+    console.log(props);
+
+    const addToCart = (product) => {
+        productsCart.unshift(product);
+        props.setCart(productsCart);
+    }
     
     return (<div className="container">
         {
@@ -33,12 +43,12 @@ const ManClothesPage = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart"  >
+                        <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <span className="txt">Añadir al carrito</span>
+                            <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
                         </span>
-                        </a>
+                        </div>
                     </div>
                     </div>
             )

@@ -94,7 +94,7 @@ export const getManClothesToApi = () => {
     return async (dispatch) => {
 
         try{
-            const result = await axios.get('http://localhost:4000/man');
+            const result = await axios.get('http://localhost:4000/manproducts');
             const data = result.data;
             dispatch(getManClothes(data));
             console.log(data)
@@ -115,7 +115,7 @@ export const getWomenClothesToApi = () => {
             const result = await axios.get('http://localhost:4000/woman');
             const data = result.data;
             dispatch(getWomenClothes(data));
-            console.log(data)
+            console.log("Estoy en redux", data)
         } catch (error) {
             console.log(error);
             dispatch(getWomenClothesError());

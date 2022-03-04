@@ -1,19 +1,33 @@
 import './WomenShoesPage.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
+import { getShoesToApi } from '../../../redux/actions/apiActions';
 
-const WomanShoesPage = (props) => {
+const WomenShoesPage = (props) => {
 
-    // useEffect(() => {
-    //     props.dispatch(getToApi())
-    //     console.log(props.data);
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    useEffect(() => {
+        props.dispatch(getShoesToApi())
+        console.log(props.data);
+          //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
+    const result = props.data.filter(element => element.subcategorie === "Woman");
+    console.log(result);
+
+
+    const [productsCart] = useState([])
+
+    console.log(props);
+
+    const addToCart = (product) => {
+        productsCart.unshift(product);
+        props.setCart(productsCart);
+    }
+
     return (<div className="container">
         {
-            props.data.map(product => 
+            result.map(product => 
                     <div key={product._id} className="el-wrapper">
                     <div className="box-up">
                         <img className="img" src={product.image} alt=""/>
@@ -32,12 +46,12 @@ const WomanShoesPage = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart"  >
+                        <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <span className="txt">Añadir al carrito</span>
+                            <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
                         </span>
-                        </a>
+                        </div>
                     </div>
                     </div>
             )
@@ -48,10 +62,10 @@ const WomanShoesPage = (props) => {
 
 const mapStateToProps = (state) => ({
 
-    data: state.api.products,
+    data: state.api.sneakers,
 
 })
 
-export default connect(mapStateToProps)(WomanShoesPage);
+export default connect(mapStateToProps)(WomenShoesPage);
 
 
