@@ -13,6 +13,8 @@ const userRouter = require('./routes/user.routes')
 const productRouter =require('./routes/product.routes')
 const accesoriesRouter = require('./routes/accesories.routes')
 const sneakersRouter = require('./routes/sneakers.routes')
+const manRouter = require('./routes/man.routes')
+const womanRouter = require('./routes/woman.routes')
 
 
 const dotenv = require('dotenv').config({path:'./.env.local'})
@@ -61,9 +63,11 @@ server.use((req, res, next) => {
   server.use(passport.session());
   
   server.use("/auth", userRouter);
-  server.use("/management",productRouter)
-  server.use("/", accesoriesRouter)
-  server.use("/", sneakersRouter)
+  server.use("/management",productRouter);
+  server.use("/", accesoriesRouter);
+  server.use("/", sneakersRouter);
+  server.use("/", manRouter);
+  server.use("/", womanRouter);
 
   
   server.use('*', (req, res, next) => {

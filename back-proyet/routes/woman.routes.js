@@ -2,7 +2,7 @@ const express = require('express');
 const WomensProducts = require('../models/WomensProducts');
 const router = express.Router();
 
-router.get('woman', async(req, res, next) =>{
+router.get('/woman', async(req, res, next) =>{
     try{
         const results = await WomensProducts.find();
         console.log(results);
