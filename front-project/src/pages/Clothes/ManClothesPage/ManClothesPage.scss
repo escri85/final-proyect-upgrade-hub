@@ -186,9 +186,12 @@
     font-family: 'PT Sans', sans-serif;
     color: #828282;
     opacity: 0;
-    h5{
+    
+}
+
+.lastUnits{
     background: #974745;
-    opacity: 70%;
+    width: fit-content;
     border-radius: 50px;
     font-size: 12px;
     margin: 0;
@@ -197,8 +200,6 @@
     text-transform: uppercase;
     
   }
-
-}
 
 .a-size .size {
     color: #252525;
