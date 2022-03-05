@@ -15,7 +15,10 @@ Si hay usuario -> ocultar botones y mostrar logout & perfil.
 const Navbar = () => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
-    const handler = () => setVisible(true);
+    const needToRegister = () =>{
+        setVisible(false);
+        navigate('/register');
+    }
     const closeHandler = () => {
         setVisible(false);
         console.log('closed');
@@ -159,7 +162,7 @@ const Navbar = () => {
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
             <Text b size={18}>
-                Registro de usuarios
+                Inicio de sesión
             </Text>
             </Text>
         </Modal.Header>
@@ -170,7 +173,7 @@ const Navbar = () => {
                 fullWidth
                 color="primary"
                 size="lg"
-                placeholder="Email"
+                labelPlaceholder="Email"
                 /* contentLeft={<Mail />} */
             />
             <Input
@@ -179,26 +182,24 @@ const Navbar = () => {
                 fullWidth
                 color="primary"
                 size="lg"
-                placeholder="Password"
+                labelPlaceholder="Contraseña"
                 /* contentLeft={<Password />} */
             />
             <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
-                Recordar credenciales
+                Mantener sesión
+                {/* COOKIES */}
                 </Text>
             </Checkbox>
-            <Text size={14}>
-                <a href="#">Ya tengo cuenta</a>
-            </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto flat color="error" onClick={closeHandler}>
-            Cerrar
+            <Button auto flat color="success" onClick={needToRegister}>
+            Necesito registrarme
             </Button>
             <Button auto onClick={closeHandler}>
-            Registrarme
+            Iniciar sesión
             </Button>
         </Modal.Footer>
     </Modal>

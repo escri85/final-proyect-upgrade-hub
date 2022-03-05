@@ -1,0 +1,28 @@
+.register{
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    padding: 5%;
+    &-input{
+        margin: 3%;
+    }
+    &-btn{
+        padding: 5%;
+        margin-top: 10%;
+        border-radius: 5px;
+        border-color: #091A32;
+    }
+
+    &__login{
+        & button{
+            margin-top: 10%;
+            border: none;
+            background: none;
+            color: #091A32;
+        }
+
+    }
+}

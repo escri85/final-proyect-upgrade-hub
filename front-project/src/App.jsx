@@ -1,5 +1,6 @@
-import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage } from './pages';
-import { Footer, Header, AddProduct} from './components';
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Register, Profile } from './pages';
+import { Footer, Header, AddProduct, PrivateRoute} from './components';
+import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
 import {
   Routes,
@@ -12,7 +13,7 @@ import './App.scss';
 //Context
 const cartContext = React.createContext()
 
-function App() {
+function App({user, error}) {
   const [cart, setCart] = useState([]);
 
   return (
@@ -28,6 +29,8 @@ function App() {
                 <Route path='/women' element={<WomanClothesPage/>} cart={cart} setCart={setCart}/>
                 <Route path='/womenshoes' element={<WomenShoesPage/>} cart={cart} setCart={setCart}/>
                 <Route path='/cart' element={<CartPage cart={cart} setCart = {setCart}/>} />
+                <Route path="/register" element={<Register/>} />
+                <Route path="/profile" element={<PrivateRoute user={user} error={error} component={<Profile user={user}/>}/>}> </Route>
                 <Route path='/add' element={<AddProduct/>}/>
               </Route>
             </Routes>
@@ -37,4 +40,9 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) =>({
+  user: state.auth.user,
+  error: state.auth.error
+})
+
+export default connect(mapStateToProps)(App);
