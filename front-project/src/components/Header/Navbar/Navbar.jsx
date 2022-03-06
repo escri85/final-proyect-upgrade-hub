@@ -17,7 +17,7 @@ const INITIAL_STATE = {
     password: ''
 }
 
-const Navbar = ({dispatch, error, ...restProps}) => {
+const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
@@ -37,6 +37,7 @@ const Navbar = ({dispatch, error, ...restProps}) => {
         console.log('Con esto vas a loguear',formData);
         dispatch(loginUser(formData));
         setVisible(false);
+        navigate('/profile');
     };
 
     const changeInput = (ev) =>{
@@ -233,6 +234,7 @@ const Navbar = ({dispatch, error, ...restProps}) => {
 };
 
 const mapStateToProps = (state) =>({
+    user: state.auth.user,
     error: state.auth.error,
 });
 
