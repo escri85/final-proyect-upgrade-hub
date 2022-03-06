@@ -1,11 +1,19 @@
 .register{
-    margin-top: 5%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.register__form{
+    margin-top: 5%;
+    width: 30%;
     display: flex;
     align-items: center;
     justify-content:center;
     flex-direction: column;
-    padding: 5%;
+    padding: 1%;
+    border: 3px double #b5a8a8;
+    border-radius: 2px;
     &-input{
         margin: 3%;
     }
@@ -13,16 +21,16 @@
         padding: 5%;
         margin-top: 10%;
         border-radius: 5px;
-        border-color: #091A32;
+        border-color: #1C6EA4;
     }
-
-    &__login{
-        & button{
-            margin-top: 10%;
-            border: none;
-            background: none;
-            color: #091A32;
+    &-footer{
+        margin-top: 5%;
+        font-size: 0.9rem;
+        border-top: 2px outset #1C6EA4;
+        width: 40%;
+        text-align: start;
+        & a {
+            text-decoration: none;
         }
-
     }
 }

@@ -6,9 +6,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__sup">
-        <p>Ayuda y contacto</p>
-        <p>Envios y devoluciones gratuitos*</p>
-        <p>Derecho de devolucion de 100 dias</p>
+        <p>Recibe tu pedido en 24/48h.</p>
+        <p>Envíos gratuitos en pedidos superiores a 50€</p>
+        <p>Devoluciones gratuitas</p>
       </div>
       <div className="header__title">
         <Link to='/'>
