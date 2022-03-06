@@ -36,20 +36,28 @@ const Register = ({dispatch, error, ...restProps}) =>{
 
     }
     return (
-        <form onSubmit={submitForm} className="register">
-        <label>
-            <Input className="register-input" bordered labelPlaceholder="Correo electrónico" color="secondary" type='email' name='email' id="email" value={formData.email} onChange={changeInput}/>
-        </label>
-        <label>
-            <Input className="register-input" bordered labelPlaceholder="Contraseña" color="secondary" type='password' name='password' id="pass" value={formData.password} onChange={changeInput}/>
-        </label>
-        <label>
-            <Input className="register-input" bordered labelPlaceholder="Repetir contraseña" color="secondary" type='password' name='passwordRepeat' id="passRepeat" value={formData.passwordRepeat} onChange={changeInput}/>
-        </label>
-        <div>
-            <button className="register-btn" disabled={samePasswords}>Registrar</button>
+        <div className='register'>
+            <form onSubmit={submitForm} className="register__form">
+                <h2>Crear cuenta</h2>
+                <label>
+                    <Input className="register__form-input" bordered labelPlaceholder="Correo electrónico" color="primary" type='email' name='email' id="email" value={formData.email} onChange={changeInput}/>
+                </label>
+                <label>
+                    <Input className="register__form-input" bordered labelPlaceholder="Contraseña" color="primary" type='password' name='password' id="pass" value={formData.password} onChange={changeInput}/>
+                </label>
+                <label>
+                    <Input className="register__form-input" bordered labelPlaceholder="Repetir contraseña" color="primary" type='password' name='passwordRepeat' id="passRepeat" value={formData.passwordRepeat} onChange={changeInput}/>
+                </label>
+                <div>
+                    <button className="register__form-btn" disabled={samePasswords}>Registrar</button>
+                </div>
+                <div className='register__form-line'></div>
+                <div className='register__form-footer'>
+                    <p>Al registrarte aceptas nuestras <a href="https://www.amazon.es/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=200545940">condiciones de uso y venta.</a>Gracias</p>
+                </div>
+            </form>
         </div>
-    </form>
+
     )
 }
 const mapStateToProps = (state) =>({
