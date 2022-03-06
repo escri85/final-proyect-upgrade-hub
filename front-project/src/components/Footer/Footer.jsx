@@ -25,6 +25,9 @@ const Footer = () => {
           <a href="www.twitter.com"><FontAwesomeIcon  className='icon' icon={faTwitter} /></a>
           </p>
         </div>
+        <p>Ayuda y contacto</p>
+        <p>Envios y devoluciones gratuitos*</p>
+        <p>Derecho de devolucion de 100 dias</p>
           <p className="footer-year"> 2022</p>
       </footer>
   
