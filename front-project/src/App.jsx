@@ -1,5 +1,5 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Register, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute} from './components';
+import { Footer, Header, AddProduct, PrivateRoute, Login} from './components';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
 import {
@@ -32,6 +32,7 @@ function App({user, error}) {
                 <Route path="/register" element={<Register/>} />
                 <Route path="/profile" element={<PrivateRoute user={user} error={error} component={<Profile user={user}/>}/>}> </Route>
                 <Route path='/add' element={<AddProduct/>}/>
+                <Route path='/login' element={<Login />} />
               </Route>
             </Routes>
           <Footer/>

@@ -1,27 +1,47 @@
 import React from "react";
+import { useState } from "react";
 import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
+import {connect} from 'react-redux';
 import { Modal, Button, Input, Text, Container, Row, Col, Checkbox  } from '@nextui-org/react';
-
+import { loginUser } from "../../../redux/actions/authActions";
 /*
 APUNTES:
 
 Si no hay usuario -> añadir botón de login y seguir mostrando registro.
 Si hay usuario -> ocultar botones y mostrar logout & perfil.
 */
+const INITIAL_STATE = {
+    email: '',
+    password: ''
+}
 
-
-const Navbar = () => {
+const Navbar = ({dispatch, error, ...restProps}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
+    const [formData, setFormData] = useState(INITIAL_STATE);
+
     const needToRegister = () =>{
         setVisible(false);
         navigate('/register');
-    }
+    };
+
     const closeHandler = () => {
         setVisible(false);
         console.log('closed');
+    };
+
+    const submitLogin = (ev) =>{
+        ev.preventDefault();
+        console.log('Con esto vas a loguear',formData);
+        dispatch(loginUser(formData));
+        setVisible(false);
+    };
+
+    const changeInput = (ev) =>{
+        const {name, value} = ev.target;
+        setFormData({...formData, [name]: value});
     };
 
     const items = [
@@ -121,13 +141,12 @@ const Navbar = () => {
             //  navigate("/login");
             // },
             },
-            { label: "Sign Out",
+            { label: "Iniciar sesión",
             icon: "pi pi-fw pi-power-off",
             command: () =>{
                 setVisible(true);
             }
             },
-
         ],
         },
     ];
@@ -174,7 +193,10 @@ const Navbar = () => {
                 color="primary"
                 size="lg"
                 labelPlaceholder="Email"
-                /* contentLeft={<Mail />} */
+                type='email'
+                name="email"
+                value={formData.email}
+                onChange={changeInput}
             />
             <Input
                 clearable
@@ -182,8 +204,11 @@ const Navbar = () => {
                 fullWidth
                 color="primary"
                 size="lg"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={changeInput}
                 labelPlaceholder="Contraseña"
-                /* contentLeft={<Password />} */
             />
             <Row justify="space-between">
             <Checkbox>
@@ -198,7 +223,7 @@ const Navbar = () => {
             <Button auto flat color="success" onClick={needToRegister}>
             Necesito registrarme
             </Button>
-            <Button auto onClick={closeHandler}>
+            <Button auto onClick={submitLogin}>
             Iniciar sesión
             </Button>
         </Modal.Footer>
@@ -207,4 +232,8 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+const mapStateToProps = (state) =>({
+    error: state.auth.error,
+});
+
+export default connect(mapStateToProps)(Navbar);

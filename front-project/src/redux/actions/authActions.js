@@ -26,6 +26,24 @@ export const registerUser = (form) =>{
         });
         const result = await registerRequest.json();
 
-        (registerRequest.ok) ? dispatch({ type: AUTH_REGISTER_OK, payload: result}) : dispatch({ type: AUTH_REGISTER_ERROR, payload: false})
+        (registerRequest.ok) ? dispatch({ type: AUTH_REGISTER_OK, payload: result}) : dispatch({ type: AUTH_REGISTER_ERROR, payload: false});
+    };
+};
+
+export const loginUser = (form) =>{
+    return async (dispatch) =>{
+        dispatch({ type: AUTH_LOGIN });
+
+        const loginRequest = await fetch('http://localhost:4000/auth/login', {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin" : "*",
+            },
+            credentials: "include",
+            body: JSON.stringify(form),
+        });
+        console.log(loginRequest);
     }
 }
