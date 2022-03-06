@@ -32,8 +32,6 @@ const Register = ({dispatch, error, ...restProps}) =>{
         setFormData({ ...formData, [name]: value});
 
         (pass.value === passRepeat.value) ? setSamePasswords(false) : setSamePasswords(true);
-
-
     }
     return (
         <div className='register'>
@@ -57,7 +55,6 @@ const Register = ({dispatch, error, ...restProps}) =>{
                 </div>
             </form>
         </div>
-
     )
 }
 const mapStateToProps = (state) =>({
