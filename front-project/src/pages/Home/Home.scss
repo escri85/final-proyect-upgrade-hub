@@ -1,23 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
-.home{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-    &__carousel-man, &__carousel-woman{
-        width: 30%;
-        height: 50%;
-        margin-right: 5%;
-        text-transform: uppercase;
-        font-family: 'Oxygen', sans-serif;
-    }
-    &__offers{
-        width: 30%;
-        height: 100%;
-        margin-left: 5%;
-        border: 1px solid red;
-    }
 
+@media screen and (min-width: 480px){
+    .home{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        &__carousel-man, &__carousel-woman, &__carousel-sneakers{
+            width: 30%;
+            height: 50%;
+            margin-right: 5%;
+            text-transform: uppercase;
+            font-family: 'Oxygen', sans-serif;
+        }
+        &__offers{
+            width: 30%;
+            height: 100%;
+            margin-left: 5%;
+            border: 1px solid red;
+        }
+    }
 }
+

@@ -45,5 +45,7 @@ export const loginUser = (form) =>{
             body: JSON.stringify(form),
         });
         console.log(loginRequest);
-    }
-}
+        const result = await loginRequest.json();
+        (loginRequest.ok) ? dispatch({type: AUTH_LOGIN_OK, payload: result}) : dispatch({type: AUTH_LOGIN_ERROR, payload: result.message});
+    };
+};
