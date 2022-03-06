@@ -4,11 +4,13 @@ import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import axios from "axios";
 import { Button } from "primereact/button";
-import swal from 'sweetalert'
+import { Dropdown } from 'primereact/dropdown';
+import swal from "sweetalert";
 import "./AddProduct.scss";
 const AddProduct = () => {
   const INITIAL_STATE = {
     title: "",
+    categorie: "",
     price: 0,
     description: "",
     stock: 0,
@@ -16,7 +18,10 @@ const AddProduct = () => {
   };
 
   const [newProduct, setNewProduct] = useState(INITIAL_STATE);
+  const [catego,setCatego] = useState({});
+const [routesCategorie,setRoutescategorie] = useState('')
 
+ 
   const handleChange = (event) => {
     const names = event.target.name;
     const values = event.target.value;
@@ -25,18 +30,19 @@ const AddProduct = () => {
       [names]: values,
     });
   };
-  const postApi = () => {
+  const postApi =  () => {
     const addProduct = {
       title: newProduct.title,
       price: newProduct.price,
+      categorie: newProduct.categorie,
       description: newProduct.description,
       stock: newProduct.stock,
       image: newProduct.image,
-    };
-    const sendProduct = axios.post(
-      "http://localhost:4000/management/products",
-      addProduct
-    );
+    }
+   console.log(addProduct);
+     const sendProduct =  axios.post(`http://localhost:4000/${routesCategorie}`, addProduct);
+      
+   console.log('sendproduct',routesCategorie);
     console.log(
       "el producto se envio desde el front correctamente",
       sendProduct
@@ -47,12 +53,52 @@ const AddProduct = () => {
     swal("Producto subido!!");
     postApi();
   };
-
+  const onCityChange = (event) => {
+    console.log(event.value.name);
+    const values = event.value
+    setCatego(values);
+    console.log(catego);
+    switch (catego.name) {
+      case 'Accesorios':
+        setRoutescategorie('accesories')
+        break;
+        case "Ropa para hombre":
+        setRoutescategorie('manproducts')
+        break;
+        // case "Complementos":
+        // setRoutescategorie('accesories')
+        // break;
+        case "Ropa para mujer":
+        setRoutescategorie('woman')
+        break;
+        case "Sneakers":
+        setRoutescategorie('sneakers')
+        break;
+      default:
+        break;
+    }
+}
+const categories = [
+  { name: 'Accesorios'},
+  { name:  "Ropa para hombre" },
+  { name: "Complementos"},
+  { name: "Sneakers"},
+  { name:  "Ropa para mujer"}
+];
   return (
     <div className="addProduct">
       <div className="addProduct__edit">
         <h1>Edita tu articulo</h1>
         <form action="" onSubmit={onSubmit} className="form">
+          <label htmlFor="categorias">Categoria del producto</label>
+          <Dropdown
+          id="categorias"
+            value={catego}
+            options={categories}
+            onChange={onCityChange}
+            optionLabel="name"
+            placeholder="Elige una categoria"
+          />
           <label htmlFor="titulo">Pon un nombre a tu articulo</label>
           <InputText
             id="titulo"
