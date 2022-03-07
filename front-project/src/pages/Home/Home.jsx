@@ -1,14 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel'
-import { useContext } from 'react';
-import { ThemeContext } from '../../Contexts/ThemeContext';
+
 import './Home.scss';
 
 const Home = () =>{
-    const [{theme, isDark}, toggleTheme] = useContext(ThemeContext)
-    console.log(theme);
     return (
-        <div className='home' style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-            <button  className="home__btn-theme" onClick={toggleTheme}>TEMA</button>
+        <div className='home' >
             <div className='home__carousel-man'>
                 <h1>Ropa para hombre</h1>
                 <Carousel variant="dark">
