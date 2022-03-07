@@ -78,8 +78,11 @@ export const getAccesoriesToApi = () => {
         try{
             const result = await axios.get('http://localhost:4000/accessories');
             const data = result.data;
-            dispatch(getAccesories(data));
-            console.log(data)
+            const dataProducts = data.map((element =>{
+                    return {amount: 1, ...element}
+            }))
+            dispatch(getAccesories(dataProducts));
+            console.log("Estos son los accesorios", dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getAccesoriesError());

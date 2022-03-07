@@ -1,23 +1,31 @@
+import { useState } from "react";
 import { ADD_CART, DELETE_CART } from "../actions/cartActions";
 
 const PRODUCTS = [];
 
+
+
 export const cartReducer = (state = PRODUCTS, action) => {
 
-    const {payload, type} = action;
+    let {payload, type} = action;
 
     switch(type) {
 
         case ADD_CART: 
 
-            state.forEach((element=>{
-                if(element.id === payload.id){
-                    return console.log("Este esta repe");
-                }
-                return console.log("Este no esta repe");
-            }))
+            const duplicatedProducts = state.find(element =>element._id === payload._id);
 
-            return [payload, ...state]
+            if(duplicatedProducts) {
+
+                duplicatedProducts.amount += 1;
+                
+                return [...state]
+
+            }else{
+
+                return [payload, ...state]
+
+            }
 
         case DELETE_CART:
 
@@ -28,6 +36,8 @@ export const cartReducer = (state = PRODUCTS, action) => {
             return [
                 ...state,
             ]
+
+            
 
         default: 
             return state;
