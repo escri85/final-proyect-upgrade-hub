@@ -26,7 +26,7 @@ router.post('/woman', async(req, res, next) =>{
             image
         });
         console.log('Nueva producto de mujer creado');
-        const womanProductCreated = await new newWomanProduct.save();
+        const womanProductCreated = await newWomanProduct.save();
         console.log('Nuevo producto de mujer añadido');
         return res.status(201).json(womanProductCreated);
     }catch(error){

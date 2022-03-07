@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { getShoesToApi } from '../../../redux/actions/apiActions';
+import { addProductToCart } from '../../../redux/actions/cartActions';
 
 const WomenShoesPage = (props) => {
 
@@ -15,15 +16,6 @@ const WomenShoesPage = (props) => {
     const result = props.data.filter(element => element.subcategorie === "Woman");
     console.log(result);
 
-
-    const [productsCart] = useState([])
-
-    console.log(props);
-
-    const addToCart = (product) => {
-        productsCart.unshift(product);
-        props.setCart(productsCart);
-    }
 
     return (<div className="container">
         {
@@ -49,7 +41,7 @@ const WomenShoesPage = (props) => {
                         <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
+                            <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
                         </span>
                         </div>
                     </div>
@@ -63,7 +55,7 @@ const WomenShoesPage = (props) => {
 const mapStateToProps = (state) => ({
 
     data: state.api.sneakers,
-
+    cart: state.cart
 })
 
 export default connect(mapStateToProps)(WomenShoesPage);

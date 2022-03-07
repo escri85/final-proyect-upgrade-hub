@@ -13,6 +13,7 @@ router.get('/manproducts', async (req, res, next) =>{
 });
 
 router.post('manproducts', async(req, res, next) =>{
+    console.log("Entro en el post de manproducts");
     try{
         const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
         const newManProduct = new ManProducts({
@@ -26,7 +27,7 @@ router.post('manproducts', async(req, res, next) =>{
             image
         });
         console.log('Nuevo producto de hombre creado');
-        const manProductCreated = await new newManProduct.save();
+        const manProductCreated = await newManProduct.save();
         console.log('Producto de hombre añadido');
     }catch(error){
         return next(error);

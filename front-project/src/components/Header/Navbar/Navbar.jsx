@@ -1,24 +1,48 @@
 import React from "react";
+import { useState } from "react";
 import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
+import {connect} from 'react-redux';
 import { Modal, Button, Input, Text, Container, Row, Col, Checkbox  } from '@nextui-org/react';
-
+import { loginUser } from "../../../redux/actions/authActions";
 /*
 APUNTES:
 
 Si no hay usuario -> añadir botón de login y seguir mostrando registro.
 Si hay usuario -> ocultar botones y mostrar logout & perfil.
 */
+const INITIAL_STATE = {
+    email: '',
+    password: ''
+}
 
-
-const Navbar = () => {
+const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
-    const handler = () => setVisible(true);
+    const [formData, setFormData] = useState(INITIAL_STATE);
+
+    const needToRegister = () =>{
+        setVisible(false);
+        navigate('/register');
+    };
+
     const closeHandler = () => {
         setVisible(false);
         console.log('closed');
+    };
+
+    const submitLogin = (ev) =>{
+        ev.preventDefault();
+        console.log('Con esto vas a loguear',formData);
+        dispatch(loginUser(formData));
+        setVisible(false);
+        navigate('/profile');
+    };
+
+    const changeInput = (ev) =>{
+        const {name, value} = ev.target;
+        setFormData({...formData, [name]: value});
     };
 
     const items = [
@@ -118,13 +142,12 @@ const Navbar = () => {
             //  navigate("/login");
             // },
             },
-            { label: "Sign Out",
+            { label: "Iniciar sesión",
             icon: "pi pi-fw pi-power-off",
             command: () =>{
                 setVisible(true);
             }
             },
-
         ],
         },
     ];
@@ -159,7 +182,7 @@ const Navbar = () => {
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
             <Text b size={18}>
-                Registro de usuarios
+                Inicio de sesión
             </Text>
             </Text>
         </Modal.Header>
@@ -170,8 +193,11 @@ const Navbar = () => {
                 fullWidth
                 color="primary"
                 size="lg"
-                placeholder="Email"
-                /* contentLeft={<Mail />} */
+                labelPlaceholder="Email"
+                type='email'
+                name="email"
+                value={formData.email}
+                onChange={changeInput}
             />
             <Input
                 clearable
@@ -179,26 +205,27 @@ const Navbar = () => {
                 fullWidth
                 color="primary"
                 size="lg"
-                placeholder="Password"
-                /* contentLeft={<Password />} */
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={changeInput}
+                labelPlaceholder="Contraseña"
             />
             <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
-                Recordar credenciales
+                Mantener sesión
+                {/* COOKIES */}
                 </Text>
             </Checkbox>
-            <Text size={14}>
-                <a href="#">Ya tengo cuenta</a>
-            </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto flat color="error" onClick={closeHandler}>
-            Cerrar
+            <Button auto flat color="success" onClick={needToRegister}>
+            Necesito registrarme
             </Button>
-            <Button auto onClick={closeHandler}>
-            Registrarme
+            <Button auto onClick={submitLogin}>
+            Iniciar sesión
             </Button>
         </Modal.Footer>
     </Modal>
@@ -206,4 +233,9 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+const mapStateToProps = (state) =>({
+    user: state.auth.user,
+    error: state.auth.error,
+});
+
+export default connect(mapStateToProps)(Navbar);

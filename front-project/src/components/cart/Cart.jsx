@@ -3,35 +3,39 @@ import './Cart.scss'
 //Boostrap
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { deleteProductToCart } from '../../redux/actions/cartActions';
 
-const Cart = ({cart, setCart}) => {
+const Cart = (props) => {
 
+  console.log("esto son las props", props);
 
-  const deleteFromCart = () => {
+  const [cantidad, setCantidad] = useState(1);
 
-    console.log("Has intentado borrar uno");
-
-  }
-
-  
+  // useEffect(() => {
+  //   localStorage.setItem("products", JSON.stringify(cart));
+  // }, [cart]);
+	
   return (<div>
     
-        {!cart.length && <div>
+        {!props.cart.length && <div>
 
           No hay nada de nada
 
         </div>}
 
         <div className="c-cart">
-          {cart.map(element => 
+          {props.cart.map(element => 
             <Card key={element._id} style={{ width: '15rem', height: '420px', margin: '15px' }}>
               <Card.Img variant="top" style={{ width: '100%' , height: '250px'}} src={element.image} />
               <Card.Body>
                 <Card.Title>{element.title}</Card.Title>
                 <Card.Text>
                   {element.price} €
+                  <p>Cantidad: {cantidad}</p>
                 </Card.Text>
-                <Button onClick={deleteFromCart} variant="primary">Eliminar</Button>
+                <Button onClick={()=>{props.dispatch(deleteProductToCart(element))}} variant="primary">Eliminar</Button>
               </Card.Body>
             </Card>
           )}
@@ -40,4 +44,10 @@ const Cart = ({cart, setCart}) => {
         </div>)
 }
 
-export default Cart
+const mapStateToProps = (state) => ({
+
+  cart: state.cart,
+
+})
+
+export default connect(mapStateToProps)(Cart);

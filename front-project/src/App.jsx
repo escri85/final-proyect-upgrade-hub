@@ -1,5 +1,8 @@
-import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage } from './pages';
-import { Footer, Header, AddProduct} from './components';
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Register, Profile } from './pages';
+import { Footer, Header, AddProduct, PrivateRoute, Login} from './components';
+import { useContext } from 'react';
+import {ThemeContext} from '../src/Contexts/ThemeContext';
+import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
 import {
   Routes,
@@ -9,32 +12,40 @@ import React, { useState } from 'react';
 import './App.scss';
 
 
-//Context
-const cartContext = React.createContext()
+function App({user, error}) {
+  const [{theme, isDark}, toggleTheme] = useContext(ThemeContext)
 
-function App() {
+  //CART
+  const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
   const [cart, setCart] = useState([]);
 
   return (
-      <div className="App">
-        <cartContext.Provider value={cart}>
+      <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
+        <button  className="home__btn-theme" onClick={toggleTheme}>TEMA</button>
           <Header/>
             <Routes>
               <Route path='/'>
                 <Route path="/" element={<Home/>}/>
                 <Route path='/accessories' element={<Accessories cart={cart} setCart={setCart}/>}/>
                 <Route path='/man' element={<ManClothesPage cart={cart} setCart={setCart}/>}/>
-                <Route path='/manshoes' element={<ManShoesPage/>} cart={cart} setCart={setCart}/>
-                <Route path='/women' element={<WomanClothesPage/>} cart={cart} setCart={setCart}/>
-                <Route path='/womenshoes' element={<WomenShoesPage/>} cart={cart} setCart={setCart}/>
+                <Route path='/manshoes' element={<ManShoesPage cart={cart} setCart={setCart}/>} />
+                <Route path='/women' element={<WomanClothesPage cart={cart} setCart={setCart} />} />
+                <Route path='/womenshoes' element={<WomenShoesPage cart={cart} setCart={setCart} />}/>
                 <Route path='/cart' element={<CartPage cart={cart} setCart = {setCart}/>} />
+                <Route path="/register" element={<Register/>} />
+                <Route path="/profile" element={<PrivateRoute user={user} error={error} component={<Profile user={user}/>}/>}> </Route>
                 <Route path='/add' element={<AddProduct/>}/>
+                <Route path='/login' element={<Login />} />
               </Route>
             </Routes>
           <Footer/>
-        </cartContext.Provider>
       </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) =>({
+  user: state.auth.user,
+  error: state.auth.error
+})
+
+export default connect(mapStateToProps)(App);
