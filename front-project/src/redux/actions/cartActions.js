@@ -21,6 +21,7 @@ export const addProductToCart = (data) => {
 
     return (dispatch) => {
 
+        
         dispatch(addCartAction(data))
 
     }
