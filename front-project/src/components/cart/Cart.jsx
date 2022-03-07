@@ -3,15 +3,24 @@ import './Cart.scss'
 //Boostrap
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
+import { useEffect } from 'react';
 
 const Cart = ({cart, setCart}) => {
 
-
-  const deleteFromCart = () => {
-
-    console.log("Has intentado borrar uno");
-
-  }
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(cart));
+  }, [cart]);
+	const deleteFromCart = (_id) => {
+console.log('esto es mio',_id);
+// const id = cart._id
+    setCart(cart.filter((item) => {
+			if(item._id !== _id){
+				return item;
+			}
+			// eslint-disable-next-line array-callback-return
+			return
+		}));
+	}
 
   
   return (<div>
@@ -31,7 +40,7 @@ const Cart = ({cart, setCart}) => {
                 <Card.Text>
                   {element.price} €
                 </Card.Text>
-                <Button onClick={deleteFromCart} variant="primary">Eliminar</Button>
+                <Button onClick={()=>{deleteFromCart(element._id)}} variant="primary">Eliminar</Button>
               </Card.Body>
             </Card>
           )}
