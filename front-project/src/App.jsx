@@ -14,7 +14,7 @@ function App({user, error}) {
 
   //CART
   const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
-  const [cart, setCart] = useState(buyProducts);
+  const [cart, setCart] = useState([]);
 
   return (
       <div className="App">

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { getManClothesToApi } from '../../../redux/actions/apiActions';
+import { addProductToCart } from '../../../redux/actions/cartActions';
 
 const ManClothesPage = (props) => {
 
@@ -11,15 +12,6 @@ const ManClothesPage = (props) => {
         console.log(props.data);
            //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-
-    const [productsCart] = useState([])
-
-    const addToCart = (product) => {
-        productsCart.unshift(product, ...props.cart);
-        props.setCart(productsCart);
-        console.log(productsCart);
-    }
     
     return (<div className="container">
         {
@@ -45,7 +37,7 @@ const ManClothesPage = (props) => {
                         <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
+                            <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
                         </span>
                         </div>
                     </div>
@@ -59,6 +51,7 @@ const ManClothesPage = (props) => {
 const mapStateToProps = (state) => ({
 
     data: state.api.manClothes,
+    cart: state.cart
 
 })
 
