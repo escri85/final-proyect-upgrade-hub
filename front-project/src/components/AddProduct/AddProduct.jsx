@@ -6,7 +6,7 @@ import axios from "axios";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import swal from "sweetalert";
-import { ProgressSpinner } from 'primereact/progressspinner';
+import { ProgressSpinner } from "primereact/progressspinner";
 import "./AddProduct.scss";
 const AddProduct = () => {
   const INITIAL_STATE = {
@@ -16,20 +16,26 @@ const AddProduct = () => {
     description: "",
     stock: 0,
     image: "",
+    rating: 0,
   };
 
   const [newProduct, setNewProduct] = useState(INITIAL_STATE);
-  const [catego, setCatego] = useState({});
+  const [catego, setCatego] = useState();
   const [routesCategorie, setRoutescategorie] = useState("");
-  const [spinner,setSpinner]=useState(false)
+  const [spinner, setSpinner] = useState(false);
+  
+  
   const handleChange = (event) => {
     const names = event.target.name;
     const values = event.target.value;
+    
     setNewProduct({
       ...newProduct,
       [names]: values,
+      categorie : routesCategorie,
     });
   };
+  
   const postApi = () => {
     const addProduct = {
       title: newProduct.title,
@@ -38,12 +44,16 @@ const AddProduct = () => {
       description: newProduct.description,
       stock: newProduct.stock,
       image: newProduct.image,
+      rating: Math.random()*4 + 1,
+      shoppingFrom: "España",
     };
-    console.log(addProduct);
-    const sendProduct = axios.post(
-      `http://localhost:4000/${routesCategorie}`,
+    console.log("Este es el producto a añadir", addProduct);
+
+    const sendProduct = axios.post(`http://localhost:4000/${routesCategorie}`,
       addProduct
-    );
+    )
+    ;
+
 
     console.log("sendproduct", routesCategorie);
     console.log(
@@ -51,26 +61,25 @@ const AddProduct = () => {
       sendProduct
     );
   };
-  
+
   const onSubmit = (event) => {
     event.preventDefault();
 
-    setSpinner(true)
-setTimeout(()=>{
-  swal("Producto subido!!");
-  setSpinner(false)
-
-},3000)
+    setSpinner(true);
+    setTimeout(() => {
+      swal("Producto subido!!");
+      setSpinner(false);
+    }, 3000);
     postApi();
   };
+
   const onCategorieChange = (event) => {
-    console.log(event.value.name);
-    const values = event.value;
-    setCatego(values);
-    console.log(catego);
-    switch (catego.name) {
+    console.log(event.value);
+    const values = event.target.value.name;
+    setCatego(event.value);
+    switch (values) {
       case "Accesorios":
-        setRoutescategorie("accesories");
+        setRoutescategorie("accessories");
         break;
       case "Ropa para hombre":
         setRoutescategorie("manproducts");
@@ -109,7 +118,7 @@ setTimeout(()=>{
               onChange={onCategorieChange}
               optionLabel="name"
               placeholder="Elige una categoria"
-            />
+            /> 
             {/* <label htmlFor="titulo">Pon un nombre a tu articulo</label> */}
             <InputText
               id="titulo"
@@ -137,17 +146,17 @@ setTimeout(()=>{
               name="stock"
               placeholder="Unidades"
             />
-          </div >
+          </div>
           <div className="categoria">
-          <InputTextarea
-            id="descripcion"
-            onChange={handleChange}
-            rows={3}
-            cols={50}
-            autoResize
-            placeholder="Describe brevemente tu articulo"
-            name="description"
-          />
+            <InputTextarea
+              id="descripcion"
+              onChange={handleChange}
+              rows={3}
+              cols={50}
+              autoResize
+              placeholder="Describe brevemente tu articulo"
+              name="description"
+            />
           </div>
           <InputText
             id="url"
@@ -155,8 +164,8 @@ setTimeout(()=>{
             placeholder="url de imagen"
             name="image"
           />
-          <Button  label="+ Subir Producto" />
-          {spinner===true ? <ProgressSpinner /> : undefined}
+          <Button label="+ Subir Producto" />
+          {spinner === true ? <ProgressSpinner /> : undefined}
         </form>
       </div>
       <div className="addProduct__confirm">

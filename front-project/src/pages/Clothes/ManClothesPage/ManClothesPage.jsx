@@ -18,7 +18,7 @@ const ManClothesPage = (props) => {
     const addToCart = (product) => {
         productsCart.unshift(product, ...props.cart);
         props.setCart(productsCart);
-        console.log(productsCart);;
+        console.log(productsCart);
     }
     
     return (<div className="container">

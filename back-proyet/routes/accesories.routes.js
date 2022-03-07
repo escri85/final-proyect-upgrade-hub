@@ -14,6 +14,7 @@ router.get('/accessories', async(req, res, next) =>{
 });
 
 router.post('/accessories', async (req, res, next) =>{
+    console.log("entro en el post");
     try{
         const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
         const newAccessory = new AccessoriesModel({
@@ -27,7 +28,7 @@ router.post('/accessories', async (req, res, next) =>{
             image
         });
         console.log('Nuevo accesorio creado');
-        const accessoryCreated = await new newAccessory.save();
+        const accessoryCreated = await newAccessory.save();
         console.log('Accesorio añadido');
         return res.status(201).json(accessoryCreated);
     }catch(error){
