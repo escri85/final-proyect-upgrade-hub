@@ -18,8 +18,9 @@ const ManShoesPage = (props) => {
     console.log(props);
 
     const addToCart = (product) => {
-        productsCart.unshift(product);
+        productsCart.unshift(product, ...props.cart);
         props.setCart(productsCart);
+        console.log(productsCart);
     }
 
     const result = props.data.filter(element => element.subcategorie === "Man");
