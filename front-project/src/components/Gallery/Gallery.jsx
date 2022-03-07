@@ -33,12 +33,12 @@ const Gallery = (props) => {
                             <div className="h-bg-inner"></div>
                         </div>
             
-                        <a className="cart"  >
+                        <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
                             <span className="txt">Añadir al carrito</span>
                         </span>
-                        </a>
+                        </div>
                     </div>
                     </div>
             )

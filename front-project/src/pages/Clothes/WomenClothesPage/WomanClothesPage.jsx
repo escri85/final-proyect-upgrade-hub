@@ -6,22 +6,22 @@ import { getWomenClothesToApi } from '../../../redux/actions/apiActions';
 
 const WomanClothesPage = (props) => {
 
+    const [productsCart] = useState([])
+
+    console.log(props);
+
+    const addToCart = (product) => {
+        productsCart.unshift(product, ...props.cart);
+        props.setCart(productsCart);
+        console.log(productsCart);
+    }
+
     useEffect(() => {
         props.dispatch(getWomenClothesToApi())
         console.log(props.data);
             //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-
-    const [productsCart] = useState([])
-
-    console.log(props);
-
-    const addToCart = (product) => {
-        productsCart.unshift(product);
-        props.setCart(productsCart);
-    }
-    
     return (<div className="container">
         {
             props.data.map(product => 
