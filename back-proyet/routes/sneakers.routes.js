@@ -27,7 +27,7 @@ router.post('/sneakers', async (req, res, next) =>{
             subcategorie
         })
         console.log('Nuevas zapatillas creadas');
-        const sneakersCreated = await new newSneakers.save();
+        const sneakersCreated = await newSneakers.save();
         console.log('Zapatillas añadidas')
         return res.status(201).json(sneakersCreated);
     } catch(error){
