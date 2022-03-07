@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
+<<<<<<< HEAD
+.header{
+=======
 
 .header__sup{
     display: flex;
@@ -39,39 +43,16 @@ $body-background: #353535;
 // }
 
 .header__title{
+>>>>>>> main
     display: flex;
     flex-direction: column;
     justify-content: center;
 	text-align: center;
-	h1 {
-		color: #fff;
-		font-size: 92px;
-		text-transform: uppercase;
-		font-weight: 700;
-		font-family: "Josefin Sans", sans-serif;
-		background: linear-gradient(to right,#095fab 10%, #25abe8 50%, #57d75b 60%);
-		background-size: auto auto;
-		background-clip: border-box;
-		background-size: 200% auto;
-		color: #fff;
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: textclip 1.5s linear infinite;
-		display: inline-block;
+	font-family: 'Josefin Sans', sans-serif;
+
+	a{
+		color: grey;
+		text-decoration: none;
 	}
-    p{
-        color:black;
-		font-size: 42;
-		text-transform: uppercase;
-		font-weight: 700;
-		font-family: "Josefin Sans", sans-serif;
-	
-    }
 }
 
-@keyframes textclip {
-	to {
-		background-position: 200% center;
-	}
-}

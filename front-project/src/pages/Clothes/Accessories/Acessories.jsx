@@ -53,7 +53,7 @@ const Accesories = (props) => {
                                 <Rating value={product.rating} readOnly stars={5} cancel={false} />
                             </div>
                                 
-                            <div className="a-size">{product.description}  {(product.stock <4) ? <h5 className='lastUnits' >Ultimas unidades</h5> : ''} </div>
+                            <div className="a-size">{product.description}  {(product.stock <4) ? <h5 className='lastUnits' >Solo quedan  {product.stock}  </h5> : ''} </div>
                         </div>
                     </div>
                     
