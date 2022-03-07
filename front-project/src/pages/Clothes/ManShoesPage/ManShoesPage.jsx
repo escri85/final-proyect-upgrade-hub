@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { getShoesToApi } from '../../../redux/actions/apiActions';
+import { addProductToCart } from '../../../redux/actions/cartActions';
 
 const ManShoesPage = (props) => {
 
@@ -11,17 +12,6 @@ const ManShoesPage = (props) => {
         console.log(props.data);
           //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    
-
-    const [productsCart] = useState([])
-
-    console.log(props);
-
-    const addToCart = (product) => {
-        productsCart.unshift(product, ...props.cart);
-        props.setCart(productsCart);
-        console.log(productsCart);
-    }
 
     const result = props.data.filter(element => element.subcategorie === "Man");
     console.log(result);
@@ -50,7 +40,7 @@ const ManShoesPage = (props) => {
                         <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <button onClick={()=>addToCart(product)} className="txt">Añadir al carrito</button>
+                        <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
                         </span>
                         </div>
                     </div>
@@ -64,7 +54,7 @@ const ManShoesPage = (props) => {
 const mapStateToProps = (state) => ({
 
     data: state.api.sneakers,
-
+    cart: state.cart
 })
 
 export default connect(mapStateToProps)(ManShoesPage);
