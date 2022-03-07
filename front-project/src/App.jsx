@@ -14,7 +14,8 @@ import './App.scss';
 const cartContext = React.createContext()
 
 function App({user, error}) {
-  const [cart, setCart] = useState([]);
+  const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
+  const [cart, setCart] = useState(buyProducts);
 
   return (
       <div className="App">
