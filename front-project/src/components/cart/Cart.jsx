@@ -18,6 +18,7 @@ const Cart = ({cart, setCart}) => {
       console.log('esto es mio',_id);
       // const id = cart._id
         setCart(cart.filter((item) => {
+        
         if(item._id !== _id){
           return item;
         }
