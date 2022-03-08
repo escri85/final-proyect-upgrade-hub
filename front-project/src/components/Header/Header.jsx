@@ -9,7 +9,7 @@ const Header = () => {
       
       <div >
         <Link to='/'>
-         <h1>UP-Store</h1>
+          <h1>UP-Store</h1>
         </Link>
       </div>
       <Navbar />
