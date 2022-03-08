@@ -1,19 +1,18 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Input} from '@nextui-org/react';
-import './Register.scss';
 import { registerUser } from '../../redux/actions/authActions';
+import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
+import './Access.scss';
 
 const INITIAL_STATE = {
     email: '',
     password: ''
 }
 
-const Register = ({dispatch, error, ...restProps}) =>{
+const Access = ({dispatch, error, ...restProps}) =>{
     const navigate = useNavigate();
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [samePasswords, setSamePasswords] = useState(true);
 
     const submitForm = (ev) =>{
         ev.preventDefault();
@@ -26,15 +25,11 @@ const Register = ({dispatch, error, ...restProps}) =>{
 
     const changeInput = (ev) =>{
         const {name, value} = ev.target;
-        const pass = document.getElementById('pass');
-        const passRepeat = document.getElementById('passRepeat');
-
         setFormData({ ...formData, [name]: value});
-
-        (pass.value === passRepeat.value) ? setSamePasswords(false) : setSamePasswords(true);
     }
+
     return (
-        <div className='register'>
+        <div className='access'>
             <form onSubmit={submitForm} className="register__form">
                 <h2>Crear cuenta</h2>
                 <label>
@@ -47,17 +42,35 @@ const Register = ({dispatch, error, ...restProps}) =>{
                     <Input className="register__form-input" bordered labelPlaceholder="Repetir contraseña" color="primary" type='password' name='passwordRepeat' id="passRepeat" value={formData.passwordRepeat} onChange={changeInput}/>
                 </label>
                 <div>
-                    <button className="register__form-btn" disabled={samePasswords}>Registrar</button>
+                    {/* <button className="register__form-btn">Registrar</button> */}
+                    <Button auto flat color="primary">
+                        Registrarme
+                    </Button>
                 </div>
                 <div className='register__form-line'></div>
                 <div className='register__form-footer'>
                     <p>Al registrarte aceptas nuestras <a href="https://www.amazon.es/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=200545940">condiciones de uso y venta.</a>Gracias</p>
                 </div>
             </form>
+            {(error)
+                ?
+                <form className='login__form'>
+                <h2>Iniciar sesión</h2>
+                <label>
+                    <Input className='login__form-input' bordered labelPlaceholder='Correo electrónico' color="primary" type="email" name="email"></Input>
+                </label>
+                <label>
+                    <Input className='login__form-input' bordered labelPlaceholder='Contraseña' color="primary" type="password" name="password"></Input>
+                </label>
+                <div><Button auto flat color="success">Iniciar sesión</Button></div>
+            </form>
+                :
+                ''
+            }
         </div>
     )
 }
 const mapStateToProps = (state) =>({
     error: state.auth.error,
 })
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps)(Access);

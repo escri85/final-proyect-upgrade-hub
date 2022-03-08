@@ -4,7 +4,7 @@ import ManShoesPage from './Clothes/ManShoesPage/ManShoesPage';
 import WomanClothesPage from './Clothes/WomenClothesPage/WomanClothesPage';
 import WomenShoesPage from './Clothes/WomenShoesPage/WomenShoesPage';
 import { CartPage } from './CartPage/CartPage';
-import Register from './Register/Register';
+import Access from './Access/Access';
 import Profile from './Profile/Profile';
 
 
@@ -15,6 +15,6 @@ export {
     WomanClothesPage,
     WomenShoesPage,
     CartPage,
-    Register,
+    Access,
     Profile
 }

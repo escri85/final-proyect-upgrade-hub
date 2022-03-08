@@ -4,7 +4,6 @@ import Gallery from './Gallery/Gallery';
 import Header from './Header/Header';
 import AddProduct from './AddProduct/AddProduct';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import Login from './Login/Login';
 
 export {
     Cart,
@@ -13,5 +12,4 @@ export {
     Header,
     AddProduct,
     PrivateRoute,
-    Login,
 }
