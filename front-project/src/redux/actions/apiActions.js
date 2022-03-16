@@ -99,8 +99,11 @@ export const getManClothesToApi = () => {
         try{
             const result = await axios.get('http://localhost:4000/manproducts');
             const data = result.data;
-            dispatch(getManClothes(data));
-            console.log(data)
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getManClothes(dataProducts));
+            console.log(dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getManClothesError());
@@ -117,8 +120,11 @@ export const getWomenClothesToApi = () => {
         try{
             const result = await axios.get('http://localhost:4000/woman');
             const data = result.data;
-            dispatch(getWomenClothes(data));
-            console.log("Estoy en redux", data)
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getWomenClothes(dataProducts));
+            console.log("Estoy en redux", dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getWomenClothesError());
@@ -135,8 +141,11 @@ export const getShoesToApi = () => {
         try{
             const result = await axios.get('http://localhost:4000/sneakers');
             const data = result.data;
-            dispatch(getShoes(data));
-            console.log(data)
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getShoes(dataProducts));
+            console.log(dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getShoesError());

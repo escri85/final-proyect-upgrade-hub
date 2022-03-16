@@ -14,7 +14,7 @@ const accesoriesArray = [{
     "shoppingFrom": "España",
     "image": "https://static.zara.net/photos///2022/V/0/1/p/3920/042/802/2/w/1126/3920042802_6_1_1.jpg?ts=1645697629862",
     "rating": 4,
-    "categorie": "Complementos"
+    "categorie": "Complementos",
 },
 {
     "title": "Pañuelo Lino Cuadros",
