@@ -34,8 +34,8 @@ const Cart = (props) => {
                     <p>Cantidad: {element.amount}</p>
                   </div>
                   <div className="c-cart__buttons">
-                    <Button variant="secondary" onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-1</Button>
-                    <Button variant="secondary" onClick={()=>{props.dispatch(AddOneProductToCart(element))}}>+1</Button>
+                    <Button variant="secondary" onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-</Button>
+                    <Button variant="secondary" onClick={()=>{props.dispatch(AddOneProductToCart(element))}}>+</Button>
                   </div>
               </Card.Body>
             </Card>)}
