@@ -13,16 +13,17 @@ import './App.scss';
 
 
 function App({user, error}) {
-  const [{theme, isDark}, toggleTheme] = useContext(ThemeContext)
-
+  const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
+  
+  
+ 
   //CART
   const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
   const [cart, setCart] = useState([]);
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-        <button  className="home__btn-theme" onClick={toggleTheme}>TEMA</button>
-          <Header/>
+          <Header toggleTheme={toggleTheme}/>
             <Routes>
               <Route path='/'>
                 <Route path="/" element={<Home/>}/>
