@@ -12,6 +12,7 @@ const productSchema = new Schema({
     categorie: {type: String, required: true},
     subcategorie: {type: String, required: true},
     image: {type: String, required: true},
+    filter: {type: String, required: true}
 },{
     timestamps:true
 })

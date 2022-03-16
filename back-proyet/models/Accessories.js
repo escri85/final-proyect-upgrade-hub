@@ -11,6 +11,7 @@ const productSchema = new Schema({
     rating: {type: Number, required: true},
     categorie: {type: String, required: true},
     image: {type: String, required: true},
+    filter: {type: String, required: true}
 },{
     timestamps:true
 })

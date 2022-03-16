@@ -16,7 +16,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/3067/419/621/2/w/850/3067419621_15_1_1.jpg?ts=1644923612712",
         "rating": 4,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Top estructura tirante perlas",
@@ -26,7 +27,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/8351/028/330/2/w/850/8351028330_2_10_1.jpg?ts=1645521930850",
         "rating": 4,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Top"
     },
     {
         "title": "Pantalón cinturón forrado",
@@ -36,7 +38,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/4387/630/712/2/w/850/4387630712_1_1_1.jpg?ts=1643813546779",
         "rating": 3,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Falda pantalón estructura",
@@ -46,7 +49,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/7484/032/679/2/w/850/7484032679_6_1_1.jpg?ts=1645610603519",
         "rating": 1,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Falda"
     },
     {
         "title": "Pantalón Jacquard",
@@ -56,7 +60,8 @@ const womensProductsArray = [
         "shoppingFrom": "Italia",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/7484/032/679/2/w/850/7484032679_6_1_1.jpg?ts=1645610603519",
         "rating": 5,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Pantalón fluido estampado",
@@ -66,7 +71,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/2707/080/500/4/w/850/2707080500_1_1_1.jpg?ts=1643813731447",
         "rating": 3,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Pantalón jogger felpa",
@@ -76,7 +82,8 @@ const womensProductsArray = [
         "shoppingFrom": "Francia",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/2707/080/500/4/w/850/2707080500_1_1_1.jpg?ts=1643813731447",
         "rating": 1,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Pantalón cargo",
@@ -86,7 +93,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/0327/202/505/2/w/850/0327202505_1_1_1.jpg?ts=1643968223893",
         "rating": 4,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Falda pantalón estructura",
@@ -96,7 +104,8 @@ const womensProductsArray = [
         "shoppingFrom": "Suiza",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/7385/478/653/2/w/850/7385478653_1_1_1.jpg?ts=1645180504697",
         "rating": 4,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Falda"
     },
     {
         "title": "Falda pantalón tiro alto",
@@ -106,7 +115,8 @@ const womensProductsArray = [
         "shoppingFrom": "Suiza",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/2224/707/500/4/w/850/2224707500_1_1_1.jpg?ts=1644585976820",
         "rating": 2,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Falda"
     },
     {
         "title": "Falda pantalón combinada satinada",
@@ -116,7 +126,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/2291/888/800/2/w/850/2291888800_1_1_1.jpg?ts=1643114211329",
         "rating": 5,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Falda"
     },
     {
         "title": "Jeggins super elastic",
@@ -126,7 +137,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2021/I/0/1/p/5520/201/802/2/w/850/5520201802_1_1_1.jpg?ts=1628842398395",
         "rating": 3,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Pantalón wide leg satinado",
@@ -136,7 +148,8 @@ const womensProductsArray = [
         "shoppingFrom": "España",
         "image": "https://static.zara.net/photos///2022/V/0/1/p/4043/051/712/5/w/850/4043051712_1_1_1.jpg?ts=1645708228924",
         "rating": 5,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
     {
         "title": "Pantalón full length cintura asimétrica",
@@ -146,7 +159,8 @@ const womensProductsArray = [
         "shoppingFrom": "Francia",
         "image": "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-ctx/joinlife-large.svg?ts=1611919362013",
         "rating": 5,
-        "categorie": "Ropa para mujer"
+        "categorie": "Ropa para mujer",
+        "filter" : "Pantalon"
     },
 ]
 

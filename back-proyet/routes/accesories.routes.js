@@ -26,7 +26,7 @@ router.post('/accessories', async (req, res, next) =>{
             rating,
             categorie,
             image,
-            amount
+            amount,
         });
         console.log('Nuevo accesorio creado');
         const accessoryCreated = await newAccessory.save();
