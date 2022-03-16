@@ -5,19 +5,20 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { AddOneProductToCart, deleteProductToCart, SustractOneProductToCart } from '../../redux/actions/cartActions';
+import { AddOneProductToCart, SustractOneProductToCart } from '../../redux/actions/cartActions';
 
 const Cart = (props) => {
 
   // useEffect(() => {
   //   localStorage.setItem("products", JSON.stringify(cart));
   // }, [cart]);
+  
+  const price = props.cart.reduce(( curNumber  , item ) => {
+  
+    return curNumber + (item.price * item.amount)
 
-  // const [price, setPrice] = useState();
+  }, 0);
 
-  // props.cart.reduce(()=>{
-
-  // }, 0)
 
   return (<>
     
@@ -32,15 +33,15 @@ const Cart = (props) => {
                     <p>{element.price} €</p>
                     <p>Cantidad: {element.amount}</p>
                   </div>
-                  {/* {element.amount >= 2 && <Button onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-1</Button>} */}
-                  <Button onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-1</Button>
-                  <Button onClick={()=>{props.dispatch(deleteProductToCart(element))}} variant="primary">Eliminar</Button>
-                  <Button onClick={()=>{props.dispatch(AddOneProductToCart(element))}}>+1</Button>
+                  <div className="c-cart__buttons">
+                    <Button variant="secondary" onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-1</Button>
+                    <Button variant="secondary" onClick={()=>{props.dispatch(AddOneProductToCart(element))}}>+1</Button>
+                  </div>
               </Card.Body>
             </Card>)}
           </div>
           <div>
-            {/* <h4>Total: {price}</h4> */}
+            <h4>Total: {price} €</h4>
           </div>  
         </>)
 }
