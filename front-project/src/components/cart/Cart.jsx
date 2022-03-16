@@ -17,11 +17,16 @@ const Cart = (props) => {
   
     return curNumber + (item.price * item.amount)
 
-  }, 0);
+  }, 0)
+ 
+  const newPrice=price.toFixed(2)
 
+console.log(props.cart);
+  return (
+  
+  
+  <>
 
-  return (<>
-    
         {!props.cart.length && <div>No hay nada de nada</div>}
         <div className="c-cart">
           {props.cart.map((element) => 
@@ -41,9 +46,16 @@ const Cart = (props) => {
             </Card>)}
           </div>
           <div>
-            <h4>Total: {price} €</h4>
-          </div>  
-        </>)
+            <h4>Total: {newPrice} €</h4>
+
+    </div>
+    
+        </>
+        
+        
+        )
+
+
 }
 
 const mapStateToProps = (state) => ({
