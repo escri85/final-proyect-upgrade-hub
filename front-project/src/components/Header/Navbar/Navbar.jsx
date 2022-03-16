@@ -4,7 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
-import { Modal, Button, Input, Text, Container, Row, Col, Checkbox  } from '@nextui-org/react';
+import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import { loginUser } from "../../../redux/actions/authActions";
 /*
 APUNTES:
