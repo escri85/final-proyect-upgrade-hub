@@ -1,9 +1,6 @@
-import { useState } from "react";
-import { ADD_CART, DELETE_CART } from "../actions/cartActions";
+import { ADD_CART, ADD_CART_ONE, DELETE_CART, REMOVE_CART_ONE } from "../actions/cartActions";
 
 const PRODUCTS = [];
-
-
 
 export const cartReducer = (state = PRODUCTS, action) => {
 
@@ -16,16 +13,10 @@ export const cartReducer = (state = PRODUCTS, action) => {
             const duplicatedProducts = state.find(element =>element._id === payload._id);
 
             if(duplicatedProducts) {
-
                 duplicatedProducts.amount += 1;
-                
                 return [...state]
+            }else {return [payload, ...state]}
 
-            }else{
-
-                return [payload, ...state]
-
-            }
 
         case DELETE_CART:
 
@@ -33,11 +24,31 @@ export const cartReducer = (state = PRODUCTS, action) => {
 
             state.splice(position, 1)
 
-            return [
-                ...state,
-            ]
+            return [...state]
 
+        case ADD_CART_ONE:
             
+            const product = state.find(element => element._id === payload._id);
+
+            product.amount +=1;
+
+            return [...state]
+        
+        case REMOVE_CART_ONE:
+            
+            const productToChange = state.find(element => element._id === payload._id);
+
+            if(productToChange.amount === 1){
+                const position = state.indexOf(productToChange);
+
+                state.splice(position, 1)
+    
+                return [...state]
+            }
+
+            productToChange.amount -=1;
+
+        return [...state]
 
         default: 
             return state;

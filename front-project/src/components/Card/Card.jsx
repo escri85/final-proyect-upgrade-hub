@@ -1,8 +1,12 @@
 import './Card.scss'
 
+import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
+import { addProductToCart } from '../../redux/actions/cartActions';
 
-export const Card = ({product}) => {
+const Card = (props) => {
+    
+    const product = props.product
     
     return (
         <div key={product._id} className="el-wrapper">
@@ -27,10 +31,16 @@ export const Card = ({product}) => {
             <div className="cart">
                 <span className="price">{product.price}€</span>
                 <span className="add-to-cart">
-                    <button onClick={()=>{console.log(product)}} className="txt">Añadir al carrito</button>
+                    <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
                 </span>
             </div>
         </div>
     </div>
     )
 }
+
+const mapStateToProps = (state) => ({
+    cart: state.cart
+})
+
+export default connect(mapStateToProps)(Card);

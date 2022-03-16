@@ -1,7 +1,10 @@
 export const ADD_CART = "[Cart] add";
 export const DELETE_CART = "[Cart] delete";
+export const REMOVE_CART_ONE = "[Cart] delete one";
+export const ADD_CART_ONE = "[Cart] add one";
 
-const addCartAction = (data) => ({
+
+const addCartAction = (data) => ({ 
 
     type: ADD_CART,
 
@@ -16,6 +19,22 @@ const deleteCartAction = (data) => ({
     payload: data,
 
 });
+
+const AddOneAction = (data) => ({
+
+    type: ADD_CART_ONE,
+
+    payload: data
+
+})
+
+const SustractOneAction = (data) => ({
+
+    type: REMOVE_CART_ONE,
+
+    payload: data
+
+})
 
 export const addProductToCart = (data) => {
 
@@ -35,4 +54,24 @@ export const deleteProductToCart = (data) => {
         dispatch(deleteCartAction(data))
 
     }
+}
+
+export const AddOneProductToCart = data => {
+
+    return (dispatch) => {
+
+        dispatch(AddOneAction(data))
+
+    }
+
+}
+
+export const SustractOneProductToCart = data => {
+
+    return (dispatch) => {
+
+        dispatch(SustractOneAction(data))
+
+    }
+
 }
