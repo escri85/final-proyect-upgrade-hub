@@ -1,5 +1,5 @@
-import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Register, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute, Login} from './components';
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
+import { Footer, Header, AddProduct, PrivateRoute} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
@@ -32,10 +32,9 @@ function App({user, error}) {
                 <Route path='/women' element={<WomanClothesPage cart={cart} setCart={setCart} />} />
                 <Route path='/womenshoes' element={<WomenShoesPage cart={cart} setCart={setCart} />}/>
                 <Route path='/cart' element={<CartPage cart={cart} setCart = {setCart}/>} />
-                <Route path="/register" element={<Register/>} />
-                <Route path="/profile" element={<PrivateRoute user={user} error={error} component={<Profile user={user}/>}/>}> </Route>
+                <Route path="/access" element={<Access/>} />
+                <Route path="/profile" element={<PrivateRoute component={<Profile/>}/>}> </Route>
                 <Route path='/add' element={<AddProduct/>}/>
-                <Route path='/login' element={<Login />} />
               </Route>
             </Routes>
           <Footer/>

@@ -1,18 +1,25 @@
+import { useEffect } from 'react';
 import {connect} from 'react-redux';
 import { Navigate, useLocation } from "react-router-dom";
-import { RegisterForm } from "../../pages";
+import { Access, RegisterForm } from "../../pages";
 
 const PrivateRoute = ({user, component, ...restProps}) =>{
-    console.log(user);
     const location = useLocation();
 
-    if(!component) throw new Error('Necesitas añadir una prop "component con el siguiente formato <Mi componente props />');
+    console.log(user);
 
-    if((user === null) || (user === false)) return <div>NO HAY USUARIO</div>
+    if (!component) throw new Error('Necesitas añadir una prop "component" al componente <PrivateRoute component={...} />');
 
-    /* if(user === false) return <Navigate to="/login" state={{prevRoute: location.pathname}} /> */
+    if (user === null) return <div>Cargando usuario...</div>
 
-    if(user) return component;
+    if (user === false){
+        {/* <Access userError = {user}/> */}
+        return <Navigate to='/access' state={{prevRoute: location.pathname}} />
+    }
+
+    if (user) return component;
+
+
 };
 
 export default connect(({auth}) => ({user: auth.user}))(PrivateRoute);
