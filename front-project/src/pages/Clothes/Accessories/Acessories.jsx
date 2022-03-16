@@ -1,10 +1,10 @@
 import './Accesories.scss';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Rating } from 'primereact/rating';
+// import { Rating } from 'primereact/rating';
 import { getAccesoriesToApi } from '../../../redux/actions/apiActions';
-import { addProductToCart } from '../../../redux/actions/cartActions';
-import { Card } from '../../../components/Card/Card';
+// import { addProductToCart } from '../../../redux/actions/cartActions';
+import Card  from '../../../components/Card/Card';
 
 const Accesories = (props) => {
 
@@ -13,75 +13,53 @@ const Accesories = (props) => {
             //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-        //NEW FILTER
+    const [maxPrice, setMaxPrice] = useState(50);
 
-    const panuelos = props.data.filter(product => product.filteredBy === "Pañuelo");
-    const pendientes = props.data.filter(product => product.filteredBy === "Pendientes");
-    const collares = props.data.filter(product => product.filteredBy === "Collar");
-    const gorro = props.data.filter(product => product.filteredBy === "Gorro");
-    const cinturon = props.data.filter(product => product.filteredBy === "Cinturon");    
+    const accessories = props.data.filter(product => 
+        product.price < maxPrice )
 
-    const [panuelosActives, setPanuelosActived] = useState();
+    //NEW FILTER
+
+    const [panuelosActived, setPanuelosActived] = useState();
     const [pendientesActived, setPendientesActived] = useState();
     const [collaresActived, setCollaresActived] = useState();
     const [cinturonesActived, setCinturonesActived] = useState();
     const [gorrosActived, setGorrosActived] = useState();
 
-    const handleChangePañuelos = (event) => {
+    const isFilterApplied = panuelosActived || pendientesActived || collaresActived || cinturonesActived || gorrosActived;
 
-        if(event.target.checked){
-            setPanuelosActived(true)
-        }else{
-            setPanuelosActived(false)    
-        }
+    const getSelectedCategories = () => {
+        
+        const categories = [];  //["Pañuelo", "Pendientes"]
+
+        if (panuelosActived) {categories.push("Pañuelo")};
+        if (pendientesActived) {categories.push("Pendientes")};
+        if (collaresActived) {categories.push("Collar")};
+        if (gorrosActived) {categories.push("Gorro")};
+        if (cinturonesActived) {categories.push("Cinturon")};
+
+        return categories;
     }
 
-    const handleChangePendientes = (event) => {
-
-        if(event.target.checked){
-            setPendientesActived(true)
-        }else{
-            setPendientesActived(false)    
-        }
-
+    const isCategorySelected = (category) => {
+        const selectedCategories = getSelectedCategories();  // ["Pañuelo","Pendientes"]
+        return selectedCategories.includes(category);
     }
 
-    const handleChangeCollares = (event) => {
 
-        if(event.target.checked){
-            setCollaresActived(true)
-        }else{
-            setCollaresActived(false)    
-        }
+    const filteredAccesories = props.data.filter(product => isCategorySelected(product.filteredBy) && product.price <= maxPrice)
 
-    }
-
-    const handleChangeGorros = (event) => {
-
-        if(event.target.checked){
-            setGorrosActived(true)
-        }else{
-            setGorrosActived(false)    
-        }
-
-    }
-
-    const handleChangeCinturones = (event) => {
-
-        if(event.target.checked){
-            setCinturonesActived(true)
-        }else{
-            setCinturonesActived(false)    
-        }
-
-    }
+    const handleChangePañuelos = (event) => setPanuelosActived(event.target.checked)
+    const handleChangePendientes = (event) => setPendientesActived(event.target.checked)
+    const handleChangeCollares = (event) => setCollaresActived(event.target.checked)
+    const handleChangeGorros = (event) => setGorrosActived(event.target.checked)
+    const handleChangeCinturones = (event) => setCinturonesActived(event.target.checked)
+    const handleChangePrice = (event) => {setMaxPrice(event.target.value)}
 
     return (
     
         <>
-
         <div className="c-finder">
-
             {/* <label className="c-finder__label" htmlFor="finder">Filtra por producto</label>
             <input className="c-finder__input" type="text" onChange={inputValueFn} /> */}
             <label htmlFor="checkbox">Pañuelos</label>
@@ -99,74 +77,21 @@ const Accesories = (props) => {
             <label htmlFor="checkbox">Cinturones</label>
             <input type="checkbox" onChange={handleChangeCinturones} />
 
+            <label htmlFor="precio">Precio</label>
+            <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
+            <p>{maxPrice}</p>
         </div>
 
-        <div className="container">    
-        {
-            panuelosActives && panuelos.map(product => 
-                <Card key={product._id} product={product}></Card>
-            )
-        }
-        { pendientesActived && pendientes.map(product => 
-                <Card key={product._id} product={product}></Card>
-            )
-        }
-        {collaresActived && collares.map(product => 
-                <Card key={product._id} product={product}></Card>
-            )
-        }
-        {gorrosActived && gorro.map(product => 
-                <Card key={product._id} product={product}></Card>
-            )
-        }
-        {cinturonesActived && cinturon.map(product => 
-                <Card key={product._id} product={product}></Card>
-            )
-        }
-        
-        
-        {
-            !cinturonesActived && !gorrosActived && !pendientesActived && !panuelosActives && !collaresActived && props.data.map(product => 
-                    
-            <div key={product._id} className="el-wrapper">
-                <div className="box-up">
-                    <img className="img" src={product.image} alt=""/>
-                    <div className="img-info">
-                        <div className="info-inner">
-                            <span className="p-name">{product.title}</span>
-                            <span className="p-company">{product.categorie}</span>
-                            <Rating value={product.rating} readOnly stars={5} cancel={false} />
-                        </div>
-                            
-                        <div className="a-size">{product.description}  {(product.stock <4) ? <h5 className='lastUnits' >Ultimas unidades</h5> : ''} </div>
-                    </div>
-                </div>
-                
-                    <div className="box-down">
-                    <div className="h-bg">
-                        <div className="h-bg-inner"></div>
-                    </div>
-            
-                    <div className="cart">
-                        <span className="price">{product.price}€</span>
-                        <span className="add-to-cart">
-                            <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            )
-        }
-    </div>
-
+        <div className="container">
+            {isFilterApplied && filteredAccesories.map(product => <Card key={product._id} product={product}></Card>)}    
+            {!isFilterApplied && accessories.map(product => <Card key={product._id} product={product}></Card>)}
+        </div>
     </>)
 }
 
 const mapStateToProps = (state) => ({
-
     data: state.api.accessories,
     cart: state.cart
-
 })
 
 export default connect(mapStateToProps)(Accesories);
