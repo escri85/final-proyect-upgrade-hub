@@ -16,6 +16,7 @@ const sneakersProductsArray = [
         "rating": 4.9,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Nike Air Force 1 '07 LV8",
@@ -27,6 +28,7 @@ const sneakersProductsArray = [
         "rating": 4.2,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Forum Low ",
@@ -38,6 +40,7 @@ const sneakersProductsArray = [
         "rating": 3.1,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Adidas",
     },
     {
         "title": "Adidas NMD_R1 V2",
@@ -49,6 +52,7 @@ const sneakersProductsArray = [
         "rating": 4.5,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Adidas",
     },
     {
         "title": "Nike Air Zoom Pegasus 38",
@@ -60,6 +64,7 @@ const sneakersProductsArray = [
         "rating": 5.0,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Air Jordan 1 Hi FlyEase",
@@ -71,6 +76,7 @@ const sneakersProductsArray = [
         "rating": 5.0,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Nike Air Max 97 SE",
@@ -82,6 +88,7 @@ const sneakersProductsArray = [
         "rating": 4.1,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "ADIDAS Superstar",
@@ -93,6 +100,7 @@ const sneakersProductsArray = [
         "rating": 3.9,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Adidas",
     },
     {
         "title": "ADIDAS Stan Smith",
@@ -104,6 +112,7 @@ const sneakersProductsArray = [
         "rating": 4.2,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Adidas",
     },
     {
         "title": "Chuck Taylor All Star Leather",
@@ -115,6 +124,7 @@ const sneakersProductsArray = [
         "rating": 4.9,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Converse",
     },
     {
         "title": "Vans Ward Suede",
@@ -126,6 +136,7 @@ const sneakersProductsArray = [
         "rating": 3.0,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Vans",
     },
     {
         "title": "Morrison Bel-Air",
@@ -137,6 +148,7 @@ const sneakersProductsArray = [
         "rating": 4.2,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Morrison",
     },
     {
         "title": "Veja Esplar",
@@ -148,6 +160,7 @@ const sneakersProductsArray = [
         "rating": 3.0,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Veja",
     },
     {
         "title": "Puma Suede VTG GTX",
@@ -159,6 +172,7 @@ const sneakersProductsArray = [
         "rating": 4.0,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Puma",
     },
     {
         "title": "MUNICH ALPHA 65",
@@ -170,6 +184,7 @@ const sneakersProductsArray = [
         "rating": 3,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Munich",
     },
     {
         "title": "DC Trase",
@@ -181,6 +196,7 @@ const sneakersProductsArray = [
         "rating": 3,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "DC",
     },
     {
         "title": "Nike Air Zoom SuperRep 3",
@@ -192,6 +208,7 @@ const sneakersProductsArray = [
         "rating": 4,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Nike Air Max 90 Premium",
@@ -203,6 +220,7 @@ const sneakersProductsArray = [
         "rating": 4.2,
         "categorie": "Sneakers",
         "subcategorie":"Man",
+        "filter": "Nike",
     },
     {
         "title": "Nike Air Force 1 Pixel",
@@ -214,6 +232,7 @@ const sneakersProductsArray = [
         "rating": 5,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
 //Hasta aqui bien
 
@@ -229,6 +248,7 @@ const sneakersProductsArray = [
         "rating":4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
 {
         "title": "Nike Air Force 1 '07 Low",
@@ -240,6 +260,7 @@ const sneakersProductsArray = [
         "rating":5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
         }
     ,
 {
@@ -252,6 +273,7 @@ const sneakersProductsArray = [
         "rating": 4.5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
 {
         "title": "Nike Air Huarache",
@@ -263,6 +285,7 @@ const sneakersProductsArray = [
         "rating": 5,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
     //Hasta aqui bien
 {
@@ -275,6 +298,7 @@ const sneakersProductsArray = [
         "categorie": "Sneakers",
         "subcategorie":"Woman",
         "price": 59,
+        "filter": "Nike",
     },
 {
         "title": "Air Force 1 '07",
@@ -286,6 +310,7 @@ const sneakersProductsArray = [
         "rating": 5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
 {
         "title": "Nike Air Max 2021",
@@ -297,6 +322,7 @@ const sneakersProductsArray = [
         "rating":4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Nike",
     },
 {
         "title": "ADIDAS ZX 10000 DISNEY",
@@ -308,6 +334,7 @@ const sneakersProductsArray = [
         "rating": 3 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Adidas",
     },
 {
         "title": "ADIDAS OZRAH",
@@ -319,6 +346,7 @@ const sneakersProductsArray = [
         "rating": 5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Adidas",
     },
 {
         "title": "ADIDAS HER COURT",
@@ -330,6 +358,7 @@ const sneakersProductsArray = [
         "rating": 4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Adidas",
     },
 {
         "title": "ADIDAS NIZZA TREK DISNEY",
@@ -341,6 +370,7 @@ const sneakersProductsArray = [
         "rating": 4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Adidas",
     },
 {
         "title": "Chuck Taylor All Star Move Platform Seasonal Color",
@@ -352,6 +382,7 @@ const sneakersProductsArray = [
         "rating": 4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     },
 {
         "title": "Chuck 70 Embroidered Lips",
@@ -363,6 +394,7 @@ const sneakersProductsArray = [
         "rating": 5 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     },
 {
         "title": "Chuck Taylor All Star Lift Platform Faux Flower Petals",
@@ -374,6 +406,7 @@ const sneakersProductsArray = [
         "rating": 2 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     },
 {
         "title": "Run Star Motion Platform",
@@ -385,6 +418,7 @@ const sneakersProductsArray = [
         "rating": 4 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     },
 {
         "title": "Run Star Motion",
@@ -396,6 +430,7 @@ const sneakersProductsArray = [
         "rating": 3 ,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     },
 {
         "title": "Chuck Taylor All Star Move Platform Ombre",
@@ -407,6 +442,7 @@ const sneakersProductsArray = [
         "rating": 4,
         "categorie": "Sneakers",
         "subcategorie":"Woman",
+        "filter": "Converse",
     }
 ]
 
