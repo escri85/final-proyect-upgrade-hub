@@ -1,67 +1,70 @@
-import './Cart.scss'
+import "./Cart.scss";
 
 //Boostrap
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { AddOneProductToCart, SustractOneProductToCart } from '../../redux/actions/cartActions';
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import {
+  AddOneProductToCart,
+  SustractOneProductToCart,
+} from "../../redux/actions/cartActions";
 
 const Cart = (props) => {
-
   // useEffect(() => {
   //   localStorage.setItem("products", JSON.stringify(cart));
   // }, [cart]);
-  
-  const price = props.cart.reduce(( curNumber  , item ) => {
-  
-    return curNumber + (item.price * item.amount)
 
-  }, 0)
- 
-  const newPrice=price.toFixed(2)
+  const price = props.cart.reduce((curNumber, item) => {
+    return curNumber + item.price * item.amount;
+  }, 0);
 
-console.log(props.cart);
+  const newPrice = price.toFixed(2);
+
+ const amount = props.cart.map((item)=>{
+   return item.amount
+ })
+ let suma = 0
+amount.forEach(element => {
+    suma += element
+
+ });
+
+  console.log('amount',amount);
   return (
-  
-  
-  <>
+    <div className="container__all">
+      {!props.cart.length && <div>No hay nada de nada</div>}
+<div className="items">
 
-        {!props.cart.length && <div>No hay nada de nada</div>}
-        <div className="c-cart">
-          {props.cart.map((element) => 
-            <Card key={element._id} style={{ width: '15rem', height: '450px', margin: '15px' }}>
-              <Card.Img variant="top" style={{ width: '100%' , height: '250px'}} src={element.image} />
-              <Card.Body>
-                <Card.Title>{element.title}</Card.Title>
-                  <div>
-                    <p>{element.price} €</p>
-                    <p>Cantidad: {element.amount}</p>
-                  </div>
-                  <div className="c-cart__buttons">
-                    <Button variant="secondary" onClick={()=>{props.dispatch(SustractOneProductToCart(element))}}>-</Button>
-                    <Button variant="secondary" onClick={()=>{props.dispatch(AddOneProductToCart(element))}}>+</Button>
-                  </div>
-              </Card.Body>
-            </Card>)}
+      {props.cart.map((item) => (
+        <div class="container">
+          <div class="images">
+            <img src={item.image} alt="" />
           </div>
-          <div>
-            <h4>Total: {newPrice} €</h4>
-
+          <div class="product">
+            <p>{item.categorie}</p>
+            <h1>{item.title}</h1>
+            <h2>{item.price} €</h2>
+            <p class="desc">{item.description}</p>
+            <div class="buttons">
+              <p>Cantidad {item.amount}</p>
+              <button onClick={()=>{props.dispatch(SustractOneProductToCart(item))}}>-</button>
+              <button onClick={()=>{props.dispatch(AddOneProductToCart(item))}}>+</button>
+            </div>
+          </div>
+        </div>
+      ))}
+</div>
+      <div className="tramitar">
+        <button>Tramitar pedido</button>
+        <h1>Resumen del pedido</h1>
+        <h1>{suma} Productos</h1>
+        <h2>Total: {newPrice} €</h2>
+      </div>
     </div>
-    
-        </>
-        
-        
-        )
-
-
-}
+  );
+};
 
 const mapStateToProps = (state) => ({
-
   cart: state.cart,
-
-})
+});
 
 export default connect(mapStateToProps)(Cart);
