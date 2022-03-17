@@ -8,10 +8,14 @@ import Card  from '../../../components/Card/Card';
 
 const Accesories = (props) => {
 
+    console.log(props);
+
     useEffect(() => {
         props.dispatch(getAccesoriesToApi())
             //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    //PRICE
 
     const [maxPrice, setMaxPrice] = useState(50);
 
@@ -47,7 +51,7 @@ const Accesories = (props) => {
     }
 
 
-    const filteredAccesories = props.data.filter(product => isCategorySelected(product.filteredBy) && product.price <= maxPrice)
+    const filteredAccesories = props.data.filter(product => isCategorySelected(product.filter) && product.price <= maxPrice)
 
     const handleChangePañuelos = (event) => setPanuelosActived(event.target.checked)
     const handleChangePendientes = (event) => setPendientesActived(event.target.checked)
@@ -60,26 +64,36 @@ const Accesories = (props) => {
     
         <>
         <div className="c-finder">
-            {/* <label className="c-finder__label" htmlFor="finder">Filtra por producto</label>
-            <input className="c-finder__input" type="text" onChange={inputValueFn} /> */}
-            <label htmlFor="checkbox">Pañuelos</label>
-            <input type="checkbox" onChange={handleChangePañuelos} />
+            <div className="c-finder__pair">
+                <label htmlFor="checkbox">Pañuelos</label>
+                <input type="checkbox" onChange={handleChangePañuelos} />
+            </div>
+            
+            <div className="c-finder__pair">
+                <label htmlFor="checkbox">Pendientes</label>
+                <input type="checkbox" onChange={handleChangePendientes} />
+            </div>
 
-            <label htmlFor="checkbox">Pendientes</label>
-            <input type="checkbox" onChange={handleChangePendientes} />
+            <div className="c-finder__pair">
+                <label htmlFor="checkbox">Collares</label>
+                <input type="checkbox" onChange={handleChangeCollares} />
+            </div>
 
-            <label htmlFor="checkbox">Collares</label>
-            <input type="checkbox" onChange={handleChangeCollares} />
+            <div className="c-finder__pair">
+                <label htmlFor="checkbox">Gorros</label>
+                <input type="checkbox" onChange={handleChangeGorros} />
+            </div>
+        
+            <div className="c-finder__pair">
+                <label htmlFor="checkbox">Cinturones</label>
+                <input type="checkbox" onChange={handleChangeCinturones} />
+            </div>
 
-            <label htmlFor="checkbox">Gorros</label>
-            <input type="checkbox" onChange={handleChangeGorros} />
-
-            <label htmlFor="checkbox">Cinturones</label>
-            <input type="checkbox" onChange={handleChangeCinturones} />
-
-            <label htmlFor="precio">Precio</label>
-            <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
-            <p>{maxPrice}</p>
+            <div className="c-finder__pair">
+                <label htmlFor="precio">Precio</label>
+                <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
+                <p>{maxPrice}</p>
+            </div>
         </div>
 
         <div className="container">
