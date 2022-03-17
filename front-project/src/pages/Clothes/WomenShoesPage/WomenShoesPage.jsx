@@ -1,9 +1,8 @@
 import './WomenShoesPage.scss';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Rating } from 'primereact/rating';
 import { getShoesToApi } from '../../../redux/actions/apiActions';
-import { addProductToCart } from '../../../redux/actions/cartActions';
+import Card from '../../../components/Card/Card';
 
 const WomenShoesPage = (props) => {
 
@@ -13,47 +12,83 @@ const WomenShoesPage = (props) => {
           //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    const result = props.data.filter(element => element.subcategorie === "Woman");
-    console.log(result);
+    //PRICE
 
+    const [maxPrice, setMaxPrice] = useState(175);
 
-    return (<div className="container">
-        {
-            result.map(product => 
-                    <div key={product._id} className="el-wrapper">
-                    <div className="box-up">
-                        <img className="img" src={product.image} alt=""/>
-                        <div className="img-info">
-                            <div className="info-inner">
-                                <span className="p-name">{product.title}</span>
-                                <span className="p-company">{product.categorie}</span>
-                                <Rating value={product.rating} readOnly stars={5} cancel={false} /> 
-                            </div>
-                            <div className="a-size">{product.description} {(product.stock <10) ? <h5 className='lastUnits' >Solo quedan  {product.stock}  </h5> : ''} </div>
-                        </div>
-                    </div>
-                
-                        <div className="box-down">
-                        <div className="h-bg">
-                            <div className="h-bg-inner"></div>
-                        </div>
-            
-                        <div className="cart"  >
-                        <span className="price">{product.price}€</span>
-                        <span className="add-to-cart">
-                            <button onClick={()=>{props.dispatch(addProductToCart(product))}} className="txt">Añadir al carrito</button>
-                        </span>
-                        </div>
-                    </div>
-                    </div>
-            )
+    const womanShoes = props.data.filter(
+        (product) => product.subcategorie === "Woman" && product.price < maxPrice
+    );
+
+    //FILTER
+
+    const [nikeActived, setNikeActived] = useState();
+    const [adidasActived, setAdidasActived] = useState();
+    const [converseActived, setConverseActived] = useState();
+
+    const isFilterApplied = nikeActived || adidasActived || converseActived;
+
+    const getSelectedCategories = () => {
+        const categories = [];
+    
+        if (nikeActived) {
+            categories.push("Nike");
         }
-    </div>)
+        if (adidasActived) {
+            categories.push("Adidas");
+        }
+        if (converseActived) {
+            categories.push("Converse");
+        }
+            return categories;
+        }
+
+    const isCategorySelected = (category) => {
+
+        const categoriesSelected = getSelectedCategories();
+
+        return categoriesSelected.includes(category);
+        
+    }
+
+    const filterResults = props.data.filter((element => isCategorySelected(element) && element.price < maxPrice))
+    
+    const [inputValue, setInputValue] = useState(170);
+
+    const handleChangeNike = (event) => setNikeActived(event.target.checked);
+    const handleChangeAdidas = (event) => setAdidasActived(event.target.checked);
+    const handleChangeConverse = (event) =>setConverseActived(event.target.checked);
+    const handleChangePrice = (event) => {
+        setMaxPrice(event.target.value)
+        setInputValue(event.target.value) 
+    };
+    return (
+    <>
+
+<div className="c-finder">
+            <label htmlFor="checkbox">Nike</label>
+            <input type="checkbox" onChange={handleChangeNike} />
+
+            <label htmlFor="checkbox">Adidas</label>
+            <input type="checkbox" onChange={handleChangeAdidas} />
+
+            <label htmlFor="checkbox">Converse</label>
+            <input type="checkbox" onChange={handleChangeConverse} />
+
+            <label htmlFor="precio">Precio</label>
+            <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
+            <p>{inputValue}</p>
+        </div>
+
+    <div className="container">
+        {isFilterApplied && filterResults.map(product => <Card key={product._id} product={product}></Card>)}    
+        {!isFilterApplied && womanShoes.map(product => <Card key={product._id} product={product}></Card>)}
+    </div>
+    </>)
 
 }
 
 const mapStateToProps = (state) => ({
-
     data: state.api.sneakers,
     cart: state.cart
 })
