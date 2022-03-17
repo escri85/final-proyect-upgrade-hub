@@ -164,7 +164,7 @@ const Navbar = ({dispatch, error, user}) => {
         className="mr-2"
         ></img>
     );
-    const end = <InputText placeholder="Search" type="text" />;
+    const end = <InputText placeholder="Search" type="text" onChange/>;
 
     return (
         <div>
