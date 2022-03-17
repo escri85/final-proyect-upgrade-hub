@@ -41,7 +41,7 @@ const WomenShoesPage = (props) => {
             categories.push("Converse");
         }
             return categories;
-        }
+        };
 
     const isCategorySelected = (category) => {
 
@@ -51,8 +51,10 @@ const WomenShoesPage = (props) => {
         
     }
 
-    const filterResults = props.data.filter((element => isCategorySelected(element) && element.price < maxPrice))
+    const filterResults = props.data.filter((element => isCategorySelected(element.filter) && element.price < maxPrice))
     
+    console.log("Esto es filter results", filterResults);
+
     const [inputValue, setInputValue] = useState(170);
 
     const handleChangeNike = (event) => setNikeActived(event.target.checked);
@@ -62,28 +64,31 @@ const WomenShoesPage = (props) => {
         setMaxPrice(event.target.value)
         setInputValue(event.target.value) 
     };
+    
     return (
     <>
 
-<div className="c-finder">
-            <label htmlFor="checkbox">Nike</label>
-            <input type="checkbox" onChange={handleChangeNike} />
+        <div className="c-">
+            <div className="c-finder">
+                <label htmlFor="checkbox">Nike</label>
+                <input type="checkbox" onChange={handleChangeNike} />
 
-            <label htmlFor="checkbox">Adidas</label>
-            <input type="checkbox" onChange={handleChangeAdidas} />
+                <label htmlFor="checkbox">Adidas</label>
+                <input type="checkbox" onChange={handleChangeAdidas} />
 
-            <label htmlFor="checkbox">Converse</label>
-            <input type="checkbox" onChange={handleChangeConverse} />
+                <label htmlFor="checkbox">Converse</label>
+                <input type="checkbox" onChange={handleChangeConverse} />
 
-            <label htmlFor="precio">Precio</label>
-            <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
-            <p>{inputValue}</p>
+                <label htmlFor="precio">Precio</label>
+                <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
+                <p>{inputValue}</p>
+            </div>
         </div>
 
-    <div className="container">
-        {isFilterApplied && filterResults.map(product => <Card key={product._id} product={product}></Card>)}    
-        {!isFilterApplied && womanShoes.map(product => <Card key={product._id} product={product}></Card>)}
-    </div>
+        <div className="container">
+            {isFilterApplied && filterResults.map(product => <Card key={product._id} product={product}></Card>)}    
+            {!isFilterApplied && womanShoes.map(product => <Card key={product._id} product={product}></Card>)}
+        </div>
     </>)
 
 }

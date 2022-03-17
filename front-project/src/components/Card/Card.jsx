@@ -10,15 +10,14 @@ const Card = (props) => {
     
     return (
         <div key={product._id} className="el-wrapper">
-        <div className="box-up">
-            <img className="img" src={product.image} alt=""/>
-            <div className="img-info">
-                <div className="info-inner">
-                    <span className="p-name">{product.title}</span>
-                    <span className="p-company">{product.categorie}</span>
-                    <Rating value={product.rating} readOnly stars={5} cancel={false} />
-                </div>
-                    
+            <div className="box-up">
+                <img className="img" src={product.image} alt=""/>
+                <div className="img-info">
+                    <div className="info-inner">
+                        <span className="p-name">{product.title}</span>
+                        <span className="p-company">{product.categorie}</span>
+                        <Rating value={product.rating} readOnly stars={5} cancel={false} />
+                    </div>        
                 <div className="a-size">{product.description}  {(product.stock <4) ? <h5 className='lastUnits' >Solo quedan  {product.stock}  </h5> : ''} </div>
             </div>
         </div>

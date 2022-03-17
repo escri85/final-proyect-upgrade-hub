@@ -25,22 +25,12 @@ const ManShoesPage = (props) => {
     const [adidasActived, setAdidasActived] = useState();
     const [converseActived, setConverseActived] = useState();
     const [vansActived, setVansActived] = useState();
-    const [morrisonActived, setMorrisonActived] = useState();
-    const [vejaActived, setVejaActived] = useState();
-    const [pumaActived, setPumaActived] = useState();
-    const [dcActived, setDcActived] = useState();
-    const [munichActived, setMunichActived] = useState();
 
     const isFilterApplied =
         nikeActived ||
         adidasActived ||
         converseActived ||
-        vansActived ||
-        morrisonActived ||
-        vejaActived ||
-        dcActived ||
-        pumaActived ||
-        munichActived;
+        vansActived ;
 
     const getSelectedCategories = () => {
         const categories = [];
@@ -57,22 +47,6 @@ const ManShoesPage = (props) => {
         if (vansActived) {
         categories.push("Vans");
         }
-        if (morrisonActived) {
-        categories.push("Morrison");
-        }
-        if (vejaActived) {
-        categories.push("Veja");
-        }
-        if (pumaActived) {
-        categories.push("Puma");
-        }
-        if (dcActived) {
-        categories.push("DC");
-        }
-        if (munichActived) {
-        categories.push("Munich");
-        }
-
         return categories;
     };
 
@@ -91,11 +65,6 @@ const ManShoesPage = (props) => {
     const handleChangeAdidas = (event) => setAdidasActived(event.target.checked);
     const handleChangeConverse = (event) =>setConverseActived(event.target.checked);
     const handleChangeVans = (event) => setVansActived(event.target.checked);
-    const handleChangeMorrison = (event) =>setMorrisonActived(event.target.checked);
-    const handleChangeVeja = (event) => setVejaActived(event.target.checked);
-    const handleChangePuma = (event) => setPumaActived(event.target.checked);
-    const handleChangeDc = (event) => setDcActived(event.target.checked);
-    const handleChangeMunich = (event) => {setMunichActived(event.target.value);};
     const handleChangePrice = (event) => {
         setMaxPrice(event.target.value)
         setInputValue(event.target.value) 
@@ -103,39 +72,26 @@ const ManShoesPage = (props) => {
 
     return (
         <>
+        <div className="c-">
+            <div className="c-finder">
+                <label htmlFor="checkbox">Nike</label>
+                <input type="checkbox" onChange={handleChangeNike} />
 
-        <div className="c-finder">
-            <label htmlFor="checkbox">Nike</label>
-            <input type="checkbox" onChange={handleChangeNike} />
+                <label htmlFor="checkbox">Adidas</label>
+                <input type="checkbox" onChange={handleChangeAdidas} />
 
-            <label htmlFor="checkbox">Adidas</label>
-            <input type="checkbox" onChange={handleChangeAdidas} />
+                <label htmlFor="checkbox">Converse</label>
+                <input type="checkbox" onChange={handleChangeConverse} />
 
-            <label htmlFor="checkbox">Converse</label>
-            <input type="checkbox" onChange={handleChangeConverse} />
+                <label htmlFor="checkbox">Vans</label>
+                <input type="checkbox" onChange={handleChangeVans} />
 
-            <label htmlFor="checkbox">Vans</label>
-            <input type="checkbox" onChange={handleChangeVans} />
-
-            <label htmlFor="checkbox">Morrison</label>
-            <input type="checkbox" onChange={handleChangeMorrison} />
-
-            <label htmlFor="checkbox">Veja</label>
-            <input type="checkbox" onChange={handleChangeVeja} />
-
-            <label htmlFor="checkbox">Puma</label>
-            <input type="checkbox" onChange={handleChangePuma} />
-
-            <label htmlFor="checkbox">DC</label>
-            <input type="checkbox" onChange={handleChangeDc} />
-
-            <label htmlFor="checkbox">Munich</label>
-            <input type="checkbox" onChange={handleChangeMunich} />
-
-            <label htmlFor="precio">Precio</label>
-            <input type="range" value={inputValue} max="170" min="10" step="10" onChange={handleChangePrice} />
-            <p>{inputValue}</p>
+                <label htmlFor="precio">Precio</label>
+                <input type="range" value={inputValue} max="170" min="10" step="10" onChange={handleChangePrice} />
+                <p>{inputValue}</p>
+            </div>
         </div>
+        
 
         <div className="container">
             {isFilterApplied && filteredManShoes.map(product => <Card key={product._id} product={product}></Card>)}    

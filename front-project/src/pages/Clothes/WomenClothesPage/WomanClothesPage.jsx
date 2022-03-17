@@ -53,19 +53,21 @@ const WomanClothesPage = (props) => {
 
     return (
     <>
-        <div className="c-finder">
-            <label htmlFor="checkbox">Pantalones</label>
-            <input type="checkbox" onChange={handleChangePantalones} />
+        <div className="c-">
+            <div className="c-finder">  
+                <label htmlFor="checkbox">Pantalones</label>
+                <input type="checkbox" onChange={handleChangePantalones} />
 
-            <label htmlFor="checkbox">Top</label>
-            <input type="checkbox" onChange={handleChangeTop} />
+                <label htmlFor="checkbox">Top</label>
+                <input type="checkbox" onChange={handleChangeTop} />
 
-            <label htmlFor="checkbox">Faldas</label>
-            <input type="checkbox" onChange={handleChangeFalda} />
+                <label htmlFor="checkbox">Faldas</label>
+                <input type="checkbox" onChange={handleChangeFalda} />
 
-            <label htmlFor="precio">Precio</label>
-            <input type="range" max="40" min="10" step="5" onChange={handleChangePrice} />
-            <p>{maxPrice}</p>
+                <label htmlFor="precio">Precio</label>
+                <input type="range" max="40" min="10" step="5" onChange={handleChangePrice} />
+                <p>{maxPrice}</p>
+            </div>    
         </div>
 
         <div className="container">

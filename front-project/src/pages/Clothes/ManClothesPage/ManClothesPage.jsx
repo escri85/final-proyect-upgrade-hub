@@ -55,24 +55,24 @@ const ManClothesPage = (props) => {
 
     return (
     <>
-        <div className="c-finder">
-            {/* <label className="c-finder__label" htmlFor="finder">Filtra por producto</label>
-            <input className="c-finder__input" type="text" onChange={inputValueFn} /> */}
-            <label htmlFor="checkbox">Pantalones</label>
-            <input type="checkbox" onChange={handleChangePantalones} />
+        <div className="c-">
+            <div className="c-finder">   
+                <label htmlFor="checkbox">Pantalones</label>
+                <input type="checkbox" onChange={handleChangePantalones} />
 
-            <label htmlFor="checkbox">Abrigos</label>
-            <input type="checkbox" onChange={handleChangeAbrigo} />
+                <label htmlFor="checkbox">Abrigos</label>
+                <input type="checkbox" onChange={handleChangeAbrigo} />
 
-            <label htmlFor="checkbox">Camisetas</label>
-            <input type="checkbox" onChange={handleChangeCamisetas} />
+                <label htmlFor="checkbox">Camisetas</label>
+                <input type="checkbox" onChange={handleChangeCamisetas} />
 
-            <label htmlFor="checkbox">Jersey</label>
-            <input type="checkbox" onChange={handleChangeJersey} />
+                <label htmlFor="checkbox">Jersey</label>
+                <input type="checkbox" onChange={handleChangeJersey} />
 
-            <label htmlFor="precio">Precio</label>
-            <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
-            <p>{maxPrice}</p>
+                <label htmlFor="precio">Precio</label>
+                <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
+                <p>{maxPrice}</p>
+            </div>
         </div>
 
         <div className="container">

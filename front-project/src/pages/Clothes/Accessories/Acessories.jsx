@@ -61,41 +61,29 @@ const Accesories = (props) => {
     const handleChangePrice = (event) => {setMaxPrice(event.target.value)}
 
     return (
-    
         <>
-        <div className="c-finder">
-            <div className="c-finder__pair">
+        <div className="c-">
+            <div className="c-finder">
                 <label htmlFor="checkbox">Pañuelos</label>
                 <input type="checkbox" onChange={handleChangePañuelos} />
-            </div>
-            
-            <div className="c-finder__pair">
+
                 <label htmlFor="checkbox">Pendientes</label>
                 <input type="checkbox" onChange={handleChangePendientes} />
-            </div>
 
-            <div className="c-finder__pair">
                 <label htmlFor="checkbox">Collares</label>
                 <input type="checkbox" onChange={handleChangeCollares} />
-            </div>
 
-            <div className="c-finder__pair">
                 <label htmlFor="checkbox">Gorros</label>
                 <input type="checkbox" onChange={handleChangeGorros} />
-            </div>
-        
-            <div className="c-finder__pair">
+            
                 <label htmlFor="checkbox">Cinturones</label>
                 <input type="checkbox" onChange={handleChangeCinturones} />
-            </div>
 
-            <div className="c-finder__pair">
                 <label htmlFor="precio">Precio</label>
                 <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
                 <p>{maxPrice}</p>
             </div>
         </div>
-
         <div className="container">
             {isFilterApplied && filteredAccesories.map(product => <Card key={product._id} product={product}></Card>)}    
             {!isFilterApplied && accessories.map(product => <Card key={product._id} product={product}></Card>)}
