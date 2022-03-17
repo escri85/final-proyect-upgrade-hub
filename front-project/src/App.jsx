@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import React, { useState } from 'react';
 import './App.scss';
+import Search from './components/Search/Search';
 
 
 function App({user, error}) {
@@ -24,6 +25,7 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           <Header toggleTheme={toggleTheme}/>
+           <Search />
             <Routes>
               <Route path='/'>
                 <Route path="/" element={<Home/>}/>
