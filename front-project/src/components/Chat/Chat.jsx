@@ -1,30 +1,42 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./Chat.scss";
+import Chatbot from "react-chatbot-kit";
+import MessageParser from "./MessageParser";
+import ActionProvider from "./ActionProvider";
+import config from "./config";
 
 const Chat = () => {
-  const [isToggle, setIsToggle] = useState(true);
+  // const [isToggle, setIsToggle] = useState(true);
 
-  const { messages, sendMessage } = useState([]);
-  const [newMessage, setNewMessage] = useState("");
+  // const { messages, sendMessage } = useState([]);
+  // const [newMessage, setNewMessage] = useState("");
 
-  const handleNewMessageChange = (event) => {
-    const value = event.target.value;
-    setNewMessage(value);
-  };
-  const handleSendMessage = () => {
-    sendMessage(newMessage);
-    setNewMessage("");
-  };
+  // const handleNewMessageChange = (event) => {
+  //   const value = event.target.value;
+  //   setNewMessage(value);
+  // };
+  // const handleSendMessage = () => {
+  //   sendMessage(newMessage);
+  //   setNewMessage("");
+  // };
 
-  const handleClick = () => {
-    setIsToggle(false);
-  };
-  const handle = () => {
-    setIsToggle(true);
-  };
+  // const handleClick = () => {
+  //   setIsToggle(false);
+  // };
+  // const handle = () => {
+  //   setIsToggle(true);
+  // };
 
   return (
-    <>
+    <div className="chatbot" >
+      <div style={{ maxWidth: "300px" }}>
+        <Chatbot
+          config={config}
+          actionProvider={ActionProvider}
+          messageParser={MessageParser}
+        />
+      </div>
+      {/* <>
       {isToggle === true ? (
         <button className="boton" onClick={handleClick}>
           chat
@@ -55,7 +67,8 @@ const Chat = () => {
           <div className="iconos"></div>
         </div>
       )}
-    </>
+    </> */}
+    </div>
   );
 };
 
