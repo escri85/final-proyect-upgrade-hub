@@ -16,5 +16,5 @@ export {
     WomenShoesPage,
     CartPage,
     Access,
-    Profile
+    Profile,
 }
