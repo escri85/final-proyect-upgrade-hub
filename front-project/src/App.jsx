@@ -1,5 +1,5 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute} from './components';
+import { Footer, Header, AddProduct, PrivateRoute, Chat} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
@@ -38,6 +38,7 @@ function App({user, error}) {
                 <Route path='/add' element={<AddProduct/>}/>
               </Route>
             </Routes>
+            <Chat/>
           <Footer/>
       </div>
   );
