@@ -11,34 +11,34 @@ const Home = () =>{
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/2/p/6917/461/800/2/w/563/6917461800_2_1_1.jpg?ts=1645186369445"
+                        src="https://static.pullandbear.net/2/photos//2022/V/0/2/p/8711/529/707/09/8711529707_2_1_8.jpg?t=1646319742992&imwidth=563"
                         alt="First slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>PULL&BEAR</h5>
+                        <p>CAZADORA CANVAS CON CREMALLERA</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/2/p/5320/304/707/2/w/563/5320304707_2_5_1.jpg?ts=1645178772507"
+                        src="https://static.pullandbear.net/2/photos//2022/V/0/2/p/4674/916/800/4674916800_2_1_8.jpg?t=1647358567442&imwidth=563"
                         alt="Second slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>PULL&BEAR</h5>
+                        <p>PANTALÓN TAILORING BÁSICO SLIM</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/2/p/4391/408/305/2/w/563/4391408305_2_1_1.jpg?ts=1645189174900"
+                        src="https://static.pullandbear.net/2/photos//2022/V/0/2/p/4244/596/800/4244596800_2_1_8.jpg?t=1646065120617&imwidth=563"
                         alt="Third slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>PULL&BEAR</h5>
+                        <p>CAMISETA FOTOGRAFÍA ÁRBOL</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
@@ -49,34 +49,34 @@ const Home = () =>{
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/1/p/3067/419/621/2/w/850/3067419621_15_1_1.jpg?ts=1644923612712"
+                        src="https://static.zara.net/photos///2022/V/0/1/p/0881/201/942/2/w/750/0881201942_1_1_1.jpg?ts=1647446400077"
                         alt="First slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>ZARA</h5>
+                        <p>Vestido Mini Satinado</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/1/p/8351/028/330/2/w/850/8351028330_2_10_1.jpg?ts=1645521930850"
+                        src="https://static.zara.net/photos///2022/V/0/1/p/9598/044/791/2/w/750/9598044791_1_1_1.jpg?ts=1647432711355"
                         alt="Second slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>ZARA</h5>
+                        <p>VESTIDO PUNTO BROCHE DORADO</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src="https://static.zara.net/photos///2022/V/0/1/p/4387/630/712/2/w/850/4387630712_1_1_1.jpg?ts=1643813546779"
+                        src="https://static.zara.net/photos///2022/V/0/1/p/1478/027/809/17/w/750/1478027809_1_1_1.jpg?ts=1647423491227"
                         alt="Third slide"
                         />
                         <Carousel.Caption>
-                        <h5>TITULO</h5>
-                        <p>DESCRIPCION</p>
+                        <h5>ZARA</h5>
+                        <p>PANTALÓN JOGGER WAIST</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
