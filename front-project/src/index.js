@@ -7,14 +7,18 @@ import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
+import { FilterProvider} from './Contexts/FilterContext';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <FilterProvider>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </FilterProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
