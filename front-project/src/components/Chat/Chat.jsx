@@ -1,75 +1,27 @@
 // import React, { useState } from "react";
+import { useState } from "react";
 import "./Chat.scss";
-import Chatbot from "react-chatbot-kit";
-import MessageParser from "./MessageParser";
-import ActionProvider from "./ActionProvider";
-import config from "./config";
+
 
 const Chat = () => {
-  // const [isToggle, setIsToggle] = useState(true);
+  
 
-  // const { messages, sendMessage } = useState([]);
-  // const [newMessage, setNewMessage] = useState("");
-
-  // const handleNewMessageChange = (event) => {
-  //   const value = event.target.value;
-  //   setNewMessage(value);
-  // };
-  // const handleSendMessage = () => {
-  //   sendMessage(newMessage);
-  //   setNewMessage("");
-  // };
-
-  // const handleClick = () => {
-  //   setIsToggle(false);
-  // };
-  // const handle = () => {
-  //   setIsToggle(true);
-  // };
+  const [openChat, setOpenChat] = useState();
 
   return (
-    <div className="chatbot" >
-      <div style={{ maxWidth: "300px" }}>
-        <Chatbot
-          config={config}
-          actionProvider={ActionProvider}
-          messageParser={MessageParser}
-        />
-      </div>
-      {/* <>
-      {isToggle === true ? (
-        <button className="boton" onClick={handleClick}>
-          chat
-        </button>
-      ) : (
-        <div className="target">
-          <div className="header">
-            <h3>Nombre</h3>
-            <button onClick={handle}> - </button>
-          </div>
-          <div className="estado">
-            <p>En linea</p>
-          </div>
-          <div className="chat">
-            <p>esto es un ejemplo</p>
-          
-          </div>
-          <div className="textarea">
-            <textarea
-              placeholder="Escribe aqui tu mensaje"
-              cols="30"
-              rows="4"
-              value={newMessage}
-              onChange={handleNewMessageChange}
-            ></textarea>
-            <button onClick={handleSendMessage}>Enviar</button>
-          </div>
-          <div className="iconos"></div>
-        </div>
-      )}
-    </> */}
+    <div className="chatbox">
+    { openChat && <div className="chatbox__chat">
+      <iframe title="chatbot" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/60a50e94-4299-4cb8-a769-d93e9697ffaa"></iframe>
+    </div>}
+    <button className="chatbox__button" onClick={()=>{setOpenChat(!openChat)}}>Chat</button>
     </div>
-  );
+  )
+
 };
 
 export default Chat;
+
+
+
+
+
