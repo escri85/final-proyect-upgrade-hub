@@ -1,75 +1,58 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-
-
-import './Search.scss';
+import { useState, useEffect, useContext } from 'react';
 import { getAccesoriesToApi, getManClothesToApi, getShoesToApi, getWomenClothesToApi } from '../../redux/actions/apiActions';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
+import { FilterContext } from '../../Contexts/FilterContext';
+import './Search.scss';
 
 
 const Search = (props) => {
+    const [filteredProducts] = useContext(FilterContext);
+
     useEffect(() => {
         props.dispatch(getAccesoriesToApi())
         props.dispatch(getManClothesToApi())
         props.dispatch(getShoesToApi())
-         props.dispatch(getWomenClothesToApi())
-        console.log("Estas son las props", props);
-        //eslint-disable-next-line react-hooks/exhaustive-deps
+        props.dispatch(getWomenClothesToApi())
     },[])
 
-const searchAcc = props.accessories
- const searchManClot = props.manClothes
- const searchWmClot = props.womenClothes
- const searchSneakers = props.sneakers
-console.log("este es el Search Acc", searchAcc);
-const [inputValue, setInputValue] = useState()
-// const [acc, setAcc] = useState("");
-// const [man, setMan] = useState("");
-// const [wom, setWom] = useState("");
-// const [sneaker, setSneaker] = useState("");
+    const allProducts = {
+        accessories: props.accessories,
+        manClothes: props.manClothes,
+        womanClothes: props.womenClothes,
+        sneakers: props.sneakers
+    }
 
-
-console.log(inputValue);
-
-const result = searchAcc.filter((element)=>
-    element.title.includes(inputValue)
+const result = allProducts.accessories.filter((element)=>
+    element.title.includes(filteredProducts.inputValue)
 )
-const result1 = searchManClot.filter((element)=>
-    element.title.includes(inputValue)
+const result1 = allProducts.manClothes.filter((element)=>
+    element.title.includes(filteredProducts.inputValue)
 )
-const result2 = searchWmClot.filter((element)=>
-    element.title.includes(inputValue)
+const result2 = allProducts.womanClothes.filter((element)=>
+    element.title.includes(filteredProducts.inputValue)
 )
-const result3 = searchSneakers.filter((element)=>
-    element.title.includes(inputValue)
+const result3 = allProducts.sneakers.filter((element)=>
+    element.title.includes(filteredProducts.inputValue)
 )
 
-const filteredProducts = [...result, ...result1, ...result2, ...result3]
+const productsResult = [...result, ...result1, ...result2, ...result3]
 
 
-
-console.log(filteredProducts);
-  return (
-    <div>
-     
-
-        <input type="text" 
-        onChange={(event) => {
-            setInputValue(event.target.value)
-            // setMan(event.target.value)
-            // setWom(event.target.value)
-            // setSneaker(event.target.value)
-        } }
-        placeholder='...'></input>
-        {/* <button onClick={searchAcc}
-        >Search</button>
-     */}
-       {filteredProducts.map(product => 
-       <Card product={product} />
-       )}
-    </div>
-  )
+    return (
+            <div>
+                {
+                    (filteredProducts.isTrusted)
+                    ?
+                    productsResult.map(product =>
+                        <Card product={product} />
+                        )
+                    :
+                    console.log('No está activo')
+                }
+            </div>
+    )
 }
 const mapStateToProps = (state) => ({
     accessories:state.api.accessories,

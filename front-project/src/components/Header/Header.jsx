@@ -16,7 +16,7 @@ const Header = ({toggleTheme}) => {
     <div className="header">
       <div className="header__title">
           <img src="https://cdn.discordapp.com/attachments/954061730814787637/954061759789015090/Captura_de_pantalla_2022-03-17_a_las_17.59.21.png" alt="logo" />
-          <Link className="header__text" to='/'>Connect Shop</Link>  
+          <Link className="header__text" to='/'>Connect Shop</Link>
       </div>
       <div className="__swicth">
           <label htmlFor="darkMode">{checked1===true ? 'Dark' : 'Light'}</label>
