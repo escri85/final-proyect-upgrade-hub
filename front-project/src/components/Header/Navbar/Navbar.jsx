@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import { loginUser } from "../../../redux/actions/authActions";
 import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
+import GoogleLogin from 'react-google-login';
 
 /*
 APUNTES:
@@ -26,6 +27,10 @@ const Navbar = ({dispatch, error, user}) => {
     const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
     console.log(user);
 
+    const responseGoogle = (response) => {
+        console.log(response);
+      }
+    
     const needToRegister = () =>{
         setVisible(false);
         navigate('/access');
@@ -233,21 +238,32 @@ const Navbar = ({dispatch, error, user}) => {
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
             />
-            <Row justify="space-between">
+              <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
                 Mantener sesión
                 {/* COOKIES */}
                 </Text>
             </Checkbox>
-            </Row>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button auto flat color="success" onClick={needToRegister}>
-            Necesito registrarme
-            </Button>
             <Button auto onClick={submitLogin}>
             Iniciar sesión
+            </Button>
+            </Row>
+            <Row justify="center" >
+            <GoogleLogin
+            
+            
+    clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
+    buttonText="Iniciar sesion con Google"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
+    </Row>
+        </Modal.Body>
+        <Modal.Footer justify="center">
+            <Button auto flat color="success" onClick={needToRegister}>
+            Necesito registrarme
             </Button>
         </Modal.Footer>
     </Modal>
