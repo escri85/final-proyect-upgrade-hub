@@ -22,7 +22,7 @@ function App({user, error}) {
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-       
+
           <Header toggleTheme={toggleTheme}/>
           <Search/>
             <Routes>

@@ -25,12 +25,11 @@ const Navbar = ({dispatch, error, user}) => {
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
-    console.log(user);
 
     const responseGoogle = (response) => {
         console.log(response);
-      }
-    
+    }
+
     const needToRegister = () =>{
         setVisible(false);
         navigate('/access');

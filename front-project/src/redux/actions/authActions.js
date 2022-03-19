@@ -25,7 +25,6 @@ export const registerUser = (form) =>{
             body: JSON.stringify(form),
         });
         const result = await registerRequest.json();
-
         (registerRequest.ok) ? dispatch({ type: AUTH_REGISTER_OK, payload: result}) : dispatch({ type: AUTH_REGISTER_ERROR, payload: false});
     };
 };
@@ -44,8 +43,8 @@ export const loginUser = (form) =>{
             credentials: "include",
             body: JSON.stringify(form),
         });
-        console.log(loginRequest);
         const result = await loginRequest.json();
+        console.log(result);
         (loginRequest.ok) ? dispatch({type: AUTH_LOGIN_OK, payload: result}) : dispatch({type: AUTH_LOGIN_ERROR, payload: result.message});
     };
 };
