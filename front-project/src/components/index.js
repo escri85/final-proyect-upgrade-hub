@@ -6,6 +6,7 @@ import AddProduct from './AddProduct/AddProduct';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Chat from './Chat/Chat';
 import Search from './Search/Search';
+import ProfileNavbar from './ProfileNavbar/ProfileNavbar';
 export {
     Cart,
     Footer,
@@ -15,4 +16,5 @@ export {
     PrivateRoute,
     Chat,
     Search,
+    ProfileNavbar
 }
