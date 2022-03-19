@@ -4,11 +4,12 @@ import { Navigate, useLocation } from "react-router-dom";
 import { Access, RegisterForm } from "../../pages";
 
 const PrivateRoute = ({user, component, ...restProps}) =>{
+
     const location = useLocation();
 
-    console.log(user);
+    console.log('USUARIO PRIVATE ROUTE->',user);
 
-    if (!component) throw new Error('Necesitas añadir una prop "component" al componente <PrivateRoute component={...} />');
+    if (!component) throw new Error('Jose, Luispa, Sergi y Hector no han pasado un componente :/');
 
     if (user === null) return <div>No hay usuario</div>
 

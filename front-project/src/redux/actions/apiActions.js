@@ -82,11 +82,10 @@ export const getAccesoriesToApi = () => {
                     return {amount: 1, ...element}
             }))
             dispatch(getAccesories(dataProducts));
-            console.log("Estos son los accesorios", dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getAccesoriesError());
-        }        
+        }
     }
 }
 
@@ -103,7 +102,6 @@ export const getManClothesToApi = () => {
                 return {amount: 1, ...element}
         }))
             dispatch(getManClothes(dataProducts));
-            console.log(dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getManClothesError());
@@ -124,7 +122,6 @@ export const getWomenClothesToApi = () => {
                 return {amount: 1, ...element}
         }))
             dispatch(getWomenClothes(dataProducts));
-            console.log("Estoy en redux", dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getWomenClothesError());
@@ -145,7 +142,6 @@ export const getShoesToApi = () => {
                 return {amount: 1, ...element}
         }))
             dispatch(getShoes(dataProducts));
-            console.log(dataProducts)
         } catch (error) {
             console.log(error);
             dispatch(getShoesError());
