@@ -1,7 +1,14 @@
 import { PanelMenu } from 'primereact/panelmenu';
+import { useContext } from 'react';
+import { ProfileContext } from '../../Contexts/ProfileContext';
 import './ProfileNavbar.scss';
 
 const ProfileNavbar = () =>{
+    const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
+
+    var showFavProductsFlag = false;
+    var showOrdersFlag = false;
+
         const items = [
             {
             label:'Favoritos',
@@ -11,7 +18,11 @@ const ProfileNavbar = () =>{
                     label:'Lista',
                     icon:'pi pi-fw pi-list',
                     command: () =>{
-                        console.log('Mostrando lista de favoritos');
+                        setProfileNavbarActions({
+                            showFavProducts: !showFavProductsFlag,
+                            showOrders: showOrdersFlag
+                        });
+                        console.log(profileNavbarActions)
                     }
                 },
                 {
@@ -45,6 +56,13 @@ const ProfileNavbar = () =>{
                 {
                     label:'Historial',
                     icon:'pi pi-fw pi-calendar',
+                    command: () =>{
+                        setProfileNavbarActions({
+                            showFavProducts: showFavProductsFlag,
+                            showOrders: !showOrdersFlag
+                        });
+                        console.log(profileNavbarActions)
+                    }
                 },
             ]
             }
