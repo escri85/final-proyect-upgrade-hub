@@ -1,11 +1,14 @@
 import { ProfileNavbar } from '../../components';
 import { Divider } from 'primereact/divider';
+import { useContext } from 'react';
 import { Card } from '@nextui-org/react';
 import {connect} from 'react-redux';
+import { ProfileContext } from '../../Contexts/ProfileContext';
 import './Profile.scss';
 
 
 const Profile = ({dispatch, user}) =>{
+    const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
     const userLoggedIn = user.email;
 
@@ -20,7 +23,19 @@ const Profile = ({dispatch, user}) =>{
                         <ProfileNavbar/>
                     </div>
                     <div className='profile__content-main'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla minima praesentium nemo incidunt quos temporibus? Eveniet autem saepe architecto placeat inventore dignissimos alias, illum, tenetur, possimus atque totam ex.</p>
+                        {(profileNavbarActions.showFavProducts)
+                        ?
+                            (profileNavbarActions.showFavProducts.length <3)
+                            ?
+                            profileNavbarActions.showFavProducts.map(product=>{
+                                <p>{product.title}</p>
+                                //CARTA -> PRODUCTOS
+                            })
+                            :
+                            <p>Vaya! Todavía no has añadido tus productos favoritos!</p>
+                        :
+                        <p>Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc</p>
+                        }
                     </div>
                 </div>
     </div>

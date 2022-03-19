@@ -8,6 +8,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
 import { FilterProvider} from './Contexts/FilterContext';
+import { ProfileProvider} from './Contexts/ProfileContext';
 
 
 
@@ -16,9 +17,11 @@ ReactDOM.render(
     <Router>
       <ThemeProvider>
         <FilterProvider>
-          <Provider store={store}>
-            <App />
-          </Provider>
+          <ProfileProvider>
+            <Provider store={store}>
+              <App />
+            </Provider>
+          </ProfileProvider>
         </FilterProvider>
       </ThemeProvider>
     </Router>
