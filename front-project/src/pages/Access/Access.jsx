@@ -32,16 +32,13 @@ const Access = ({dispatch, error, user}) =>{
 
     const submitLoginForm = (ev) =>{
         ev.preventDefault();
-        dispatch(loginUser(loginFormData));
-        navigate('/profile');
-
-        console.log('USUARIO->',user);
+        const cb = () => navigate('/profile')
+        dispatch(loginUser(loginFormData, cb));
     }
 
     const handleInputLogin = (ev) =>{
         const {name, value} = ev.target;
         setLoginFormData({ ...loginFormData, [name]: value});
-        console.log(error);
     }
 
     return (

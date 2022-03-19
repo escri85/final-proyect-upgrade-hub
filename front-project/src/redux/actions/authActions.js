@@ -29,7 +29,7 @@ export const registerUser = (form) =>{
     };
 };
 
-export const loginUser = (form) =>{
+export const loginUser = (form, cb) =>{
     return async (dispatch) =>{
         dispatch({ type: AUTH_LOGIN });
 
@@ -45,6 +45,13 @@ export const loginUser = (form) =>{
         });
         const result = await loginRequest.json();
         console.log(result);
-        (loginRequest.ok) ? dispatch({type: AUTH_LOGIN_OK, payload: result}) : dispatch({type: AUTH_LOGIN_ERROR, payload: result.message});
+
+        if(loginRequest.ok){
+            dispatch({type: AUTH_LOGIN_OK, payload: result})
+            cb()
+        }else{
+            dispatch({type: AUTH_LOGIN_ERROR, payload: result.message})
+        }
+
     };
 };
