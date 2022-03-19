@@ -8,6 +8,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
