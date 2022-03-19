@@ -33,7 +33,7 @@ const Navbar = ({dispatch, error, user}) => {
     
     const needToRegister = () =>{
         setVisible(false);
-        navigate('/register');
+        navigate('/access');
     };
 
     const closeHandler = () => {
