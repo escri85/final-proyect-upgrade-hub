@@ -12,6 +12,7 @@ const userSchema = new Schema(
       default: "basic",
       required: true,
     },
+    favProducts: {type: Array, required: false}
   },
   {
     timestamps: true,
