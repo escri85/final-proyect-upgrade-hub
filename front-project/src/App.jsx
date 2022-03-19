@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
-import Search from './components/Search/Search';
 import GoogleLogin from 'react-google-login';
 
 import {
