@@ -4,9 +4,10 @@ import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
-import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import { loginUser } from "../../../redux/actions/authActions";
 import { FilterContext } from "../../../Contexts/FilterContext";
+import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
+
 /*
 APUNTES:
 
@@ -23,6 +24,7 @@ const Navbar = ({dispatch, error, user}) => {
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
+    console.log(user);
 
     const needToRegister = () =>{
         setVisible(false);
@@ -31,7 +33,6 @@ const Navbar = ({dispatch, error, user}) => {
 
     const closeHandler = () => {
         setVisible(false);
-        console.log('closed');
     };
 
     const submitLogin = (ev) =>{
@@ -47,7 +48,19 @@ const Navbar = ({dispatch, error, user}) => {
         setFormData({...formData, [name]: value});
     };
 
-    const sendProductToFilter = (ev)=> setFilteredProducts(ev.target.value)
+    const sendProductToFilter = (ev)=> {
+        if(ev.target.value.length <1){
+            setFilteredProducts({
+                inputValue: '',
+                isTrusted: false
+            })
+        }else{
+            setFilteredProducts({
+                inputValue: ev.target.value,
+                isTrusted: true
+            });
+        }
+    }
 
 
 
