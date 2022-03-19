@@ -4,6 +4,9 @@ import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
+import Search from './components/Search/Search';
+import GoogleLogin from 'react-google-login';
+
 import {
   Routes,
   Route,
@@ -11,9 +14,11 @@ import {
 import React, { useState } from 'react';
 import './App.scss';
 
-
 function App({user, error}) {
   const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
 
   //CART
   const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
@@ -21,6 +26,13 @@ function App({user, error}) {
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
+        <GoogleLogin
+    clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
           <Header toggleTheme={toggleTheme}/>
           <Search/>
             <Routes>
