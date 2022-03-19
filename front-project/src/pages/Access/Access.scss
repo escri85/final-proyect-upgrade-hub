@@ -1,36 +1,90 @@
-.access{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+@media screen and (min-width: 480px) {
+    .access{
+        width: 100%;
+        padding: 1%;
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+        &__forms{
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            &-register, &-login{
+                box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                margin-top: 5%;
+                width: 45%;
+                display: flex;
+                align-items: center;
+                justify-content:center;
+                flex-direction: column;
+                padding: 1%;
+                border-radius: 2px;
+                &-input{
+                    margin: 3%;
+                }
+                &-btn{
+                    padding: 5%;
+                    margin-top: 10%;
+                    border-radius: 5px;
+                    border-color: #1C6EA4;
+                }
+                &-footer{
+                    margin-top: 5%;
+                    font-size: 0.9rem;
+                    border-top: 2px outset #1C6EA4;
+                    width: 40%;
+                    text-align: start;
+                    & a {
+                        text-decoration: none;
+                    }
+                }
+            }
+            &-login-error{
+                color: red;
+            }
+        }
+    }
 }
 
-.register__form, .login__form{
+
+
+
+
+
+
+.access{
     margin-top: 5%;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    flex-direction: column;
-    padding: 1%;
-    border: 3px double #b5a8a8;
-    border-radius: 2px;
-    &-input{
-        margin: 3%;
-    }
-    &-btn{
-        padding: 5%;
-        margin-top: 10%;
-        border-radius: 5px;
-        border-color: #1C6EA4;
-    }
-    &-footer{
-        margin-top: 5%;
-        font-size: 0.9rem;
-        border-top: 2px outset #1C6EA4;
-        width: 40%;
-        text-align: start;
-        & a {
-            text-decoration: none;
+    &__forms{
+        padding: 1%;
+        &-register, &-login{
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            margin-top: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2%;
+            &-input{
+                margin: 3%;
+            }
+            &-btn{
+                padding: 5%;
+                margin-top: 10%;
+                border-radius: 5px;
+                border-color: #1C6EA4;
+            }
+            &-footer{
+                margin-top: 5%;
+                font-size: 0.9rem;
+                border-top: 2px outset #1C6EA4;
+                width: 40%;
+                text-align: start;
+                & a {
+                    text-decoration: none;
+                }
+            }
+        }
+        &-login-error{
+            color: red;
         }
     }
 }

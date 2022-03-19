@@ -10,7 +10,7 @@ const PrivateRoute = ({user, component, ...restProps}) =>{
 
     if (!component) throw new Error('Necesitas añadir una prop "component" al componente <PrivateRoute component={...} />');
 
-    if (user === null) return <div>Cargando usuario...</div>
+    if (user === null) return <div>No hay usuario</div>
 
     if (user === false){
         {/* <Access userError = {user}/> */}
