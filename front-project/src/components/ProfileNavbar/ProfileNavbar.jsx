@@ -9,7 +9,10 @@ const ProfileNavbar = () =>{
             items:[
                 {
                     label:'Lista',
-                    icon:'pi pi-fw pi-list'
+                    icon:'pi pi-fw pi-list',
+                    command: () =>{
+                        console.log('Mostrando lista de favoritos');
+                    }
                 },
                 {
                     label:'Vaciar lista',
