@@ -94,6 +94,7 @@
 	display: inline-block;
 	vertical-align: top;
     width: 40%;
+	margin-left:7%;
 }
 
 
@@ -128,6 +129,7 @@
 	
 	p{
 		margin-right: 10px;
+		font-size: 0.9em;
 	}
 }
 
@@ -148,7 +150,7 @@
 	
 
 .footer-distributed{
-	 position: absolute;
+	 position: fixed;
 	 bottom: 0px;
     overflow: hidden;
     background-color: #f1f1f1;
