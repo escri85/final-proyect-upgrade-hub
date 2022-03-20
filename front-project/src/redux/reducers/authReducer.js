@@ -26,6 +26,12 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         case (actions.CHECK_SESSION_ERROR): {
             return {...state, error: '', user: false}
         }
+        case (actions.EDIT_USER_EMAIL_OK): {
+            return {...state, error: '', user: action.payload};
+        }
+        case (actions.EDIT_USER_EMAIL_ERROR): {
+            return {...state, error: action.payload}
+        }
         default:
             return state;
     };

@@ -1,4 +1,5 @@
 const passport = require("passport");
+const { findByIdAndUpdate } = require("../models/User");
 const User = require('../models/User');
 
 
@@ -44,7 +45,6 @@ module.exports = {
       if (error) {
         return res.status(401).json({message: error.message});
       }
-      
       req.logIn(user, (error) => {
         if (error) {
           return res.status(403).json({message: error.message});
@@ -71,4 +71,15 @@ module.exports = {
       return res.status(401).json({ message: 'Unexpected error' });
     }
   },
+
+  changeEmail: async (req, res, next) =>{
+    try{
+      const {id} = req.params;
+      const {email, passoword} = req.body;
+      const newUser = await User.findByIdAndUpdate(id,{$set:{email: email}});
+      return res.status(200).json(newUser);
+    }catch(error){
+      return next(error);
+    }
+  }
 };

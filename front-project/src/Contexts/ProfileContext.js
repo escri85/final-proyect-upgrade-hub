@@ -7,6 +7,7 @@ export const ProfileProvider = ({children})=>{
 
     const [profileNavbarActions, setProfileNavbarActions] = useState({
         showFavProducts: false,
+        showUserMailSettings: false,
         showOrders: false
     })
 

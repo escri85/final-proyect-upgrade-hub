@@ -1,4 +1,4 @@
-import { ProfileNavbar } from '../../components';
+import { ProfileNavbar, UserSettingsModal } from '../../components';
 import { Divider } from 'primereact/divider';
 import { useContext } from 'react';
 import { Card } from '@nextui-org/react';
@@ -11,6 +11,7 @@ const Profile = ({dispatch, user}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
     const userLoggedIn = user.email;
+    console.log(user)
 
     return <div className='profile'>
                 <div className='profile__header'>
@@ -23,6 +24,8 @@ const Profile = ({dispatch, user}) =>{
                         <ProfileNavbar/>
                     </div>
                     <div className='profile__content-main'>
+                        <div className='profile__content-main-favproducts'>
+                        {/* SHOW FAV PRODUCTS */}
                         {(profileNavbarActions.showFavProducts)
                         ?
                             (profileNavbarActions.showFavProducts.length <3)
@@ -35,6 +38,15 @@ const Profile = ({dispatch, user}) =>{
                             <p>Vaya! Todavía no has añadido tus productos favoritos!</p>
                         :
                         <p>Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc</p>
+                        }
+                        </div>
+                        {/* ¿ CAMBIAR E-MAIL ?  -> profileNavbarActions.showUserMail */}
+                        {
+                        (profileNavbarActions.showUserMailSettings)
+                        ?
+                        <UserSettingsModal/>
+                        :
+                        <p>INACTIVO</p>
                         }
                     </div>
                 </div>

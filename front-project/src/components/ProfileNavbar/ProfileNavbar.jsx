@@ -8,6 +8,7 @@ const ProfileNavbar = () =>{
 
     var showFavProductsFlag = false;
     var showOrdersFlag = false;
+    var showUserMailSettingsFlag = false;
 
         const items = [
             {
@@ -20,7 +21,8 @@ const ProfileNavbar = () =>{
                     command: () =>{
                         setProfileNavbarActions({
                             showFavProducts: !showFavProductsFlag,
-                            showOrders: showOrdersFlag
+                            showUserMailSettings: showUserMailSettingsFlag,
+                            showOrders: showOrdersFlag,
                         });
                         console.log(profileNavbarActions)
                     }
@@ -37,7 +39,15 @@ const ProfileNavbar = () =>{
             items:[
                 {
                     label:'E-mail',
-                    icon:'pi pi-fw pi-envelope'
+                    icon:'pi pi-fw pi-envelope',
+                    command: () =>{
+                        setProfileNavbarActions({
+                            showFavProducts: showFavProductsFlag,
+                            showUserMailSettings: !showUserMailSettingsFlag,
+                            showOrders: showOrdersFlag
+                        })
+                        console.log(profileNavbarActions);
+                    }
                 },
                 {
                     label:'Contraseña',
@@ -59,6 +69,7 @@ const ProfileNavbar = () =>{
                     command: () =>{
                         setProfileNavbarActions({
                             showFavProducts: showFavProductsFlag,
+                            showUserMailSettings: showUserMailSettingsFlag,
                             showOrders: !showOrdersFlag
                         });
                         console.log(profileNavbarActions)
