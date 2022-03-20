@@ -17,14 +17,33 @@ export const PayPlatform = (props) => {
     const [payType, setPayType] = React.useState('');
     const [price , setPrice] = React.useState(precio);
     const [payDone, setPayDone] = React.useState(false);
-    const [orderSent, setOrderSent] = React.useState(false)
-
+    const [orderSent, setOrderSent] = React.useState(false);
 
     const handleChange = (event) => {
         setPayType(event.target.value);
     };
 
     const payFunction = () => {setOrderSent(true)} 
+
+    var timeToSend = 1; 
+
+    const timeToSendP = props.cart.map((element)=>{
+        
+        if(element.shoppingFrom === "España"){
+            return timeToSend = 2;  
+        }
+        if(element.shoppingFrom === "Francia"){
+            return timeToSend = 3;
+        }
+        if(element.shoppingFrom === "Italia"){
+            return timeToSend = 4;
+        }
+        if(element.shoppingFrom === "Alemania"){
+            return timeToSend = 5;
+        }else{
+            return timeToSend = 5;
+        }
+    })
 
     return (<>
         <div className="c-platform">
@@ -125,8 +144,8 @@ export const PayPlatform = (props) => {
                 </div>
             </div>
             { orderSent && <div className="c-platform__order">
+                    <h4>El tiempo previsto de entrega serán {timeToSend} días</h4>    
                     <h4>Tu pedido se ha registrado correctamente</h4>
-
                     <button onClick={()=>{setOrderSent(false)}}>Aceptar</button>
 
             </div>}

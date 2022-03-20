@@ -8,14 +8,15 @@ $dark: #4e4e4e;
 
 .chatbox {
     
-    // position: fixed; 
-    // left: 75%;
-    // top: 60%;
-    // transform: translate(-50%, -50%);
+    position: fixed;
+	bottom: 20px;
+	right: 20px;
+    z-index: 5;
 
     &__button{
 
-        background: darken($rose, 10%);
+        width: 50px;
+        background: darken(rgb(101, 216, 101), 10%);
         padding: 10px;
         display: inline-block;
         outline: 0;
@@ -27,6 +28,15 @@ $dark: #4e4e4e;
         color: $white;
         cursor: pointer;
         margin: 10px;
+
+        &:hover{
+            width: 70px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+
+
         }
 
 }
