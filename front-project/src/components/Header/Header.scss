@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-
-$white: #f5f5f5;
-$light: #e0c9cb;
-$tan: #c3a1a0;
-$pink: #d9aab7;
-$rose: #ba7e7e;
-$dark: #4e4e4e;
+@import '../../variables.scss';
 
 .header{
 	z-index: 1;
 	width: 100%;
-    background-color:white;
+    background-color: $primary-bg-color;
 	opacity: 80%;
 
 	display: flex;
@@ -32,7 +26,7 @@ $dark: #4e4e4e;
 		font-size: 55px;
 		font-weight: bold;
 		font-family: 'Josefin Sans', sans-serif;
-		color: $rose;
+		color:$primary-text-color;
 	}
 }
 
@@ -42,7 +36,7 @@ $dark: #4e4e4e;
     justify-content: space-around;
     font-size: x-large;
 	font-size: 0.9rem;
-    background-color: #F8F8F8;
+    background-color: $primary-bg-color;
     align-items: center;
     justify-content: space-around
 }
@@ -59,20 +53,6 @@ $body-background: #353535;
 			format("woff2");
 }
 
-// body {
-// 	height: 100vh;
-// 	margin: 0;
-// 	background-color: $body-background;
-// 	font-family: "ubuntu", Arial, sans-serif;
-// 	overflow-x: hidden;
-// 	display: grid;
-// 	place-items: center;
-// }
-
-// a {
-// 	text-decoration: none;
-// 	color: #9ca0b1;
-// }
 
 
 /* On screens that are 992px or less. */
@@ -80,14 +60,14 @@ $body-background: #353535;
 	.header{
 		z-index: 1;
 		width: 100%;
-		background-color:white;
+		background-color:$primary-bg-color;
 		opacity: 80%;
-	
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	
+
 		&__title{
 			padding: 15px;
 	
@@ -108,7 +88,7 @@ $body-background: #353535;
 			font-size: 55px;
 			font-weight: bold;
 			font-family: 'Josefin Sans', sans-serif;
-			color: $rose;
+			color: $primary-text-color;
 		}
 	}
 	
@@ -118,14 +98,11 @@ $body-background: #353535;
 		justify-content: space-around;
 		font-size: x-large;
 		font-size: 0.9rem;
-		background-color: #F8F8F8;
+		background-color: $primary-bg-color;
 		align-items: center;
 		justify-content: space-around
 	}
-	
-	$avatar-size: 32px;
-	$body-background: #353535;
-	
+
 	@font-face {
 		font-family: "ubuntu";
 		font-style: italic;
@@ -135,13 +112,13 @@ $body-background: #353535;
 				format("woff2");
 	}
   }
-  
+
   /* On screens that are 600px or less. */
   @media screen and (max-width: 600px) {
 	.header{
 		z-index: 1;
 		width: 100%;
-		background-color:white;
+		background-color:$primary-bg-color;
 		opacity: 80%;
 	
 		display: flex;
@@ -180,14 +157,12 @@ $body-background: #353535;
 		justify-content: space-around;
 		font-size: x-large;
 		font-size: 0.9rem;
-		background-color: #F8F8F8;
+		background-color: $primary-bg-color;
 		align-items: center;
 		justify-content: space-around
 	}
-	
-	$avatar-size: 32px;
-	$body-background: #353535;
-	
+
+
 	@font-face {
 		font-family: "ubuntu";
 		font-style: italic;
