@@ -28,7 +28,10 @@
     "ckeckBox.item.shirts":"Camisetas",
     "ckeckBox.item.sweater":"Jerseys",
     "ckeckBox.item.skirt":"Falda",
-    "":"",
-    "":"",
+    "profile.session":"Has iniciado sesión como",
+    "profile.favs":"Vaya! Todavía no has añadido tus productos favoritos",
+    "profile.menu":"Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc",
+    "profile.inactive":"INACTIVO"
+    
     
 }

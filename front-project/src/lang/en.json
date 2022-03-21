@@ -28,6 +28,9 @@
     "ckeckBox.item.shirts":"T-Shirts",
     "ckeckBox.item.sweater":"Sweaters",
     "ckeckBox.item.skirt":"Skirt",
-    "":"",
-    "":"",
+    "profile.session":"You are logged in as",
+    "profile.favs":"Wow! You haven't added your favorite products yet",
+    "profile.menu":"You can use the menu to access your profile data, search for your favorite products, etc.",
+    "profile.inactive":"INACTIVE"
+   
 }
