@@ -81,21 +81,9 @@ const handleLogout=()=>{
         const {name, value} = ev.target;
         setFormData({...formData, [name]: value});
     };
-    const sendProductToFilter = (ev)=> {
-        if(ev.target.value.length <1){
-            setFilteredProducts({
-                inputValue: '',
-                isTrusted: false
-            })
-        }else{
-            setFilteredProducts({
-                inputValue: ev.target.value,
-                isTrusted: true
-            });
-        }
-    }
+
     const items = [
-        {label:loginData.profileObj.givenName},
+        /* {label:loginData.profileObj.givenName}, */
         {
         label: <T id="navbar.item.man" />,
 
@@ -163,7 +151,7 @@ const handleLogout=()=>{
             label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             command: () => {
-             handleLogout();
+            handleLogout();
             },
             },
             { label: <T id="navbar.item.login" />,
@@ -176,30 +164,16 @@ const handleLogout=()=>{
         },
     ];
 
-    const start = (
-        <img
-        alt="logo"
-        src="https://media.discordapp.net/attachments/946464137045737492/955070268261429298/YONKIES_DEL_CODIGO__1_-removebg-preview.png"
-        onError={(e) =>
-            (e.target.src =
-            "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-        }
-        height="60"
-        className="mr-2"
-        ></img>
-    );
     const end = (
         <div className="__swicth">
             <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>
         </div>
     )
-    const start = 
-     
-         (loginData &&   <img
+    const start = [
+        (loginData &&   <img
             style={{borderRadius:'100%'}}
             alt="logo"
             // src=''
-            
             src={loginData.profileObj.imageUrl}
             onError={(e) =>
                 (e.target.src =
@@ -208,11 +182,7 @@ const handleLogout=()=>{
                 height="40"
                 className="mr-2"
                 />)
-    
-    const end = <InputText
-                placeholder="Search"
-                type="text"
-                onChange={sendProductToFilter}/>;
+    ];
 
     return (
         <div>
@@ -259,7 +229,7 @@ const handleLogout=()=>{
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
             />
-              <Row justify="space-between">
+            <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
                 <T id="navbar.item.session" />
@@ -280,7 +250,7 @@ const handleLogout=()=>{
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
     // onClick={registerUserForGoogl}
-  />
+/>
     </Row>
         </Modal.Body>
         <Modal.Footer justify="center">

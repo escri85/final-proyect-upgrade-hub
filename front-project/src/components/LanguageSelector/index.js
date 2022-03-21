@@ -1,5 +1,5 @@
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
 
-export { 
+export {
     LanguageSelector,
 }

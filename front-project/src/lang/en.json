@@ -1,4 +1,5 @@
 {
+    "languageSelector.title": "Choose your language",
     "footer.help":"Help & Contact",
     "footer.sends":"Free shipping and returns",
     "footer.rights":"100-day return right.",
@@ -27,7 +28,5 @@
     "ckeckBox.item.coats":"Coats",
     "ckeckBox.item.shirts":"T-Shirts",
     "ckeckBox.item.sweater":"Sweaters",
-    "ckeckBox.item.skirt":"Skirt",
-    "":"",
-    "":"",
+    "ckeckBox.item.skirt":"Skirt"
 }
