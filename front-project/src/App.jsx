@@ -24,7 +24,6 @@ function App({user, error}) {
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
 
           <Header toggleTheme={toggleTheme}/>
-          <Search/>
             <Routes>
                 <Route path='/'>
                   <Route path="/" element={<Home/>}/>

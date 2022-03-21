@@ -5,9 +5,13 @@ import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
 import { loginUser } from "../../../redux/actions/authActions";
-import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
+import { InputSwitch } from 'primereact/inputswitch';
+import { ThemeContext } from "../../../Contexts/ThemeContext";
+import './Navbar.scss';
+
+
 
 /*
 APUNTES:
@@ -24,7 +28,9 @@ const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
+    const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
+
+
 
     const responseGoogle = (response) => {
         console.log(response);
@@ -51,22 +57,6 @@ const Navbar = ({dispatch, error, user}) => {
         const {name, value} = ev.target;
         setFormData({...formData, [name]: value});
     };
-
-    const sendProductToFilter = (ev)=> {
-        if(ev.target.value.length <1){
-            setFilteredProducts({
-                inputValue: '',
-                isTrusted: false
-            })
-        }else{
-            setFilteredProducts({
-                inputValue: ev.target.value,
-                isTrusted: true
-            });
-        }
-    }
-
-
 
     const items = [
         {
@@ -178,24 +168,25 @@ const Navbar = ({dispatch, error, user}) => {
     const start = (
         <img
         alt="logo"
-        src="showcase/images/logo.png"
+        src="https://media.discordapp.net/attachments/946464137045737492/955070268261429298/YONKIES_DEL_CODIGO__1_-removebg-preview.png"
         onError={(e) =>
             (e.target.src =
             "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
         }
-        height="40"
+        height="60"
         className="mr-2"
         ></img>
     );
-    const end = <InputText
-                placeholder="Search"
-                type="text"
-                onChange={sendProductToFilter}/>;
+    const end = (
+        <div className="__swicth">
+            <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>
+        </div>
+    )
 
     return (
         <div>
         <div className="card">
-            <Menubar model={items} start={start} end={end} />
+            <Menubar model={items} start={start} end={end}/>
         </div>
         <Modal
         closeButton
@@ -250,8 +241,6 @@ const Navbar = ({dispatch, error, user}) => {
             </Row>
             <Row justify="center" >
             <GoogleLogin
-            
-            
     clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
     buttonText="Iniciar sesion con Google"
     onSuccess={responseGoogle}
