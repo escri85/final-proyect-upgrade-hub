@@ -8,6 +8,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
 import { ProfileProvider} from './Contexts/ProfileContext';
+import LanguageWrapper from './Contexts/LanguageContext';
 
 
 
@@ -20,6 +21,15 @@ ReactDOM.render(
               <App />
             </Provider>
           </ProfileProvider>
+        <LanguageWrapper>
+          <FilterProvider>
+            <ProfileProvider>
+              <Provider store={store}>
+                <App />
+              </Provider>
+            </ProfileProvider>
+          </FilterProvider>
+        </LanguageWrapper>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,

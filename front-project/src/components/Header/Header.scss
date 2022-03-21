@@ -75,4 +75,125 @@ $body-background: #353535;
 // }
 
 
-
+/* On screens that are 992px or less. */
+@media screen and (max-width: 992px) {
+	.header{
+		z-index: 1;
+		width: 100%;
+		background-color:white;
+		opacity: 80%;
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	
+		&__title{
+			padding: 15px;
+	
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+	
+			max-width: 700px;
+	
+			& img {
+				width: 150px;
+			}
+		}
+	
+		&__text{
+			text-decoration: none;
+			font-size: 55px;
+			font-weight: bold;
+			font-family: 'Josefin Sans', sans-serif;
+			color: $rose;
+		}
+	}
+	
+	.header__sup{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		font-size: x-large;
+		font-size: 0.9rem;
+		background-color: #F8F8F8;
+		align-items: center;
+		justify-content: space-around
+	}
+	
+	$avatar-size: 32px;
+	$body-background: #353535;
+	
+	@font-face {
+		font-family: "ubuntu";
+		font-style: italic;
+		font-weight: 300;
+		src: local("Lato Light Italic"), local("Lato-LightItalic"),
+			url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2)
+				format("woff2");
+	}
+  }
+  
+  /* On screens that are 600px or less. */
+  @media screen and (max-width: 600px) {
+	.header{
+		z-index: 1;
+		width: 100%;
+		background-color:white;
+		opacity: 80%;
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	
+		&__title{
+			padding: 15px;
+	
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+	
+			max-width: 700px;
+	
+			& img {
+				width: 100px;
+			}
+		}
+	
+		&__text{
+			display: none;
+			// text-decoration: none;
+			// font-size: 55px;
+			// font-weight: bold;
+			// font-family: 'Josefin Sans', sans-serif;
+			// color: $rose;
+		}
+	}
+	
+	.header__sup{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		font-size: x-large;
+		font-size: 0.9rem;
+		background-color: #F8F8F8;
+		align-items: center;
+		justify-content: space-around
+	}
+	
+	$avatar-size: 32px;
+	$body-background: #353535;
+	
+	@font-face {
+		font-family: "ubuntu";
+		font-style: italic;
+		font-weight: 300;
+		src: local("Lato Light Italic"), local("Lato-LightItalic"),
+			url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2)
+				format("woff2");
+	}
+  }

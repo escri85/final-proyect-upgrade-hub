@@ -1,0 +1,74 @@
+$white: #f5f5f5;
+$light: #e0c9cb;
+$tan: #c3a1a0;
+$pink: #d9aab7;
+$rose: #ba7e7e;
+$dark: #4e4e4e;
+
+.contenedor__cookies{
+
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #4e4e4e;
+    & .texto{
+        & p{
+            text-align: left;
+            font-size: 20px;
+            padding: 10px;
+        }
+    }
+    & .botones{
+        & button{
+            background: darken($light, 10%);
+        padding: 10px;
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        margin: 20px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $white;
+        font-size: 1em;
+        cursor: pointer;
+        &:hover {
+          background: $rose;
+          transition: all 0.4s ease-in-out;
+        }
+        }
+    }
+}
+.contenedor__cookies {
+    -webkit-animation-name: contenedor__cookies;
+    animation-name: contenedor__cookies;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes contenedor__cookies {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    }
+    @keyframes contenedor__cookies {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    } 
+  
