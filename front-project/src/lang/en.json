@@ -23,8 +23,11 @@
     "ckeckBox.item.Hat":"Hats",
     "ckeckBox.item.Belt":"Belt",
     "ckeckBox.item.price":"Price",
-    "ckeckBox.item.price":"Trousers",
+    "ckeckBox.item.trousers":"Trousers",
+    "ckeckBox.item.coats":"Coats",
+    "ckeckBox.item.shirts":"T-Shirts",
+    "ckeckBox.item.sweater":"Sweaters",
+    "ckeckBox.item.skirt":"Skirt",
     "":"",
     "":"",
-    "":""
 }
