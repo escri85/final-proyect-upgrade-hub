@@ -42,6 +42,7 @@ const Navbar = ({dispatch, error, user}) => {
 
 const [loginData,setLoginData]=useState(local_Storage)
     console.log('esto es el loginData',loginData);
+
     
     const registerUserForGoogl = ()=>{
         console.log(loginData);
@@ -83,7 +84,9 @@ const handleLogout=()=>{
     };
 
     const items = [
-        /* {label:loginData.profileObj.givenName}, */
+
+        {label:loginData && loginData.profileObj.givenName},
+
         {
         label: <T id="navbar.item.man" />,
 
@@ -228,6 +231,7 @@ const handleLogout=()=>{
                 value={formData.password}
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
+                
             />
             <Row justify="space-between">
             <Checkbox>

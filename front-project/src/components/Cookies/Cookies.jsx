@@ -22,6 +22,7 @@ const handleConfiguration =()=>{
   { message &&
     <div className="contenedor__cookies" >
       <div className="texto">
+          <h1>Politica de cookies</h1>
         <p>
           Con su acuerdo, nosotros y nuestros socios usamos cookies o
           tecnologías similares para almacenar, acceder y procesar datos
