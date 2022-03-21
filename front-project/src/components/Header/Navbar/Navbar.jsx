@@ -5,10 +5,13 @@ import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
 import { loginUser } from "../../../redux/actions/authActions";
-import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
+import { InputSwitch } from 'primereact/inputswitch';
+import { ThemeContext } from "../../../Contexts/ThemeContext";
+import './Navbar.scss';
 import { FormattedMessage  as T} from 'react-intl';
+
 
 
 /*
@@ -26,7 +29,9 @@ const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
+    const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
+
+
 
     console.log(user);
     
@@ -37,6 +42,7 @@ const Navbar = ({dispatch, error, user}) => {
 
 const [loginData,setLoginData]=useState(local_Storage)
     console.log('esto es el loginData',loginData);
+
     
     const registerUserForGoogl = ()=>{
         console.log(loginData);
@@ -77,25 +83,10 @@ const handleLogout=()=>{
         setFormData({...formData, [name]: value});
     };
 
-    const sendProductToFilter = (ev)=> {
-        if(ev.target.value.length <1){
-            setFilteredProducts({
-                inputValue: '',
-                isTrusted: false
-            })
-        }else{
-            setFilteredProducts({
-                inputValue: ev.target.value,
-                isTrusted: true
-            });
-        }
-    }
-
-    
-
-
     const items = [
-        {label:loginData.profileObj.givenName},
+
+        {label:loginData && loginData.profileObj.givenName},
+
         {
         label: <T id="navbar.item.man" />,
 
@@ -163,7 +154,7 @@ const handleLogout=()=>{
             label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             command: () => {
-             handleLogout();
+            handleLogout();
             },
             },
             { label: <T id="navbar.item.login" />,
@@ -176,13 +167,16 @@ const handleLogout=()=>{
         },
     ];
 
-    const start = 
-     
-         (loginData &&   <img
+    const end = (
+        <div className="__swicth">
+            <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>
+        </div>
+    )
+    const start = [
+        (loginData &&   <img
             style={{borderRadius:'100%'}}
             alt="logo"
             // src=''
-            
             src={loginData.profileObj.imageUrl}
             onError={(e) =>
                 (e.target.src =
@@ -191,16 +185,12 @@ const handleLogout=()=>{
                 height="40"
                 className="mr-2"
                 />)
-    
-    const end = <InputText
-                placeholder="Search"
-                type="text"
-                onChange={sendProductToFilter}/>;
+    ];
 
     return (
         <div>
         <div className="card">
-            <Menubar model={items} start={start} end={end} />
+            <Menubar model={items} start={start} end={end}/>
         </div>
         <Modal
         closeButton
@@ -241,8 +231,9 @@ const handleLogout=()=>{
                 value={formData.password}
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
+                
             />
-              <Row justify="space-between">
+            <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
                 <T id="navbar.item.session" />
@@ -255,13 +246,15 @@ const handleLogout=()=>{
             </Row>
             <Row justify="center" >
             <GoogleLogin
-    clientId='966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com'
+
+    clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
+
     buttonText="Iniciar sesion con Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
     // onClick={registerUserForGoogl}
-  />
+/>
     </Row>
         </Modal.Body>
         <Modal.Footer justify="center">

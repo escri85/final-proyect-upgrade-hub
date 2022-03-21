@@ -31,6 +31,8 @@ const Profile = ({dispatch, user}) =>{
                         ?
                             (profileNavbarActions.showFavProducts.length <3)
                             ?
+                            /* AQUÍ RECORREREMOS A FUTURO EL LOCAL STORAGE DE PRODUCTOS FAVORITOS
+                            ESTE MAP ES UNA PRUEBA SIMPLEMENTE */
                             profileNavbarActions.showFavProducts.map(product=>{
                                 <p>{product.title}</p>
                                 //CARTA -> PRODUCTOS
