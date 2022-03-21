@@ -1,4 +1,5 @@
 {
+    "languageSelector.title": "Elige tu idioma",
     "footer.help":"Ayuda y contacto ",
     "footer.sends":"Envios y devoluciones gratuitos",
     "footer.rights":"Derecho de devolucion  de 100 dias",
@@ -27,8 +28,5 @@
     "ckeckBox.item.coats":"Abrigos",
     "ckeckBox.item.shirts":"Camisetas",
     "ckeckBox.item.sweater":"Jerseys",
-    "ckeckBox.item.skirt":"Falda",
-    "":"",
-    "":"",
-    
+    "ckeckBox.item.skirt":"Falda"
 }

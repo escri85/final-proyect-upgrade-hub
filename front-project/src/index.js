@@ -18,18 +18,11 @@ ReactDOM.render(
       <ThemeProvider>
           <ProfileProvider>
             <Provider store={store}>
+              <LanguageWrapper>
               <App />
+              </LanguageWrapper>
             </Provider>
           </ProfileProvider>
-        <LanguageWrapper>
-          <FilterProvider>
-            <ProfileProvider>
-              <Provider store={store}>
-                <App />
-              </Provider>
-            </ProfileProvider>
-          </FilterProvider>
-        </LanguageWrapper>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
