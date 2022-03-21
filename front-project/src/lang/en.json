@@ -16,5 +16,15 @@
     "navbar.item.session":"Keep Session",
     "navbar.item.loginGoogle":"Log In with Google",
     "navbar.item.registerRequired":"Register Required",
+    "gallery.addtocart":"Add to Cart",
+    "ckeckBox.item.scarf":"Scarf",
+    "ckeckBox.item.Necklaces":"NeckLaces",
+    "ckeckBox.item.Earrings":"Earrings",
+    "ckeckBox.item.Hat":"Hats",
+    "ckeckBox.item.Belt":"Belt",
+    "ckeckBox.item.price":"Price",
+    "":"",
+    "":"",
+    "":"",
     "":""
 }

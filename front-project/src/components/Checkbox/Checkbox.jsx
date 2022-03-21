@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FormattedMessage  as T} from 'react-intl';
 
 export const Checkbox = () => {
 

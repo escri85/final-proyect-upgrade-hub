@@ -16,5 +16,17 @@
     "navbar.item.session":"Mantener Sesión",
     "navbar.item.loginGoogle":"Iniciar Sesión con Google",
     "navbar.item.registerRequired":"Necesitas Registrarte",
+    "gallery.addtocart":"Añadir al carrito",
+    "ckeckBox.item.scarf":"Pañuelos",
+    "ckeckBox.item.Necklaces":"Collares",
+    "ckeckBox.item.Earrings":"Pendientes",
+    "ckeckBox.item.Hat":"Gorros",
+    "ckeckBox.item.Belt":"Cinturón",
+    "ckeckBox.item.price":"Precio",
+    "":"",
+    "":"",
+    "":"",
+    "":"",
     "":""
+    
 }

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getToApi } from '../../redux/actions/apiActions';
 import { Rating } from 'primereact/rating';
+import { FormattedMessage  as T} from 'react-intl';
 
 const Gallery = (props) => {
 
@@ -36,7 +37,7 @@ const Gallery = (props) => {
                         <div className="cart"  >
                         <span className="price">{product.price}€</span>
                         <span className="add-to-cart">
-                            <span className="txt">Añadir al carrito</span>
+                            <span className="txt">< T id='gallery.addtocart'/></span>
                         </span>
                         </div>
                     </div>
