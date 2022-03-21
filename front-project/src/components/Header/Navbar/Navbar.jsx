@@ -4,7 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
-import { loginUser } from "../../../redux/actions/authActions";
+import { loginUser,logoutUser } from "../../../redux/actions/authActions";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
 import { InputSwitch } from 'primereact/inputswitch';
@@ -31,19 +31,14 @@ const Navbar = ({dispatch, error, user}) => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
 
-
-
-    console.log(user);
-    
     // const client_id=process.env.GOOGLE_CLIENT_ID
-    
+
     console.log(process.env);
     const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
 
 const [loginData,setLoginData]=useState(local_Storage)
     console.log('esto es el loginData',loginData);
 
-    
     const registerUserForGoogl = ()=>{
         console.log(loginData);
     }
@@ -56,6 +51,7 @@ const [loginData,setLoginData]=useState(local_Storage)
     const closeHandler = () => {
         setVisible(false);
     };
+
     const responseGoogle=(response)=>{
         console.log('esta es otro login',response);
         localStorage.setItem('loginData',JSON.stringify(response))
@@ -63,20 +59,24 @@ const [loginData,setLoginData]=useState(local_Storage)
         setVisible(false)
     }
 
-    
-// const handleLogin=(googleData)=>{
-//     console.log(googleData);
-// }
-const handleLogout=()=>{
-    localStorage.removeItem('loginData')
-}
+//////  LOGIN Y LOGOUT GOOGLE?  //////
+
+/*     const handleLogin=(googleData)=>{
+        console.log(googleData);
+    }
+    const handleLogout=()=>{
+        localStorage.removeItem('loginData')
+    } */
+//////////////////////////////////////////////
+
+
     const submitLogin = (ev) =>{
         ev.preventDefault();
-        console.log('Con esto vas a loguear',formData);
         dispatch(loginUser(formData));
         setVisible(false);
         navigate('/profile');
     };
+
 
     const changeInput = (ev) =>{
         const {name, value} = ev.target;
@@ -154,8 +154,9 @@ const handleLogout=()=>{
             label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             command: () => {
-            handleLogout();
-            },
+                dispatch(logoutUser())
+                navigate('/home');
+            }
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
