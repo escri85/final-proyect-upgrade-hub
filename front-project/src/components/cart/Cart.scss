@@ -33,6 +33,7 @@ $dark: #4e4e4e;
           width: 290px;
          
         }
+        
       }
 
       & .product {
@@ -114,6 +115,8 @@ $dark: #4e4e4e;
     & h1 {
       font-size: 1.2em;
       color: $dark;
+         
+   
     }
 
     & h2 {
@@ -124,5 +127,266 @@ $dark: #4e4e4e;
     background: $white;
     box-shadow: 5px 5px 15px rgba($rose, 0.5);
     border-radius: 10px;
+}
   }
+/* On screens that are 992px or less,  */
+@media screen and (max-width: 992px) {
+  .container__all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
+    & .items {
+      & .container {
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+        width: 520px;
+        height: 350px;
+        background: $white;
+        box-shadow: 5px 5px 15px rgba($rose, 0.5);
+        border-radius: 10px;
+        width: 600px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        padding: 10px;
+        margin: 10px;
+        & .images {
+          align-items: center;
+          & img {
+            width: 290px;
+           
+          }
+          
+        }
+  
+        & .product {
+          position: absolute;
+          width: 40%;
+          height: 100%;
+          top: 10%;
+          left: 60%;
+          margin: -10px;
+          & p {
+            font-size: 0.6em;
+            color: $rose;
+            letter-spacing: 1px;
+          }
+  
+          & h1 {
+            font-size: 1.2em;
+            color: $dark;
+            margin-top: -5px;
+          }
+  
+          & h2 {
+            color: $tan;
+            margin-top: -5px;
+          }
+          & .desc {
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 17px;
+            color: $dark;
+            font-size: 0.7em;
+            line-height: 1.6em;
+            margin-right: 25px;
+            text-align: justify;
+          }
+        }
+      }
+  
+      & .buttons {
+          margin: 10px;
+        button {
+          background: darken($light, 10%);
+          padding: 10px;
+          display: inline-block;
+          outline: 0;
+          border: 0;
+          margin: 20px;
+          border-radius: 2px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: $white;
+          font-size: 1em;
+          cursor: pointer;
+          &:hover {
+            background: $rose;
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
+    }
+    & .tramitar {
+      & button {
+        background: darken($light, 10%);
+        padding: 10px;
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        margin: -1px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $white;
+        cursor: pointer;
+        &:hover {
+          background: $rose;
+          transition: all 0.4s ease-in-out;
+        }
+      }
+      & h1 {
+        font-size: 1.2em;
+        color: $dark;
+
+      }
+
+      & h2 {
+        color: $tan;
+      }   padding: 10px;
+      width: 520px;
+      height: auto;
+      background: $white;
+      box-shadow: 5px 5px 15px rgba($rose, 0.5);
+      border-radius: 10px;
+  }
+    }
+}
+
+/* On screens that are 600px or less,  */
+@media screen and (max-width: 600px) {
+  .container__all {
+    
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
+    & .items {
+      & .container {
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+        width: 400px;
+        height: 250px;
+        background: $white;
+        box-shadow: 5px 5px 15px rgba($rose, 0.5);
+        border-radius: 10px;
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        padding: 10px;
+        margin: 10px;
+        & .images {
+          align-items: center;
+          & img {
+            width: 200px;
+           
+          }
+          
+        }
+  
+        & .product {
+          
+          position: absolute;
+          width: 40%;
+          height: 20%;
+          top: 10%;
+          left: 60%;
+          margin: -10px;
+          & p {
+            font-size: 0.6em;
+            color: $rose;
+            letter-spacing: 1px;
+          }
+  
+          & h1 {
+            font-size: 0.9em;
+            color: $dark;
+            margin-top: -5px;
+          }
+  
+          & h2 {
+            color: $tan;
+            margin-top: -5px;
+            font-size: 0.9em;
+          }
+          & .desc {
+            // text-transform: none;
+            // letter-spacing: 0;
+            // margin-bottom: 17px;
+            // color: $dark;
+            // font-size: 0.7em;
+            // line-height: 1.6em;
+            // margin-right: 25px;
+            // text-align: justify;
+            display:none;
+          }
+        }
+      }
+  
+      & .buttons {
+          margin: 5px;
+        button {
+          background: darken($light, 10%);
+          padding: 10px;
+          display: inline-block;
+          outline: 0;
+          border: 0;
+          margin: 5px;
+          border-radius: 2px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: $white;
+          font-size: 1em;
+          cursor: pointer;
+          &:hover {
+            background: $rose;
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
+    }
+    & .tramitar {
+      & button {
+        background: darken($light, 10%);
+        padding: 10px;
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        margin: -1px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $white;
+        cursor: pointer;
+        &:hover {
+          background: $rose;
+          transition: all 0.4s ease-in-out;
+        }
+      }
+      & h1 {
+        font-size: 0.9em;
+        color: $dark;
+           
+     
+      }
+  
+      & h2 {
+        color: $tan;
+        font-size: 0.9em;
+      }  
+    
+      padding: 10px;
+      width: 300px;
+      height: auto;
+      background: $white;
+      box-shadow: 5px 5px 15px rgba($rose, 0.5);
+      border-radius: 10px;
+  }
+    }
 }

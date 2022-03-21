@@ -25,6 +25,7 @@ const Navbar = ({dispatch, error, user}) => {
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
+
     console.log(user);
     
     // const client_id=process.env.GOOGLE_CLIENT_ID
@@ -38,6 +39,7 @@ const [loginData,setLoginData]=useState(local_Storage)
     const registerUserForGoogl = ()=>{
         console.log(loginData);
     }
+
     const needToRegister = () =>{
         setVisible(false);
         navigate('/access');
