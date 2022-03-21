@@ -84,7 +84,9 @@ const [loginData,setLoginData]=useState(local_Storage)
     };
 
     const items = [
-        /* {label:loginData.profileObj.givenName}, */
+
+        {label:loginData && loginData.profileObj.givenName},
+
         {
         label: <T id="navbar.item.man" />,
 
@@ -230,6 +232,7 @@ const [loginData,setLoginData]=useState(local_Storage)
                 value={formData.password}
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
+                
             />
             <Row justify="space-between">
             <Checkbox>
