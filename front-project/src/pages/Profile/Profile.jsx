@@ -5,6 +5,7 @@ import { Card } from '@nextui-org/react';
 import {connect} from 'react-redux';
 import { ProfileContext } from '../../Contexts/ProfileContext';
 import './Profile.scss';
+import { FormattedMessage  as T} from 'react-intl';
 
 
 const Profile = ({dispatch, user}) =>{
@@ -16,7 +17,7 @@ const Profile = ({dispatch, user}) =>{
     return <div className='profile'>
                 <div className='profile__header'>
                     <Card bordered shadow={false} color="gradient" hoverable css={{ mw: "400px" }}>
-                        <p>Has iniciado sesión como <span>{userLoggedIn}</span></p>
+                        <p>< T id='profile.session'/> <span>{userLoggedIn}</span></p>
                     </Card>
                 </div>
                 <div className='profile__content'>
@@ -37,9 +38,9 @@ const Profile = ({dispatch, user}) =>{
                                 //CARTA -> PRODUCTOS
                             })
                             :
-                            <p>Vaya! Todavía no has añadido tus productos favoritos!</p>
+                            <p><T id='profile.favs'/></p>
                         :
-                        <p>Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc</p>
+                        <p>< T id='profile.menu'/></p>
                         }
                         </div>
                         {/* ¿ CAMBIAR E-MAIL ?  -> profileNavbarActions.showUserMail */}
@@ -48,7 +49,7 @@ const Profile = ({dispatch, user}) =>{
                         ?
                         <UserSettingsModal/>
                         :
-                        <p>INACTIVO</p>
+                        <p>< T id='profile.inactive'/></p>
                         }
                     </div>
                 </div>
