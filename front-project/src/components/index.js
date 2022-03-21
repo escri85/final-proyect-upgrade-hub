@@ -8,7 +8,7 @@ import Chat from './Chat/Chat';
 import Search from './Search/Search';
 import ProfileNavbar from './ProfileNavbar/ProfileNavbar';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
-
+import Cookies from './Cookies/Cookies';
 
 export {
     Cart,
@@ -20,5 +20,6 @@ export {
     Chat,
     Search,
     ProfileNavbar,
-    UserSettingsModal
+    UserSettingsModal,
+    Cookies
 }

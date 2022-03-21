@@ -1,5 +1,5 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute, Chat, Search} from './components';
+import { Footer, Header, AddProduct, PrivateRoute, Chat, Search,Cookies} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
@@ -20,11 +20,13 @@ function App({user, error}) {
   const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
   const [cart, setCart] = useState([]);
 
+
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
 
           <Header toggleTheme={toggleTheme}/>
           <Search/>
+          <Cookies/>
             <Routes>
                 <Route path='/'>
                   <Route path="/" element={<Home/>}/>
@@ -40,7 +42,7 @@ function App({user, error}) {
                 </Route>
             </Routes>
             <Chat/>
-          <Footer/>
+          {/* <Footer/> */}
       </div>
   );
 }

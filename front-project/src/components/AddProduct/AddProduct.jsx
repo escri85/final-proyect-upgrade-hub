@@ -23,11 +23,15 @@ const AddProduct = () => {
   const [catego, setCatego] = useState();
   const [routesCategorie, setRoutescategorie] = useState("");
   const [spinner, setSpinner] = useState(false);
-  
-  
+  const [viewWindow, setviewWindow] = useState(false)
+ 
+
   const handleChange = (event) => {
     const names = event.target.name;
     const values = event.target.value;
+
+    
+    setviewWindow(true)
     
     setNewProduct({
       ...newProduct,
@@ -163,11 +167,15 @@ const AddProduct = () => {
             onChange={handleChange}
             placeholder="url de imagen"
             name="image"
+            validateOnly={false}
+
           />
           <Button label="+ Subir Producto" />
           {spinner === true ? <ProgressSpinner /> : undefined}
         </form>
       </div>
+      {viewWindow && (
+
       <div className="addProduct__confirm">
         <div className="el-wrapper">
           <div className="box-up">
@@ -195,6 +203,7 @@ const AddProduct = () => {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };
