@@ -8,7 +8,9 @@ import { loginUser } from "../../../redux/actions/authActions";
 import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
-// import { useGoogleLogin } from 'react-google-login'
+import { FormattedMessage  as T} from 'react-intl';
+
+
 /*
 APUNTES:
 
@@ -95,17 +97,17 @@ const handleLogout=()=>{
     const items = [
         {label:loginData.profileObj.givenName},
         {
-        label: "Hombre",
+        label: <T id="navbar.item.man" />,
 
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/man");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/manshoes");
             },
@@ -116,22 +118,22 @@ const handleLogout=()=>{
         ],
         },
         {
-        label: "Mujer",
+        label: <T id="navbar.item.woman" />,
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/women");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/womenshoes");
             },
             },
             {
-            label: "Complementos",
+            label: <T id="navbar.item.accessories" />,
             command: () => {
                 navigate("/accessories");
             },
@@ -139,7 +141,7 @@ const handleLogout=()=>{
         ],
         },
         {
-        label: "Subir producto",
+        label: <T id="navbar.item.upload" />,
         icon: "pi pi-fw pi-plus",
         command: () => {
             navigate("/add");
@@ -147,24 +149,24 @@ const handleLogout=()=>{
         },
 
         {
-        label: "Carrito",
+        label: <T id="navbar.item.cart" />,
         icon: "pi pi-fw pi-shopping-cart",
         command: () => {
             navigate("/cart");
         },
         },
         {
-        label: "Cuenta",
+        label: <T id="navbar.item.account"/>,
         icon: "pi pi-fw pi-power-off",
         items: [
             {
-            label: "Logout",
+            label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             command: () => {
              handleLogout();
             },
             },
-            { label: "Iniciar sesión",
+            { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
             command: () =>{
                 setVisible(true);
@@ -211,7 +213,7 @@ const handleLogout=()=>{
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
             <Text b size={18}>
-                Inicio de sesión
+                <T id="navbar.item.login"/>
             </Text>
             </Text>
         </Modal.Header>
@@ -243,12 +245,12 @@ const handleLogout=()=>{
               <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
-                Mantener sesión
+                <T id="navbar.item.session" />
                 {/* COOKIES */}
                 </Text>
             </Checkbox>
             <Button auto onClick={submitLogin}>
-            Iniciar sesión
+            <T id="navbar.item.login" />
             </Button>
             </Row>
             <Row justify="center" >
@@ -264,7 +266,7 @@ const handleLogout=()=>{
         </Modal.Body>
         <Modal.Footer justify="center">
             <Button auto flat color="success" onClick={needToRegister}>
-            Necesito registrarme
+            <T id="navbar.item.registerRequired" />
             </Button>
         </Modal.Footer>
     </Modal>

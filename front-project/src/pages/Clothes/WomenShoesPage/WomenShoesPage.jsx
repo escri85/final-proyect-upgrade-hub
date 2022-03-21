@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getShoesToApi } from '../../../redux/actions/apiActions';
 import Card from '../../../components/Card/Card';
+import { FormattedMessage  as T} from 'react-intl';
 
 const WomenShoesPage = (props) => {
 
@@ -79,7 +80,7 @@ const WomenShoesPage = (props) => {
                 <label htmlFor="checkbox">Converse</label>
                 <input type="checkbox" onChange={handleChangeConverse} />
 
-                <label htmlFor="precio">Precio</label>
+                <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
                 <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
                 <p>{inputValue}</p>
             </div>
