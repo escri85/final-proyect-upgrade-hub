@@ -28,8 +28,18 @@ const Navbar = ({dispatch, error, user}) => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
 
-    const responseGoogle = (response) => {
-        console.log(response);
+    console.log(user);
+    
+    // const client_id=process.env.GOOGLE_CLIENT_ID
+    
+    console.log(process.env);
+    const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
+
+const [loginData,setLoginData]=useState(local_Storage)
+    console.log('esto es el loginData',loginData);
+    
+    const registerUserForGoogl = ()=>{
+        console.log(loginData);
     }
 
     const needToRegister = () =>{
@@ -40,7 +50,20 @@ const Navbar = ({dispatch, error, user}) => {
     const closeHandler = () => {
         setVisible(false);
     };
+    const responseGoogle=(response)=>{
+        console.log('esta es otro login',response);
+        localStorage.setItem('loginData',JSON.stringify(response))
+        setLoginData(response)
+        setVisible(false)
+    }
 
+    
+// const handleLogin=(googleData)=>{
+//     console.log(googleData);
+// }
+const handleLogout=()=>{
+    localStorage.removeItem('loginData')
+}
     const submitLogin = (ev) =>{
         ev.preventDefault();
         console.log('Con esto vas a loguear',formData);
@@ -68,9 +91,11 @@ const Navbar = ({dispatch, error, user}) => {
         }
     }
 
+    
 
 
     const items = [
+        {label:loginData.profileObj.givenName},
         {
         label: <T id="navbar.item.man" />,
 
@@ -129,32 +154,6 @@ const Navbar = ({dispatch, error, user}) => {
         command: () => {
             navigate("/cart");
         },
-        // items: [
-        //     {
-        //         label: 'Edit',
-        //         icon: 'pi pi-fw pi-pencil',
-        //         items: [
-        //             {
-        //                 label: 'Save',
-        //                 icon: 'pi pi-fw pi-calendar-plus'
-        //             },
-        //             {
-        //                 label: 'Delete',
-        //                 icon: 'pi pi-fw pi-calendar-minus'
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         label: 'Archieve',
-        //         icon: 'pi pi-fw pi-calendar-times',
-        //         items: [
-        //             {
-        //                 label: 'Remove',
-        //                 icon: 'pi pi-fw pi-calendar-minus'
-        //             }
-        //         ]
-        //     }
-        // ]
         },
         {
         label: <T id="navbar.item.account"/>,
@@ -163,9 +162,9 @@ const Navbar = ({dispatch, error, user}) => {
             {
             label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
-            // command: () => {
-            //  navigate("/login");
-            // },
+            command: () => {
+             handleLogout();
+            },
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
@@ -177,18 +176,22 @@ const Navbar = ({dispatch, error, user}) => {
         },
     ];
 
-    const start = (
-        <img
-        alt="logo"
-        src="showcase/images/logo.png"
-        onError={(e) =>
-            (e.target.src =
-            "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-        }
-        height="40"
-        className="mr-2"
-        ></img>
-    );
+    const start = 
+     
+         (loginData &&   <img
+            style={{borderRadius:'100%'}}
+            alt="logo"
+            // src=''
+            
+            src={loginData.profileObj.imageUrl}
+            onError={(e) =>
+                (e.target.src =
+                    "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+                }
+                height="40"
+                className="mr-2"
+                />)
+    
     const end = <InputText
                 placeholder="Search"
                 type="text"
@@ -252,13 +255,12 @@ const Navbar = ({dispatch, error, user}) => {
             </Row>
             <Row justify="center" >
             <GoogleLogin
-            
-            
-    clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
+    clientId='966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com'
     buttonText="Iniciar sesion con Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
+    // onClick={registerUserForGoogl}
   />
     </Row>
         </Modal.Body>

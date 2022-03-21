@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getManClothesToApi } from '../../../redux/actions/apiActions';
 import Card from '../../../components/Card/Card';
+import { FormattedMessage  as T} from 'react-intl';
 
 const ManClothesPage = (props) => {
 

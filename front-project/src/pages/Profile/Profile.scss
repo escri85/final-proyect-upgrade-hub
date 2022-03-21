@@ -28,6 +28,11 @@
                 justify-content: center;
                 border: 1px solid red;
                 margin: 5%;
+                &-favproducts{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
             }
         }
     }
