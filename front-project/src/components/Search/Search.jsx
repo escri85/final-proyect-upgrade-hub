@@ -1,14 +1,14 @@
 import React from 'react'
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { getAccesoriesToApi, getManClothesToApi, getShoesToApi, getWomenClothesToApi } from '../../redux/actions/apiActions';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
-import { FilterContext } from '../../Contexts/FilterContext';
+import { InputText } from 'primereact/inputtext';
 import './Search.scss';
 
 
 const Search = (props) => {
-    const [filteredProducts] = useContext(FilterContext);
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         props.dispatch(getAccesoriesToApi())
@@ -24,26 +24,32 @@ const Search = (props) => {
         sneakers: props.sneakers
     }
 
-const result = allProducts.accessories.filter((element)=>
-    element.title.includes(filteredProducts.inputValue)
-)
-const result1 = allProducts.manClothes.filter((element)=>
-    element.title.includes(filteredProducts.inputValue)
-)
-const result2 = allProducts.womanClothes.filter((element)=>
-    element.title.includes(filteredProducts.inputValue)
-)
-const result3 = allProducts.sneakers.filter((element)=>
-    element.title.includes(filteredProducts.inputValue)
-)
+    const handleInput = (ev)=>setInputValue(ev.target.value);
 
-const productsResult = [...result, ...result1, ...result2, ...result3]
+    const result = allProducts.accessories.filter((element)=>
+        element.title.includes(inputValue)
+    )
+    const result1 = allProducts.manClothes.filter((element)=>
+        element.title.includes(inputValue)
+    )
+    const result2 = allProducts.womanClothes.filter((element)=>
+        element.title.includes(inputValue)
+    )
+    const result3 = allProducts.sneakers.filter((element)=>
+        element.title.includes(inputValue)
+    )
+
+    const productsResult = [...result, ...result1, ...result2, ...result3]
 
 
     return (
             <div>
+                <span className="p-input-icon-right">
+                <i className="pi pi-search" />
+                <InputText value={inputValue} onChange={handleInput} placeholder="Search" />
+                </span>
                 {
-                    (filteredProducts.isTrusted)
+                    (inputValue.length >1)
                     ?
                     productsResult.map(product =>
                         <Card product={product} />

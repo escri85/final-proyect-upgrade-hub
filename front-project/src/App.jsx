@@ -1,15 +1,11 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute, Chat, Search,Cookies} from './components';
+import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
-
-
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
+import { Routes,Route,} from "react-router-dom";
 import React, { useState } from 'react';
 import './App.scss';
 
@@ -23,9 +19,8 @@ function App({user, error}) {
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-
           <Header toggleTheme={toggleTheme}/>
-          <Search/>
+          <LanguageSelector />
           <Cookies/>
             <Routes>
                 <Route path='/'>

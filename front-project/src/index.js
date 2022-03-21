@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
-import { FilterProvider} from './Contexts/FilterContext';
 import { ProfileProvider} from './Contexts/ProfileContext';
+import LanguageWrapper from './Contexts/LanguageContext';
 
 
 
@@ -16,13 +16,13 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-        <FilterProvider>
           <ProfileProvider>
             <Provider store={store}>
+              <LanguageWrapper>
               <App />
+              </LanguageWrapper>
             </Provider>
           </ProfileProvider>
-        </FilterProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,

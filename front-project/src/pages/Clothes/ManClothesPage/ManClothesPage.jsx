@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getManClothesToApi } from '../../../redux/actions/apiActions';
 import Card from '../../../components/Card/Card';
+import { FormattedMessage  as T} from 'react-intl';
 
 const ManClothesPage = (props) => {
 
@@ -57,19 +58,19 @@ const ManClothesPage = (props) => {
     <>
         <div className="c-">
             <div className="c-finder">   
-                <label htmlFor="checkbox">Pantalones</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
                 <input type="checkbox" onChange={handleChangePantalones} />
 
-                <label htmlFor="checkbox">Abrigos</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.coats'/></label>
                 <input type="checkbox" onChange={handleChangeAbrigo} />
 
-                <label htmlFor="checkbox">Camisetas</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.shirts'/></label>
                 <input type="checkbox" onChange={handleChangeCamisetas} />
 
-                <label htmlFor="checkbox">Jersey</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.sweater'/></label>
                 <input type="checkbox" onChange={handleChangeJersey} />
 
-                <label htmlFor="precio">Precio</label>
+                <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
                 <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
                 <p>{maxPrice}</p>
             </div>

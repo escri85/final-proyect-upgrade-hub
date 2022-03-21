@@ -20,17 +20,11 @@ $dark: #4e4e4e;
 
 	&__title{
 		padding: 15px;
-
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
-
 		max-width: 700px;
-
-		& img {
-			width: 150px;
-		}
 	}
 
 	&__text{

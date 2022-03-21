@@ -5,10 +5,15 @@ import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
 import { loginUser } from "../../../redux/actions/authActions";
-import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
-// import { useGoogleLogin } from 'react-google-login'
+import { InputSwitch } from 'primereact/inputswitch';
+import { ThemeContext } from "../../../Contexts/ThemeContext";
+import './Navbar.scss';
+import { FormattedMessage  as T} from 'react-intl';
+
+
+
 /*
 APUNTES:
 
@@ -24,7 +29,9 @@ const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
     const [visible, setVisible] = React.useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [filteredProducts, setFilteredProducts] = useContext(FilterContext);
+    const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
+
+
 
     console.log(user);
     
@@ -76,37 +83,22 @@ const handleLogout=()=>{
         setFormData({...formData, [name]: value});
     };
 
-    const sendProductToFilter = (ev)=> {
-        if(ev.target.value.length <1){
-            setFilteredProducts({
-                inputValue: '',
-                isTrusted: false
-            })
-        }else{
-            setFilteredProducts({
-                inputValue: ev.target.value,
-                isTrusted: true
-            });
-        }
-    }
-
-    
-
-
     const items = [
+
         {label:loginData && loginData.profileObj.givenName},
+
         {
-        label: "Hombre",
+        label: <T id="navbar.item.man" />,
 
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/man");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/manshoes");
             },
@@ -117,22 +109,22 @@ const handleLogout=()=>{
         ],
         },
         {
-        label: "Mujer",
+        label: <T id="navbar.item.woman" />,
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/women");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/womenshoes");
             },
             },
             {
-            label: "Complementos",
+            label: <T id="navbar.item.accessories" />,
             command: () => {
                 navigate("/accessories");
             },
@@ -140,7 +132,7 @@ const handleLogout=()=>{
         ],
         },
         {
-        label: "Subir producto",
+        label: <T id="navbar.item.upload" />,
         icon: "pi pi-fw pi-plus",
         command: () => {
             navigate("/add");
@@ -148,24 +140,24 @@ const handleLogout=()=>{
         },
 
         {
-        label: "Carrito",
+        label: <T id="navbar.item.cart" />,
         icon: "pi pi-fw pi-shopping-cart",
         command: () => {
             navigate("/cart");
         },
         },
         {
-        label: "Cuenta",
+        label: <T id="navbar.item.account"/>,
         icon: "pi pi-fw pi-power-off",
         items: [
             {
-            label: "Logout",
+            label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             command: () => {
-             handleLogout();
+            handleLogout();
             },
             },
-            { label: "Iniciar sesión",
+            { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
             command: () =>{
                 setVisible(true);
@@ -175,13 +167,16 @@ const handleLogout=()=>{
         },
     ];
 
-    const start = 
-     
-         (loginData &&   <img
+    const end = (
+        <div className="__swicth">
+            <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>
+        </div>
+    )
+    const start = [
+        (loginData &&   <img
             style={{borderRadius:'100%'}}
             alt="logo"
             // src=''
-            
             src={loginData.profileObj.imageUrl}
             onError={(e) =>
                 (e.target.src =
@@ -190,16 +185,12 @@ const handleLogout=()=>{
                 height="40"
                 className="mr-2"
                 />)
-    
-    const end = <InputText
-                placeholder="Search"
-                type="text"
-                onChange={sendProductToFilter}/>;
+    ];
 
     return (
         <div>
         <div className="card">
-            <Menubar model={items} start={start} end={end} />
+            <Menubar model={items} start={start} end={end}/>
         </div>
         <Modal
         closeButton
@@ -212,7 +203,7 @@ const handleLogout=()=>{
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
             <Text b size={18}>
-                Inicio de sesión
+                <T id="navbar.item.login"/>
             </Text>
             </Text>
         </Modal.Header>
@@ -242,31 +233,33 @@ const handleLogout=()=>{
                 labelPlaceholder="Contraseña"
                 
             />
-              <Row justify="space-between">
+            <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
-                Mantener sesión
+                <T id="navbar.item.session" />
                 {/* COOKIES */}
                 </Text>
             </Checkbox>
             <Button auto onClick={submitLogin}>
-            Iniciar sesión
+            <T id="navbar.item.login" />
             </Button>
             </Row>
             <Row justify="center" >
             <GoogleLogin
-    clientId='966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com'
+
+    clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
+
     buttonText="Iniciar sesion con Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
     // onClick={registerUserForGoogl}
-  />
+/>
     </Row>
         </Modal.Body>
         <Modal.Footer justify="center">
             <Button auto flat color="success" onClick={needToRegister}>
-            Necesito registrarme
+            <T id="navbar.item.registerRequired" />
             </Button>
         </Modal.Footer>
     </Modal>

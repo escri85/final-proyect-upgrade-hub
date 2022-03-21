@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getAccesoriesToApi } from '../../../redux/actions/apiActions';
 // import { addProductToCart } from '../../../redux/actions/cartActions';
 import Card  from '../../../components/Card/Card';
+import { FormattedMessage  as T} from 'react-intl';
 
 const Accesories = (props) => {
 
@@ -64,22 +65,22 @@ const Accesories = (props) => {
         <>
         <div className="c-">
             <div className="c-finder">
-                <label htmlFor="checkbox">Pañuelos</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.scarf'/></label>
                 <input type="checkbox" onChange={handleChangePañuelos} />
 
-                <label htmlFor="checkbox">Pendientes</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.Earrings'/></label>
                 <input type="checkbox" onChange={handleChangePendientes} />
 
-                <label htmlFor="checkbox">Collares</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.Necklaces'/></label>
                 <input type="checkbox" onChange={handleChangeCollares} />
 
-                <label htmlFor="checkbox">Gorros</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.Hat'/></label>
                 <input type="checkbox" onChange={handleChangeGorros} />
             
-                <label htmlFor="checkbox">Cinturones</label>
+                <label htmlFor="checkbox"><T id='ckeckBox.item.Belt'/></label>
                 <input type="checkbox" onChange={handleChangeCinturones} />
 
-                <label htmlFor="precio">Precio</label>
+                <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
                 <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
                 <p>{maxPrice}</p>
             </div>

@@ -3,11 +3,9 @@ import "./Cart.scss";
 //Boostrap
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {
-  AddOneProductToCart,
-  SustractOneProductToCart,
-} from "../../redux/actions/cartActions";
+import {AddOneProductToCart,SustractOneProductToCart} from "../../redux/actions/cartActions";
 import { PayPlatform } from "./ComponentsCart/PayPlatform/PayPlatform";
+import  NoCart from './ComponentsCart/NoCart.jsx/NoCart'
 
 const Cart = (props) => {
   // useEffect(() => {
@@ -34,7 +32,7 @@ const Cart = (props) => {
   return (
     <>
       <div className="container__all">
-        {!props.cart.length && <div>No hay nada de nada</div>}
+        {!props.cart.length && <div><NoCart/></div>}
         {props.cart.length>0 && <div className="items">
           {props.cart.map((item) => (
             <div key={item.id} className="container">
@@ -64,7 +62,7 @@ const Cart = (props) => {
       </div>
       {goToPay && (
         <PayPlatform
-          price={props.newPrice}
+          price={newPrice}
           cart={props.cart}
           setGoToPay={setGoToPay}
         />
