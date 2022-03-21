@@ -8,6 +8,8 @@ import { loginUser } from "../../../redux/actions/authActions";
 import { FilterContext } from "../../../Contexts/FilterContext";
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
+import { FormattedMessage  as T} from 'react-intl';
+
 
 /*
 APUNTES:
@@ -70,17 +72,17 @@ const Navbar = ({dispatch, error, user}) => {
 
     const items = [
         {
-        label: "Hombre",
+        label: <T id="navbar.item.man" />,
 
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/man");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/manshoes");
             },
@@ -91,22 +93,22 @@ const Navbar = ({dispatch, error, user}) => {
         ],
         },
         {
-        label: "Mujer",
+        label: <T id="navbar.item.woman" />,
         items: [
             {
-            label: "Ropa",
+            label: <T id="navbar.item.clothes" />,
             command: () => {
                 navigate("/women");
             },
             },
             {
-            label: "Calzado",
+            label: <T id="navbar.item.sneakers" />,
             command: () => {
                 navigate("/womenshoes");
             },
             },
             {
-            label: "Complementos",
+            label: <T id="navbar.item.accessories" />,
             command: () => {
                 navigate("/accessories");
             },
@@ -114,7 +116,7 @@ const Navbar = ({dispatch, error, user}) => {
         ],
         },
         {
-        label: "Subir producto",
+        label: <T id="navbar.item.upload" />,
         icon: "pi pi-fw pi-plus",
         command: () => {
             navigate("/add");
@@ -122,7 +124,7 @@ const Navbar = ({dispatch, error, user}) => {
         },
 
         {
-        label: "Carrito",
+        label: <T id="navbar.item.cart" />,
         icon: "pi pi-fw pi-shopping-cart",
         command: () => {
             navigate("/cart");
@@ -155,17 +157,17 @@ const Navbar = ({dispatch, error, user}) => {
         // ]
         },
         {
-        label: "Cuenta",
+        label: <T id="navbar.item.account"/>,
         icon: "pi pi-fw pi-power-off",
         items: [
             {
-            label: "Logout",
+            label: < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
             // command: () => {
             //  navigate("/login");
             // },
             },
-            { label: "Iniciar sesión",
+            { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
             command: () =>{
                 setVisible(true);
@@ -208,7 +210,7 @@ const Navbar = ({dispatch, error, user}) => {
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
             <Text b size={18}>
-                Inicio de sesión
+                <T id="navbar.item.login"/>
             </Text>
             </Text>
         </Modal.Header>
@@ -240,12 +242,12 @@ const Navbar = ({dispatch, error, user}) => {
               <Row justify="space-between">
             <Checkbox>
                 <Text size={14}>
-                Mantener sesión
+                <T id="navbar.item.session" />
                 {/* COOKIES */}
                 </Text>
             </Checkbox>
             <Button auto onClick={submitLogin}>
-            Iniciar sesión
+            <T id="navbar.item.login" />
             </Button>
             </Row>
             <Row justify="center" >
@@ -262,7 +264,7 @@ const Navbar = ({dispatch, error, user}) => {
         </Modal.Body>
         <Modal.Footer justify="center">
             <Button auto flat color="success" onClick={needToRegister}>
-            Necesito registrarme
+            <T id="navbar.item.registerRequired" />
             </Button>
         </Modal.Footer>
     </Modal>

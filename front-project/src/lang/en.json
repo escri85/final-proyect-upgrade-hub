@@ -1,0 +1,20 @@
+{
+    "footer.help":"Help & Contact",
+    "footer.sends":"Free shipping and returns",
+    "footer.rights":"100-day return right.",
+    "navbar.item.man":"Man",
+    "navbar.item.clothes":"Clothes",
+    "navbar.item.sneakers":"Sneakers",
+    "navbar.item.woman":"Woman",
+    "navbar.item.accessories":"Accessories",
+    "navbar.item.upload":"Upload Article",
+    "navbar.item.cart":"Cart",
+    "navbar.item.account":"My Account",
+    "navbar.item.logout":"Log Out",
+    "navbar.item.login":"Log In",
+    "navbar.item.search":"Search",
+    "navbar.item.session":"Keep Session",
+    "navbar.item.loginGoogle":"Log In with Google",
+    "navbar.item.registerRequired":"Register Required",
+    "":""
+}

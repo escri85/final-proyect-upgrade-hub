@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
+import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 
 
 import {
@@ -24,6 +25,7 @@ function App({user, error}) {
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
 
           <Header toggleTheme={toggleTheme}/>
+          <LanguageSelector />
           <Search/>
             <Routes>
                 <Route path='/'>

@@ -1,7 +1,7 @@
 import './Footer.scss' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faInstagram, faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons';
-
+import { FormattedMessage  as T} from 'react-intl';
 
 
 
@@ -26,9 +26,9 @@ const Footer = () => {
           </p>
         </div>
         <div className='footer-help'>
-           <p>Ayuda y contacto   |</p> 
-           <p>Envios y devoluciones gratuitos*   |</p>
-           <p>Derecho de devolucion de 100 dias</p>
+           <p><T id='footer.help'/>   |</p> 
+           <p><T id='footer.sends'/>   |</p>
+           <p><T id='footer.rights' /></p>
         </div>
        
           <p className="footer-year"> 2022</p>
