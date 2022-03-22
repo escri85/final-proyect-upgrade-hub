@@ -23,8 +23,7 @@ function App({user, error}) {
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-          <Header toggleTheme={toggleTheme}/>
-
+          <Header/>
           <LanguageSelector />
           <Cookies/>
             <Routes>
@@ -43,7 +42,7 @@ function App({user, error}) {
                 </Route>
             </Routes>
             <Chat/>
-           <Footer  /> 
+          <Footer/>
       </div>
   );
 }
