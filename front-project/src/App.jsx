@@ -1,4 +1,4 @@
-import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile , Contact} from './pages';
 import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
@@ -20,6 +20,7 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           <Header toggleTheme={toggleTheme}/>
+            <Contact/>
           <LanguageSelector />
           <Cookies/>
             <Routes>
