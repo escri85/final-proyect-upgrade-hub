@@ -6,8 +6,7 @@ import WomenShoesPage from './Clothes/WomenShoesPage/WomenShoesPage';
 import { CartPage } from './CartPage/CartPage';
 import Access from './Access/Access';
 import Profile from './Profile/Profile';
-
-
+import Contact from './Contact/Contact';
 export {
     Accessories,
     ManClothesPage,
@@ -17,4 +16,5 @@ export {
     CartPage,
     Access,
     Profile,
+    Contact
 }
