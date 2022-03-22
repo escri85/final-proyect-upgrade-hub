@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { registerUser, loginUser } from '../../redux/actions/authActions';
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
+import { useFormik } from 'formik';
+import { InputText } from 'primereact/inputtext';
 import './Access.scss';
 
 const INITIAL_STATE = {
@@ -50,12 +52,20 @@ const Access = ({dispatch, error, user}) =>{
                 <form onSubmit={submitLoginForm} className='access__forms-login'>
                     <h2>Iniciar sesión</h2>
                     <p className='access__forms-login-error'>Las credenciales que has utilizado para iniciar sesión son incorrectas</p>
-                        <label>
-                            <Input className='access__forms-login-input' bordered labelPlaceholder='Correo electrónico' color="primary" type="email" name="email" value={loginFormData.email} onChange={handleInputLogin}></Input>
-                        </label>
-                        <label>
-                            <Input className='access__forms-login-input' bordered labelPlaceholder='Contraseña' color="primary" type="password" name="password" value={loginFormData.password} onChange={handleInputLogin}></Input>
-                        </label>
+                        <div className='access__forms-login-input'>
+                            <span className="p-float-label p-input-icon-right">
+                                <i className="pi pi-envelope" />
+                                    <InputText id="email" name="email" type="email" value={loginFormData.email} onChange={handleInputLogin}></InputText>
+                                <label htmlFor='email'>Email*</label>
+                            </span>
+                        </div>
+                        <div className='access__forms-login-input'>
+                            <span className="p-float-label p-input-icon-right">
+                                <i className="pi pi-lock" />
+                                    <InputText id="password" name="password" type="email" value={loginFormData.password} onChange={handleInputLogin}></InputText>
+                                <label htmlFor="password">Password*</label>
+                            </span>
+                        </div>
                     <div>
                         <Button auto flat color="success" className='access__forms-login-btn'>
                             Iniciar sesión
@@ -69,7 +79,7 @@ const Access = ({dispatch, error, user}) =>{
             <form onSubmit={submitRegisterForm} className="access__forms-register">
                 <h2>Crear cuenta</h2>
                 <label>
-                    <Input className="access__forms-register-input" bordered labelPlaceholder="Correo electrónico" color="primary" type='email' name='email' id="email" value={formRegisterData.email} onChange={handleInputRegister}/>
+                    <Input className="access__forms-register-input" bordered labelPlaceholder="Email" color="primary" type='email' name='email' id="email" value={formRegisterData.email} onChange={handleInputRegister}/>
                 </label>
                 <label>
                     <Input className="access__forms-register-input" bordered labelPlaceholder="Contraseña" color="primary" type='password' name='password' id="pass" value={formRegisterData.password} onChange={handleInputRegister}/>
