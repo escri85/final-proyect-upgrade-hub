@@ -33,6 +33,16 @@
     "profile.favs":"Wow! You haven't added your favorite products yet",
     "profile.menu":"You can use the menu to access your profile data, search for your favorite products, etc.",
     "profile.inactive":"INACTIVE",
-    "footer.getApp":"Get our App  ⬇️"
+    "footer.getApp":"Get our App  ⬇️",
+    "workwithUS.intro":"We welcome you to the ZARANDO Employment section, a space to learn about the latest job offers and the value that Zarando gives to the people who make up its team. A team full of talent and oriented towards excellence and always giving the best to its users",
+    "workwithUS.offer":"Job offers",
+    "workwithUS.job":"warehouse worker",
+    "workwithUS.form.name":"Name",
+    "workwithUS.form.Lastname":"LastName",
+    "workwithUS.form.city":"LastName",
+    "":"",
+    "":"",
+    "":"",
+    "":""
    
 }
