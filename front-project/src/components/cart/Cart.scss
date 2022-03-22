@@ -5,12 +5,15 @@ $pink: #d9aab7;
 $rose: #ba7e7e;
 $dark: #4e4e4e;
 
+@import './../../variables.scss';
+
 .container__all {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: baseline;
+
   & .items {
     & .container {
       position: relative;
@@ -31,7 +34,6 @@ $dark: #4e4e4e;
         align-items: center;
         & img {
           width: 290px;
-         
         }
         
       }
@@ -115,8 +117,6 @@ $dark: #4e4e4e;
     & h1 {
       font-size: 1.2em;
       color: $dark;
-         
-   
     }
 
     & h2 {

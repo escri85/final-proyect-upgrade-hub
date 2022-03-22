@@ -2,7 +2,7 @@ export const ADD_CART = "[Cart] add";
 export const DELETE_CART = "[Cart] delete";
 export const REMOVE_CART_ONE = "[Cart] delete one";
 export const ADD_CART_ONE = "[Cart] add one";
-
+export const CLEAN_CART = "[Cart] clean";
 
 const addCartAction = (data) => ({ 
 
@@ -36,6 +36,12 @@ const SustractOneAction = (data) => ({
 
 })
 
+const cleanCart = () => ({
+    
+    type: CLEAN_CART
+
+})
+
 export const addProductToCart = (data) => {
 
     return (dispatch) => {
@@ -45,7 +51,6 @@ export const addProductToCart = (data) => {
 
     }
 };
-
 
 export const deleteProductToCart = (data) => {
 
@@ -74,4 +79,12 @@ export const SustractOneProductToCart = data => {
 
     }
 
+}
+
+export const cleanCartRedux = () => {
+    return (dispatch) => {
+
+        dispatch(cleanCart())
+
+    }
 }

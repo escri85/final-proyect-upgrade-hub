@@ -4,25 +4,35 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Card = (props) => {
-console.log(props);
-    const product = props.product;
-    const [favList,setFavlist]=useState([])
 
+  const product = props.product;
+  
+  const [favList, setFavlist] = useState([]);
 
+  const addFavList = () => {
+    setFavlist([...favList, product]);
+    console.log(favList);
+  };
 
-    const addFavList = ()=>{
-        setFavlist([...favList,product])
+  const [modalAddPage, setModalAddPage] = useState(false)
 
-        console.log(favList);
-    }
+  const productAdd = () => {
 
-console.log('este es otro',favList);
+    props.dispatch(addProductToCart(product));  
 
+    setModalAddPage(true)
+
+    setTimeout(function() {
+      setModalAddPage(false)
+  }, 2000);
+
+  }
 
   return (
+    <>
     <div key={product._id} className="el-wrapper">
       <div className="box-up">
         <img className="img" src={product.image} alt="" />
@@ -52,9 +62,7 @@ console.log('este es otro',favList);
           <span className="price">{product.price}€</span>
           <span className="add-to-cart">
             <button
-              onClick={() => {
-                props.dispatch(addProductToCart(product));
-              }}
+              onClick={productAdd}
               className="txt"
             >
               Añadir al carrito
@@ -68,6 +76,10 @@ console.log('este es otro',favList);
         </div>
       </div>
     </div>
+    {modalAddPage && <div className="modal-add">
+      Jose es el mejor del mundo
+    </div>}
+    </>
   );
 };
 

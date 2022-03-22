@@ -1,4 +1,4 @@
-import { ADD_CART, ADD_CART_ONE, DELETE_CART, REMOVE_CART_ONE } from "../actions/cartActions";
+import { ADD_CART, ADD_CART_ONE, CLEAN_CART, DELETE_CART, REMOVE_CART_ONE } from "../actions/cartActions";
 
 const PRODUCTS = [];
 
@@ -49,6 +49,11 @@ export const cartReducer = (state = PRODUCTS, action) => {
             productToChange.amount -=1;
 
         return [...state]
+
+        case CLEAN_CART :
+
+            return  [];
+            
 
         default: 
             return state;

@@ -1,3 +1,4 @@
+@import '../../variables.scss';
 
 .el-wrapper {
 
@@ -310,4 +311,31 @@
         margin-left: 70px;
     }
 
+}
+
+.modal-add{
+
+    z-index: 1;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 30%;
+    min-height: 30%;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 10px 10px 15px rgba($primary-shadow-color, 0.5);
+    background: $detail-color;
+    background: -webkit-linear-gradient(0deg, $primary-bg-color 0%, $primary-shadow-color 100%);
+    background: linear-gradient(0deg, $primary-bg-color 0%, $primary-shadow-color 100%);
+
+    color: $primary-text-color;
+    
 }
