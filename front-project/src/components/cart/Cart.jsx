@@ -4,7 +4,7 @@ import "./Cart.scss";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {AddOneProductToCart,SustractOneProductToCart} from "../../redux/actions/cartActions";
-import { PayPlatform } from "./ComponentsCart/PayPlatform/PayPlatform";
+import  PayPlatform from "./ComponentsCart/PayPlatform/PayPlatform";
 import  NoCart from './ComponentsCart/NoCart.jsx/NoCart'
 
 const Cart = (props) => {

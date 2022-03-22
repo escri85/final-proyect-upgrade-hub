@@ -8,9 +8,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { connect } from 'react-redux';
+import { cleanCartRedux } from '../../../../redux/actions/cartActions';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
-
-export const PayPlatform = (props) => {
+const PayPlatform = (props) => {
 
     const precio = props.price;
 
@@ -26,6 +29,14 @@ export const PayPlatform = (props) => {
     const payFunction = () => {
         localStorage.removeItem('productsCart')
         setOrderSent(true)} 
+
+    const closeAll = () => {
+
+        setOrderSent(false);
+        props.setGoToPay(false);
+        props.dispatch(cleanCartRedux())
+    }    
+
     var timeToSend = 1; 
 
     const timeToSendP = props.cart.map((element)=>{
@@ -45,6 +56,8 @@ export const PayPlatform = (props) => {
             return timeToSend = 5;
         }
     })
+
+    const [value, setValue] = React.useState(1);
 
     return (<>
         <div className="c-platform">
@@ -145,11 +158,24 @@ export const PayPlatform = (props) => {
                 </div>
             </div>
             { orderSent && <div className="c-platform__order">
+                    <h3>Tu pedido se ha registrado correctamente</h3>
                     <h4>El tiempo previsto de entrega serán {timeToSend} días</h4>    
-                    <h4>Tu pedido se ha registrado correctamente</h4>
-                    <button onClick={()=>{setOrderSent(false)}}>Aceptar</button>
-
+                    <h5>Valore su experiencia con ZARANDO</h5>
+                    <Rating
+                        name="simple-controlled"
+                        value={value}
+                        onChange={(event, newValue) => {
+                        setValue(newValue);
+                        }}
+                    />
+                    <button onClick={closeAll}>Aceptar</button>
             </div>}
         </div>
     </>)
 }
+
+const mapStateToProps = (state) => ({
+    cart: state.cart,
+});
+
+export default connect(mapStateToProps)(PayPlatform)
