@@ -33,7 +33,16 @@
     "profile.favs":"Vaya! Todavía no has añadido tus productos favoritos",
     "profile.menu":"Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc",
     "profile.inactive":"INACTIVO",
-    "footer.getApp":"Consigue nuestra App ⬇️"
-    
+    "footer.getApp":"Consigue nuestra App ⬇️",
+    "workwithUS.intro":"Te damos la bienvenida a la sección de Empleo de ZARANDO, un espacio para conocer las últimas ofertas de empleo y el valor que Zarando da a las personas que conforman su equipo. Un equipo repleto de talento y orientado a la excelencia y a dar siempre lo mejor a sus usuarios",
+    "workwithUS.offer":"Nuestras ofertas de empleo",
+    "workwithUS.job":"Operario de almacén",
+    "workwithUS.form.name":"Nombre",
+    "workwithUS.form.Lastname":"Apellido",
+    "workwithUS.form.city":"Apellido",
+    "":"",
+    "":"",
+    "":"",
+    "":""
     
 }
