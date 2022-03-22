@@ -32,6 +32,7 @@
     "profile.session":"You are logged in as",
     "profile.favs":"Wow! You haven't added your favorite products yet",
     "profile.menu":"You can use the menu to access your profile data, search for your favorite products, etc.",
-    "profile.inactive":"INACTIVE"
+    "profile.inactive":"INACTIVE",
+    "footer.getApp":"Get our App  ⬇️"
    
 }

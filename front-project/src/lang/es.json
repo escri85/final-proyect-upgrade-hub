@@ -32,7 +32,8 @@
     "profile.session":"Has iniciado sesión como",
     "profile.favs":"Vaya! Todavía no has añadido tus productos favoritos",
     "profile.menu":"Puedes usar el menú para acceder a los datos de tu perfil, buscar tus productos favoritos, etc",
-    "profile.inactive":"INACTIVO"
+    "profile.inactive":"INACTIVO",
+    "footer.getApp":"Consigue nuestra App ⬇️"
     
     
 }
