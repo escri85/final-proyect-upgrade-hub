@@ -1,0 +1,23 @@
+@import   '../../../src/variables.scss' ;
+
+
+.intro{
+    border-bottom: 2px solid $primary-shadow-color;
+}
+
+
+.offers{
+    display: flex; 
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+   //border-top: 2px solid #fabada;
+   border-bottom: 2px solid  $primary-shadow-color;
+
+}
+
+img{
+    width: 300px;
+    height:200px;
+    margin:10px
+}

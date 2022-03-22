@@ -1,4 +1,4 @@
-import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile , Contact} from './pages';
+import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
 import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies} from './components';
 import { useContext } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
@@ -7,8 +7,11 @@ import Home from './pages/Home/Home';
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 import { Routes,Route,} from "react-router-dom";
 import React, { useState } from 'react';
+import WorkwithUS from './pages/WorkwithUs/WorkwithUS';
+
 
 import './App.scss';
+
 
 function App({user, error}) {
   const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
@@ -21,7 +24,7 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           <Header toggleTheme={toggleTheme}/>
-            {/* <Contact/> */}
+
           <LanguageSelector />
           <Cookies/>
             <Routes>
@@ -36,9 +39,9 @@ function App({user, error}) {
                   <Route path="/access" element={<Access/>} />
                   <Route path="/profile" element={<PrivateRoute component={<Profile/>}/>}> </Route>
                   <Route path='/add' element={<AddProduct/>}/>
+                  <Route path='/work' element={<WorkwithUS/>}/>
                 </Route>
             </Routes>
-            
             <Chat/>
            <Footer  /> 
       </div>
