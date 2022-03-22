@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 import { Routes,Route,} from "react-router-dom";
 import React, { useState } from 'react';
+
 import './App.scss';
 
 function App({user, error}) {
@@ -20,7 +21,7 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           <Header toggleTheme={toggleTheme}/>
-            <Contact/>
+            {/* <Contact/> */}
           <LanguageSelector />
           <Cookies/>
             <Routes>
@@ -37,8 +38,9 @@ function App({user, error}) {
                   <Route path='/add' element={<AddProduct/>}/>
                 </Route>
             </Routes>
+            
             <Chat/>
-          {/* <Footer/> */}
+           <Footer  /> 
       </div>
   );
 }
