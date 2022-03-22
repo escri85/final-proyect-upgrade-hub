@@ -83,6 +83,7 @@ export const NoCart = (props) => {
 }
 
 const mapStateToProps = state => ({
+    
     accessories: state.api.accessories,
     manClothes:state.api.manClothes,
     womenClothes:state.api.womenClothes,

@@ -23,8 +23,9 @@ export const PayPlatform = (props) => {
         setPayType(event.target.value);
     };
 
-    const payFunction = () => {setOrderSent(true)} 
-
+    const payFunction = () => {
+        localStorage.removeItem('productsCart')
+        setOrderSent(true)} 
     var timeToSend = 1; 
 
     const timeToSendP = props.cart.map((element)=>{
