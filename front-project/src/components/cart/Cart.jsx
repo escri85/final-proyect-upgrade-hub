@@ -8,9 +8,10 @@ import { PayPlatform } from "./ComponentsCart/PayPlatform/PayPlatform";
 import  NoCart from './ComponentsCart/NoCart.jsx/NoCart'
 
 const Cart = (props) => {
-  // useEffect(() => {
-  //   localStorage.setItem("products", JSON.stringify(cart));
-  // }, [cart]);
+  
+  useEffect(() => {
+    localStorage.setItem("productsCart", JSON.stringify(props.cart));
+  }, [props.cart]);
 
   const price = props.cart.reduce((curNumber, item) => {
     return curNumber + item.price * item.amount;
