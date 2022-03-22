@@ -4,9 +4,23 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
+import {  useEffect, useState } from "react";
 
 const Card = (props) => {
-  const product = props.product;
+console.log(props);
+    const product = props.product;
+    const [favList,setFavlist]=useState([])
+
+
+
+    const addFavList = ()=>{
+        setFavlist([...favList,product])
+
+        console.log(favList);
+    }
+
+console.log('este es otro',favList);
+
 
   return (
     <div key={product._id} className="el-wrapper">
@@ -31,9 +45,7 @@ const Card = (props) => {
 
       <div className="box-down">
         <div className="h-bg">
-          <div className="h-bg-inner">
-           
-          </div>
+          <div className="h-bg-inner"></div>
         </div>
 
         <div className="cart">
@@ -49,7 +61,7 @@ const Card = (props) => {
             </button>
           </span>
           <span className="fav">
-          <IconButton aria-label="add to favorites">
+            <IconButton aria-label="add to favorites" onClick={addFavList}>
               <FavoriteIcon color="action" />
             </IconButton>
           </span>
