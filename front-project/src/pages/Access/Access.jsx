@@ -62,8 +62,8 @@ const Access = ({dispatch, error, user}) =>{
                         <div className='access__forms-login-input'>
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-lock" />
-                                    <InputText id="password" name="password" type="email" value={loginFormData.password} onChange={handleInputLogin}></InputText>
-                                <label htmlFor="password">Password*</label>
+                                    <InputText id="password" name="password" type="password" value={loginFormData.password} onChange={handleInputLogin}></InputText>
+                                <label htmlFor="password">Contraseña*</label>
                             </span>
                         </div>
                     <div>
@@ -78,15 +78,27 @@ const Access = ({dispatch, error, user}) =>{
             }
             <form onSubmit={submitRegisterForm} className="access__forms-register">
                 <h2>Crear cuenta</h2>
-                <label>
-                    <Input className="access__forms-register-input" bordered labelPlaceholder="Email" color="primary" type='email' name='email' id="email" value={formRegisterData.email} onChange={handleInputRegister}/>
-                </label>
-                <label>
-                    <Input className="access__forms-register-input" bordered labelPlaceholder="Contraseña" color="primary" type='password' name='password' id="pass" value={formRegisterData.password} onChange={handleInputRegister}/>
-                </label>
-                <label>
-                    <Input className="access__forms-register-input" bordered labelPlaceholder="Repetir contraseña" color="primary" type='password' name='passwordRepeat' id="passRepeat" value={formRegisterData.passwordRepeat} onChange={handleInputRegister}/>
-                </label>
+                <div className='access__forms-register-input'>
+                    <span className="p-float-label p-input-icon-right">
+                        <i className="pi pi-envelope" />
+                            <InputText id="email" name="email" type="email" value={formRegisterData.email} onChange={handleInputRegister}></InputText>
+                        <label htmlFor="email">Email*</label>
+                    </span>
+                </div>
+                <div className='access__forms-register-input'>
+                    <span className="p-float-label p-input-icon-right">
+                        <i className="pi pi-lock" />
+                            <InputText id="password" name="password" type="password" value={formRegisterData.password} onChange={handleInputRegister}></InputText>
+                        <label htmlFor="password">Contraseña*</label>
+                    </span>
+                </div>
+                <div className='access__forms-register-input'>
+                    <span className="p-float-label p-input-icon-right">
+                        <i className="pi pi-lock" />
+                            <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.password} onChange={handleInputRegister}></InputText>
+                            <label htmlFor="password">Repetir contraseña*</label>
+                    </span>
+                </div>
                 <div>
                     {/* <button className="register__form-btn">Registrar</button> */}
                     <Button auto flat color="primary" className="access__forms-register-btn">
