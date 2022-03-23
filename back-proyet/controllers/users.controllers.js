@@ -16,10 +16,15 @@ module.exports = {
   },
 
   registerPost: (req, res, next) => {
-    const { password, email } = req.body;
+    console.log(req.body);
+    const { password, email, passwordRepeat } = req.body;
 
     if(!password || !email ) {
       return res.status(400).json({ message: 'Completa todos los campos' });
+    }
+
+    if(password !== passwordRepeat ) {
+      return res.status(400).json({ message: 'Las contraseñas no son iguales' });
     }
 
     passport.authenticate("register", (error, user) => {
