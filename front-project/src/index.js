@@ -9,20 +9,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from './Contexts/ThemeContext';
 import { ProfileProvider} from './Contexts/ProfileContext';
 import LanguageWrapper from './Contexts/LanguageContext';
-
-
+import { FavProvider } from './Contexts/FavContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
+        <FavProvider>
           <ProfileProvider>
             <Provider store={store}>
               <LanguageWrapper>
-              <App />
+                <App />
               </LanguageWrapper>
             </Provider>
           </ProfileProvider>
+        </FavProvider>   
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
