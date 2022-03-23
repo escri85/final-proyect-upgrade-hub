@@ -9,4 +9,6 @@ test('render content',()=>{
 
   const title = screen.getByText(/Edita tu articulo/i)
   expect(title).toBeInTheDocument()
+
+  
 })

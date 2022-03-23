@@ -4,8 +4,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
+
 import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
+
 
 const Card = (props) => {
 

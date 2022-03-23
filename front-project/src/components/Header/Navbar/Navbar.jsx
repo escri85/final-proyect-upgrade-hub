@@ -210,7 +210,7 @@ const Navbar = ({dispatch, error, user}) => {
     return (
         <div>
         <div className="card">
-            <Menubar model={items} start={start} end={end}/>
+            <Menubar className="navbar" model={items} start={start} end={end}/>
         </div>
         <Modal
         closeButton

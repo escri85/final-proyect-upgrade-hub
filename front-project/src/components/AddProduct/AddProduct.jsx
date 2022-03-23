@@ -8,6 +8,8 @@ import { Dropdown } from "primereact/dropdown";
 import swal from "sweetalert";
 import { ProgressSpinner } from "primereact/progressspinner";
 import "./AddProduct.scss";
+
+
 const AddProduct = () => {
   const INITIAL_STATE = {
     title: "",
@@ -19,6 +21,7 @@ const AddProduct = () => {
     rating: 0,
   };
 
+  
   const [newProduct, setNewProduct] = useState(INITIAL_STATE);
   const [catego, setCatego] = useState();
   const [routesCategorie, setRoutescategorie] = useState("");
