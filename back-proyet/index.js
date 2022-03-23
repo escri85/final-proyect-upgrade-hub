@@ -16,6 +16,7 @@ const sneakersRouter = require('./routes/sneakers.routes')
 const manRouter = require('./routes/man.routes')
 const womanRouter = require('./routes/woman.routes')
 
+const userEmail = require('./routes/userEmail.routes')
 
 const dotenv = require('dotenv').config({path:'./.env.local'})
 
@@ -39,9 +40,11 @@ server.use((req, res, next) => {
     credentials: true,
   }));
   server.use(express.json());
-  server.use(express.urlencoded({ extended: true }));
+  server.use(express.urlencoded({ extended: false }));
   
   server.use(express.static(path.join(__dirname, 'public')))
+
+
   server.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -69,6 +72,10 @@ server.use((req, res, next) => {
   server.use("/", manRouter);
   server.use("/", womanRouter);
 
+
+  //verificacion de email
+
+  server.use("/api/user", userEmail)
   
   server.use('*', (req, res, next) => {
     const error = new Error('Ruta no encontrada');
