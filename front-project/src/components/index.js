@@ -9,6 +9,7 @@ import Search from './Search/Search';
 import ProfileNavbar from './ProfileNavbar/ProfileNavbar';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import Cookies from './Cookies/Cookies';
+import HelpModule from './HelpModule/HelpModule';
 
 export {
     Cart,
@@ -21,5 +22,6 @@ export {
     Search,
     ProfileNavbar,
     UserSettingsModal,
-    Cookies
+    Cookies,
+    HelpModule
 }
