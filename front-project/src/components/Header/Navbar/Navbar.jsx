@@ -164,6 +164,10 @@ const Navbar = ({dispatch, error, user}) => {
                 setVisible(true);
             }
             },
+            {
+                label: <p>Perfil</p>,
+                command: ()=>{navigate('/profile')}
+            }
         ],
         },
         {
