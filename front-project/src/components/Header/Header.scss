@@ -4,14 +4,11 @@
 .header{
 	z-index: 1;
 	width: 100%;
-    background-color: $primary-bg-color;
 	opacity: 80%;
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
 	&__title{
 		padding: 15px;
 		display: flex;
@@ -20,13 +17,12 @@
 		align-items: center;
 		max-width: 700px;
 	}
-
 	&__text{
 		text-decoration: none;
 		font-size: 55px;
 		font-weight: bold;
 		font-family: 'Josefin Sans', sans-serif;
-		color:$primary-text-color;
+		color: $detail-text-color;
 	}
 }
 
@@ -36,7 +32,6 @@
     justify-content: space-around;
     font-size: x-large;
 	font-size: 0.9rem;
-    background-color: $primary-bg-color;
     align-items: center;
     justify-content: space-around
 }
@@ -60,35 +55,28 @@ $body-background: #353535;
 	.header{
 		z-index: 1;
 		width: 100%;
-		background-color:$primary-bg-color;
 		opacity: 80%;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-
 		&__title{
 			padding: 15px;
-	
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			align-items: center;
-	
 			max-width: 700px;
-	
 			& img {
 				width: 150px;
 			}
 		}
-	
 		&__text{
 			text-decoration: none;
 			font-size: 55px;
 			font-weight: bold;
 			font-family: 'Josefin Sans', sans-serif;
-			color: $primary-text-color;
+			color: $detail-text-color;
 		}
 	}
 	
@@ -98,7 +86,6 @@ $body-background: #353535;
 		justify-content: space-around;
 		font-size: x-large;
 		font-size: 0.9rem;
-		background-color: $primary-bg-color;
 		align-items: center;
 		justify-content: space-around
 	}
@@ -118,24 +105,18 @@ $body-background: #353535;
 	.header{
 		z-index: 1;
 		width: 100%;
-		background-color:$primary-bg-color;
 		opacity: 80%;
-	
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	
 		&__title{
 			padding: 15px;
-	
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			align-items: center;
-	
 			max-width: 700px;
-	
 			& img {
 				width: 100px;
 			}
@@ -157,12 +138,9 @@ $body-background: #353535;
 		justify-content: space-around;
 		font-size: x-large;
 		font-size: 0.9rem;
-		background-color: $primary-bg-color;
 		align-items: center;
 		justify-content: space-around
 	}
-
-
 	@font-face {
 		font-family: "ubuntu";
 		font-style: italic;

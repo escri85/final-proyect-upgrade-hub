@@ -37,12 +37,13 @@
     "workwithUS.intro":"Te damos la bienvenida a la sección de Empleo de ZARANDO, un espacio para conocer las últimas ofertas de empleo y el valor que Zarando da a las personas que conforman su equipo. Un equipo repleto de talento y orientado a la excelencia y a dar siempre lo mejor a sus usuarios",
     "workwithUS.offer":"Nuestras ofertas de empleo",
     "workwithUS.job":"Operario de almacén",
+    "workwithUS.job1":"Repartidor",
     "workwithUS.form.name":"Nombre",
     "workwithUS.form.Lastname":"Apellido",
     "workwithUS.form.city":"Apellido",
-    "":"",
-    "":"",
-    "":"",
-    "":""
+    "workwithUS.form.phone":"Teléfono",
+    "workwithUS.form.cv":"Sube tu Curriculum",
+    "workwithUS.form.SendUs":"Mándanos tu Curriculum",
+    "workwithUS.form.link":"Trabaja con Nosotros"
     
 }
