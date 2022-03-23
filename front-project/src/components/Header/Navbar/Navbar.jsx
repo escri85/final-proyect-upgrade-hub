@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Menubar } from "primereact/menubar";
 import { InputText } from "primereact/inputtext";
@@ -11,6 +11,7 @@ import { InputSwitch } from 'primereact/inputswitch';
 import { ThemeContext } from "../../../Contexts/ThemeContext";
 import './Navbar.scss';
 import { FormattedMessage  as T} from 'react-intl';
+import LanguageSelector from "../../LanguageSelector/LanguageSelector";
 
 
 
@@ -27,7 +28,7 @@ const INITIAL_STATE = {
 
 const Navbar = ({dispatch, error, user}) => {
     const navigate = useNavigate();
-    const [visible, setVisible] = React.useState(false);
+    const [visible, setVisible] = useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
 
@@ -36,7 +37,7 @@ const Navbar = ({dispatch, error, user}) => {
     console.log(process.env);
     const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
 
-const [loginData,setLoginData]=useState(local_Storage)
+    const [loginData,setLoginData]=useState(local_Storage)
     console.log('esto es el loginData',loginData);
 
     const registerUserForGoogl = ()=>{
@@ -138,7 +139,6 @@ const [loginData,setLoginData]=useState(local_Storage)
             navigate("/add");
         },
         },
-
         {
         label: <T id="navbar.item.cart" />,
         icon: "pi pi-fw pi-shopping-cart",
@@ -166,11 +166,30 @@ const [loginData,setLoginData]=useState(local_Storage)
             },
         ],
         },
+        {
+            label: <T id="navbar.item.settings"/>,
+            icon: "pi pi-fw pi-cog",
+            items: [
+                {
+                label: <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>,
+                icon: "pi pi-fw pi-palette",
+                },
+                {
+                label: <T id="navbar.item.settings.translate" />,
+                icon: "pi pi-fw pi-globe",
+                items:[
+                    {
+                        label: <LanguageSelector/>
+                    }
+                ]
+                },
+            ],
+        },
     ];
 
     const end = (
         <div className="__swicth">
-            <InputSwitch name='darkMode' checked={isDark} onChange={toggleTheme}/>
+            {/* AÑADIR IMAGEN? */}
         </div>
     )
     const start = [
