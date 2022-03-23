@@ -4,19 +4,35 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FavContext } from "../../Contexts/FavContext";
 
 const Card = (props) => {
 
   const product = props.product;
+
+  //Context
+
+  const [favInfo, setFavInfo] = useContext(FavContext);
+
+  const addFavList = (item) => {
+    const duplicatedFav = favInfo.find(element =>element._id === item._id);
+    
+    if(duplicatedFav) {
+      const positionToDelete = favInfo.indexOf(duplicatedFav)
+      favInfo.splice(positionToDelete, 1)
+      setFavInfo([...favInfo])
+    }else {
+      setFavInfo([...favInfo, item])
+    }
+  }
+  useEffect(() => {
+    localStorage.setItem("productsFav", JSON.stringify(favInfo))
+  }, [favInfo]);
+
+
+  //Modal  
   
-  const [favList, setFavlist] = useState([]);
-
-  const addFavList = () => {
-    setFavlist([...favList, product]);
-    console.log(favList);
-  };
-
   const [modalAddPage, setModalAddPage] = useState(false)
 
   const productAdd = () => {
@@ -69,7 +85,7 @@ const Card = (props) => {
             </button>
           </span>
           <span className="fav">
-            <IconButton aria-label="add to favorites" onClick={addFavList}>
+            <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>
               <FavoriteIcon color="action" />
             </IconButton>
           </span>

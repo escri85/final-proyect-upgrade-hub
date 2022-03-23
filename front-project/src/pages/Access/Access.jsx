@@ -9,7 +9,8 @@ import './Access.scss';
 
 const INITIAL_STATE = {
     email: '',
-    password: ''
+    password: '',
+    passwordRepeat: ''
 }
 
 const Access = ({dispatch, error, user}) =>{
@@ -95,7 +96,7 @@ const Access = ({dispatch, error, user}) =>{
                 <div className='access__forms-register-input'>
                     <span className="p-float-label p-input-icon-right">
                         <i className="pi pi-lock" />
-                            <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.password} onChange={handleInputRegister}></InputText>
+                            <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.passwordRepeat} onChange={handleInputRegister}></InputText>
                             <label htmlFor="password">Repetir contraseña*</label>
                     </span>
                 </div>
