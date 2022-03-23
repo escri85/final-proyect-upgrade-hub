@@ -179,13 +179,8 @@ const Navbar = ({dispatch, error, user}) => {
                 icon: "pi pi-fw pi-palette",
                 },
                 {
-                label: <T id="navbar.item.settings.translate" />,
+                label: <LanguageSelector/>,
                 icon: "pi pi-fw pi-globe",
-                items:[
-                    {
-                        label: <LanguageSelector/>
-                    }
-                ]
                 },
             ],
         },
