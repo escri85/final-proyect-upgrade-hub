@@ -1,17 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { LanguageContext } from "../../Contexts/LanguageContext";
+import { InputSwitch } from 'primereact/inputswitch';
 
 const LanguageSelector = () => {
     const {locale, changeLanguage} = useContext(LanguageContext);
+    const [ischecked, setChecked] = useState(false);
+
+    const handleLanguage = () =>{
+        if(locale === 'es'){
+            changeLanguage('en')
+            setChecked(true)
+        }else{
+            changeLanguage('es')
+            setChecked(false)
+        }
+    }
 
     return (
         <div>
-            <p><FormattedMessage id="languageSelector.title" defaultMessage="Elige tu idioma" /></p>
-            <select value={locale} onChange={(ev) => changeLanguage(ev.target.value)}>
-                <option value="es">Spanish</option>
-                <option value="en">English</option>
-            </select>
+            <InputSwitch value={locale} checked={ischecked} onChange={handleLanguage}/>
         </div>
     )
 };
