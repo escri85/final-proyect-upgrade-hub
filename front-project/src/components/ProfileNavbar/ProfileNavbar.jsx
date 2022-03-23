@@ -1,6 +1,7 @@
 import { PanelMenu } from 'primereact/panelmenu';
 import { useContext } from 'react';
 import { ProfileContext } from '../../Contexts/ProfileContext';
+import { FormattedMessage  as T} from 'react-intl';
 import './ProfileNavbar.scss';
 
 const ProfileNavbar = () =>{
@@ -12,11 +13,11 @@ const ProfileNavbar = () =>{
 
         const items = [
             {
-            label:'Favoritos',
+            label:<T id='profile.navbar.fav'/>,
             icon:'pi pi-fw pi-star-fill',
             items:[
                 {
-                    label:'Lista',
+                    label:<T id='profile.navbar.fav'/>,
                     icon:'pi pi-fw pi-list',
                     command: () =>{
                         setProfileNavbarActions({
@@ -28,13 +29,13 @@ const ProfileNavbar = () =>{
                     }
                 },
                 {
-                    label:'Vaciar lista',
+                    label:<T id='profile.navbar.emptylist'/>,
                     icon:'pi pi-fw pi-trash'
                 }
             ]
             },
             {
-            label:'Ajustes',
+            label:<T id='profile.navbar.settings'/>,
             icon:'pi pi-fw pi-user',
             items:[
                 {
@@ -50,21 +51,21 @@ const ProfileNavbar = () =>{
                     }
                 },
                 {
-                    label:'Contraseña',
+                    label:<T id='profile.navbar.password'  />,
                     icon:'pi pi-fw pi-lock'
                 },
                 {
-                    label: 'Billetera',
+                    label: <T id='profile.navbar.wallet'  />,
                     icon: 'pi pi-fw pi-wallet'
                 }
             ]
             },
             {
-            label:'Pedidos',
+            label:<T id='profile.navbar.orders'  />,
             icon:'pi pi-fw pi-shopping-cart',
             items:[
                 {
-                    label:'Historial',
+                    label:<T id='profile.navbar.record'  />,
                     icon:'pi pi-fw pi-calendar',
                     command: () =>{
                         setProfileNavbarActions({
