@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faInstagram, faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FormattedMessage  as T} from 'react-intl';
 import QRCode from "react-qr-code";
+import {NavLink} from 'react-router-dom';
 import './Footer.scss'
 
 
@@ -23,6 +24,11 @@ const Footer = () => {
           </p>
         </div>
         <div className='footer-help'>
+          
+        <NavLink to ="/work" >
+            <p>< T id='workwithUS.form.link'/>   |</p>
+          </NavLink>
+
           <p><T id='footer.help'/>   |</p>
           <p><T id='footer.sends'/>   |</p>
           <p><T id='footer.rights'/></p>
