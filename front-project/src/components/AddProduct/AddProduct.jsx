@@ -7,6 +7,7 @@ import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import swal from "sweetalert";
 import { ProgressSpinner } from "primereact/progressspinner";
+import { FormattedMessage  as T} from 'react-intl';
 import "./AddProduct.scss";
 
 
@@ -74,7 +75,7 @@ const AddProduct = () => {
 
     setSpinner(true);
     setTimeout(() => {
-      swal("Producto subido!!");
+      swal(<T id="AddProduct.uploaded" />);
       setSpinner(false);
     }, 3000);
     postApi();
@@ -114,7 +115,7 @@ const AddProduct = () => {
   return (
     <div className="addProduct">
       <div className="addProduct__edit">
-        <h1>Edita tu articulo</h1>
+        <h1><T id="AddProduct.Edit" /></h1>
         <form action="" onSubmit={onSubmit}>
           <div className="categoria">
             {/* <label htmlFor="categorias">Categoria del producto</label> */}
@@ -124,7 +125,7 @@ const AddProduct = () => {
               options={categories}
               onChange={onCategorieChange}
               optionLabel="name"
-              placeholder="Elige una categoria"
+              placeholder= {<T id="AddProduct.Choose" />}
             /> 
             {/* <label htmlFor="titulo">Pon un nombre a tu articulo</label> */}
             <InputText
@@ -173,7 +174,7 @@ const AddProduct = () => {
             validateOnly={false}
 
           />
-          <Button label="+ Subir Producto" />
+          <Button label={<T id="AddProduct.uploaditem" />} />
           {spinner === true ? <ProgressSpinner /> : undefined}
         </form>
       </div>
@@ -200,7 +201,7 @@ const AddProduct = () => {
             <a className="cart" htmlFor="#">
               <span className="price">{newProduct.price}€</span>
               <span className="add-to-cart">
-                <span className="txt">Añadir al carrito</span>
+                <span className="txt"><T id="card.addToCart" /></span>
               </span>
             </a>
           </div>

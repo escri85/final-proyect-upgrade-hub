@@ -58,7 +58,15 @@
     "workwithUS.form.SendUs":"Mándanos tu Curriculum",
     "workwithUS.form.link":"Trabaja con Nosotros",
     "card.stock": "Solo quedan :",
-    "card.addToCart":"Añadir al carrito"
+    "card.addToCart":"Añadir al carrito",
+    "AddProduct.uploaded":"Producto subido",
+    "AddProduct.ManClothes":"Ropa de Hombre",
+    "AddProduct.WomenClothes":"Ropa de Mujer",
+    "AddProduct.Sneakers":"Zapatillas",
+    "AddProduct.Edit":"Edita tu Artículo",
+    "AddProduct.Choose":"Elige tu Categoría",
+    "AddProduct.item":"Artículo",
+    "AddProduct.uploaditem":" + Sube tu Artículo"
 
     
 }
