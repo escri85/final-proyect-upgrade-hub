@@ -4,7 +4,7 @@ export const FavContext = createContext();
 
 export const FavProvider = ({children})=>{
 
-    const [favInfo, setFavInfo] = useState([{}])
+    const [favInfo, setFavInfo] = useState([])
 
     return(
         <FavContext.Provider value={[ favInfo , setFavInfo ]}>

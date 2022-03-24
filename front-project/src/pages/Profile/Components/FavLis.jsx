@@ -16,10 +16,7 @@ import { addProductToCart } from '../../../redux/actions/cartActions';
 
     const FavLis = ({listFav}, props) => {
     
-    console.log(props);
-    
     const list = listFav
-    
     
     return (
         <div className="c-favlist">
