@@ -52,6 +52,8 @@ const Card = (props) => {
 
   return (
     <>
+  
+
     <div key={product._id} className="el-wrapper">
       <div className="box-up">
         <img className="img" src={product.image} alt="" />
