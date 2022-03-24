@@ -56,6 +56,20 @@
     "workwithUS.form.cv":"Upload your Resume",
     "workwithUS.form.SendUs":"Send us your Resume",
     "workwithUS.form.link":"Work with Us",
-    "":""
+    "card.stock": "Units left :",
+    "card.addToCart":"Add to Cart",
+    "AddProduct.uploaded":"Item Uploaded",
+    "AddProduct.ManClothes":"Mens Clothing",
+    "AddProduct.WomenClothes":"Womens Clothing",
+    "AddProduct.Sneakers":"Sneakers",
+    "AddProduct.Edit":"Edit your Article",
+    "AddProduct.Choose":"Select your Category",
+    "AddProduct.item":"Item",
+    "AddProduct.uploaditem":" + Upload your Item",
+
+    "Cart.amount":" Amount",
+    "Cart.checkout":" Checkout",
+    "Cart.summary":"Order Summary",
+    "Cart.product":" Product"
    
 }

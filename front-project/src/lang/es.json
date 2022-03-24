@@ -56,6 +56,23 @@
     "workwithUS.form.phone":"Teléfono",
     "workwithUS.form.cv":"Sube tu Curriculum",
     "workwithUS.form.SendUs":"Mándanos tu Curriculum",
-    "workwithUS.form.link":"Trabaja con Nosotros"
+    "workwithUS.form.link":"Trabaja con Nosotros",
+    "card.stock": "Solo quedan :",
+    "card.addToCart":"Añadir al carrito",
+    "AddProduct.uploaded":"Producto subido",
+    "AddProduct.ManClothes":"Ropa de Hombre",
+    "AddProduct.WomenClothes":"Ropa de Mujer",
+    "AddProduct.Sneakers":"Zapatillas",
+    "AddProduct.Edit":"Edita tu Artículo",
+    "AddProduct.Choose":"Elige tu Categoría",
+    "AddProduct.item":"Artículo",
+    "AddProduct.uploaditem":" + Sube tu Artículo",
+
+    "Cart.amount":" Cantidad",
+    "Cart.checkout":" Tramitar Pedido",
+    "Cart.summary":" Resumen del Pedido",
+    "Cart.product":" Producto"
+   
+
     
 }
