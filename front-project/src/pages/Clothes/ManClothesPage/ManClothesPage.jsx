@@ -59,18 +59,22 @@ const ManClothesPage = (props) => {
     <>
         <div className="c-">
             <div className="c-finder">   
-                <label htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
-                <input type="checkbox" onChange={handleChangePantalones} />
-
-                <label htmlFor="checkbox"><T id='ckeckBox.item.coats'/></label>
-                <input type="checkbox" onChange={handleChangeAbrigo} />
-
-                <label htmlFor="checkbox"><T id='ckeckBox.item.shirts'/></label>
-                <input type="checkbox" onChange={handleChangeCamisetas} />
-
-                <label htmlFor="checkbox"><T id='ckeckBox.item.sweater'/></label>
-                <input type="checkbox" onChange={handleChangeJersey} />
-
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangePantalones} />
+                </div>
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.coats'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeAbrigo} />
+                </div>
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.shirts'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeCamisetas} />
+                </div>
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.sweater'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeJersey} />
+                </div>
                 <div className="c-finder__price">
                     <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
                     <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
