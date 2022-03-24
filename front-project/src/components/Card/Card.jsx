@@ -8,9 +8,12 @@ import { FormattedMessage  as T} from 'react-intl';
 
 import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
+import {red} from '@mui/material/colors';
+
 
 
 const Card = (props) => {
+  const primary = red[500];
 
   const product = props.product;
 
@@ -60,6 +63,7 @@ const Card = (props) => {
             <span className="p-name">{product.title}</span>
             <span className="p-company">{product.categorie}</span>
             <Rating value={product.rating} readOnly stars={5} cancel={false} />
+                      <span className="price">{product.price} €</span>
           </div>
           <div className="a-size">
             {product.description}{" "}
@@ -78,7 +82,7 @@ const Card = (props) => {
         </div>
 
         <div className="cart">
-          <span className="price">{product.price}€</span>
+
           <span className="add-to-cart">
             <button
               onClick={productAdd}
@@ -89,7 +93,7 @@ const Card = (props) => {
           </span>
           <span className="fav">
             <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>
-              <FavoriteIcon color="action" />
+              <FavoriteIcon color="error" />
             </IconButton>
           </span>
         </div>
