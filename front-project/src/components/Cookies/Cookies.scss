@@ -5,12 +5,14 @@ $pink: #d9aab7;
 $rose: #ba7e7e;
 $dark: #4e4e4e;
 
+@import '../../variables.scss';
+
 .contenedor__cookies{
 
     display: flex;
     flex-direction: column;
     color: white;
-    background-color: #4e4e4e;
+    background-color:$primary-shadow-color;
     & .texto{
         & p{
             text-align: left;
@@ -19,24 +21,15 @@ $dark: #4e4e4e;
         }
     }
     & .botones{
-        & button{
-            background: darken($light, 10%);
-        padding: 10px;
-        display: inline-block;
-        outline: 0;
-        border: 0;
-        margin: 20px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: $white;
-        font-size: 1em;
-        cursor: pointer;
-        &:hover {
-          background: $rose;
-          transition: all 0.4s ease-in-out;
-        }
-        }
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 2%;
+      & button{
+          width: auto;
+          color: $primary-bg-color;
+          background-color:$primary-text-color;
+      }
     }
 }
 .contenedor__cookies {

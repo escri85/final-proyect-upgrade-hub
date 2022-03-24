@@ -11,7 +11,6 @@ const setup =()=>render(connect(<Access/>))
 //   })
 
 
-  
 test('render titles component Access',async()=>{
     setup()
 

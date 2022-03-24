@@ -11,6 +11,7 @@ import WorkwithUS from './pages/WorkwithUs/WorkwithUS';
 
 
 import './App.scss';
+import Navbar from './components/Header/Navbar/Navbar';
 
 
 function App({user, error}) {
@@ -24,7 +25,8 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           <Header/>
-          {/* <Cookies/> */}
+          <Cookies/> 
+          <Navbar/>
             <Routes>
                 <Route path='/'>
                   <Route path="/" element={<Home/>}/>
