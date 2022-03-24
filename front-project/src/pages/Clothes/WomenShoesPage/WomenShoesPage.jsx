@@ -80,9 +80,11 @@ const WomenShoesPage = (props) => {
                 <label htmlFor="checkbox">Converse</label>
                 <input type="checkbox" onChange={handleChangeConverse} />
 
-                <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
-                <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
-                <p>{inputValue}</p>
+                <div className="c-finder__price">
+                    <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
+                    <input type="range" value={inputValue} max="170" min="60" step="10" onChange={handleChangePrice} />
+                    <p>{inputValue}</p>
+                </div>
             </div>
         </div>
 

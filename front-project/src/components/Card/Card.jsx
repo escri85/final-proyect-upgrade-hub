@@ -96,7 +96,7 @@ const Card = (props) => {
       </div>
     </div>
     {modalAddPage && <div className="modal-add">
-      Jose es el mejor del mundo
+      Producto añadido al carrito
     </div>}
     </>
   );
