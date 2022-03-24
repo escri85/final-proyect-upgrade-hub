@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import {AddOneProductToCart,SustractOneProductToCart} from "../../redux/actions/cartActions";
 import  PayPlatform from "./ComponentsCart/PayPlatform/PayPlatform";
 import  NoCart from './ComponentsCart/NoCart.jsx/NoCart'
+import { FormattedMessage  as T} from 'react-intl';
 
 const Cart = (props) => {
   
@@ -46,7 +47,7 @@ const Cart = (props) => {
                 <h2>{item.price} €</h2>
                 <p className="desc">{item.description}</p>
                 <div className="buttons">
-                  <p>Cantidad {item.amount}</p>
+                  <p><T id="Cart.amount" /> {item.amount}</p>
                   <button onClick={() => {props.dispatch(SustractOneProductToCart(item))}}>-</button>
                   <button onClick={() => {props.dispatch(AddOneProductToCart(item))}}>+</button>
                 </div>
@@ -55,9 +56,9 @@ const Cart = (props) => {
           ))}
         </div>}
         {props.cart.length>0 && <div className="tramitar">
-          <button onClick={() => { setGoToPay(true)}}> Tramitar pedido </button>
-          <h1>Resumen del pedido</h1>
-          <h1>{suma} Productos</h1>
+          <button onClick={() => { setGoToPay(true)}}> <T id="Cart.checkout" /> </button>
+          <h1><T id="Cart.summary" /></h1>
+          <h1>{suma} <T id="Cart.product" /></h1>
           <h2>Total: {newPrice} €</h2>
         </div>}
       </div>

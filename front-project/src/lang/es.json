@@ -66,7 +66,13 @@
     "AddProduct.Edit":"Edita tu Artículo",
     "AddProduct.Choose":"Elige tu Categoría",
     "AddProduct.item":"Artículo",
-    "AddProduct.uploaditem":" + Sube tu Artículo"
+    "AddProduct.uploaditem":" + Sube tu Artículo",
+
+    "Cart.amount":" Cantidad",
+    "Cart.checkout":" Tramitar Pedido",
+    "Cart.summary":" Resumen del Pedido",
+    "Cart.product":" Producto"
+   
 
     
 }
