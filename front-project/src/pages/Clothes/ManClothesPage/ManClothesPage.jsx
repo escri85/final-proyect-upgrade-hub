@@ -10,6 +10,7 @@ const ManClothesPage = (props) => {
     useEffect(() => {
         props.dispatch(getManClothesToApi())
         console.log(props.data);
+        
            //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
