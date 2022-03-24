@@ -48,7 +48,7 @@ const Profile = ({dispatch, user}) =>{
                         ?
                         <UserSettingsModal/>
                         :
-                        <p>< T id='profile.inactive'/></p>
+                        ""
                         }
                     </div>
                 </div>
