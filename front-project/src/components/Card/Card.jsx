@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
 import { FormattedMessage  as T} from 'react-intl';
-
 import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
 import {red} from '@mui/material/colors';
@@ -100,7 +99,7 @@ const Card = (props) => {
       </div>
     </div>
     {modalAddPage && <div className="modal-add">
-      Producto añadido al carrito
+      <h5>Producto añadido al carrito</h5>
     </div>}
     </>
   );

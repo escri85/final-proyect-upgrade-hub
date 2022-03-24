@@ -39,28 +39,28 @@ setSave(false)
           </div>
         </div>
         <div className="opcion">
-          <p>+Compartir datos y perfiles no vinculados a su identidad</p>
+          <p>+Medir el rendimiento del contenido</p>
           <div className="botones">
             <button>Rechazar</button>
             <button>Aceptar</button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Compartir datos y perfiles no vinculados a su identidad</p>
+          <p>+Seleccionar contenido personalizado</p>
           <div className="botones">
             <button>Rechazar</button>
             <button>Aceptar</button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Compartir datos y perfiles no vinculados a su identidad</p>
+          <p>+Seleccionar anuncios personalizados</p>
           <div className="botones">
             <button>Rechazar</button>
             <button>Aceptar</button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Compartir datos y perfiles no vinculados a su identidad</p>
+          <p>+Crear un perfil publicitario personalizado</p>
           <div className="botones">
             <button>Rechazar</button>
             <button>Aceptar</button>
