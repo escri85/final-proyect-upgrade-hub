@@ -4,6 +4,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
+import { FormattedMessage  as T} from 'react-intl';
 
 import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
@@ -63,7 +64,7 @@ const Card = (props) => {
           <div className="a-size">
             {product.description}{" "}
             {product.stock < 4 ? (
-              <h5 className="lastUnits">Solo quedan {product.stock} </h5>
+              <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : (
               ""
             )}{" "}
@@ -83,7 +84,7 @@ const Card = (props) => {
               onClick={productAdd}
               className="txt"
             >
-              Añadir al carrito
+              <T id="card.addToCart"/>
             </button>
           </span>
           <span className="fav">

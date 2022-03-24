@@ -56,6 +56,7 @@
     "workwithUS.form.cv":"Upload your Resume",
     "workwithUS.form.SendUs":"Send us your Resume",
     "workwithUS.form.link":"Work with Us",
-    "":""
+    "card.stock": "Units left :",
+    "card.addToCart":"Add to Cart"
    
 }

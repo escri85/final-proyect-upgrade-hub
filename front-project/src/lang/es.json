@@ -56,6 +56,9 @@
     "workwithUS.form.phone":"Teléfono",
     "workwithUS.form.cv":"Sube tu Curriculum",
     "workwithUS.form.SendUs":"Mándanos tu Curriculum",
-    "workwithUS.form.link":"Trabaja con Nosotros"
+    "workwithUS.form.link":"Trabaja con Nosotros",
+    "card.stock": "Solo quedan :",
+    "card.addToCart":"Añadir al carrito"
+
     
 }
