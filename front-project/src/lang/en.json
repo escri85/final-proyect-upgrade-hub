@@ -70,6 +70,13 @@
     "Cart.amount":" Amount",
     "Cart.checkout":" Checkout",
     "Cart.summary":"Order Summary",
-    "Cart.product":" Product"
-   
+    "Cart.product":" Product",
+    "Register.Create":" Create Account",
+    "Register.Credentials":" The credentials you used to sign in are incorrect",
+    "Register.Password":" Password*",
+    "Register.RPassword":"Repeat Password*",
+    "Register.Register":"Register",
+    "Register.terms1":"By registering you accept our ",
+    "Register.terms2":"conditions of use and sale   ",
+    "Register.thanks":"Thank you "
 }
