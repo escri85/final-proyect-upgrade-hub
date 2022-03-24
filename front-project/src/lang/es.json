@@ -71,8 +71,15 @@
     "Cart.amount":" Cantidad",
     "Cart.checkout":" Tramitar Pedido",
     "Cart.summary":" Resumen del Pedido",
-    "Cart.product":" Producto"
-   
+    "Cart.product":" Producto",
+    "Register.Create":" Crear Cuenta",
+    "Register.Credentials":" Las credenciales que has utilizado para iniciar sesión son incorrectas",
+    "Register.Password":" Contraseña*",
+    "Register.RPassword":"Repetir Contraseña*",
+    "Register.Register":"Registrarme",
+    "Register.terms1":"Al registrarte aceptas nuestras ",
+    "Register.terms2":"condiciones de uso y venta   ",
+    "Register.thanks":"Gracias ",
+    "Register.noUser":"No hay Usuario "
 
-    
 }

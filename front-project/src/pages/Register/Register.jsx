@@ -5,6 +5,7 @@ import {Input} from '@nextui-org/react';
 import './Register.scss';
 import { registerUser } from '../../redux/actions/authActions';
 
+
 const INITIAL_STATE = {
     email: '',
     password: ''

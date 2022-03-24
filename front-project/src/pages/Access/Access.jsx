@@ -5,6 +5,7 @@ import { registerUser, loginUser } from '../../redux/actions/authActions';
 import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
+import { FormattedMessage  as T} from 'react-intl';
 import './Access.scss';
 
 const INITIAL_STATE = {
@@ -51,8 +52,8 @@ const Access = ({dispatch, error, user}) =>{
                 ?
                 <>
                 <form onSubmit={submitLoginForm} className='access__forms-login'>
-                    <h2>Iniciar sesión</h2>
-                    <p className='access__forms-login-error'>Las credenciales que has utilizado para iniciar sesión son incorrectas</p>
+                    <h2><T id='navbar.item.login' /></h2>
+                    <p className='access__forms-login-error'><T id='Register.Credentials' /></p>
                         <div className='access__forms-login-input'>
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-envelope" />
@@ -64,12 +65,12 @@ const Access = ({dispatch, error, user}) =>{
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-lock" />
                                     <InputText id="password" name="password" type="password" value={loginFormData.password} onChange={handleInputLogin}></InputText>
-                                <label htmlFor="password">Contraseña*</label>
+                                <label htmlFor="password"><T id='Register.Password' /></label>
                             </span>
                         </div>
                     <div>
                         <Button auto flat color="success" className='access__forms-login-btn'>
-                            Iniciar sesión
+                            <T id='navbar.item.login' />
                         </Button>
                     </div>
                 </form>
@@ -78,7 +79,7 @@ const Access = ({dispatch, error, user}) =>{
                 ''
             }
             <form onSubmit={submitRegisterForm} className="access__forms-register">
-                <h2>Crear cuenta</h2>
+                <h2><T id='Register.Create' /></h2>
                 <div className='access__forms-register-input'>
                     <span className="p-float-label p-input-icon-right">
                         <i className="pi pi-envelope" />
@@ -90,25 +91,25 @@ const Access = ({dispatch, error, user}) =>{
                     <span className="p-float-label p-input-icon-right">
                         <i className="pi pi-lock" />
                             <InputText id="password" name="password" type="password" value={formRegisterData.password} onChange={handleInputRegister}></InputText>
-                        <label htmlFor="password">Contraseña*</label>
+                        <label htmlFor="password"><T id='Register.Password' /></label>
                     </span>
                 </div>
                 <div className='access__forms-register-input'>
                     <span className="p-float-label p-input-icon-right">
                         <i className="pi pi-lock" />
                             <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.passwordRepeat} onChange={handleInputRegister}></InputText>
-                            <label htmlFor="password">Repetir contraseña*</label>
+                            <label htmlFor="password"><T id='Register.RPassword' /></label>
                     </span>
                 </div>
                 <div>
                     {/* <button className="register__form-btn">Registrar</button> */}
                     <Button auto flat color="primary" className="access__forms-register-btn">
-                        Registrarme
+                    <T id='Register.Register' />
                     </Button>
                 </div>
                 <div className='register__form-line'></div>
                 <div className='register__form-footer'>
-                    <p>Al registrarte aceptas nuestras <a href="https://www.amazon.es/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=200545940">condiciones de uso y venta.</a>Gracias</p>
+                    <p><T id='Register.terms1' /> <a href="https://www.amazon.es/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=200545940"><T id='Register.terms2' /></a><T id='Register.thanks' /></p>
                 </div>
             </form>
             </div>
