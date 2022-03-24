@@ -6,13 +6,17 @@ import {connect} from 'react-redux';
 import { ProfileContext } from '../../Contexts/ProfileContext';
 import './Profile.scss';
 import { FormattedMessage  as T} from 'react-intl';
+import FavLis from './Components/FavLis';
 
 
 const Profile = ({dispatch, user}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
+    const listFav = JSON.parse(localStorage.getItem("productsFav"));
+
+    console.log("Esta es la lista", listFav);
+
     const userLoggedIn = user.email;
-    console.log(user)
 
     return <div className='profile'>
                 <div className='profile__header'>
@@ -29,14 +33,9 @@ const Profile = ({dispatch, user}) =>{
                         {/* SHOW FAV PRODUCTS */}
                         {(profileNavbarActions.showFavProducts)
                         ?
-                            (profileNavbarActions.showFavProducts.length <3)
+                            (listFav.length > 1)
                             ?
-                            /* AQUÍ RECORREREMOS A FUTURO EL LOCAL STORAGE DE PRODUCTOS FAVORITOS
-                            ESTE MAP ES UNA PRUEBA SIMPLEMENTE */
-                            profileNavbarActions.showFavProducts.map(product=>{
-                                <p>{product.title}</p>
-                                //CARTA -> PRODUCTOS
-                            })
+                            <FavLis listFav={listFav} />
                             :
                             <p><T id='profile.favs'/></p>
                         :
