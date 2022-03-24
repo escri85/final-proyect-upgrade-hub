@@ -56,15 +56,18 @@ const WomanClothesPage = (props) => {
     <>
         <div className="c-">
             <div className="c-finder">  
-                <label htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
-                <input type="checkbox" onChange={handleChangePantalones} />
-
-                <label htmlFor="checkbox">Top</label>
-                <input type="checkbox" onChange={handleChangeTop} />
-
-                <label htmlFor="checkbox">< T id='ckeckBox.item.skirt'/></label>
-                <input type="checkbox" onChange={handleChangeFalda} />
-
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangePantalones} />
+                </div>
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox">Top</label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeTop} />
+                </div>
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox">< T id='ckeckBox.item.skirt'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeFalda} />
+                </div>
                 <div className="c-finder__price">
                     <label htmlFor="precio">< T id='ckeckBox.item.price'/></label>
                     <input type="range" max="40" min="10" step="5" onChange={handleChangePrice} />
