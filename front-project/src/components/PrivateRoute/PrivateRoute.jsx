@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import {connect} from 'react-redux';
 import { Navigate, useLocation } from "react-router-dom";
 import { Access, RegisterForm } from "../../pages";
+import { FormattedMessage  as T} from 'react-intl';
 
 const PrivateRoute = ({user, component, ...restProps}) =>{
 
@@ -11,7 +12,7 @@ const PrivateRoute = ({user, component, ...restProps}) =>{
 
     if (!component) throw new Error('Jose, Luispa, Sergi y Hector no han pasado un componente :/');
 
-    if (user === null) return <div>No hay usuario</div>
+    if (user === null) return <div><T id='Register.noUser'/></div>
 
     if (user === false){
         {/* <Access userError = {user}/> */}

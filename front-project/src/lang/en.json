@@ -78,5 +78,6 @@
     "Register.Register":"Register",
     "Register.terms1":"By registering you accept our ",
     "Register.terms2":"conditions of use and sale   ",
-    "Register.thanks":"Thank you "
+    "Register.thanks":"Thank you ",
+    "Register.noUser":"No User "
 }
