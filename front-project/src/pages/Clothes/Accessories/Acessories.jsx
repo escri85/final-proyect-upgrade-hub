@@ -65,20 +65,30 @@ const Accesories = (props) => {
         <>
         <div className="c-">
             <div className="c-finder">
-                <label htmlFor="checkbox"><T id='ckeckBox.item.scarf'/></label>
-                <input type="checkbox" onChange={handleChangePañuelos} />
+                <div className="c-finder__div">
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.scarf'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangePañuelos} />
+                </div>
 
-                <label htmlFor="checkbox"><T id='ckeckBox.item.Earrings'/></label>
-                <input type="checkbox" onChange={handleChangePendientes} />
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.Earrings'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangePendientes} />
+                </div>
 
-                <label htmlFor="checkbox"><T id='ckeckBox.item.Necklaces'/></label>
-                <input type="checkbox" onChange={handleChangeCollares} />
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.Necklaces'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeCollares} />
+                </div>
 
-                <label htmlFor="checkbox"><T id='ckeckBox.item.Hat'/></label>
-                <input type="checkbox" onChange={handleChangeGorros} />
-            
-                <label htmlFor="checkbox"><T id='ckeckBox.item.Belt'/></label>
-                <input type="checkbox" onChange={handleChangeCinturones} />
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.Hat'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeGorros} />
+                </div>
+
+                <div className="c-finder__div" >
+                    <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.Belt'/></label>
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangeCinturones} />
+                </div>
 
                 <div className="c-finder__price">
                     <label htmlFor="precio"><T id='ckeckBox.item.price'/></label>
