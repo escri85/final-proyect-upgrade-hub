@@ -29,7 +29,8 @@
         min-width: 250px;
 
         background: #F9FAFB;
-        box-shadow: 15px 15px 15px rgba(grey, 0.5);
+        // box-shadow: 15px 15px 15px rgba(grey, 0.5);
+        border: 2px solid rgb(230, 225, 225) ;
         border-radius: 10px;
     
         & label {
@@ -71,6 +72,7 @@
 
             width: 80%;
             max-width: 800px;
+            height: 100px;
     
             &  input{
                 margin-right: 5px;

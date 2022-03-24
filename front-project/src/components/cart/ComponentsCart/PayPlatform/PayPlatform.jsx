@@ -10,8 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
 import { cleanCartRedux } from '../../../../redux/actions/cartActions';
-import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
+import { ModalPaid } from './Components-Pay/ModalPaid';
 
 const PayPlatform = (props) => {
 
@@ -56,8 +55,6 @@ const PayPlatform = (props) => {
             return timeToSend = 5;
         }
     })
-
-    const [value, setValue] = React.useState(1);
 
     return (<>
         <div className="c-platform">
@@ -157,19 +154,7 @@ const PayPlatform = (props) => {
                     {payDone && <button className="c-platform__buttons__button" onClick={payFunction}>Comprar</button>}
                 </div>
             </div>
-            { orderSent && <div className="c-platform__order">
-                    <h3>Tu pedido se ha registrado correctamente</h3>
-                    <h4>El tiempo previsto de entrega serán {timeToSend} días</h4>    
-                    <h5>Valore su experiencia con ZARANDO</h5>
-                    <Rating
-                        name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                        setValue(newValue);
-                        }}
-                    />
-                    <button onClick={closeAll}>Aceptar</button>
-            </div>}
+            { orderSent && <div className="c-platform__order"><ModalPaid timeToSend={timeToSend} closeAll={closeAll} /></div>}
         </div>
     </>)
 }
@@ -179,3 +164,4 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(PayPlatform)
+

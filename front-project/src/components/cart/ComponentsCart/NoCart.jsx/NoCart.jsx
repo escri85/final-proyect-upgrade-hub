@@ -11,7 +11,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { addProductToCart } from '../../../../redux/actions/cartActions';
 
 
@@ -73,7 +73,7 @@ export const NoCart = (props) => {
                         </CardActionArea>
                         <CardActions>
                         <IconButton onClick={()=>{props.dispatch(addProductToCart(item))}} aria-label="add to favorites">
-                            <FavoriteIcon color="action" />
+                            <AddShoppingCartIcon color="action" />
                         </IconButton>
                         </CardActions>
                     </Card>
