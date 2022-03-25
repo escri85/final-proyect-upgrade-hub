@@ -6,6 +6,9 @@
     z-index: 12;
 }
 
-.showItem{
+.hiddenItem{
     display: none;
+}
+.showItem{
+    display: block;
 }

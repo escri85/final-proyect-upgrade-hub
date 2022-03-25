@@ -32,6 +32,8 @@ const Navbar = ({dispatch, error, user}) => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
 
+    console.log(user);
+
     // const client_id=process.env.GOOGLE_CLIENT_ID
 
     const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
@@ -57,12 +59,6 @@ const Navbar = ({dispatch, error, user}) => {
         setLoginData(response)
         setVisible(false)
     }
-
-    const [showItem, setShowItem] = useState(false)
-
-   
-       const show=()=> user.email ? setShowItem(true) : setShowItem(false);
- ;
 
 
 //////  LOGIN Y LOGOUT GOOGLE?  //////
@@ -157,11 +153,11 @@ const Navbar = ({dispatch, error, user}) => {
             {
             label:  < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
-            className: "showItem",
-            command: () => {show()
+            className: (!user) ? 'hiddenItem' : 'showItem',
+            command: () => {
                 dispatch(logoutUser())
                 navigate('/');
-            } 
+            }
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
@@ -171,7 +167,7 @@ const Navbar = ({dispatch, error, user}) => {
             },
             {
                 label: <p>Perfil</p>,
-                className: "showItem",
+                className: (!user) ? 'hiddenItem' : 'showItem',
                 command: ()=>{navigate('/profile')}
             }
         ],
@@ -256,7 +252,6 @@ const Navbar = ({dispatch, error, user}) => {
                 value={formData.password}
                 onChange={changeInput}
                 labelPlaceholder="Contraseña"
-                
             />
             <Row justify="space-between">
             <Checkbox>
