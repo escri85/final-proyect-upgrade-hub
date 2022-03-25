@@ -31,18 +31,20 @@ const Card = (props) => {
       setFavInfo([...favInfo, item])
     }
   }
+
+
+
   useEffect(() => {
     localStorage.setItem("productsFav", JSON.stringify(favInfo))
   }, [favInfo]);
 
 
-  //Modal  
-  
+  //Modal
   const [modalAddPage, setModalAddPage] = useState(false)
 
   const productAdd = () => {
 
-    props.dispatch(addProductToCart(product));  
+    props.dispatch(addProductToCart(product));
 
     setModalAddPage(true)
 
@@ -52,9 +54,11 @@ const Card = (props) => {
 
   }
 
+
+
   return (
     <>
-  
+
 
     <div key={product._id} className="el-wrapper">
       <div className="box-up">
@@ -68,11 +72,12 @@ const Card = (props) => {
           </div>
           <div className="a-size">
             {product.description}{" "}
+            
             {product.stock < 4 ? (
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
-            ) : (
-              ""
-            )}{" "}
+            ) : ("")}{}
+            {/* {product.stock=== 0(<h5>Producto en reposición</h5>)} */}
+            
           </div>
         </div>
       </div>
@@ -86,11 +91,13 @@ const Card = (props) => {
 
           <span className="add-to-cart">
             <button
-              onClick={productAdd}
+              onClick={productAdd} 
+              disabled={true ? product.stock === 0 : false}
               className="txt"
             >
               <T id="card.addToCart"/>
             </button>
+            
           </span>
           <span className="fav">
             <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>

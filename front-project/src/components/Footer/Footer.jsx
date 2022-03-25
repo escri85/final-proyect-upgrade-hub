@@ -25,11 +25,11 @@ const Footer = () => {
         </div>
         <div className='footer-help'>
           
-        <NavLink to ="/work" >
-            <p>< T id='workwithUS.form.link'/>   |</p>
+        <NavLink  to ="/work" >
+            <p >< T   id='workwithUS.form.link'/>   |</p>
           </NavLink>
 
-          <p><T id='footer.help'/>   |</p>
+          
           <p><T id='footer.sends'/>   |</p>
           <p><T id='footer.rights'/></p>
         </div>
