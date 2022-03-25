@@ -8,6 +8,7 @@ import { CartPage } from './CartPage/CartPage';
 import Access from './Access/Access';
 import Profile from './Profile/Profile';
 import Contact from './Contact/Contact';
+import Carousel from './Home/Carousel/Carousel';
 export {
     Accessories,
     ManClothesPage,
@@ -18,5 +19,6 @@ export {
     Access,
     Profile,
     Contact,
-    WorkwithUs
+    WorkwithUs,
+    Carousel
 }
