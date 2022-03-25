@@ -14,8 +14,6 @@ const Profile = ({dispatch, user}) =>{
 
     const listFav = JSON.parse(localStorage.getItem("productsFav"));
 
-    console.log("Esta es la lista", listFav);
-
     const userLoggedIn = user.email;
 
     return <div className='profile'>
@@ -33,7 +31,7 @@ const Profile = ({dispatch, user}) =>{
                         {/* SHOW FAV PRODUCTS */}
                         {(profileNavbarActions.showFavProducts)
                         ?
-                            (listFav.length > 1)
+                            (listFav.length)
                             ?
                             <FavLis listFav={listFav} />
                             :

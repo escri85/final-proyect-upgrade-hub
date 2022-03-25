@@ -110,3 +110,26 @@ export const logoutUser = ()=>{
         dispatch({type:AUTH_USER_LOGOUT_ERROR, payload: result.message});
     }
 }
+
+export const checkUserSession = () => {
+    return async (dispatch) => {
+        dispatch({ type: CHECK_SESSION });
+        const request = await fetch("http://localhost:4000/auth/check-session", {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        credentials: "include",
+        });
+        
+        const result = await request.json();
+        
+        if (request.ok) {
+            dispatch({ type: CHECK_SESSION_OK, payload: result });
+        } else {
+            dispatch({ type: CHECK_SESSION_ERROR });
+        }
+    };
+};
