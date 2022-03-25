@@ -44,7 +44,6 @@ function App({user, error, dispatch}) {
                   <Route path='/cart' element={<CartPage cart={cart} setCart = {setCart}/>} />
                   <Route path="/access" element={<Access/>} />
                   <Route path="/profile" element={<PrivateRoute component={<Profile/>}/>}> </Route>
-                  <Route path='/add' element={<AddProduct/>}/>
                   <Route path='/work' element={<WorkwithUS/>}/>
                   <Route path='/admin' element={<AdminSettings/>} />
                 </Route>
