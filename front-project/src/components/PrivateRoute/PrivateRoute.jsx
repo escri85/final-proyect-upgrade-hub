@@ -14,13 +14,12 @@ const PrivateRoute = ({user, component, ...restProps}) =>{
 
     if (user === null) return <div><T id='Register.noUser'/></div>
 
-    if (user === false){
+    if (user === false || !user.email){
         {/* <Access userError = {user}/> */}
         return <Navigate to='/access' state={{prevRoute: location.pathname}} />
     }
 
-    if (user) return component;
-
+    if (user.email) return component;
 
 };
 

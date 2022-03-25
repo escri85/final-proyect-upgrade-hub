@@ -48,12 +48,12 @@ const Access = ({dispatch, error, user}) =>{
     return (
         <div className='access'>
             <div className='access__forms'>
-                {(error)
+                {(error || !user.email)
                 ?
                 <>
                 <form onSubmit={submitLoginForm} className='access__forms-login'>
                     <h2><T id='navbar.item.login' /></h2>
-                    <p className='access__forms-login-error'><T id='Register.Credentials' /></p>
+                    { error && <p className='access__forms-login-error'><T id='Register.Credentials' /></p>}
                         <div className='access__forms-login-input'>
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-envelope" />
