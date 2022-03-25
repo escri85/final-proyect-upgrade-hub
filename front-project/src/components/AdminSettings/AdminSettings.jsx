@@ -10,6 +10,7 @@ import { Panel } from 'primereact/panel';
 
 
 import './AdminSettings.scss';
+import AddProduct from '../AddProduct/AddProduct';
 
 
 const AdminSettings = (props) => {
@@ -70,6 +71,12 @@ const AdminSettings = (props) => {
             </div>
             <div className='adminpanel__products'>
             <TabView activeIndex={activeIndex} onTabChange={(e) =>setActiveIndex(e.index)}>
+                <TabPanel className="adminpanel__products-tabpanel" header="Subir artículo">
+                    <div className='uploadProduct'>
+                        <AddProduct/>
+                        <p>Puedes pasar el ratón por encima de la vista previa para ver los detalles</p>
+                    </div>
+                </TabPanel>
                 <TabPanel className="adminpanel__products-tabpanel" header="Acesorios">
                     <div className="card__accesories">
                         <DataTable value={allProducts.accessories} responsiveLayout="scroll">

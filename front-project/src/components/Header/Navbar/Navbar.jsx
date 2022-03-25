@@ -133,13 +133,6 @@ const Navbar = ({dispatch, error, user}) => {
         ],
         },
         {
-        label: <T id="navbar.item.upload" />,
-        icon: "pi pi-fw pi-plus",
-        command: () => {
-            navigate("/add");
-        },
-        },
-        {
         label: <T id="navbar.item.cart" />,
         icon: "pi pi-fw pi-shopping-cart",
         command: () => {
