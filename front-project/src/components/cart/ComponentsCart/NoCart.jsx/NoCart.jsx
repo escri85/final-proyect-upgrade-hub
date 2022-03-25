@@ -1,92 +1,162 @@
-import { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { getAccesoriesToApi, getManClothesToApi, getWomenClothesToApi } from '../../../../redux/actions/apiActions'
-import './NoCart.scss'
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import {
+  getAccesoriesToApi,
+  getManClothesToApi,
+  getWomenClothesToApi,
+} from "../../../../redux/actions/apiActions";
+import "./NoCart.scss";
 
 //MUI
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {CardActionArea, CardActions } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { addProductToCart } from '../../../../redux/actions/cartActions';
+import * as React from "react";
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import {CardActionArea, CardActions } from '@mui/material';
+import IconButton from "@mui/material/IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { addProductToCart } from "../../../../redux/actions/cartActions";
 
+import { Card, Grid, Col, Text, Row, Button } from "@nextui-org/react";
 
 export const NoCart = (props) => {
+  useEffect(() => {
+    props.dispatch(getAccesoriesToApi());
+    props.dispatch(getManClothesToApi());
+    props.dispatch(getWomenClothesToApi());
 
-    useEffect(() => {
-        props.dispatch(getAccesoriesToApi())
-        props.dispatch(getManClothesToApi())
-        props.dispatch(getWomenClothesToApi())
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-         //eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+  const allProducts = {
+    accessories: props.accessories,
+    manClothes: props.manClothes,
+    womanClothes: props.womenClothes,
+  };
 
-    const allProducts = {
-        accessories: props.accessories,
-        manClothes: props.manClothes,
-        womanClothes: props.womenClothes,
-    }
+  const result = allProducts.accessories.filter((element) =>
+    element.title.includes("Pañuelo")
+  );
 
+  const result1 = allProducts.womanClothes.filter((element) =>
+    element.title.includes("Falda")
+  );
 
-    const result = allProducts.accessories.filter((element)=>
-        element.title.includes("Pañuelo")
-    )
+  const result2 = allProducts.manClothes.filter((element) =>
+    element.title.includes("cazadora")
+  );
 
-    const result1 = allProducts.womanClothes.filter((element)=>
-        element.title.includes("Falda")
-    )
+  const productsResult = [...result, ...result1, ...result2];
 
-    const result2 = allProducts.manClothes.filter((element)=>
-        element.title.includes("cazadora")
-    )
+  return (
+    <div className="c-nocart">
+      <div className="c-nocart__div">
+        <img
+          src="https://cdn.discordapp.com/attachments/954061730814787637/955412143614857236/Nueva_Coleccion.png"
+          alt="icono"
+        />
+      </div>
 
-    const productsResult = [...result, ...result1, ...result2]
+      <div className="c-nocart__examples">
+        {productsResult.map((item) => (
+          <div className="c-nocart__examples__newCard" key={item.id}>
+            <Grid xs={12} sm={12} md={12}>
+              <Card cover css={{ w: "100%" }}   >
+                <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+                  <Col>
+                    <Text
+                      h3
+                      color="black"
+                      css={{
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {item.title}
+                    </Text>
+                  </Col>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Image
+                    src={item.image}
+                    height={400}
+                    width="100%"
+                    alt="Card example background"
+                    css={{ marginLeft: "0%" }}
+                  />
+                </Card.Body>
+                <Card.Footer
+                  blur
+                  css={{
+                    position: "absolute",
+                    bgBlur: "#ffffff",
+                    borderTop:
+                      "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
+                    bottom: 0,
+                    zIndex: 1,
+                  }}
+                >
+                  <Row>
+                    <Col>
+                      <Text
+                        color="#000"
+                        size={12}
+                        css={{
+                          marginTop: "17%",
+                          fontWeight: "bolder",
+                          fontSize: "15px",
+                          marginRight: "5%",
+                        }}
+                      >
+                        {item.price} €
+                      </Text>
+                    </Col>
+                    <Col>
+                      <Row justify="flex-end">
+                        <Button
+                          flat
+                          auto
+                          rounded
+                          color="secondary"
+                          onClick={() => {
+                            props.dispatch(addProductToCart(item));
+                          }}
+                        >
+                          <Text
+                            css={{ color: "inherit", fontSize: "50%" }}
+                            size={12}
+                            weight="bold"
+                            transform="uppercase"
+                          >
+                            <IconButton
+                              onClick={() => {
+                                props.dispatch(addProductToCart(item));
+                              }}
+                              aria-label="add to favorites"
+                            >
+                              <AddShoppingCartIcon color="action" />
+                            </IconButton>
+                          </Text>
+                        </Button>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Card.Footer>
+              </Card>
+            </Grid>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-    return (<div className="c-nocart">
-
-        <div className="c-nocart__div">
-            <img src="https://cdn.discordapp.com/attachments/954061730814787637/955412143614857236/Nueva_Coleccion.png" alt="icono" />
-        </div>
-
-        <div className="c-nocart__examples">
-                {productsResult.map((item) => (
-                    <Card key={item.id} sx={{ maxWidth: 200 , maxheight: 350, margin: 1 }}>
-                        <CardActionArea>
-                            <CardMedia
-                            component="img"
-                            height="140"
-                            image={item.image}
-                            alt="imagen cart"
-                            />
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {item.title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {item.price}
-                            </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                        <IconButton onClick={()=>{props.dispatch(addProductToCart(item))}} aria-label="add to favorites">
-                            <AddShoppingCartIcon color="action" />
-                        </IconButton>
-                        </CardActions>
-                    </Card>
-                ))}
-        </div>
-    </div>)
-}
-
-const mapStateToProps = state => ({
-    
-    accessories: state.api.accessories,
-    manClothes:state.api.manClothes,
-    womenClothes:state.api.womenClothes,
+const mapStateToProps = (state) => ({
+  accessories: state.api.accessories,
+  manClothes: state.api.manClothes,
+  womenClothes: state.api.womenClothes,
 });
 
-export default connect(mapStateToProps)(NoCart)
+export default connect(mapStateToProps)(NoCart);

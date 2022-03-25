@@ -28,52 +28,53 @@ const Card = (props) => {
     } else {
       setFavInfo([...favInfo, item]);
     }
-  };
+
+  }
+
+
   useEffect(() => {
     localStorage.setItem("productsFav", JSON.stringify(favInfo));
   }, [favInfo]);
 
   //Modal
-
-  const [modalAddPage, setModalAddPage] = useState(false);
+  const [modalAddPage, setModalAddPage] = useState(false)
 
   const productAdd = () => {
     props.dispatch(addProductToCart(product));
 
-    setModalAddPage(true);
+    props.dispatch(addProductToCart(product));
+
+    setModalAddPage(true)
 
     setTimeout(function () {
       setModalAddPage(false);
     }, 2000);
   };
 
+
+
   return (
     <>
-      <div key={product._id} className="el-wrapper">
-        <div className="box-up">
-          <img className="img" src={product.image} alt="" />
-          <div className="img-info">
-            <div className="info-inner">
-              <span className="p-name">{product.title}</span>
-              <span className="p-company">{product.categorie}</span>
-              <Rating
-                value={product.rating}
-                readOnly
-                stars={5}
-                cancel={false}
-              />
-              <span className="price">{product.price} €</span>
-            </div>
-            <div className="a-size">
-              {product.description}{" "}
-              {product.stock < 4 ? (
-                <h5 className="lastUnits">
-                  <T id="card.stock" /> {product.stock}{" "}
-                </h5>
-              ) : (
-                ""
-              )}{" "}
-            </div>
+
+
+    <div key={product._id} className="el-wrapper">
+      <div className="box-up">
+        <img className="img" src={product.image} alt="" />
+        <div className="img-info">
+          <div className="info-inner">
+            <span className="p-name">{product.title}</span>
+            <span className="p-company">{product.categorie}</span>
+            <Rating value={product.rating} readOnly stars={5} cancel={false} />
+                      <span className="price">{product.price} €</span>
+          </div>
+          <div className="a-size">
+            {product.description}{" "}
+            
+            {product.stock < 4 ? (
+              <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
+            ) : ("")}{}
+            {/* {product.stock=== 0(<h5>Producto en reposición</h5>)} */}
+            
           </div>
         </div>
 
@@ -82,23 +83,23 @@ const Card = (props) => {
             <div className="h-bg-inner"></div>
           </div>
 
-          <div className="cart">
-            <span className="add-to-cart">
-              <button onClick={productAdd} className="txt">
-                <T id="card.addToCart" />
-              </button>
-            </span>
-            <span className="fav">
-              <IconButton
-                aria-label="add to favorites"
-                onClick={() => {
-                  addFavList(product);
-                }}
-              >
-                <FavoriteIcon color="error" />
-              </IconButton>
-            </span>
-          </div>
+        <div className="cart">
+
+          <span className="add-to-cart">
+            <button
+              onClick={productAdd} 
+              disabled={true ? product.stock === 0 : false}
+              className="txt"
+            >
+              <T id="card.addToCart"/>
+            </button>
+            
+          </span>
+          <span className="fav">
+            <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>
+              <FavoriteIcon color="error" />
+            </IconButton>
+          </span>
         </div>
       </div>
       {modalAddPage && (
