@@ -61,8 +61,8 @@ export const NoCart = (props) => {
       <div className="c-nocart__examples">
         {productsResult.map((item) => (
           <div className="c-nocart__examples__newCard" key={item.id}>
-            <Grid xs={12} sm={5}>
-              <Card cover css={{ w: "100%" }}>
+            <Grid xs={12} sm={12} md={12}>
+              <Card cover css={{ w: "100%" }}   >
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                   <Col>
                     <Text
