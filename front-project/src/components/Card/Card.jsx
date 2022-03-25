@@ -4,10 +4,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { connect } from "react-redux";
 import { Rating } from "primereact/rating";
 import { addProductToCart } from "../../redux/actions/cartActions";
-import { FormattedMessage as T } from "react-intl";
+import { FormattedMessage  as T} from 'react-intl';
 import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
-import { red } from "@mui/material/colors";
+import {red} from '@mui/material/colors';
+
+
+
 
 const Card = (props) => {
   const primary = red[500];
@@ -19,37 +22,38 @@ const Card = (props) => {
   const [favInfo, setFavInfo] = useContext(FavContext);
 
   const addFavList = (item) => {
-    const duplicatedFav = favInfo.find((element) => element._id === item._id);
-
-    if (duplicatedFav) {
-      const positionToDelete = favInfo.indexOf(duplicatedFav);
-      favInfo.splice(positionToDelete, 1);
-      setFavInfo([...favInfo]);
-    } else {
-      setFavInfo([...favInfo, item]);
+    const duplicatedFav = favInfo.find(element =>element._id === item._id);
+    
+    if(duplicatedFav) {
+      const positionToDelete = favInfo.indexOf(duplicatedFav)
+      favInfo.splice(positionToDelete, 1)
+      setFavInfo([...favInfo])
+    }else {
+      setFavInfo([...favInfo, item])
     }
-
   }
 
 
+
   useEffect(() => {
-    localStorage.setItem("productsFav", JSON.stringify(favInfo));
+    localStorage.setItem("productsFav", JSON.stringify(favInfo))
   }, [favInfo]);
+
 
   //Modal
   const [modalAddPage, setModalAddPage] = useState(false)
 
   const productAdd = () => {
-    props.dispatch(addProductToCart(product));
 
     props.dispatch(addProductToCart(product));
 
     setModalAddPage(true)
 
-    setTimeout(function () {
-      setModalAddPage(false);
-    }, 2000);
-  };
+    setTimeout(function() {
+      setModalAddPage(false)
+  }, 2000);
+
+  }
 
 
 
@@ -70,29 +74,30 @@ const Card = (props) => {
           <div className="a-size">
             {product.description}{" "}
             
-            {product.stock < 4 ? (
+            {product.stock < 4 && product.stock >0 ? (
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : ("")}{}
-            {/* {product.stock=== 0(<h5>Producto en reposición</h5>)} */}
+            {product.stock=== 0 && (<h5>Producto en reposición</h5>)} 
             
           </div>
         </div>
+      </div>
 
-        <div className="box-down">
-          <div className="h-bg">
-            <div className="h-bg-inner"></div>
-          </div>
+      <div className="box-down">
+        <div className="h-bg">
+          <div className="h-bg-inner"></div>
+        </div>
 
         <div className="cart">
 
           <span className="add-to-cart">
-            <button
+            {product.stock >0 && <button
               onClick={productAdd} 
-              disabled={true ? product.stock === 0 : false}
+              // disabled={true ? product.stock === 0 : false}
               className="txt"
             >
               <T id="card.addToCart"/>
-            </button>
+            </button>}
             
           </span>
           <span className="fav">
@@ -102,11 +107,10 @@ const Card = (props) => {
           </span>
         </div>
       </div>
-      {modalAddPage && (
-        <div className="modal-add">
-          <h5>Producto añadido al carrito</h5>
-        </div>
-      )}
+    </div>
+    {modalAddPage && <div className="modal-add">
+      <h5  >Producto añadido al carrito</h5>
+    </div>}
     </>
   );
 };
