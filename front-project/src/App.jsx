@@ -1,5 +1,5 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies} from './components';
+import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies, AdminSettings} from './components';
 import { useContext, useEffect } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
@@ -46,6 +46,7 @@ function App({user, error, dispatch}) {
                   <Route path="/profile" element={<PrivateRoute component={<Profile/>}/>}> </Route>
                   <Route path='/add' element={<AddProduct/>}/>
                   <Route path='/work' element={<WorkwithUS/>}/>
+                  <Route path='/admin' element={<AdminSettings/>} />
                 </Route>
             </Routes>
             <Chat/>

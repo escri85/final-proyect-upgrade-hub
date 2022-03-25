@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import { InputText } from 'primereact/inputtext';
 import './Search.scss';
+import AdminSettings from '../AdminSettings/AdminSettings';
 
 
 const Search = (props) => {
