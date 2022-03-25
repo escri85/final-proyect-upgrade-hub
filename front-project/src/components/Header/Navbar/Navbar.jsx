@@ -34,11 +34,9 @@ const Navbar = ({dispatch, error, user}) => {
 
     // const client_id=process.env.GOOGLE_CLIENT_ID
 
-    console.log(process.env);
     const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
 
     const [loginData,setLoginData]=useState(local_Storage)
-    console.log('esto es el loginData',loginData);
 
     const registerUserForGoogl = ()=>{
         console.log(loginData);
@@ -60,6 +58,13 @@ const Navbar = ({dispatch, error, user}) => {
         setVisible(false)
     }
 
+    // const [showItem, setShowItem] = useState(false)
+
+    // useEffect(() => {
+    //     user.email ? setShowItem(true) : setShowItem(false);
+    // }, [user.email]);
+
+
 //////  LOGIN Y LOGOUT GOOGLE?  //////
 
 /*     const handleLogin=(googleData)=>{
@@ -77,7 +82,6 @@ const Navbar = ({dispatch, error, user}) => {
         setVisible(false);
         navigate('/profile');
     };
-
 
     const changeInput = (ev) =>{
         const {name, value} = ev.target;
@@ -151,12 +155,13 @@ const Navbar = ({dispatch, error, user}) => {
         icon: "pi pi-fw pi-power-off",
         items: [
             {
-            label: < T id="navbar.item.logout" /> ,
+            label:  < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
+            // className: !showItem && "showItem",
             command: () => {
                 dispatch(logoutUser())
-                navigate('/home');
-            }
+                navigate('/');
+            } 
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
@@ -166,6 +171,7 @@ const Navbar = ({dispatch, error, user}) => {
             },
             {
                 label: <p>Perfil</p>,
+                className: "showItem",
                 command: ()=>{navigate('/profile')}
             }
         ],

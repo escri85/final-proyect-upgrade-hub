@@ -30,7 +30,10 @@ const ProfileNavbar = () =>{
                 },
                 {
                     label:<T id='profile.navbar.emptylist'/>,
-                    icon:'pi pi-fw pi-trash'
+                    icon:'pi pi-fw pi-trash',
+                    command: () => {
+                        localStorage.removeItem("productsFav");
+                    }
                 }
             ]
             },

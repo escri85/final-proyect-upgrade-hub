@@ -1,6 +1,6 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
 import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies} from './components';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';
 import Home from './pages/Home/Home';
@@ -12,21 +12,27 @@ import WorkwithUS from './pages/WorkwithUs/WorkwithUS';
 
 import './App.scss';
 import Navbar from './components/Header/Navbar/Navbar';
+import { checkUserSession } from './redux/actions/authActions';
 
 
-function App({user, error}) {
+function App({user, error, dispatch}) {
   const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
 
   //CART
   const buyProducts = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')):[]
   const [cart, setCart] = useState([]);
 
+  //CheckSession
+  useEffect(() => {
+    dispatch(checkUserSession());
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
            <Header/> 
           <Cookies/>
-          <Navbar/>
+          <Navbar user={user}/>
             <Routes>
                 <Route path='/'>
                   <Route path="/" element={<Home/>}/>
