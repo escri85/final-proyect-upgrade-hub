@@ -19,6 +19,12 @@
                 align-items: center;
             }
         }
+        &__contain{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+        }
     }
     .search__tabpanel1{
         width: 100%;

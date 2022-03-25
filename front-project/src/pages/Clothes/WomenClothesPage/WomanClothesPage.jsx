@@ -69,7 +69,7 @@ const WomanClothesPage = (props) => {
                     <input className="c-finder__input" type="checkbox" onChange={handleChangeFalda} />
                 </div>
                 <div className="c-finder__price">
-                    <label htmlFor="precio">< T id='ckeckBox.item.price'/></label>
+                    <label className="c-finder__label" htmlFor="precio">< T id='ckeckBox.item.price'/></label>
                     <input type="range" max="40" min="10" step="5" onChange={handleChangePrice} />
                     <p>{maxPrice}</p>
                 </div>
