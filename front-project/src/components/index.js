@@ -11,6 +11,7 @@ import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import Cookies from './Cookies/Cookies';
 import HelpModule from './HelpModule/HelpModule';
 import  AdminSettings  from './AdminSettings/AdminSettings';
+import AdmingModalSettings from './AdminSettings/AdminModalSettings/AdmingModalSettings';
 
 export {
     Cart,
@@ -25,5 +26,6 @@ export {
     UserSettingsModal,
     Cookies,
     HelpModule,
-    AdminSettings
+    AdminSettings,
+    AdmingModalSettings
 }
