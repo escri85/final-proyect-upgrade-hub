@@ -8,6 +8,7 @@ import './Home.scss';
 const Home = () =>{
 const [activeIndex, setActiveIndex] = useState(0)
 
+
     return (
         <div className='home' >
             <div className='home__search'>
@@ -26,6 +27,13 @@ const [activeIndex, setActiveIndex] = useState(0)
                         <HelpModule/>
                     </TabPanel>
                 </TabView>
+            </div>
+            <div className='home__contain'>
+                <div className='home__contain-info'>
+                    <p>¿No conoces nuestras instalaciones?</p>
+                </div>
+                <div className='home__contain-map'>
+                </div>
             </div>
         </div>
     )

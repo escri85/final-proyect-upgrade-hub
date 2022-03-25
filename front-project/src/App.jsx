@@ -25,7 +25,9 @@ function App({user, error}) {
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
           {/* <Header/> */}
+
           <Cookies/> 
+
           <Navbar/>
             <Routes>
                 <Route path='/'>
