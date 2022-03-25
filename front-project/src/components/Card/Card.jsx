@@ -11,6 +11,7 @@ import {red} from '@mui/material/colors';
 
 
 
+
 const Card = (props) => {
   const primary = red[500];
 
@@ -73,10 +74,10 @@ const Card = (props) => {
           <div className="a-size">
             {product.description}{" "}
             
-            {product.stock < 4 ? (
+            {product.stock < 4 && product.stock >0 ? (
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : ("")}{}
-            {/* {product.stock=== 0(<h5>Producto en reposición</h5>)} */}
+            {product.stock=== 0 && (<h5>Producto en reposición</h5>)} 
             
           </div>
         </div>
@@ -90,13 +91,13 @@ const Card = (props) => {
         <div className="cart">
 
           <span className="add-to-cart">
-            <button
+            {product.stock >0 && <button
               onClick={productAdd} 
-              disabled={true ? product.stock === 0 : false}
+              // disabled={true ? product.stock === 0 : false}
               className="txt"
             >
               <T id="card.addToCart"/>
-            </button>
+            </button>}
             
           </span>
           <span className="fav">
@@ -108,7 +109,7 @@ const Card = (props) => {
       </div>
     </div>
     {modalAddPage && <div className="modal-add">
-      <h5>Producto añadido al carrito</h5>
+      <h5  >Producto añadido al carrito</h5>
     </div>}
     </>
   );
