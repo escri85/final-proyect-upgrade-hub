@@ -1,19 +1,22 @@
 import React from "react";
 import '@testing-library/jest-dom/extend-expect'
-import{render, screen,fireEvent}from '@testing-library/react'
+import{render, screen}from '@testing-library/react'
 import AddProduct from './AddProduct'
+import { connect } from "react-redux";
 
-beforeEach(()=>{
-  render(<AddProduct/> )
-})
+// beforeEach(()=>{
+  
+// })
 
 test('render title component AddProduct',()=>{
-
+  render(<AddProduct/>)
   const title = screen.getByText(/Edita tu articulo/i)
   expect(title).toBeInTheDocument()
 
 })
-test('render  form elements ',()=>{
+test('render  form elements',()=>{
+  render(<AddProduct/>)
+
   //placeholdeer
   const inputPrecio = screen.queryByPlaceholderText(/precio/i)
   expect(inputPrecio).toBeInTheDocument()

@@ -126,7 +126,10 @@ const AddProduct = () => {
               onChange={onCategorieChange}
               optionLabel="name"
               placeholder= {<T id="AddProduct.Choose" />}
-            /> 
+              />
+                </div>
+               <div className="categoria">
+              
             {/* <label htmlFor="titulo">Pon un nombre a tu articulo</label> */}
             <InputText
               id="titulo"
@@ -144,6 +147,9 @@ const AddProduct = () => {
               name="price"
               placeholder="Precio"
             />
+              
+            </div>
+            <div className="categoria">
             <InputNumber
               id="stock"
               inputId="minmax-buttons"

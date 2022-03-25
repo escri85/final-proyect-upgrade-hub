@@ -9,20 +9,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { connect } from 'react-redux';
 import { addProductToCart } from '../../../redux/actions/cartActions';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
-    const FavLis = ({listFav}, props) => {
+    const FavLis = ({listFav, dispatch}) => {
     
     const list = listFav
     
+    console.log("Este es el dispatch", dispatch);
+
     return (
         <div className="c-favlist">
         {
             list.map(element=>
-                <Card key={element.id} sx={{ maxWidth: 200 , maxheight: 350, margin: 1 }}>
+                <Card key={element.id} sx={{ width: 250 , height: 400, margin: 1 }}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
@@ -32,7 +34,7 @@ import { addProductToCart } from '../../../redux/actions/cartActions';
                         />
                         <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                                {element.title}
+                                {(element.title).toLowerCase()}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             {element.price}
@@ -40,8 +42,8 @@ import { addProductToCart } from '../../../redux/actions/cartActions';
                         </CardContent>
                         </CardActionArea>
                         <CardActions>
-                        <IconButton onClick={()=>{props.dispatch(addProductToCart(element))}} aria-label="add to favorites">
-                            <FavoriteIcon color="action" />
+                        <IconButton onClick={()=>{dispatch(addProductToCart(element))}} aria-label="add to favorites">
+                            <AddShoppingCartIcon color="action" />
                         </IconButton>
                         </CardActions>
                     </Card>
