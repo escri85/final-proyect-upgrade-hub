@@ -10,6 +10,7 @@ import ProfileNavbar from './ProfileNavbar/ProfileNavbar';
 import UserSettingsModal from './UserSettingsModal/UserSettingsModal';
 import Cookies from './Cookies/Cookies';
 import HelpModule from './HelpModule/HelpModule';
+import  AdminSettings  from './AdminSettings/AdminSettings';
 
 export {
     Cart,
@@ -23,5 +24,6 @@ export {
     ProfileNavbar,
     UserSettingsModal,
     Cookies,
-    HelpModule
+    HelpModule,
+    AdminSettings
 }
