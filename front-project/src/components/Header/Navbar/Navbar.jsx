@@ -58,11 +58,11 @@ const Navbar = ({dispatch, error, user}) => {
         setVisible(false)
     }
 
-    // const [showItem, setShowItem] = useState(false)
+    const [showItem, setShowItem] = useState(false)
 
-    // useEffect(() => {
-    //     user.email ? setShowItem(true) : setShowItem(false);
-    // }, [user.email]);
+   
+       const show=()=> user.email ? setShowItem(true) : setShowItem(false);
+ ;
 
 
 //////  LOGIN Y LOGOUT GOOGLE?  //////
@@ -157,8 +157,8 @@ const Navbar = ({dispatch, error, user}) => {
             {
             label:  < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
-            // className: !showItem && "showItem",
-            command: () => {
+            className: "showItem",
+            command: () => {show()
                 dispatch(logoutUser())
                 navigate('/');
             } 
@@ -215,7 +215,7 @@ const Navbar = ({dispatch, error, user}) => {
     return (
         <div>
         <div className="card">
-            <Menubar className="navbar" model={items} start={start} end={end}/>
+            <Menubar model={items} />
         </div>
         <Modal
         closeButton
