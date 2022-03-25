@@ -11,11 +11,12 @@ import { Panel } from 'primereact/panel';
 
 import './AdminSettings.scss';
 import AddProduct from '../AddProduct/AddProduct';
+import AdmingModalSettings from './AdminModalSettings/AdmingModalSettings';
 
 
 const AdminSettings = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
-    const [activeToggle, setActiveTogle] = useState(false);
+    const [showAdminModal, setShowAdminModal] = useState(false);
 
     useEffect(() =>{
         props.dispatch(getAccesoriesToApi())
@@ -43,10 +44,11 @@ const AdminSettings = (props) => {
     const outOfStock = <div className='outOfStock'>Fuera de stock</div>;
     const btnActions = <div className='btnActions'>
         <div>
-            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" />
+            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" onClick={()=>{setShowAdminModal(!showAdminModal)}} />
         </div>
         <div>
-            <Button icon="pi pi-trash" className='p-button-warning btnActions-btn' iconPos="left" />
+            {/* ESTE BOTÓN NO MOSTRARÁ MODAL, MOSTRARÁ PANTALLA DE CONFIRMACIÓN Y ELIMINARÁ EL PRODUCTO */}
+            <Button icon="pi pi-trash" className='p-button-warning btnActions-btn' iconPos="left" onClick={()=>{setShowAdminModal(!showAdminModal)}} />
         </div>
     </div>;
 
@@ -62,6 +64,7 @@ const AdminSettings = (props) => {
 
     return (
         <div className='adminpanel'>
+            {(showAdminModal) ? <AdmingModalSettings/> : ''}
             <div className='adminpanel__header'>
                 <Panel header = "Panel de administración" toggleable>
                     <p><i className='pi pi-pencil'></i> Edita el stock de almacén según necesidad</p>
@@ -71,13 +74,13 @@ const AdminSettings = (props) => {
             </div>
             <div className='adminpanel__products'>
             <TabView activeIndex={activeIndex} onTabChange={(e) =>setActiveIndex(e.index)}>
-                <TabPanel className="adminpanel__products-tabpanel" header="Subir artículo">
+                <TabPanel className="adminpanel__products-tabpanel" header="Subir artículo" leftIcon='pi pi-plus'>
                     <div className='uploadProduct'>
                         <AddProduct/>
                         <p>Puedes pasar el ratón por encima de la vista previa para ver los detalles</p>
                     </div>
                 </TabPanel>
-                <TabPanel className="adminpanel__products-tabpanel" header="Acesorios">
+                <TabPanel className="adminpanel__products-tabpanel" header="Acesorios" leftIcon='pi pi-pencil'>
                     <div className="card__accesories">
                         <DataTable value={allProducts.accessories} responsiveLayout="scroll">
                             <Column field="Nombre" header="Nombre" body={getNames}></Column>
@@ -91,7 +94,7 @@ const AdminSettings = (props) => {
                         </DataTable>
                     </div>
                 </TabPanel>
-                <TabPanel className="adminpanel__products-tabpanel" header="Calzado">
+                <TabPanel className="adminpanel__products-tabpanel" header="Calzado" leftIcon='pi pi-pencil'>
                     <div className='card__sneakers'>
                         <DataTable value={allProducts.sneakers} responsiveLayout="scroll">
                             <Column field="Nombre" header="Nombre" body={getNames}></Column>
@@ -105,7 +108,7 @@ const AdminSettings = (props) => {
                         </DataTable>
                     </div>
                 </TabPanel>
-                <TabPanel className="adminpanel__products-tabpanel" header="Ropa para mujer">
+                <TabPanel className="adminpanel__products-tabpanel" header="Ropa para mujer" leftIcon='pi pi-pencil'>
                     <div className='card__womenClothes'>
                         <DataTable value={allProducts.womanClothes} responsiveLayout="scroll">
                             <Column field="Nombre" header="Nombre" body={getNames}></Column>
@@ -119,7 +122,7 @@ const AdminSettings = (props) => {
                         </DataTable>
                     </div>
                 </TabPanel>
-                <TabPanel className="adminpanel__products-tabpanel" header="Ropa para Hombre">
+                <TabPanel className="adminpanel__products-tabpanel" header="Ropa para Hombre" leftIcon='pi pi-pencil'>
                     <div className='manClothes'>
                         <DataTable value={allProducts.manClothes} responsiveLayout="scroll">
                             <Column field="Nombre" header="Nombre" body={getNames}></Column>
