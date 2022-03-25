@@ -123,9 +123,7 @@ export const checkUserSession = () => {
         },
         credentials: "include",
         });
-        
         const result = await request.json();
-        
         if (request.ok) {
             dispatch({ type: CHECK_SESSION_OK, payload: result });
         } else {

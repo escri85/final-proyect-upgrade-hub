@@ -48,7 +48,7 @@ const Access = ({dispatch, error, user}) =>{
     return (
         <div className='access'>
             <div className='access__forms'>
-                {(error || !user.email)
+                {(error)
                 ?
                 <>
                 <form onSubmit={submitLoginForm} className='access__forms-login'>
