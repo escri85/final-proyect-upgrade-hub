@@ -30,9 +30,11 @@ function App({user, error, dispatch}) {
 
   return (
       <div className="App" style={{backgroundColor: theme.backgroundColor, color: theme.color}}>
-            <Header/>  
+       
+          <Header/>  
           <Cookies/>
           <Navbar user={user}/>
+
             <Routes>
                 <Route path='/'>
                   <Route path="/" element={<Home/>}/>
