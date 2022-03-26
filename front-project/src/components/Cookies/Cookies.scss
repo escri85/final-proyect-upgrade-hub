@@ -33,6 +33,9 @@ $dark: #4e4e4e;
     }
 }
 .contenedor__cookies {
+    & .App{
+        opacity: 1;
+    }
     -webkit-animation-name: contenedor__cookies;
     animation-name: contenedor__cookies;
     -webkit-animation-duration: 1s;
@@ -62,6 +65,9 @@ $dark: #4e4e4e;
     opacity: 1;
     -webkit-transform: none;
     transform: none;
+    & .App{
+        opacity: 1;
+    }
     }
     } 
   

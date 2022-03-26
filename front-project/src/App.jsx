@@ -13,6 +13,7 @@ import WorkwithUS from './pages/WorkwithUs/WorkwithUS';
 import './App.scss';
 import Navbar from './components/Header/Navbar/Navbar';
 import { checkUserSession } from './redux/actions/authActions';
+import Map from './components/GoogleMaps/Map';
 
 
 function App({user, error, dispatch}) {
@@ -51,6 +52,7 @@ function App({user, error, dispatch}) {
                 </Route>
             </Routes>
             <Chat/>
+            
           <Footer/>
       </div>
   );
