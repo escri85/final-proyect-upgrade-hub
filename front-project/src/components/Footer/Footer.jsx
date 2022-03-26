@@ -4,6 +4,7 @@ import { FormattedMessage  as T} from 'react-intl';
 import QRCode from "react-qr-code";
 import {NavLink} from 'react-router-dom';
 import './Footer.scss'
+import Map from '../GoogleMaps/Map';
 
 
 
@@ -36,6 +37,7 @@ const Footer = () => {
         <div>
           <p> <T id='footer.getApp'/></p>
           <QRCode value="https://www.apple.com/es/store" size={120} bgColor="#282c34" fgColor="#fff" level="H" />
+        {/* <Map style={{widt:'200px'}}/> */}
         </div>
           <p className="footer-year"> 2022</p>
       </footer>
