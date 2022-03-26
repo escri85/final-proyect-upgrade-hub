@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const AccessoriesModel = require('../models/Accessories');
 const router = express.Router();
@@ -46,5 +47,18 @@ router.delete('/accessories/:id', async(req, res, next) =>{
         return next(error);
     }
 })
+
+router.put('/accessories/edit/:id', async(req, res, next) => {
+
+    try{
+        const {id} = req.params;
+        const {stock} = req.body;
+        const newAccessory = await AccessoriesModel.findByIdAndUpdate(id,{$set:{stock: stock}});
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+
+});
 
 module.exports = router;
