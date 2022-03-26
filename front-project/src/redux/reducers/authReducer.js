@@ -33,7 +33,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             return {...state, error: action.payload}
         }
         case (actions.AUTH_USER_LOGOUT_OK):{
-            return {...state, error: '', user: false};
+            return {...state, error: '', user: null};
         }
         case (actions.AUTH_USER_LOGOUT_ERROR):{
             return {...state, error: action.payload}

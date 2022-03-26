@@ -154,6 +154,7 @@ const Navbar = ({dispatch, error, user}) => {
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
+            className: (user) ? 'hiddenItem' : 'showItem',
             command: () =>{
                 setVisible(true);
             }

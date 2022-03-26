@@ -1,6 +1,5 @@
 import { ProfileNavbar, UserSettingsModal } from '../../components';
-import { Divider } from 'primereact/divider';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Card } from '@nextui-org/react';
 import {connect} from 'react-redux';
 import { ProfileContext } from '../../Contexts/ProfileContext';
@@ -13,6 +12,10 @@ const Profile = ({dispatch, user}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
     const listFav = JSON.parse(localStorage.getItem("productsFav"));
+
+    useEffect(() => {
+
+    }, [listFav]);
 
     const userLoggedIn = user.email;
 
