@@ -1,6 +1,5 @@
 import * as actions from '../actions/authActions';
 
-
 const INITIAL_STATE = {
     user: null,
     error: '',
@@ -18,7 +17,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             return {...state, user: action.payload, error: ''};
         }
         case (actions.AUTH_LOGIN_ERROR): {
-            return {...state, error: action.payload, user: false }
+            return {...state, error: action.payload,  user: false }
         }
         case (actions.CHECK_SESSION_OK): {
             return {...state, error: '', user: action.payload};
