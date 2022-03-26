@@ -31,9 +31,9 @@ const ProfileNavbar = () =>{
                 {
                     label:<T id='profile.navbar.emptylist'/>,
                     icon:'pi pi-fw pi-trash',
-                    command: () => {
-                        localStorage.removeItem("productsFav");
-                    }
+                    // command: () => {
+                    //     localStorage.removeItem("productsFav");
+                    // }
                 }
             ]
             },
@@ -53,14 +53,14 @@ const ProfileNavbar = () =>{
                         console.log(profileNavbarActions);
                     }
                 },
-                {
-                    label:<T id='profile.navbar.password'  />,
-                    icon:'pi pi-fw pi-lock'
-                },
-                {
-                    label: <T id='profile.navbar.wallet'  />,
-                    icon: 'pi pi-fw pi-wallet'
-                }
+                // {
+                //     label:<T id='profile.navbar.password'  />,
+                //     icon:'pi pi-fw pi-lock'
+                // },
+                // {
+                //     label: <T id='profile.navbar.wallet'  />,
+                //     icon: 'pi pi-fw pi-wallet'
+                // }
             ]
             },
             {

@@ -16,6 +16,17 @@ const INITIAL_STATE = {
 }
 
 const Access = ({dispatch, error, user}) =>{
+
+    const [registeredError , setRegisteredError] = useState(false)
+
+    useEffect(() => {
+        if(typeof(error) === String){
+            setRegisteredError(true)
+        }
+        console.log(registeredError);
+        console.log(error);
+    }, [error]);
+
     const navigate = useNavigate();
     const [formRegisterData, setFormRegisterData] = useState(INITIAL_STATE);
     const [loginFormData, setLoginFormData] = useState(INITIAL_STATE);
@@ -25,7 +36,7 @@ const [captchaValido, setCaptchaValido] = useState(null)
     //REGISTER
 
     const submitRegisterForm = (ev) =>{
-       ev.preventDefault();
+        ev.preventDefault();
         
         if(captcha.current.getValue()){
             dispatch(registerUser(formRegisterData));
@@ -66,6 +77,7 @@ const keyCaptcha = process.env.keyCaptcha
     }
 
     return (
+
         <div className='access'>
             <div className='access__forms'>
                 {(error)
@@ -120,6 +132,7 @@ const keyCaptcha = process.env.keyCaptcha
                             <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.passwordRepeat} onChange={handleInputRegister}></InputText>
                             <label htmlFor="password"><T id='Register.RPassword' /></label>
                     </span>
+                    {error && <div>{error}</div>}
                 </div>
                 <ReCAPTCHA
                 ref={captcha}
