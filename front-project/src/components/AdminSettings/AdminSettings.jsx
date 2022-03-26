@@ -18,6 +18,7 @@ const AdminSettings = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [showAdminModal, setShowAdminModal] = useState(false);
 
+
     useEffect(() =>{
         props.dispatch(getAccesoriesToApi())
         props.dispatch(getManClothesToApi())
@@ -32,6 +33,11 @@ const AdminSettings = (props) => {
         sneakers: props.sneakers
     }
 
+    const clickFromModal = (id) => {
+        console.log(id)
+        setShowAdminModal(!showAdminModal)
+    };
+
     const getNames = (product) => product.title.toLowerCase();
     const getImage = (product) => <img src={product.image}></img>;
     const getStock = (product) => `${product.stock} unidades`;
@@ -42,9 +48,10 @@ const AdminSettings = (props) => {
     const lowStock = <div className='lastunits'>Últimas unidades</div>;
     const inStock = <div className='inStock'>En stock</div>;
     const outOfStock = <div className='outOfStock'>Fuera de stock</div>;
-    const btnActions = <div className='btnActions'>
+    const btnActions = <div className='btnActions'>;
+
         <div>
-            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" onClick={()=>{setShowAdminModal(!showAdminModal)}} />
+            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" onClick={()=>{clickFromModal()}} />
         </div>
         <div>
             {/* ESTE BOTÓN NO MOSTRARÁ MODAL, MOSTRARÁ PANTALLA DE CONFIRMACIÓN Y ELIMINARÁ EL PRODUCTO */}

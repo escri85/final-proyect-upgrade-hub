@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { EDIT_USER_EMAIL_ERROR } from './authActions';
 
 export const GET_ACCESSORIES = "[Api] getAccessories";
 export const GET_ACCESORIES_ERROR = "[Api] getAccessoriesError";
@@ -12,6 +13,9 @@ export const GET_WOMENCLOTHES_ERROR = "[Api] getWomenClothesError";
 export const GET_SHOES = "[Api] getShoes";
 export const GET_SHOES_ERROR = "[Api] getShoesError";
 
+export const EDIT_ACCESSORIES = "[Api] editAccessories";
+export const EDIT_ACCESSORIES_OK = "[Api] editAccessoriesOk";
+export const EDIT_ACCESSORIES_ERROR = "[Api] editAccessoriesError";
 
 //ACCESORIES
 
@@ -26,6 +30,23 @@ const getAccesories = (data) => ({
 const getAccesoriesError = () => ({
     type: GET_ACCESORIES_ERROR
 })
+
+// const editAccessories = (data) => ({
+//     type: EDIT_ACCESSORIES,
+//     payload: data
+// })
+
+const editAccessoriesError = () => ({
+    type: EDIT_ACCESSORIES_ERROR,
+})
+
+const editAccessoriesOK = (data, id) => ({
+
+    type: EDIT_ACCESSORIES_OK,
+    payload: {data: data, id: id}
+
+})
+
 
 //MANCLOTHES
 
@@ -87,6 +108,32 @@ export const getAccesoriesToApi = () => {
             dispatch(getAccesoriesError());
         }
     }
+}
+
+export const editAccessoriesToApi = (stock, id) => {
+
+        return async(dispatch) =>{
+
+            // dispatch(editAccessories);
+            const EditAccessoryRequest = await fetch(`http://localhost:4000/accessories/edit/${id}`,{
+                method: "PUT",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin" : "*",
+                },
+                credentials: "include",
+                body: JSON.stringify(stock),
+            });
+            const accessoryResult = await EditAccessoryRequest.json();
+
+            if(accessoryResult.ok){
+                dispatch(editAccessoriesOK(accessoryResult, id))
+            }else{
+                dispatch(editAccessoriesError(accessoryResult.message))
+            };
+
+        };
 }
 
 //MANCLOTHES

@@ -6,6 +6,15 @@ const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
     const closeHandler = () => setVisible(false);
 
+    const [newStock, setNewStock] = useState()
+    const handleChangeStock = (event) => {
+        setNewStock(event.target.value)
+    }
+
+    const clickDePrueba = () => {
+        console.log(newStock);
+    }
+
     return (
     <div>
     <Modal
@@ -32,6 +41,8 @@ const AdmingModalSettings = () => {
                     labelPlaceholder="Introduce el nuevo stock de este artículo"
                     type="number"
                     name="stock"
+                    value={newStock}
+                    onChange={handleChangeStock}
 /*                        ICONO -> contentLeft={<Mail />} */
                 />
             <Row justify="space-between">
@@ -41,7 +52,7 @@ const AdmingModalSettings = () => {
             </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto>
+            <Button auto onClick={clickDePrueba}>
             Actualizar stock
             </Button>
         </Modal.Footer>
