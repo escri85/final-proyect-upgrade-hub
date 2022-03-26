@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Quicksand:wght@300;500&display=swap');
+
 .header {
-	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-family: "'Roboto', sans-serif";
 	font-size: 90px;
 	padding: 40px 25px;
 	text-align: center;
@@ -8,7 +10,7 @@
 	
 	
 	.header__text {
-	  color: #cac48e;
+	  color: #FF6961;
 	  text-decoration: none;
 	  
 	  letter-spacing: .05em;
@@ -18,6 +20,49 @@
 	}
   }
 
+  @media screen and (max-width: 992px){
+	.header {
+		font-family: "'Roboto', sans-serif";
+		font-size: 60px;
+		//padding: 40px 25px;
+		text-align: center;
+		text-transform: uppercase;
+		text-rendering: optimizeLegibility;
+		
+		
+		.header__text {
+		  color: #FF6961;
+		  text-decoration: none;
+		  
+		  letter-spacing: .05em;
+		  text-shadow: 
+			4px 4px 0px #d5d5d5, 
+			7px 7px 0px rgba(0, 0, 0, 0.2);
+		}
+	  }
+  } 
+  @media screen and (max-width: 600px) {
+	.header {
+		display: none;
+		// font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+		// font-size: 90px;
+		// padding: 40px 25px;
+		// text-align: center;
+		// text-transform: uppercase;
+		// text-rendering: optimizeLegibility;
+		
+		
+		// .header__text {
+		//   color: #cac48e;
+		//   text-decoration: none;
+		  
+		//   letter-spacing: .05em;
+		//   text-shadow: 
+		// 	4px 4px 0px #d5d5d5, 
+		// 	7px 7px 0px rgba(0, 0, 0, 0.2);
+		// }
+	  }
+  }
 
 // /* On screens that are 992px or less. */
 // @media screen and (max-width: 992px) {
