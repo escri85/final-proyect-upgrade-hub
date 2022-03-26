@@ -112,6 +112,7 @@ export const getAccesoriesToApi = () => {
 
 export const editAccessoriesToApi = (stock, id) => {
     console.log('LLEGA A REDUX->',stock, id);
+    const stockToNumber = parseInt(stock);
 
         return async(dispatch) =>{
 
@@ -124,7 +125,7 @@ export const editAccessoriesToApi = (stock, id) => {
                     "Access-Control-Allow-Origin" : "*",
                 },
                 credentials: "include",
-                body: JSON.parseInt(stock),
+                body: JSON.stringify({stock: stockToNumber}),
             });
             const accessoryResult = await EditAccessoryRequest.json();
 
