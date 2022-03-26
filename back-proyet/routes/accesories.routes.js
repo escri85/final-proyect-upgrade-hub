@@ -49,10 +49,10 @@ router.delete('/accessories/:id', async(req, res, next) =>{
 })
 
 router.put('/accessories/edit/:id', async(req, res, next) => {
-
     try{
         const {id} = req.params;
         const {stock} = req.body;
+        console.log('ID Y STOCK EN BACK',id, stock);
         const newAccessory = await AccessoriesModel.findByIdAndUpdate(id,{$set:{stock: stock}});
         return res.status(200).json(newAccessory);
         }catch(error){

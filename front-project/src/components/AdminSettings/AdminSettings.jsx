@@ -8,12 +8,10 @@ import { Button } from 'primereact/button';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Panel } from 'primereact/panel';
 import {RadioButton} from 'primereact/radiobutton';
-
-
-import './AdminSettings.scss';
 import AddProduct from '../AddProduct/AddProduct';
 import AdmingModalSettings from './AdminModalSettings/AdmingModalSettings';
 import { AdminContext } from '../../Contexts/AdminContext';
+import './AdminSettings.scss';
 
 
 const AdminSettings = (props) => {
@@ -28,11 +26,8 @@ const AdminSettings = (props) => {
         props.dispatch(getShoesToApi())
         props.dispatch(getWomenClothesToApi())
         if(handleStock){
-            /* EDITA EL STOCK */
-            console.log('ES TRUE');
             props.dispatch(editAccessoriesToApi(stock, productId))
             setHandleStock(false);
-            console.log('YA HE HECHO EL DISPATCH');
         }
     },[handleStock])
 
@@ -46,8 +41,7 @@ const AdminSettings = (props) => {
     const clickFromModal = (product) => {
         setShowAdminModal(!showAdminModal)
         setProductId(product._id);
-        console.log('VAMOS A CAMBIAR EL STOCK DE ESTE PRODUCTO->',product);
-
+        console.log('CAMBIANDO EL STOCK DE ESTE PRODUCTO->',product);
     };
 
     const getNames = (product) => product.title.toLowerCase();
@@ -74,10 +68,10 @@ const AdminSettings = (props) => {
     }
 
     const getStatus = (product) => {
-        if(product.stock <4){
-            return lowStock
-        }else if(product.stock === 0){
+        if(product.stock <1){
             return outOfStock
+        }else if(product.stock <4){
+            return lowStock
         }else{
             return inStock
         }

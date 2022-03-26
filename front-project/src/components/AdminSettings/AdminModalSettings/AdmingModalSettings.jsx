@@ -13,10 +13,9 @@ const AdmingModalSettings = () => {
         setStock(event.target.value)
     }
 
-    const clickDePrueba = () => {
-        console.log('STOCK->',stock);
-        console.log('ACTIVANDO DISPATCH', handleStock);
+    const setProductStocks = () => {
         setHandleStock(!handleStock)
+        setVisible(false)
     }
 
     return (
@@ -56,7 +55,7 @@ const AdmingModalSettings = () => {
             </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto onClick={clickDePrueba}>
+            <Button auto onClick={(setProductStocks)}>
             Actualizar stock
             </Button>
         </Modal.Footer>
