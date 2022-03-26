@@ -42,13 +42,13 @@ const Cart = (props) => {
                 <img src={item.image} alt="" />
               </div>
               <div className="product">
-                <p>{item.categorie}</p>
+                {/* <p>{item.categorie}</p> */}
                 <h1>{item.title}</h1>
                 <h2>{item.price} €</h2>
-                <p className="desc">{item.description}</p>
+                {/* <p className="desc">{item.description}</p> */}
                 <div className="buttons">
-                  <p><T id="Cart.amount" /> {item.amount}</p>
                   <button onClick={() => {props.dispatch(SustractOneProductToCart(item))}}>-</button>
+                  <p>{item.amount}</p>
                   <button onClick={() => {props.dispatch(AddOneProductToCart(item))}}>+</button>
                 </div>
               </div>

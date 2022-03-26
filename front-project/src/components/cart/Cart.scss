@@ -12,19 +12,18 @@ $dark: #4e4e4e;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
 
   & .items {
     & .container {
-      position: relative;
-      margin: auto;
-      overflow: hidden;
-      width: 520px;
-      height: 350px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: auto;
+      height: auto;
       background: $white;
       box-shadow: 5px 5px 15px rgba($rose, 0.5);
       border-radius: 10px;
-      width: 600px;
       display: flex;
       flex-direction: row;
       justify-content: start;
@@ -33,20 +32,15 @@ $dark: #4e4e4e;
       & .images {
         align-items: center;
         & img {
-          width: 290px;
+          width: 150px;
+          height: auto;
         }
         
       }
 
       & .product {
-        position: absolute;
-        width: 40%;
-        height: 100%;
-        top: 10%;
-        left: 60%;
-        margin: -10px;
         & p {
-          font-size: 0.6em;
+          font-size: 180%;
           color: $rose;
           letter-spacing: 1px;
         }
@@ -76,6 +70,9 @@ $dark: #4e4e4e;
 
     & .buttons {
         margin: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
       button {
         background: darken($light, 10%);
         padding: 10px;
@@ -103,7 +100,6 @@ $dark: #4e4e4e;
       display: inline-block;
       outline: 0;
       border: 0;
-      margin: -1px;
       border-radius: 2px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -142,8 +138,8 @@ $dark: #4e4e4e;
         position: relative;
         margin: auto;
         overflow: hidden;
-        width: 520px;
-        height: 350px;
+        // width: 520px;
+        // height: 350px;
         background: $white;
         box-shadow: 5px 5px 15px rgba($rose, 0.5);
         border-radius: 10px;
@@ -270,8 +266,8 @@ $dark: #4e4e4e;
         position: relative;
         margin: auto;
         overflow: hidden;
-        width: 400px;
-        height: 250px;
+        // width: 400px;
+        // height: 250px;
         background: $white;
         box-shadow: 5px 5px 15px rgba($rose, 0.5);
         border-radius: 10px;
