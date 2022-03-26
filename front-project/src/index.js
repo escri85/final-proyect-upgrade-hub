@@ -10,6 +10,7 @@ import { ThemeProvider } from './Contexts/ThemeContext';
 import { ProfileProvider} from './Contexts/ProfileContext';
 import LanguageWrapper from './Contexts/LanguageContext';
 import { FavProvider } from './Contexts/FavContext';
+import {AdminProvider} from './Contexts/AdminContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,11 +18,13 @@ ReactDOM.render(
       <ThemeProvider>
         <FavProvider>
           <ProfileProvider>
-            <Provider store={store}>
-              <LanguageWrapper>
-                <App />
-              </LanguageWrapper>
-            </Provider>
+            <AdminProvider>
+              <Provider store={store}>
+                <LanguageWrapper>
+                  <App />
+                </LanguageWrapper>
+              </Provider>
+            </AdminProvider>
           </ProfileProvider>
         </FavProvider>   
       </ThemeProvider>

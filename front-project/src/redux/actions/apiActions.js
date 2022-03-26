@@ -111,10 +111,11 @@ export const getAccesoriesToApi = () => {
 }
 
 export const editAccessoriesToApi = (stock, id) => {
+    console.log('LLEGA A REDUX->',stock, id);
 
         return async(dispatch) =>{
 
-            // dispatch(editAccessories);
+            // dispatch(editAccessories); /accessories/edit/:id
             const EditAccessoryRequest = await fetch(`http://localhost:4000/accessories/edit/${id}`,{
                 method: "PUT",
                 headers: {
@@ -123,7 +124,7 @@ export const editAccessoriesToApi = (stock, id) => {
                     "Access-Control-Allow-Origin" : "*",
                 },
                 credentials: "include",
-                body: JSON.stringify(stock),
+                body: JSON.parseInt(stock),
             });
             const accessoryResult = await EditAccessoryRequest.json();
 

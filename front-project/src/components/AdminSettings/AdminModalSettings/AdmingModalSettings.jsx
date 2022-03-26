@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Row, Text, Input, Button, Modal, Checkbox, Avatar } from '@nextui-org/react';
 import { PanelMenu } from 'primereact/panelmenu';
+import { AdminContext } from '../../../Contexts/AdminContext';
 
 const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
     const closeHandler = () => setVisible(false);
 
-    const [newStock, setNewStock] = useState()
+    const [stock, setStock, handleStock, setHandleStock] = useContext(AdminContext);
+
     const handleChangeStock = (event) => {
-        setNewStock(event.target.value)
+        setStock(event.target.value)
     }
 
     const clickDePrueba = () => {
-        console.log(newStock);
+        console.log('STOCK->',stock);
+        console.log('ACTIVANDO DISPATCH', handleStock);
+        setHandleStock(!handleStock)
     }
 
     return (
@@ -41,7 +45,7 @@ const AdmingModalSettings = () => {
                     labelPlaceholder="Introduce el nuevo stock de este artículo"
                     type="number"
                     name="stock"
-                    value={newStock}
+                    value={stock}
                     onChange={handleChangeStock}
 /*                        ICONO -> contentLeft={<Mail />} */
                 />

@@ -1,30 +1,40 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useContext, useEffect, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { getAccesoriesToApi, getManClothesToApi, getShoesToApi, getWomenClothesToApi } from '../../redux/actions/apiActions';
+import { editAccessoriesToApi, getAccesoriesToApi, getManClothesToApi, getShoesToApi, getWomenClothesToApi } from '../../redux/actions/apiActions';
 import { connect } from 'react-redux';
 import { Rating } from 'primereact/rating';
 import { Button } from 'primereact/button';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Panel } from 'primereact/panel';
+import {RadioButton} from 'primereact/radiobutton';
 
 
 import './AdminSettings.scss';
 import AddProduct from '../AddProduct/AddProduct';
 import AdmingModalSettings from './AdminModalSettings/AdmingModalSettings';
+import { AdminContext } from '../../Contexts/AdminContext';
 
 
 const AdminSettings = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [showAdminModal, setShowAdminModal] = useState(false);
-
+    const [stock, setStock, handleStock, setHandleStock] = useContext(AdminContext);
+    const [productId, setProductId] = useState('');
 
     useEffect(() =>{
         props.dispatch(getAccesoriesToApi())
         props.dispatch(getManClothesToApi())
         props.dispatch(getShoesToApi())
         props.dispatch(getWomenClothesToApi())
-    },[])
+        if(handleStock){
+            /* EDITA EL STOCK */
+            console.log('ES TRUE');
+            props.dispatch(editAccessoriesToApi(stock, productId))
+            setHandleStock(false);
+            console.log('YA HE HECHO EL DISPATCH');
+        }
+    },[handleStock])
 
     const allProducts = {
         accessories: props.accessories,
@@ -33,9 +43,11 @@ const AdminSettings = (props) => {
         sneakers: props.sneakers
     }
 
-    const clickFromModal = (id) => {
-        console.log(id)
+    const clickFromModal = (product) => {
         setShowAdminModal(!showAdminModal)
+        setProductId(product._id);
+        console.log('VAMOS A CAMBIAR EL STOCK DE ESTE PRODUCTO->',product);
+
     };
 
     const getNames = (product) => product.title.toLowerCase();
@@ -48,16 +60,18 @@ const AdminSettings = (props) => {
     const lowStock = <div className='lastunits'>Últimas unidades</div>;
     const inStock = <div className='inStock'>En stock</div>;
     const outOfStock = <div className='outOfStock'>Fuera de stock</div>;
-    const btnActions = <div className='btnActions'>;
 
+    const btnActions = (product) =>{
+        return <div className='btnActions'>
         <div>
-            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" onClick={()=>{clickFromModal()}} />
+            <Button icon="pi pi-pencil" className='p-button-success btnActions-btn' iconPos="right" onClick={()=>{clickFromModal(product)}} />
         </div>
         <div>
             {/* ESTE BOTÓN NO MOSTRARÁ MODAL, MOSTRARÁ PANTALLA DE CONFIRMACIÓN Y ELIMINARÁ EL PRODUCTO */}
             <Button icon="pi pi-trash" className='p-button-warning btnActions-btn' iconPos="left" onClick={()=>{setShowAdminModal(!showAdminModal)}} />
         </div>
     </div>;
+    }
 
     const getStatus = (product) => {
         if(product.stock <4){
