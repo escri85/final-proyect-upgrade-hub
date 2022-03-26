@@ -6,6 +6,7 @@ import { ProfileContext } from '../../Contexts/ProfileContext';
 import './Profile.scss';
 import { FormattedMessage  as T} from 'react-intl';
 import FavLis from './Components/FavLis';
+import Nofavs from '../../assets/img/Nofavs.jpeg'
 
 
 const Profile = ({dispatch, user}) =>{
@@ -41,7 +42,11 @@ const Profile = ({dispatch, user}) =>{
                             <p><T id='profile.favs'/></p>
                         :
                         <p>< T id='profile.menu'/></p>
+                        
                         }
+                        <div>
+                        <img src={Nofavs} alt="Nofavs" />;
+                        </div>
                         </div>
                         {/* ¿ CAMBIAR E-MAIL ?  -> profileNavbarActions.showUserMail */}
                         {
