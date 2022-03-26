@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from 'primereact/button';
 
 import './Home.scss';
-import Carousel from './Carousel/Carousel';
+import CarouselContainer from './Carousel/CarouselContainer';
 
 const Home = () =>{
 const [activeIndex, setActiveIndex] = useState(0)
@@ -36,7 +36,7 @@ const [activeIndex, setActiveIndex] = useState(0)
                 <div className='home__contain-map'>
                 </div>
             </div>
-              {/* < Carousel /> */}
+              < CarouselContainer /> 
         </div>
     )
 }
