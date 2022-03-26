@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { registerUser, loginUser } from '../../redux/actions/authActions';
@@ -6,6 +6,7 @@ import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { FormattedMessage  as T} from 'react-intl';
+import ReCAPTCHA from "react-google-recaptcha";
 import './Access.scss';
 
 const INITIAL_STATE = {
@@ -18,14 +19,25 @@ const Access = ({dispatch, error, user}) =>{
     const navigate = useNavigate();
     const [formRegisterData, setFormRegisterData] = useState(INITIAL_STATE);
     const [loginFormData, setLoginFormData] = useState(INITIAL_STATE);
-
+    
+const [captchaValido, setCaptchaValido] = useState(null)
+// const [usuarioValido, setUsuarioValido] = useState(false)
     //REGISTER
 
     const submitRegisterForm = (ev) =>{
-        ev.preventDefault();
-        dispatch(registerUser(formRegisterData));
+       ev.preventDefault();
+        
+        if(captcha.current.getValue()){
+            dispatch(registerUser(formRegisterData));
         setFormRegisterData(INITIAL_STATE);
         navigate('/profile');
+        setCaptchaValido(true)
+        // setUsuarioValido(true)
+        }else{
+        // setUsuarioValido(false)
+        setCaptchaValido(false)
+            
+        }
     }
     const handleInputRegister = (ev) =>{
         const {name, value} = ev.target;
@@ -43,6 +55,14 @@ const Access = ({dispatch, error, user}) =>{
     const handleInputLogin = (ev) =>{
         const {name, value} = ev.target;
         setLoginFormData({ ...loginFormData, [name]: value});
+    }
+    const captcha=useRef(null)
+    
+const keyCaptcha = process.env.keyCaptcha
+    const onChangeCaptcha = ()=>{
+        if(captcha.current.getValue()){
+            console.log('el usuario no es un robot');
+        }
     }
 
     return (
@@ -101,6 +121,12 @@ const Access = ({dispatch, error, user}) =>{
                             <label htmlFor="password"><T id='Register.RPassword' /></label>
                     </span>
                 </div>
+                <ReCAPTCHA
+                ref={captcha}
+    sitekey='6LdkchMfAAAAANivlu4Xpc0Hj-sHRbQyV8cas_vP'
+    onChange={onChangeCaptcha}
+  />
+  {captchaValido === false && <div className='messages'>Debes aceptar el captcha</div>}
                 <div>
                     {/* <button className="register__form-btn">Registrar</button> */}
                     <Button auto flat color="primary" className="access__forms-register-btn">
