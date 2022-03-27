@@ -12,6 +12,7 @@ import AddProduct from '../AddProduct/AddProduct';
 import AdmingModalSettings from './AdminModalSettings/AdmingModalSettings';
 import AdminModalDelete from './AdminModalDelete/AdminModalDelete';
 import { AdminContext } from '../../Contexts/AdminContext';
+import { FormattedMessage  as T} from 'react-intl';
 import './AdminSettings.scss';
 
     const INITIAL_STATE = {
@@ -98,9 +99,9 @@ const AdminSettings = (props) => {
             {(showAdminDeleteModal) ? <AdminModalDelete/> : ''}
             <div className='adminpanel__header'>
                 <Panel header = "Panel de administración" toggleable>
-                    <p><i className='pi pi-pencil'></i> Edita el stock de almacén según necesidad</p>
-                    <p><i className='pi pi-plus'></i> Sube tus productos mientras obtienes una vista previa</p>
-                    <p><i className='pi pi-trash'></i> Elimina productos</p>
+                    <p><i className='pi pi-pencil'></i> <T id="AdminSettings.Stock.Need" />d</p>
+                    <p><i className='pi pi-plus'></i> <T id='AdminSettings.Preview' /></p>
+                    <p><i className='pi pi-trash'></i><T id='AdminSettings.Stock.Delete' /></p>
                 </Panel>
             </div>
             <div className='adminpanel__products'>
@@ -108,7 +109,7 @@ const AdminSettings = (props) => {
                 <TabPanel className="adminpanel__products-tabpanel" header="Subir artículo" leftIcon='pi pi-plus'>
                     <div className='uploadProduct'>
                         <AddProduct/>
-                        <p>Puedes pasar el ratón por encima de la vista previa para ver los detalles</p>
+                        <p><T id='AdminSettings.hover' /></p>
                     </div>
                 </TabPanel>
                 <TabPanel className="adminpanel__products-tabpanel" header="Acesorios" leftIcon='pi pi-pencil'>

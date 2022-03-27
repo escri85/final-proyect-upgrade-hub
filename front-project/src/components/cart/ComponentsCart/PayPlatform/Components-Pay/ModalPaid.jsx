@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage  as T} from 'react-intl';
 
 //Boostrap
 
@@ -17,7 +18,7 @@ export const ModalPaid = (props) => {
         <Modal.Header>
             <Text id="modal-title" size={18}>
             <Text b size={18}>
-                Tu pedido se ha registrado correctamente
+                <T id='ModalPaid.order.register' />
             </Text>
             </Text>
         </Modal.Header>
@@ -29,7 +30,7 @@ export const ModalPaid = (props) => {
         </Row>
         <Row justify="center">
             <Text size={18}>
-                Valore su experiencia con Zarando
+            <T id='ModalPaid.order.Rating' />
             </Text>
         </Row>
         <Row justify="center">
@@ -44,7 +45,7 @@ export const ModalPaid = (props) => {
         </Modal.Body>
         <Modal.Footer>
             <Button auto flat onClick={props.closeAll}>
-            Cerrar
+            <T id='ModalPaid.order.CLose' />
             </Button>
         </Modal.Footer>
     </Modal>

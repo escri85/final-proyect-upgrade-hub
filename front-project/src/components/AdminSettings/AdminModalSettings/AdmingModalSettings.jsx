@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Row, Text, Input, Button, Modal, Checkbox, Avatar } from '@nextui-org/react';
 import { PanelMenu } from 'primereact/panelmenu';
 import { AdminContext } from '../../../Contexts/AdminContext';
+import { FormattedMessage  as T} from 'react-intl';
 
 const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
@@ -30,7 +31,7 @@ const AdmingModalSettings = () => {
         <Modal.Header>
             <Text id="modal-title" size={18}>
             <Text b size={18}>
-                Editar Stock
+                <T id='AdminEdit'/>
             </Text>
             </Text>
         </Modal.Header>
@@ -50,13 +51,13 @@ const AdmingModalSettings = () => {
                 />
             <Row justify="space-between">
             <Text color="error" size={14}>
-                Una vez actualizado no podrás volver atrás
+                <T id='Admin.Update' />
             </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
             <Button auto onClick={(setProductStocks)}>
-            Actualizar stock
+            <T id='Admin.update.Stock' />
             </Button>
         </Modal.Footer>
     </Modal>
