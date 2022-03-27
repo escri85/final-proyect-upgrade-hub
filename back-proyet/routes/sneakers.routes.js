@@ -57,4 +57,17 @@ router.put('/sneakers/edit/:id', [isAdmin], async(req, res, next) => {
 });
 
 
+router.put('/sneakers/delete/:id', [isAdmin], async(req, res, next) => {
+    try{
+        const {id} = req.params;
+        console.log(id);
+        const newAccessory = await SneakersModel.findByIdAndDelete(id);
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+});
+
+
+
 module.exports = router;

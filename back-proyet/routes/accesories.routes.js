@@ -56,7 +56,7 @@ router.put('/accessories/edit/:id', [isAdmin], async(req, res, next) => {
         }
 });
 
-router.put('/accessories/delete/:id', async(req, res, next) => {
+router.put('/accessories/delete/:id', [isAdmin], async(req, res, next) => {
     try{
         const {id} = req.params;
         console.log(id);

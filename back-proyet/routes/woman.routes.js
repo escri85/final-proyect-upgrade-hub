@@ -53,4 +53,15 @@ router.put('/woman/edit/:id', [isAdmin], async(req, res, next) => {
         }
 });
 
+router.put('/woman/delete/:id', [isAdmin], async(req, res, next) => {
+    try{
+        const {id} = req.params;
+        console.log(id);
+        const newAccessory = await WomensProducts.findByIdAndDelete(id);
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+});
+
 module.exports = router;
