@@ -3,6 +3,7 @@ import { TabView, TabPanel } from "primereact/tabview";
 import { useState } from "react";
 import "./Home.scss";
 import CarouselContainer from "./Carousel/CarouselContainer";
+
 import Map from "../../components/GoogleMaps/Map";
 
 const Home = ({productsResult}) => {
@@ -34,11 +35,11 @@ const Home = ({productsResult}) => {
             >
               <div className="home__search-tabpanel2">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Corrupti sint deserunt, temporibus repudiandae expedita vitae
-                  nam, quae amet debitis facere velit laborum beatae, nobis
-                  officia nihil aliquid natus? Praesentium, harum.
+                 CONSIGUE INCREIBLES DESCUENTOS
                 </p>
+                <img src="https://woodemia.com/wp-content/uploads/2014/10/crear-cupones-descuento-woocommerce.jpg" alt="Cupones descuentos" />
+                <img src="https://www.losalfares.net/wp-content/uploads/2019/03/decimas-mid-season-sales-destacada.jpg" alt="SeasonSales" />
+                <img src="https://bio-grancanaria.com/wp-content/uploads/2019/07/newsletter-logo.png" alt="newslater" />
               </div>
             </TabPanel>
             <TabPanel className="home__search-tabpanel" header="Ayuda">
