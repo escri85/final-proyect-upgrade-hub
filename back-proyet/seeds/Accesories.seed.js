@@ -166,14 +166,12 @@ const URL = "mongodb://localhost:27017/ecomerce";
 
 mongoose.connect(URL, CONFIG_DB)
     .then(async () =>{
-        console.log('Se está ejecutando la seed de accesorios/complementos, todo ok!');
         const accesoriesContent = await AccessoriesModel.find();
         (accesoriesContent.length) ? await AccessoriesModel.collection.drop() : '';
     })
     .catch(error => console.log("Error buscando en la DB", error))
     .then(async () =>{
         await AccessoriesModel.insertMany(accesoriesArray);
-        console.log('Añadidos los nuevos accesorios');
     })
     .catch(error => console.log('Error añadiendo accesorios'))
     .finally(() => mongoose.disconnect());

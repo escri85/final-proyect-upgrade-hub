@@ -6,6 +6,8 @@ import Card from '../Card/Card';
 import { InputText } from 'primereact/inputtext';
 import './Search.scss';
 import AdminSettings from '../AdminSettings/AdminSettings';
+import Resultado from '../Resultado/Resultado';
+import Home from '../../pages/Home/Home';
 
 
 const Search = (props) => {
@@ -52,10 +54,9 @@ const Search = (props) => {
                 {
                     (inputValue.length >1)
                     ?
-                    productsResult.map(product =>
-                        <Card product={product} />
-                        )
-                    :
+                    <>
+                    <Resultado productsResult={productsResult} />
+                    </>:
                     console.log('No está activo')
                 }
             </div>

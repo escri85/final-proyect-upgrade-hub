@@ -5,13 +5,17 @@ import "./Home.scss";
 import CarouselContainer from "./Carousel/CarouselContainer";
 import Map from "../../components/GoogleMaps/Map";
 
-const Home = () => {
+const Home = ({productsResult}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  return (
+  return (<>
+              <Search />
+
+         <CarouselContainer />
     <div className="home">
       <div className="home__search">
         <TabView
+          style={{marginTop:'-20px'}}
           activeIndex={activeIndex}
           onTabChange={(e) => setActiveIndex(e.index)}
         >
@@ -20,7 +24,6 @@ const Home = () => {
             header="Busca tus productos"
           >
             <div className="home__search__tabpanel1">
-              <Search />
             </div>
           </TabPanel>
           <TabPanel
@@ -47,8 +50,9 @@ const Home = () => {
         </div>
         <div className="home__contain-map"></div>
       </div>
-      <CarouselContainer />
     </div>
+
+    </>
   );
 };
 

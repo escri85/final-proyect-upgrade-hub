@@ -1,11 +1,11 @@
 const express = require('express');
 const SneakersModel = require('../models/Sneakers');
 const router = express.Router();
+const { isAdmin } = require('../middlewares/auth.middleware');
 
 router.get('/sneakers', async(req, res, next) =>{
     try{
         const results = await SneakersModel.find();
-        console.log(results);
         return res.status(200).json(results);
     }catch(error){
         return next(error);
@@ -26,9 +26,7 @@ router.post('/sneakers', async (req, res, next) =>{
             categorie,
             subcategorie
         })
-        console.log('Nuevas zapatillas creadas');
         const sneakersCreated = await newSneakers.save();
-        console.log('Zapatillas añadidas')
         return res.status(201).json(sneakersCreated);
     } catch(error){
         return next(error);
@@ -45,5 +43,31 @@ router.delete('/sneakers/:id', async(req, res, next) =>{
         return next(error);
     }
 })
+
+
+router.put('/sneakers/edit/:id', [isAdmin], async(req, res, next) => {
+    try{
+        const {id} = req.params;
+        const {stock} = req.body;
+        const newAccessory = await SneakersModel.findByIdAndUpdate(id,{$set:{stock: stock}});
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+});
+
+
+router.put('/sneakers/delete/:id', [isAdmin], async(req, res, next) => {
+    try{
+        const {id} = req.params;
+        console.log(id);
+        const newAccessory = await SneakersModel.findByIdAndDelete(id);
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+});
+
+
 
 module.exports = router;

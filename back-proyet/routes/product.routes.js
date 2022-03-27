@@ -7,7 +7,6 @@ const router = express.Router();
 
         try {
             const results = await ProductModel.find();
-            console.log(results);
             return res.status(200).json(results);
         } catch (error) {
             return next(error);
@@ -26,8 +25,6 @@ router.get('/products/:id', async (req, res, next) => {
 
 //POST
 router.post('/products', async (req, res, next) => {
-
-    console.log("Este es el body", req.body)
 
     try {
         const {
@@ -51,9 +48,7 @@ router.post('/products', async (req, res, next) => {
             categorie,
             image
         });
-        console.log("He creado el objeto");
         const productCreated = await newProduct.save();
-        console.log("producto añadido");
         return res.status(201).json(productCreated);
     } catch (error) {
         return next(error);
@@ -73,5 +68,7 @@ router.delete('/api/cite/:id', async (req, res, next) => {
         return next(error);
     }
 });
+
+
 
 module.exports = router;

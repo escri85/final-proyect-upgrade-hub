@@ -9,10 +9,6 @@ import { useContext, useEffect, useState } from "react";
 import { FavContext } from "../../Contexts/FavContext";
 import {red} from '@mui/material/colors';
 
-
-
-
-
 const Card = (props) => {
   const primary = red[500];
 
@@ -32,14 +28,16 @@ const Card = (props) => {
     }else {
       setFavInfo([...favInfo, item])
     }
+
+    if(props.favFlag === true || props.favFlag === false){
+      props.setFavFlag(!props.favFlag)
+    }
+  
   }
-
-
 
   useEffect(() => {
     localStorage.setItem("productsFav", JSON.stringify(favInfo))
   }, [favInfo]);
-
 
   //Modal
   const [modalAddPage, setModalAddPage] = useState(false)

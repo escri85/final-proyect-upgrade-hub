@@ -1,5 +1,5 @@
 import { ProfileNavbar, UserSettingsModal } from '../../components';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Card } from '@nextui-org/react';
 import {connect} from 'react-redux';
 import { ProfileContext } from '../../Contexts/ProfileContext';
@@ -12,11 +12,13 @@ import Nofavs from '../../assets/img/Nofavs.jpeg'
 const Profile = ({dispatch, user}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
-    const listFav = JSON.parse(localStorage.getItem("productsFav"));
+    const [favFlag, setFavFlag] = useState(true);
+
+    const [listFav, setListFav] = useState([])
 
     useEffect(() => {
-
-    }, [listFav]);
+        setListFav(JSON.parse(localStorage.getItem("productsFav")))
+    }, [favFlag]);
 
     const userLoggedIn = user.email;
 
@@ -32,21 +34,19 @@ const Profile = ({dispatch, user}) =>{
                     </div>
                     <div className='profile__content-main'>
                         <div className='profile__content-main-favproducts'>
+                            <img src='https://media.discordapp.net/attachments/902982333215412254/957345972722204732/1.jpeg?width=952&height=675'></img>
                         {/* SHOW FAV PRODUCTS */}
                         {(profileNavbarActions.showFavProducts)
                         ?
                             (listFav.length)
                             ?
-                            <FavLis listFav={listFav} />
+                            <FavLis favFlag={favFlag} setFavFlag={setFavFlag} listFav={listFav} />
                             :
-                            <p><T id='profile.favs'/></p>
+                            <img src={Nofavs} alt="Nofavs" />
                         :
                         <p>< T id='profile.menu'/></p>
                         
                         }
-                        <div>
-                        <img src={Nofavs} alt="Nofavs" />;
-                        </div>
                         </div>
                         {/* ¿ CAMBIAR E-MAIL ?  -> profileNavbarActions.showUserMail */}
                         {

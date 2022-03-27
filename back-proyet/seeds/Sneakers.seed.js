@@ -450,16 +450,12 @@ const URL = "mongodb://localhost:27017/ecomerce";
 
 mongoose.connect(URL, CONFIG_DB)
 .then(async () =>{
-    console.log('Se está ejecutando la seed de zapatillas, todo ok!');
     const sneakersProductsContent = await SneakersModel.find();
-    console.log(sneakersProductsContent);
     (sneakersProductsContent) ? await SneakersModel.collection.drop() : '';
 })
 .catch(error =>console.log('Error buscando en la DB'))
 .then(async () =>{
-    console.log(sneakersProductsArray)
     await SneakersModel.insertMany(sneakersProductsArray);
-    console.log('Nuevas zapatillas añadidas!');
 })
 .catch(error =>console.log('Error añadiendo las nuevas zapatillas'))
 .finally(() => mongoose.disconnect());
