@@ -1,4 +1,5 @@
 import './PayPlatform.scss'
+import { FormattedMessage  as T} from 'react-intl';
 
 //MUI
 import * as React from 'react';
@@ -60,7 +61,7 @@ const PayPlatform = (props) => {
         <div className="c-platform">
             <div className="c-platform__modal">
                 <div className="c-platform__modal__div">
-                    <h4>Dirección de Envío</h4>
+                    <h4><T id='PlayPlatform.adress' /></h4>
                     <Box component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' },}}
                         noValidate
                         autoComplete="off"
@@ -90,7 +91,7 @@ const PayPlatform = (props) => {
                     </Box>
                 </div>
                 <div className="c-platform__modal__div">
-                    <h4>Método de pago</h4>
+                    <h4><T id='PlayPlatform.payment' /></h4>
                     <Box sx={{ minWidth: 120 }}>
                         <FormControl fullWidth>
                             <InputLabel id="demo-simple-select-label">Método de pago</InputLabel>
@@ -101,9 +102,9 @@ const PayPlatform = (props) => {
                             label="Método de pago"
                             onChange={handleChange}
                             >
-                            <MenuItem value={1}>Tarjeta de Crédito</MenuItem>
+                            <MenuItem value={1}><T id='PlayPlatform.CreditCard' /></MenuItem>
                             <MenuItem value={2}>PayPal</MenuItem>
-                            <MenuItem value={3}>Contrarrembolso</MenuItem>
+                            <MenuItem value={3}><T id='PlayPlatform.CashOnDelivery' /></MenuItem>
                             </Select>
                         </FormControl>
                     </Box>
@@ -134,24 +135,24 @@ const PayPlatform = (props) => {
                         </Box>
                     </div>}
                     {payType === 3 && <div>
-                        <h5>**Vas a pagar con contrarrembolso</h5>
-                        <h5>**Esto tendrá un sobrecoste de 2€ en el precio total</h5>
+                        <h5>**<T id='PlayPlatform.pay.CashOnDelivery' /></h5>
+                        <h5>**<T id='PlayPlatform.pay.overCost' /></h5>
                     </div>}
                 </div>
                 <div className="c-platform__modal__div">
-                    <h4>Confirmación de pago</h4>
+                    <h4><T id="PlayPlatform.pay.paymentConfirmed" /></h4>
                     <div className="c-platform__modal__images">
                         <div>
                             {props.cart.map(element =><img key={element.id} src={element.image} alt="miniatura"></img>)}
                         </div>
                         <div className="c-platform__modal__images__price">
-                            <h3>Importe total: {price} €</h3> 
+                            <h3>Total: {price} €</h3> 
                         </div>
                     </div>       
                 </div>
                 <div className="c-platform__buttons">
-                    <button className="c-platform__buttons__button" onClick={()=>{props.setGoToPay(false)}}>Cancelar</button>
-                    {payDone && <button className="c-platform__buttons__button" onClick={payFunction}>Comprar</button>}
+                    <button className="c-platform__buttons__button" onClick={()=>{props.setGoToPay(false)}}><T id='PlayPlatform.pay.Buy' /></button>
+                    {payDone && <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Cancel' /></button>}
                 </div>
             </div>
             { orderSent && <div className="c-platform__order"><ModalPaid timeToSend={timeToSend} closeAll={closeAll} /></div>}

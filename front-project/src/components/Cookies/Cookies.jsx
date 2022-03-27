@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormattedMessage  as T} from 'react-intl';
 import './Cookies.scss'
 import Configuration from "./Configuration";
 const Cookies = () => {
@@ -22,33 +23,22 @@ const handleConfiguration =()=>{
   { message &&
     <div className="contenedor__cookies" >
       <div className="texto">
-          <h1>Politica de cookies</h1>
+          <h1><T id="Cookies11" /></h1>
         <p>
-          Con su acuerdo, nosotros y nuestros socios usamos cookies o
-          tecnologías similares para almacenar, acceder y procesar datos
-          personales como su visita en este sitio web. Puede retirar su
-          consentimiento u oponerse al procesamiento de datos basado en
-          intereses legítimos en cualquier momento haciendo clic en
-          "Configuración" o en nuestra Política de Cookies en este sitio web.
+        <T id="Cookies12" />
         </p>
         <p>
           <strong>
-            Nosotros y nuestros socios hacemos el siguiente tratamiento de
-            datos:
+          <T id="Cookies13" />
           </strong>
         </p>
         <p>
-          Almacenar o acceder a información en un dispositivo, Anuncios y
-          contenido personalizados, medición de anuncios y del contenido,
-          información sobre el público y desarrollo de productos, Compartir
-          datos y perfiles no vinculados a su identidad, Datos de localización
-          geográfica precisa e identificación mediante las características de
-          dispositivos
+        <T id="Cookies14" />
         </p>
       </div>
       <div className="botones">
-          <button onClick={handleConfiguration}>Configuracion</button>
-          <button onClick={quitMessage}>Aceptar</button>
+          <button onClick={handleConfiguration}><T id="Cookies15" /></button>
+          <button onClick={quitMessage}><T id="Cookies.button.Accept" /></button>
       </div>
     </div>
       }

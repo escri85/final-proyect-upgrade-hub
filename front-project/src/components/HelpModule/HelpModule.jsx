@@ -1,11 +1,12 @@
 import React from 'react'
+import { FormattedMessage  as T} from 'react-intl';
 import { Card, Grid, Row, Text } from "@nextui-org/react";
 
 const HelpModule = () => {
         const list = [
             {
             img: "https://images.vexels.com/media/users/3/224252/isolated/preview/e93bef14a4978942b186a8cfa493c5ed-logotipo-de-la-caja-de-envio.png",
-            text: "Podrás hacer un seguimiento de tus paquetes",
+            text: <T id='Help1' />,
             },
         ];
         return (

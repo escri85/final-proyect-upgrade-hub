@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Configuration.scss";
+import { FormattedMessage  as T} from 'react-intl';
 const Configuration = () => {
 const [Save, setSave] = useState(true)
 const handlesave=()=>{
@@ -10,65 +11,56 @@ setSave(false)
       Save &&
     <div className="configuration">
       <h2>
-        ¿Para qué finalidades se utiliza mi información y quiénes la utilizan?
+        <T id="Cookies1" />
       </h2>
       <p>
-        Este Sitio Web utiliza cookies propias y de otras entidades, para poder
-        acceder y usar su información para las finalidades que se indican a
-        continuación. Si no está de acuerdo con alguna de estas finalidades,
-        podrá personalizar sus opciones a través de esta pantalla.
+      <T id="Cookies2" />
       </p>
       <p>
-        Nosotros y las empresas que colaboran con nosotros, tales como
-        anunciantes, operadores publicitarios e intermediarios, usaremos su
-        información obtenida a través de las cookies. Para conocer las empresas
-        colaboradoras que incorporan sus cookies en nuestro sitio web puede
-        acceder a través del botón Ver nuestros socios. Puede configurar sus
-        preferencias de consentimiento por separado para cada uno de los socios
-        mencionados.
+      <T id="Cookies3" />
       </p>
       <p>
-        Usted permite el uso de las cookies para las siguientes finalidades:
+      <T id="Cookies4" />:
       </p>
       <div className="opciones">
         <div className="opcion">
-          <p>+Compartir datos y perfiles no vinculados a su identidad</p>
+          <p>+<T id="Cookies5" /></p>
           <div className="botones">
-            <button>Rechazar</button>
-            <button>Aceptar</button>
+            <button><T id="Cookies.button.Reject" /></button>
+            <button><T id="Cookies.button.Accept" /></button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Medir el rendimiento del contenido</p>
+          <p>+<T id="Cookies6" /></p>
           <div className="botones">
-            <button>Rechazar</button>
-            <button>Aceptar</button>
+            <button><T id="Cookies.button.Reject" /></button>
+            <button><T id="Cookies.button.Accept" /></button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Seleccionar contenido personalizado</p>
+          <p>+<T id="Cookies7" /></p>
           <div className="botones">
-            <button>Rechazar</button>
-            <button>Aceptar</button>
+            <button><T id="Cookies.button.Reject" /></button>
+            <button><T id="Cookies.button.Accept" /></button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Seleccionar anuncios personalizados</p>
+          <p>+<T id="Cookies8" /></p>
           <div className="botones">
-            <button>Rechazar</button>
-            <button>Aceptar</button>
+            <button><T id="Cookies.button.Reject" /></button>
+            <button><T id="Cookies.button.Accept" /></button>
           </div>
         </div>
         <div className="opcion">
-          <p>+Crear un perfil publicitario personalizado</p>
+          <p>+<T id="Cookies9" /></p>
           <div className="botones">
-            <button>Rechazar</button>
-            <button>Aceptar</button>
+            <button><T id="Cookies.button.Reject" /></button>
+            <button><T id="Cookies.button.Accept" /></button>
           </div>
         </div>
         
       </div>
-      <button onClick={handlesave}>Guardar</button>
+      <button onClick={handlesave}><T id="Cookies10" /></button>
     </div>
   );
 };

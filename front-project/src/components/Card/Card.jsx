@@ -78,7 +78,7 @@ const Card = (props) => {
             {product.stock < 4 && product.stock >0 ? (
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : ("")}{}
-            {product.stock=== 0 && (<h5>Producto en reposición</h5>)} 
+            {product.stock=== 0 && (<h5><T id="card.rep" /></h5>)} 
             
           </div>
         </div>
@@ -110,7 +110,7 @@ const Card = (props) => {
       </div>
     </div>
     {modalAddPage && <div className="modal-add">
-      <h5  >Producto añadido al carrito</h5>
+      <h5  ><T id="card.addedToCart" /></h5>
     </div>}
     </>
   );
