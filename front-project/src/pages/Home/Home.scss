@@ -39,19 +39,23 @@
         align-items: center;
     }
 
-   
+    .access__forms-register-input{
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
     
     //MOBILE
-    @media screen and (max-width: 675px) {
-        img{
-                width: 100px;
-                height: 50px;
-        }
-    }
     @media screen and (max-width: 992px) {
         img{
                 width: 200px;
                 height: 100px;
+        }
+    }
+    @media screen and (max-width: 675px) {
+        img{
+                width: 100px;
+                height: 50px;
         }
     }
 
