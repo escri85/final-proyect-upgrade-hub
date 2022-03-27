@@ -169,7 +169,7 @@ console.log('esta es la sesion  ->',sesionGoogle);
             },
             {
                 label: <p>Perfil</p>,
-                className: (!user || !loginData.tokenId) ? 'hiddenItem' : 'showItem',
+                // className: (!user || !loginData.tokenId) ? 'hiddenItem' : 'showItem',
                 command: ()=>{navigate('/profile')}
             }
         ],

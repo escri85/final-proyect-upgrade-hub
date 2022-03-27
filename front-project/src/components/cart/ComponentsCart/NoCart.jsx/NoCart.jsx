@@ -9,11 +9,6 @@ import "./NoCart.scss";
 
 //MUI
 import * as React from "react";
-// import Card from '@mui/material/Card';
-// import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
-// import Typography from '@mui/material/Typography';
-// import {CardActionArea, CardActions } from '@mui/material';
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { addProductToCart } from "../../../../redux/actions/cartActions";
