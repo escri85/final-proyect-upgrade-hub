@@ -168,14 +168,12 @@ const URL = "mongodb://localhost:27017/ecomerce";
 
 mongoose.connect(URL, CONFIG_DB)
     .then(async () =>{
-        console.log('Se está ejecutando la seed de ropa para mujeres, todo ok!');
         const womenProductsContent = await WomensProductsModel.find();
         (womenProductsContent) ? await WomensProductsModel.collection.drop() : '';
     })
     .catch(error => console.log('Error buscando en la DB', error))
     .then(async () =>{
         await WomensProductsModel.insertMany(womensProductsArray);
-        console.log('Añadidos la nueva ropa de mujer');
     })
     .catch(error => console.log('Error añadiendo la nueva ropa de mujer'))
     .finally(()=> mongoose.disconnect());

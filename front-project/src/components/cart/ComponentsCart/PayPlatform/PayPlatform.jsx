@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
-import { cleanCartRedux } from '../../../../redux/actions/cartActions';
+import { cleanCartRedux, editStockToApi } from '../../../../redux/actions/cartActions';
 import { ModalPaid } from './Components-Pay/ModalPaid';
 
 const PayPlatform = (props) => {
@@ -34,6 +34,7 @@ const PayPlatform = (props) => {
         setOrderSent(false);
         props.setGoToPay(false);
         props.dispatch(cleanCartRedux())
+        props.dispatch(editStockToApi(props.cart))
     }    
 
     var timeToSend = 1; 

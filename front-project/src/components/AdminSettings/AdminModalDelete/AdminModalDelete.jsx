@@ -1,22 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Row, Text, Input, Button, Modal, Checkbox, Avatar } from '@nextui-org/react';
-import { PanelMenu } from 'primereact/panelmenu';
 import { AdminContext } from '../../../Contexts/AdminContext';
 
 const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
     const closeHandler = () => setVisible(false);
+    const [handleModal, setHandleModal] = useContext(AdminContext);
 
-    const [stock, setStock, handleModal, setHandleModal] = useContext(AdminContext);
-
-    const handleChangeStock = (event) => {
-        setStock(event.target.value)
-    }
-
-    const setProductStocks = () => {
+    const deleteProduct = () => {
         setHandleModal(!handleModal)
-        setVisible(false)
-    }
+        setVisible(false);
+    };
 
     return (
     <div>
@@ -30,33 +24,20 @@ const AdmingModalSettings = () => {
         <Modal.Header>
             <Text id="modal-title" size={18}>
             <Text b size={18}>
-                Editar Stock
+                Eliminar producto
             </Text>
             </Text>
         </Modal.Header>
         <Modal.Body>
-                <Input
-                    clearable
-                    bordered
-                    fullWidth
-                    color="primary"
-                    size="lg"
-                    labelPlaceholder="Introduce el nuevo stock de este artículo"
-                    type="number"
-                    name="stock"
-                    value={stock}
-                    onChange={handleChangeStock}
-/*                        ICONO -> contentLeft={<Mail />} */
-                />
             <Row justify="space-between">
             <Text color="error" size={14}>
-                Una vez actualizado no podrás volver atrás
+                Una vez eliminado no podrás volver atrás
             </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto onClick={(setProductStocks)}>
-            Actualizar stock
+            <Button auto onClick={(deleteProduct)}>
+            Eliminar producto
             </Button>
         </Modal.Footer>
     </Modal>

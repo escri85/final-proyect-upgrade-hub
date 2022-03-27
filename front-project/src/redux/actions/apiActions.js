@@ -17,45 +17,37 @@ export const EDIT_ACCESSORIES = "[Api] editAccessories";
 export const EDIT_ACCESSORIES_OK = "[Api] editAccessoriesOk";
 export const EDIT_ACCESSORIES_ERROR = "[Api] editAccessoriesError";
 
+export const DELETE_CLOTHES = "[Api] deleteClothes";
+export const DELETE_CLOTHES_OK = "[Api] deleteClothesOk";
+export const DELETE_CLOTHES_ERROR = "[Api] deleteClothesError";
+
+
 //ACCESORIES
 
 const getAccesories = (data) => ({
-
     type: GET_ACCESSORIES,
-
     payload: data,
-
 });
 
 const getAccesoriesError = () => ({
     type: GET_ACCESORIES_ERROR
 })
 
-// const editAccessories = (data) => ({
-//     type: EDIT_ACCESSORIES,
-//     payload: data
-// })
-
 const editAccessoriesError = () => ({
     type: EDIT_ACCESSORIES_ERROR,
 })
 
 const editAccessoriesOK = (data, id) => ({
-
     type: EDIT_ACCESSORIES_OK,
     payload: {data: data, id: id}
-
 })
 
 
 //MANCLOTHES
 
 const getManClothes = (data) => ({
-
     type: GET_MANCLOTHES,
-
     payload: data,
-
 });
 
 const getManClothesError = () => ({
@@ -65,11 +57,8 @@ const getManClothesError = () => ({
 //WOMANCLOTHES
 
 const getWomenClothes = (data) => ({
-
     type: GET_WOMENCLOTHES,
-
     payload: data,
-
 });
 
 const getWomenClothesError = () => ({
@@ -79,11 +68,8 @@ const getWomenClothesError = () => ({
 //SHOES
 
 const getShoes = (data) => ({
-
     type: GET_SHOES,
-
     payload: data,
-
 });
 
 const getShoesError = () => ({
@@ -93,9 +79,7 @@ const getShoesError = () => ({
 //ACCESORIES
 
 export const getAccesoriesToApi = () => {
-
     return async (dispatch) => {
-
         try{
             const result = await axios.get('http://localhost:4000/accessories');
             const data = result.data;
@@ -110,14 +94,79 @@ export const getAccesoriesToApi = () => {
     }
 }
 
-export const editAccessoriesToApi = (stock, id) => {
-    console.log('LLEGA A REDUX->',stock, id);
+//MANCLOTHES
+
+export const getManClothesToApi = () => {
+    return async (dispatch) => {
+        try{
+            const result = await axios.get('http://localhost:4000/manproducts');
+            const data = result.data;
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getManClothes(dataProducts));
+        } catch (error) {
+            console.log(error);
+            dispatch(getManClothesError());
+        }
+    }
+}
+
+//WOMENCLOTHES
+
+export const getWomenClothesToApi = () => {
+    return async (dispatch) => {
+        try{
+            const result = await axios.get('http://localhost:4000/woman');
+            const data = result.data;
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getWomenClothes(dataProducts));
+        } catch (error) {
+            console.log(error);
+            dispatch(getWomenClothesError());
+        }
+    }
+}
+
+//SHOES
+
+export const getShoesToApi = () => {
+    return async (dispatch) => {
+        try{
+            const result = await axios.get('http://localhost:4000/sneakers');
+            const data = result.data;
+            const dataProducts = data.map((element =>{
+                return {amount: 1, ...element}
+        }))
+            dispatch(getShoes(dataProducts));
+        } catch (error) {
+            console.log(error);
+            dispatch(getShoesError());
+        }
+    }
+}
+
+//EDIT & DELETE CLOTHES
+
+
+export const editClothesToApi = (stock, id, categorie) => {
+
+    let route = '';
+
+    if(categorie === 'Complementos'){
+        route = 'accessories'
+    }else if(categorie === 'Ropa para hombre'){
+        route = 'man'
+    }else if(categorie === 'Ropa para mujer'){
+        route = 'woman'
+    }else {
+        route = 'sneakers'
+    };
     const stockToNumber = parseInt(stock);
-
         return async(dispatch) =>{
-
-            // dispatch(editAccessories); /accessories/edit/:id
-            const EditAccessoryRequest = await fetch(`http://localhost:4000/accessories/edit/${id}`,{
+            const EditAccessoryRequest = await fetch(`http://localhost:4000/${route}/edit/${id}`,{
                 method: "PUT",
                 headers: {
                     Accept: "application/json",
@@ -134,66 +183,40 @@ export const editAccessoriesToApi = (stock, id) => {
             }else{
                 dispatch(editAccessoriesError(accessoryResult.message))
             };
-
         };
 }
 
-//MANCLOTHES
 
-export const getManClothesToApi = () => {
+export const deleteClothes = (id, categorie) =>{
+    console.log('ID Y CATEGORIA REDUX', id, categorie )
 
-    return async (dispatch) => {
+    let route = '';
 
-        try{
-            const result = await axios.get('http://localhost:4000/manproducts');
-            const data = result.data;
-            const dataProducts = data.map((element =>{
-                return {amount: 1, ...element}
-        }))
-            dispatch(getManClothes(dataProducts));
-        } catch (error) {
-            console.log(error);
-            dispatch(getManClothesError());
-        }        
-    }
-}
+    if(categorie === 'Complementos'){
+        route = 'accessories'
+    }else if(categorie === 'Ropa para hombre'){
+        route = 'man'
+    }else if(categorie === 'Ropa para mujer'){
+        route = 'woman'
+    }else {
+        route = 'sneakers'
+    };
 
-//WOMENCLOTHES
-
-export const getWomenClothesToApi = () => {
-
-    return async (dispatch) => {
-
-        try{
-            const result = await axios.get('http://localhost:4000/woman');
-            const data = result.data;
-            const dataProducts = data.map((element =>{
-                return {amount: 1, ...element}
-        }))
-            dispatch(getWomenClothes(dataProducts));
-        } catch (error) {
-            console.log(error);
-            dispatch(getWomenClothesError());
-        }        
-    }
-}
-
-//SHOES
-
-export const getShoesToApi = () => {
-
-    return async (dispatch) => {
-
-        try{
-            const result = await axios.get('http://localhost:4000/sneakers');
-            const data = result.data;
-            const dataProducts = data.map((element =>{
-                return {amount: 1, ...element}
-        }))
-            dispatch(getShoes(dataProducts));
-        } catch (error) {
-            console.log(error);
-            dispatch(getShoesError());
-        }        
+    return async(dispatch) =>{
+        const deleteClothesRequest = await fetch(`http://localhost:4000/${route}/delete/${id}`, {
+            method: "PUT",
+            headers :{
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin" : "*",
+            },
+            credentials: "include",
+        });
+        const deleteRequest = await deleteClothesRequest.json();
+        if(deleteRequest.ok){
+            dispatch({type: DELETE_CLOTHES_OK, payload: deleteRequest})
+        }else{
+            dispatch({type: DELETE_CLOTHES_ERROR, payload: deleteRequest.message})
+        }
     }
 }
