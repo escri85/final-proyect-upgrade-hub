@@ -26,7 +26,6 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
     };
 
     const payFunction = () => {
-        localStorage.removeItem('productsCart')
         setOrderSent(true)
         dispatch(editStockToApi(cart))
     } 
@@ -152,10 +151,11 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
                 </div>
                 <div className="c-platform__buttons">
                     <button className="c-platform__buttons__button" onClick={()=>{setGoToPay(false)}}><T id='PlayPlatform.pay.Cancel' /></button>
-                    <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Buy' /></button>
+                    {payDone && <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Buy' /></button> }
+                    {/* <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Buy' /></button> */}
                 </div>
             </div>
-            { orderSent && <div className="c-platform__order"><ModalPaid timeToSend={timeToSend} closeAll={closeAll} /></div>}
+            { orderSent && <div className="c-platform__order"><ModalPaid timeToSend={timeToSend} closeAll={closeAll} /></div>} 
         </div>
     </>)
 }

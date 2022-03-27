@@ -169,7 +169,9 @@ console.log('esta es la sesion  ->',sesionGoogle);
             },
             {
                 label: <p>Perfil</p>,
+
                 className: (!user) ? 'hiddenItem' : 'showItem',
+                  
                 command: ()=>{navigate('/profile')}
             }
         ],

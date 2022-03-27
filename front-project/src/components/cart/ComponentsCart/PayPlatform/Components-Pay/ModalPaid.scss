@@ -1,0 +1,19 @@
+.c-modalPaid{
+
+    z-index: 100;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 90%;
+    min-height: 90%;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
