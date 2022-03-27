@@ -1,4 +1,5 @@
-import { EDIT_ACCESSORIES_ERROR, EDIT_ACCESSORIES_OK, GET_ACCESORIES_ERROR, GET_ACCESSORIES, GET_MANCLOTHES, GET_MANCLOTHES_ERROR, GET_SHOES, GET_SHOES_ERROR, GET_WOMENCLOTHES, GET_WOMENCLOTHES_ERROR } from "../actions/apiActions";
+import { tabUnstyledClasses } from "@mui/base";
+import { EDIT_ACCESSORIES_ERROR, EDIT_ACCESSORIES_OK, EDIT_STOCK_ERROR, EDIT_STOCK_OK, GET_ACCESORIES_ERROR, GET_ACCESSORIES, GET_MANCLOTHES, GET_MANCLOTHES_ERROR, GET_SHOES, GET_SHOES_ERROR, GET_WOMENCLOTHES, GET_WOMENCLOTHES_ERROR } from "../actions/apiActions";
 
 
 const INITIAL_STATE = ({
@@ -41,7 +42,7 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
             )
 
             if (productToEdit) {
-                productToEdit.stock = action.payload.data
+                productToEdit.stock = action.payload
                 return [...state]
             }
 
@@ -54,6 +55,27 @@ export const apiReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 error: true    
             }    
+
+        case EDIT_STOCK_OK:
+            
+            const stockToEdit = state.accessories.find(element =>
+                element._id = action.payload.id
+            )
+
+            if (stockToEdit) {
+                stockToEdit.stock = action.payload.data
+                return [...state]
+            }
+
+            return {
+                ...state,
+            }
+
+        case EDIT_STOCK_ERROR:
+            return {
+                ...state,
+                error: true
+            }
 
         case GET_MANCLOTHES : 
             return {

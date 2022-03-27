@@ -34,7 +34,6 @@ const Profile = ({dispatch, user}) =>{
                     </div>
                     <div className='profile__content-main'>
                         <div className='profile__content-main-favproducts'>
-                            <img src='https://media.discordapp.net/attachments/902982333215412254/957345972722204732/1.jpeg?width=952&height=675'></img>
                         {/* SHOW FAV PRODUCTS */}
                         {(profileNavbarActions.showFavProducts)
                         ?

@@ -22,6 +22,10 @@ export const DELETE_CLOTHES_OK = "[Api] deleteClothesOk";
 export const DELETE_CLOTHES_ERROR = "[Api] deleteClothesError";
 
 
+export const EDIT_STOCK = "[Api] editStock";
+export const EDIT_STOCK_OK = "[Api] editStockOk";
+export const EDIT_STOCK_ERROR = "[Api] editStockError";
+
 //ACCESORIES
 
 const getAccesories = (data) => ({
@@ -220,3 +224,48 @@ export const deleteClothes = (id, categorie) =>{
         }
     }
 }
+
+
+export const editStockToApi = (list) => {
+
+    list.map(element => {
+
+        const id = element._id
+        const categorie = element.categorie
+        const stock = element.stock - element.amount
+        const stockToNumber = parseInt(stock);
+        let route = '';
+
+        if(categorie === 'Complementos'){
+            route = 'accessories'
+        }else if(categorie === 'Ropa para hombre'){
+            route = 'man'
+        }else if(categorie === 'Ropa para mujer'){
+            route = 'woman'
+        }else {
+            route = 'sneakers'
+        };
+
+        console.log("He salido del if, ahora mismo hay", id, route, stockToNumber);
+
+        return async (dispatch) => {
+
+        const EditAccessoryRequest = await fetch(`http://localhost:4000/${route}/edit/${id}`,{
+                method: "PUT",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin" : "*",
+                },
+                credentials: "include",
+                body: JSON.stringify({stock: stockToNumber}),
+            });
+            const productResult  = await EditAccessoryRequest.json();
+
+            if(productResult.ok){
+                dispatch({type: EDIT_STOCK_OK, payload: productResult})
+            }else{
+                dispatch({type: EDIT_STOCK_ERROR, payload: productResult})
+            };
+
+    }})}
