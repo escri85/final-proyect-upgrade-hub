@@ -691,24 +691,14 @@ const URL = "mongodb://localhost:27017/ecomerce";
 
 mongoose.connect(URL, CONFIG_DB)
     .then(async () => {
-        console.log('Se está ejecutando el seed de los productos, todo va bien :D');
-
-        //Aqui va a devolver todos los personajes de la coleccion
         const productsArray = await ProductModel.find();
-        console.log(productsArray);
-
-        //Si tiene elementos, borra todo
         if (productsArray.length) {
             await ProductModel.collection.drop();
-            console.log('Colección products eliminada, para volver a llenar');
         }
     })
     .catch(error => console.log("Error buscando en la DB", error))
     .then(async () => {
-        //Añadir el array a la base de datos
-        console.log(productArray);
         await ProductModel.insertMany(productArray);
-        console.log("Añadidas los nuevos productos")
     })
     .catch(error => console.log("Error añadiendo los productos"))
     .finally(() => mongoose.disconnect());

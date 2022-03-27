@@ -244,14 +244,12 @@ const URL = "mongodb://localhost:27017/ecomerce";
 
 mongoose.connect(URL, CONFIG_DB)
 .then(async () =>{
-    console.log('Se está ejecutando la seed de ropa para hombre, todo ok!');
     const manProductsContent = await ManProductsModel.find();
     (manProductsContent) ? await ManProductsModel.collection.drop() : '';
 })
 .catch(error => console.log("Error buscando en la DB", error))
 .then(async () =>{
     await ManProductsModel.insertMany(manProductsArray);
-    console.log('Añadida la nueva ropa de hombre');
 })
 .catch(error => console.log('Error añadiendo la nueva ropa de hombre'))
 .finally(() => mongoose.disconnect());
