@@ -31,6 +31,7 @@ const PayPlatform = (props) => {
 
     const closeAll = () => {
 
+        
         setOrderSent(false);
         props.setGoToPay(false);
         props.dispatch(cleanCartRedux())

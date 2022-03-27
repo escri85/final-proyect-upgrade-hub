@@ -88,3 +88,41 @@ export const cleanCartRedux = () => {
 
     }
 }
+
+export const editStockToApi = (list) => {
+
+    list.map(element => {
+
+        const id = element.id
+        const category = element.category
+        const stock = element.stock - element.amount
+        const stockToNumber = parseInt(stock);
+        let newCategory;
+
+        if(category === "Complementos") {
+            newCategory = "accessories"
+        }
+        else if(category === "Ropa para hombre"){
+            newCategory = "man"
+        }
+        else if(category === "Ropa para mujer"){
+            newCategory = "woman"
+        }else{
+            newCategory = "sneakers"
+        }
+
+        return async (dispatch) => {
+
+        const EditAccessoryRequest = await fetch(`http://localhost:4000/${newCategory}/edit/${id}`,{
+                method: "PUT",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin" : "*",
+                },
+                credentials: "include",
+                body: JSON.stringify({stock: stockToNumber}),
+            });
+            const productResult  = await EditAccessoryRequest.json();
+
+    }})}
