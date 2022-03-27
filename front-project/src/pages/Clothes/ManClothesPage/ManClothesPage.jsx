@@ -31,7 +31,6 @@ const ManClothesPage = (props) => {
     const isFilterApplied = pantalonesActived || abrigoActived || camisetaActived || jerseyActived ;
 
     const getSelectedCategories = () => {
-        
         const categories = [];
 
         if (pantalonesActived) {categories.push("Pantalones")};
@@ -43,7 +42,7 @@ const ManClothesPage = (props) => {
     }
 
     const isCategorySelected = (category) => {
-        const selectedCategories = getSelectedCategories();  
+        const selectedCategories = getSelectedCategories();
         return selectedCategories.includes(category);
     }
 
@@ -57,8 +56,9 @@ const ManClothesPage = (props) => {
 
     return (
     <>
+    <div className='bg'></div>
         <div className="c-">
-            <div className="c-finder">   
+            <div className="c-finder">
                 <div className="c-finder__div" >
                     <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.trousers'/></label>
                     <input className="c-finder__input" type="checkbox" onChange={handleChangePantalones} />
