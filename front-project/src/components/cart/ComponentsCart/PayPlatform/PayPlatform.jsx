@@ -14,12 +14,10 @@ import { cleanCartRedux } from '../../../../redux/actions/cartActions';
 import { ModalPaid } from './Components-Pay/ModalPaid';
 import { editStockToApi } from '../../../../redux/actions/apiActions';
 
-const PayPlatform = (props) => {
-
-    const precio = props.price;
+const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
 
     const [payType, setPayType] = React.useState('');
-    const [price , setPrice] = React.useState(precio);
+    const [totalPrice] = React.useState(price);
     const [payDone, setPayDone] = React.useState(false);
     const [orderSent, setOrderSent] = React.useState(false);
 
@@ -29,19 +27,19 @@ const PayPlatform = (props) => {
 
     const payFunction = () => {
         localStorage.removeItem('productsCart')
-        setOrderSent(true)} 
+        setOrderSent(true)
+        dispatch(editStockToApi(cart))
+    } 
 
     const closeAll = () => {
-
         setOrderSent(false);
-        props.setGoToPay(false);
-        props.dispatch(cleanCartRedux())
-        props.dispatch(editStockToApi(props.cart))
+        setGoToPay(false);
+        dispatch(cleanCartRedux())
     }    
 
     var timeToSend = 1; 
 
-    const timeToSendP = props.cart.map((element)=>{
+    const timeToSendP = cart.map((element)=>{
         
         if(element.shoppingFrom === "España"){
             return timeToSend = 2;  
@@ -145,16 +143,16 @@ const PayPlatform = (props) => {
                     <h4><T id="PlayPlatform.pay.paymentConfirmed" /></h4>
                     <div className="c-platform__modal__images">
                         <div>
-                            {props.cart.map(element =><img key={element.id} src={element.image} alt="miniatura"></img>)}
+                            {cart.map(element =><img key={element.id} src={element.image} alt="miniatura"></img>)}
                         </div>
                         <div className="c-platform__modal__images__price">
-                            <h3>Total: {price} €</h3> 
+                            <h3>Total: {totalPrice} €</h3> 
                         </div>
                     </div>       
                 </div>
                 <div className="c-platform__buttons">
-                    <button className="c-platform__buttons__button" onClick={()=>{props.setGoToPay(false)}}><T id='PlayPlatform.pay.Buy' /></button>
-                    {payDone && <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Cancel' /></button>}
+                    <button className="c-platform__buttons__button" onClick={()=>{setGoToPay(false)}}><T id='PlayPlatform.pay.Cancel' /></button>
+                    <button className="c-platform__buttons__button" onClick={payFunction}><T id='PlayPlatform.pay.Buy' /></button>
                 </div>
             </div>
             { orderSent && <div className="c-platform__order"><ModalPaid timeToSend={timeToSend} closeAll={closeAll} /></div>}

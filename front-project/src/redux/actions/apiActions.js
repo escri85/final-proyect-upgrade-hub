@@ -228,6 +228,8 @@ export const deleteClothes = (id, categorie) =>{
 
 export const editStockToApi = (list) => {
 
+    console.log("1");
+
     list.map(element => {
 
         const id = element._id
@@ -246,7 +248,7 @@ export const editStockToApi = (list) => {
             route = 'sneakers'
         };
 
-        console.log("He salido del if, ahora mismo hay", id, route, stockToNumber);
+        console.log("2.He salido del if, ahora mismo hay", id, route, stockToNumber);
 
         return async (dispatch) => {
 
