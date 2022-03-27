@@ -12,6 +12,7 @@ import Cookies from './Cookies/Cookies';
 import HelpModule from './HelpModule/HelpModule';
 import  AdminSettings  from './AdminSettings/AdminSettings';
 import AdmingModalSettings from './AdminSettings/AdminModalSettings/AdmingModalSettings';
+import AdminModalDelete from './AdminSettings/AdminModalDelete/AdminModalDelete';
 
 export {
     Cart,
@@ -27,5 +28,6 @@ export {
     Cookies,
     HelpModule,
     AdminSettings,
-    AdmingModalSettings
+    AdmingModalSettings,
+    AdminModalDelete
 }
