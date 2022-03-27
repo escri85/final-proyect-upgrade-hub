@@ -5,8 +5,10 @@ import { AdminContext } from '../../../Contexts/AdminContext';
 const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
     const closeHandler = () => setVisible(false);
+    const [handleModal, setHandleModal] = useContext(AdminContext);
 
     const deleteProduct = () => {
+        setHandleModal(!handleModal)
         setVisible(false);
     };
 

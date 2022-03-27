@@ -7,14 +7,14 @@ const AdmingModalSettings = () => {
     const [visible, setVisible] = useState(true);
     const closeHandler = () => setVisible(false);
 
-    const [stock, setStock, handleStock, setHandleStock] = useContext(AdminContext);
+    const [stock, setStock, handleModal, setHandleModal] = useContext(AdminContext);
 
     const handleChangeStock = (event) => {
         setStock(event.target.value)
     }
 
     const setProductStocks = () => {
-        setHandleStock(!handleStock)
+        setHandleModal(!handleModal)
         setVisible(false)
     }
 

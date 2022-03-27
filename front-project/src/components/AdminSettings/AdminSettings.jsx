@@ -20,7 +20,7 @@ import './AdminSettings.scss';
     }
 
 const AdminSettings = (props) => {
-    const [stock, setStock, handleStock, setHandleStock] = useContext(AdminContext);
+    const [stock, setStock, handleModal, setHandleModal] = useContext(AdminContext);
     const [activeIndex, setActiveIndex] = useState(0)
     const [showAdminModal, setShowAdminModal] = useState(false);
     const [showAdminDeleteModal, setShowAdminDeleteModal] = useState(false);
@@ -32,12 +32,12 @@ const AdminSettings = (props) => {
         props.dispatch(getAccesoriesToApi())
         props.dispatch(getShoesToApi())
         props.dispatch(getWomenClothesToApi())
-        if(handleStock){
+        if(handleModal){
             props.dispatch(editClothesToApi(stock, productSelected.productId, productSelected.categorie))
-            setHandleStock(false);
+            setHandleModal(false);
             setProductSelected(INITIAL_STATE)
         }
-    },[handleStock])
+    },[handleModal])
 
 
     const allProducts = {
@@ -55,11 +55,8 @@ const AdminSettings = (props) => {
         });
     };
     const deleteProduct = (product) =>{
-        setProductSelected({
-            productId: product._id,
-            categorie: product.categorie
-        })
-        console.log(productSelected);
+        setShowAdminDeleteModal(!showAdminDeleteModal)
+        props.dispatch(deleteClothes(product._id, product.categorie));
     }
 
     const getNames = (product) => product.title.toLowerCase();

@@ -189,7 +189,8 @@ export const editClothesToApi = (stock, id, categorie) => {
 
 export const deleteClothes = (id, categorie) =>{
     console.log('ID Y CATEGORIA REDUX', id, categorie )
-/*     let route = '';
+
+    let route = '';
 
     if(categorie === 'Complementos'){
         route = 'accessories'
@@ -199,9 +200,10 @@ export const deleteClothes = (id, categorie) =>{
         route = 'woman'
     }else {
         route = 'sneakers'
-    }; */
+    };
+
     return async(dispatch) =>{
-        const deleteClothesRequest = await fetch(`http://localhost:4000/accessories/delete/${id}`, {
+        const deleteClothesRequest = await fetch(`http://localhost:4000/${route}/delete/${id}`, {
             method: "PUT",
             headers :{
                 Accept: "application/json",
