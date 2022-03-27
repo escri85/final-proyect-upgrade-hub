@@ -13,7 +13,7 @@ const Footer = () => {
       <footer className="footer-distributed">
         <div className="footer-left">
           <h3>
-            Upgrade<span>Store</span>
+            Zarando<span>Store</span>
           </h3>
         </div>
         <div className="footer-rrss">
