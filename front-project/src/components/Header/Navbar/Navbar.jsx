@@ -32,7 +32,7 @@ const Navbar = ({dispatch, error, user}) => {
     const [visible, setVisible] = useState(false);
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
-
+    const [sesionGoogle, setSesionGoogle] = useState(false)
     console.log(user);
 
     // const client_id=process.env.GOOGLE_CLIENT_ID
@@ -59,17 +59,18 @@ const Navbar = ({dispatch, error, user}) => {
         localStorage.setItem('loginData',JSON.stringify(response))
         setLoginData(response)
         setVisible(false)
+        setSesionGoogle(true)
     }
 
 
 //////  LOGIN Y LOGOUT GOOGLE?  //////
-
-/*     const handleLogin=(googleData)=>{
-        console.log(googleData);
-    }
+    // const handleLogin=(googleData)=>{
+    //     console.log(googleData);
+    // }
     const handleLogout=()=>{
         localStorage.removeItem('loginData')
-    } */
+        setSesionGoogle(false)
+    } 
 //////////////////////////////////////////////
 
 
@@ -85,9 +86,14 @@ const Navbar = ({dispatch, error, user}) => {
         setFormData({...formData, [name]: value});
     };
 
+console.log('este el el loginData ->',loginData);
+console.log('este el el user ->',user);
+console.log('esta es la sesion  ->',sesionGoogle);
     const items = [
 
-        {label:loginData && loginData.profileObj.givenName},
+        {
+            label:sesionGoogle===true || user ? user.email || loginData.profileObj.givenName : '',
+        },
 
         {
         label: <T id="navbar.item.man" />,
@@ -147,8 +153,9 @@ const Navbar = ({dispatch, error, user}) => {
             {
             label:  < T id="navbar.item.logout" /> ,
             icon: "pi pi-fw pi-cog",
-            className: (!user) ? 'hiddenItem' : 'showItem',
+            className: !user && sesionGoogle===false  ? 'hiddenItem' : 'showItem',
             command: () => {
+                handleLogout()
                 dispatch(logoutUser())
                 navigate('/');
             }
@@ -162,7 +169,7 @@ const Navbar = ({dispatch, error, user}) => {
             },
             {
                 label: <p>Perfil</p>,
-                className: (!user) ? 'hiddenItem' : 'showItem',
+                className: (!user || !loginData.tokenId) ? 'hiddenItem' : 'showItem',
                 command: ()=>{navigate('/profile')}
             }
         ],
