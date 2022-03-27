@@ -93,27 +93,27 @@ export const editStockToApi = (list) => {
 
     list.map(element => {
 
-        const id = element.id
-        const category = element.category
+        const id = element._id
+        const categorie = element.categorie
         const stock = element.stock - element.amount
         const stockToNumber = parseInt(stock);
-        let newCategory;
+        let route = '';
 
-        if(category === "Complementos") {
-            newCategory = "accessories"
-        }
-        else if(category === "Ropa para hombre"){
-            newCategory = "man"
-        }
-        else if(category === "Ropa para mujer"){
-            newCategory = "woman"
-        }else{
-            newCategory = "sneakers"
-        }
+        if(categorie === 'Complementos'){
+            route = 'accessories'
+        }else if(categorie === 'Ropa para hombre'){
+            route = 'man'
+        }else if(categorie === 'Ropa para mujer'){
+            route = 'woman'
+        }else {
+            route = 'sneakers'
+        };
+
+        console.log("He salido del if, ahora mismo hay", id, route, stockToNumber);
 
         return async (dispatch) => {
 
-        const EditAccessoryRequest = await fetch(`http://localhost:4000/${newCategory}/edit/${id}`,{
+        const EditAccessoryRequest = await fetch(`http://localhost:4000/${route}/edit/${id}`,{
                 method: "PUT",
                 headers: {
                     Accept: "application/json",
@@ -124,5 +124,11 @@ export const editStockToApi = (list) => {
                 body: JSON.stringify({stock: stockToNumber}),
             });
             const productResult  = await EditAccessoryRequest.json();
+
+            if(productResult.ok){
+                dispatch({})
+            }else{
+                dispatch({})
+            };
 
     }})}
