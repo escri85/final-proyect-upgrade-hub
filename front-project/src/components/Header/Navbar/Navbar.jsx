@@ -91,9 +91,9 @@ console.log('este el el user ->',user);
 console.log('esta es la sesion  ->',sesionGoogle);
     const items = [
 
-        {
-            label:sesionGoogle===true || user ? user.email || loginData.profileObj.givenName : '',
-        },
+        // {
+        //     label:sesionGoogle===true || user ? user.email || loginData.profileObj.givenName : '',
+        // },
 
         {
         label: <T id="navbar.item.man" />,
@@ -162,14 +162,14 @@ console.log('esta es la sesion  ->',sesionGoogle);
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
-            className: (user) ? 'hiddenItem' : 'showItem',
+            className: user && sesionGoogle===true ? 'hiddenItem' : 'showItem',
             command: () =>{
                 setVisible(true);
             }
             },
             {
                 label: <p>Perfil</p>,
-                className: (!user || !loginData.tokenId) ? 'hiddenItem' : 'showItem',
+                className: (!user) ? 'hiddenItem' : 'showItem',
                 command: ()=>{navigate('/profile')}
             }
         ],
