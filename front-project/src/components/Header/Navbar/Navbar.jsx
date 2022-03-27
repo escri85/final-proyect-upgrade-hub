@@ -208,12 +208,13 @@ const Navbar = ({dispatch, error, user}) => {
     ];
 
     return (
-        <div>
-        <div className="card">
-            <Menubar model={items}  />
+        <div className="nnavbar">
+        <div className="nnavbar">
+            <Menubar model={items} style={{background:'transparent',border:'none',fontWeight:'bolder',}} />
         </div>
        
         <Modal
+      
         closeButton
         blur
         aria-labelledby="modal-title"
@@ -223,7 +224,7 @@ const Navbar = ({dispatch, error, user}) => {
         <Modal.Header>
             <Text id="modal-title" size={18}>
                 {/* Texto alternativo */}
-            <Text b size={18}>
+            <Text b size={18} >
                 <T id="navbar.item.login"/>
             </Text>
             </Text>
@@ -266,9 +267,7 @@ const Navbar = ({dispatch, error, user}) => {
             </Row>
             <Row justify="center" >
             <GoogleLogin
-
     clientId="966171888634-u11jhbnktfnhd6uto6ojn3se5s3eof14.apps.googleusercontent.com"
-
     buttonText="Iniciar sesion con Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
