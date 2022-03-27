@@ -2,8 +2,13 @@
     justify-content: center;
 }
 
-.card{
+.nnavbar{
     z-index: 12;
+    background: none;
+    color: black;
+    font-weight: bolder;
+    position: sticky;
+    top: 0;
 }
 
 .hiddenItem{
