@@ -68,7 +68,7 @@ const WomenShoesPage = (props) => {
     
     return (
     <>
-
+    <div className='bgwsn'></div>
         <div className="c-">
             <div className="c-finder">
                 <div className="c-finder__div" >

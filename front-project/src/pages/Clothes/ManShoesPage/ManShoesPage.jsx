@@ -73,6 +73,7 @@ const ManShoesPage = (props) => {
 
     return (
         <>
+        <div className="bgsn"></div>
         <div className="c-">
             <div className="c-finder">
                 <div className="c-finder__div" >

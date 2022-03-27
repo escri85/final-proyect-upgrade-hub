@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 @import '../../variables.scss';
 @media screen and (min-width: 480px){
+
+    .filteredOut{
+        margin-top: 2%;
+        margin-bottom: 2%;
+        width: 100%;
+    }
     .home{
         width: 100%;
         height: auto;

@@ -47,10 +47,7 @@ const Search = (props) => {
 
     return (
             <div>
-                <span className="p-input-icon-right">
-                <i className="pi pi-search" />
-                <InputText value={inputValue} onChange={handleInput} placeholder="Search" />
-                </span>
+                <InputText value={inputValue} onChange={handleInput} placeholder="Busca aquí!" />
                 {
                     (inputValue.length >1)
                     ?
