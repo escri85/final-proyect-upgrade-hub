@@ -83,11 +83,14 @@
     "Register.thanks":"Thank you ",
     "Register.noUser":"No User ",
     "Admin.Edit":"Edit Stock",
-    "Admin.Update":"Once updated you will not be able to go back ",
+    "Admin.Update":"Once deleted you will not be able to go back ",
     "Admin.update.stock":"Update Stock",
     "AdminSettings.Stock.Need":"Edit the stock of your warehouse according to your need",
     "AdminSettings.Stock.Preview":"Upload your products while previewing",
     "AdminSettings.Stock.Delete":"Delete Items",
+    "AdminSettings.Stock.lastUnits":"Last units",
+    "AdminSettings.Stock.InStock":"in stock",
+    "AdminSettings.Stock.NoStock":"Out of Stock",
     "AdminSettings.hover":"You can hover your mouse over the preview to see the details",
     "ModalPaid.order.register":"Your Order has been registered succesfully",
     "ModalPaid.order.Rating":"Please rating your experience in Zarando",
@@ -119,9 +122,9 @@
     "Cookies14":"Store or access information on a device, Ads and personalized content, ad and content measurement, audience information and product development, Share data and profiles not linked to your identity, Location data precise geographic location and identification through the characteristics of devices<",
     "Cookies15":"Settings",
     "Help1":"You can track your packages",
-    "":"",
-    "":"",
-    "":"",
-    "":""
+    "Help2":"Customer Support",
+    "Help3":"Company",
+    "Help4":"Frequent Questions",
+    "Sales":"Season Sales"
    
 }

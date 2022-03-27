@@ -84,7 +84,7 @@
     "Register.thanks":"Gracias ",
     "Register.noUser":"No hay Usuario ",
     "Admin.Edit":"Editar Stock",
-    "Admin.Update":"Una vez actualizado no podrás volver atrás ",
+    "Admin.Update":"Una vez eliminado no podrás volver atrás ",
     "Admin.update.stock":"Actualizar Stock",
     "AdminSettings.Stock.Need":"Edita el stock de tu almacén según tu necesidad",
     "AdminSettings.Stock.Preview":"Sube tus productos mientras obtienes una vista previa",
@@ -120,8 +120,10 @@
     "Cookies14":"Almacenar o acceder a información en un dispositivo, Anuncios y contenido personalizados, medición de anuncios y del contenido, información sobre el público y desarrollo de productos, Compartir datos y perfiles no vinculados a su identidad, Datos de localización geográfica precisa e identificación mediante las características de dispositivos",
     "Cookies15":"Configuración",
     "Help1":"Podrás hacer un seguimiento de tus paquetes",
-    "":"",
-    "":"",
+    "Help2":"Atención al cliente",
+    "Help3":"Empresa",
+    "Help4":"Preguntas Frecuentes",
+    "Sales":"Season Sales",
     "":""
 
 }

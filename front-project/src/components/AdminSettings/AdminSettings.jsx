@@ -61,15 +61,15 @@ const AdminSettings = (props) => {
     }
 
     const getNames = (product) => product.title.toLowerCase();
-    const getImage = (product) => <img src={product.image}></img>;
+    const getImage = (product) => <img src={product.image} alt="product"></img>;
     const getStock = (product) => `${product.stock} unidades`;
     const getCategorie = (product) => product.categorie;
     const getPrice = (product) =>  `${product.price} €`;
     const getRating = (product) => <Rating value={product.rating} readOnly cancel={false}></Rating>;
 
-    const lowStock = <div className='lastunits'>Últimas unidades</div>;
-    const inStock = <div className='inStock'>En stock</div>;
-    const outOfStock = <div className='outOfStock'>Fuera de stock</div>;
+    const lowStock = <div className='lastunits'><T id='AdminSettings.Stock.lastUnits' /></div>;
+    const inStock = <div className='inStock'><T id='AdminSettings.Stock.InStock' /></div>;
+    const outOfStock = <div className='outOfStock'><T id='AdminSettings.Stock.NoStock' /></div>;
 
     const btnActions = (product) =>{
         return <div className='btnActions'>
