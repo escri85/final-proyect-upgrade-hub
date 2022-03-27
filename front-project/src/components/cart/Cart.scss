@@ -9,6 +9,21 @@ $dark: #4e4e4e;
 
 @import './../../variables.scss';
 
+
+
+
+.bgcart{
+  background-image: url(https://images-ext-2.discordapp.net/external/x_JL-wFq7J4rcZIdoNpnptM9yv-fik73b9F-44mn5io/https/cdn.5dias.com.py/uploads/cdn-3.expansion_.jpg);
+  position: fixed;
+  top: 0;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  opacity: 80%;
+}
+
 .container__all {
   display: flex;
   flex-direction: row;

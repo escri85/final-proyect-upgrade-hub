@@ -49,7 +49,7 @@ export const NoCart = (props) => {
     <div className="c-nocart">
       <div className="c-nocart__div">
         <img
-          src="https://st2.depositphotos.com/2274151/6443/i/600/depositphotos_64436933-stock-photo-new-collection-vintage-orange-seal.jpg"
+          src="https://media.discordapp.net/attachments/933091010693705828/957691255394029638/pngwing.com.png?width=1599&height=1365"
           alt="icono"
         />
       </div>

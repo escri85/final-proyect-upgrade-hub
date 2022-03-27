@@ -77,7 +77,6 @@ const Card = (props) => {
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : ("")}{}
             {product.stock=== 0 && (<h5><T id="card.rep" /></h5>)} 
-            
           </div>
         </div>
       </div>
@@ -90,6 +89,11 @@ const Card = (props) => {
         <div className="cart">
 
           <span className="add-to-cart">
+          <span className="fav">
+            <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>
+              <FavoriteIcon color="error" />
+            </IconButton>
+          </span>
             {product.stock >0 && <button
               onClick={productAdd} 
               // disabled={true ? product.stock === 0 : false}
@@ -98,11 +102,6 @@ const Card = (props) => {
               <T id="card.addToCart"/>
             </button>}
             
-          </span>
-          <span className="fav">
-            <IconButton aria-label="add to favorites" onClick={()=>{addFavList(product)}}>
-              <FavoriteIcon color="error" />
-            </IconButton>
           </span>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Menubar } from "primereact/menubar";
-import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import {connect} from 'react-redux';
 import { loginUser,logoutUser } from "../../../redux/actions/authActions";
@@ -9,19 +8,11 @@ import { Modal, Button, Input, Text, Row, Checkbox  } from '@nextui-org/react';
 import GoogleLogin from 'react-google-login';
 import { InputSwitch } from 'primereact/inputswitch';
 import { ThemeContext } from "../../../Contexts/ThemeContext";
-import './Navbar.scss';
 import { FormattedMessage  as T} from 'react-intl';
 import LanguageSelector from "../../LanguageSelector/LanguageSelector";
-import Search from "../../Search/Search";
+import './Navbar.scss';
 
 
-
-/*
-APUNTES:
-
-Si no hay usuario -> añadir botón de login y seguir mostrando registro.
-Si hay usuario -> ocultar botones y mostrar logout & perfil.
-*/
 const INITIAL_STATE = {
     email: '',
     password: ''
@@ -169,9 +160,8 @@ console.log('esta es la sesion  ->',sesionGoogle);
             },
             {
                 label: <p>Perfil</p>,
-
+                icon: "pi pi-user",
                 className: (!user) ? 'hiddenItem' : 'showItem',
-                  
                 command: ()=>{navigate('/profile')}
             }
         ],
@@ -221,9 +211,7 @@ console.log('esta es la sesion  ->',sesionGoogle);
         <div className="nnavbar">
             <Menubar model={items} style={{background:'transparent',border:'none',fontWeight:'bolder',}} />
         </div>
-       
         <Modal
-      
         closeButton
         blur
         aria-labelledby="modal-title"

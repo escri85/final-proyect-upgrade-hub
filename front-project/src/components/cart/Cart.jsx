@@ -38,6 +38,7 @@ const Cart = (props) => {
 
   return (
     <>
+    <div className='bgcart'></div>
       <div className="container__all">
         {!props.cart.length && (
           <div>
