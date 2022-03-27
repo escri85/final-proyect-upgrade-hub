@@ -3,6 +3,8 @@ import * as actions from '../actions/authActions';
 const INITIAL_STATE = {
     user: null,
     error: '',
+    loginFailed: null, 
+    registerFailed: null,
 };
 
 export const authReducer = (state = INITIAL_STATE, action) => {
@@ -11,13 +13,13 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             return {...state, user: action.payload, error: ''};
         }
         case (actions.AUTH_REGISTER_ERROR): {
-            return {...state, error: action.payload, user: false};
+            return {...state, error: action.payload, registerFailed: true, loginFailed: null, user: false};
         }
         case (actions.AUTH_LOGIN_OK): {
             return {...state, user: action.payload, error: ''};
         }
         case (actions.AUTH_LOGIN_ERROR): {
-            return {...state, error: action.payload,  user: false }
+            return {...state, error: action.payload, registerFailed: null, loginFailed: true,  user: false }
         }
         case (actions.CHECK_SESSION_OK): {
             return {...state, error: '', user: action.payload};

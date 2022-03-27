@@ -15,24 +15,16 @@ const INITIAL_STATE = {
     passwordRepeat: ''
 }
 
-const Access = ({dispatch, error, user}) =>{
+const Access = ({dispatch, error, user, loginFailed, registerFailed}) =>{
 
     const [registeredError , setRegisteredError] = useState(false)
-
-    useEffect(() => {
-        if(typeof(error) === String){
-            setRegisteredError(true)
-        }
-        console.log(registeredError);
-        console.log(error);
-    }, [error]);
 
     const navigate = useNavigate();
     const [formRegisterData, setFormRegisterData] = useState(INITIAL_STATE);
     const [loginFormData, setLoginFormData] = useState(INITIAL_STATE);
     
-const [captchaValido, setCaptchaValido] = useState(null)
-// const [usuarioValido, setUsuarioValido] = useState(false)
+    const [captchaValido, setCaptchaValido] = useState(null)
+    // const [usuarioValido, setUsuarioValido] = useState(false)
     //REGISTER
 
     const submitRegisterForm = (ev) =>{
@@ -69,23 +61,23 @@ const [captchaValido, setCaptchaValido] = useState(null)
     }
     const captcha=useRef(null)
     
-const keyCaptcha = process.env.keyCaptcha
-    const onChangeCaptcha = ()=>{
-        if(captcha.current.getValue()){
-            console.log('el usuario no es un robot');
+    const keyCaptcha = process.env.keyCaptcha
+        const onChangeCaptcha = ()=>{
+            if(captcha.current.getValue()){
+                console.log('el usuario no es un robot');
+            }
         }
-    }
 
     return (
 
         <div className='access'>
             <div className='access__forms'>
-                {(error)
+                {(error !== false)
                 ?
                 <>
                 <form onSubmit={submitLoginForm} className='access__forms-login'>
                     <h2><T id='navbar.item.login' /></h2>
-                    { error && <p className='access__forms-login-error'><T id='Register.Credentials' /></p>}
+                    { loginFailed && <p className='access__forms-login-error'><T id='Register.Credentials' /></p>}
                         <div className='access__forms-login-input'>
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-envelope" />
@@ -132,7 +124,7 @@ const keyCaptcha = process.env.keyCaptcha
                             <InputText id="password" name="passwordRepeat" type="password" value={formRegisterData.passwordRepeat} onChange={handleInputRegister}></InputText>
                             <label htmlFor="password"><T id='Register.RPassword' /></label>
                     </span>
-                    {error && <div>{error}</div>}
+                    {registerFailed && <p className='access__forms-login-error'>{error}</p>}
                 </div>
                 <ReCAPTCHA
                 ref={captcha}
@@ -158,5 +150,7 @@ const keyCaptcha = process.env.keyCaptcha
 const mapStateToProps = (state) =>({
     user: state.auth.user,
     error: state.auth.error,
+    loginFailed: state.auth.loginFailed,
+    registerFailed: state.auth.registerFailed
 })
 export default connect(mapStateToProps)(Access);
