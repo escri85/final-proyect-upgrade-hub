@@ -84,7 +84,7 @@
     "Register.thanks":"Gracias ",
     "Register.noUser":"No hay Usuario ",
     "Admin.Edit":"Editar Stock",
-    "Admin.Update":"Una vez actualizado no podrás volver atrás ",
+    "Admin.Update":"Una vez eliminado no podrás volver atrás ",
     "Admin.update.stock":"Actualizar Stock",
     "AdminSettings.Stock.Need":"Edita el stock de tu almacén según tu necesidad",
     "AdminSettings.Stock.Preview":"Sube tus productos mientras obtienes una vista previa",
