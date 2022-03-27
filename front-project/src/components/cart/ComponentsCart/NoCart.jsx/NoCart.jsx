@@ -53,7 +53,7 @@ export const NoCart = (props) => {
     <div className="c-nocart">
       <div className="c-nocart__div">
         <img
-          src="https://cdn.discordapp.com/attachments/954061730814787637/955412143614857236/Nueva_Coleccion.png"
+          src="https://st2.depositphotos.com/2274151/6443/i/600/depositphotos_64436933-stock-photo-new-collection-vintage-orange-seal.jpg"
           alt="icono"
         />
       </div>

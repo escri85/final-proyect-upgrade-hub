@@ -1,21 +1,24 @@
 import { ProfileNavbar, UserSettingsModal } from '../../components';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Card } from '@nextui-org/react';
 import {connect} from 'react-redux';
 import { ProfileContext } from '../../Contexts/ProfileContext';
 import './Profile.scss';
 import { FormattedMessage  as T} from 'react-intl';
 import FavLis from './Components/FavLis';
+import Nofavs from '../../assets/img/Nofavs.jpeg'
 
 
 const Profile = ({dispatch, user}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
 
-    const listFav = JSON.parse(localStorage.getItem("productsFav"));
+    const [favFlag, setFavFlag] = useState(true);
+
+    const [listFav, setListFav] = useState([])
 
     useEffect(() => {
-
-    }, [listFav]);
+        setListFav(JSON.parse(localStorage.getItem("productsFav")))
+    }, [favFlag]);
 
     const userLoggedIn = user.email;
 
@@ -37,11 +40,12 @@ const Profile = ({dispatch, user}) =>{
                         ?
                             (listFav.length)
                             ?
-                            <FavLis listFav={listFav} />
+                            <FavLis favFlag={favFlag} setFavFlag={setFavFlag} listFav={listFav} />
                             :
-                            <p><T id='profile.favs'/></p>
+                            <img src={Nofavs} alt="Nofavs" />
                         :
                         <p>< T id='profile.menu'/></p>
+                        
                         }
                         </div>
                         {/* ¿ CAMBIAR E-MAIL ?  -> profileNavbarActions.showUserMail */}

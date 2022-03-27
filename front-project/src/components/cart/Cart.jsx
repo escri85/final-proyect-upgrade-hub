@@ -42,24 +42,25 @@ const Cart = (props) => {
                 <img src={item.image} alt="" />
               </div>
               <div className="product">
-                <p>{item.categorie}</p>
+                {/* <p>{item.categorie}</p> */}
                 <h1>{item.title}</h1>
                 <h2>{item.price} €</h2>
-                <p className="desc">{item.description}</p>
+                {/* <p className="desc">{item.description}</p> */}
                 <div className="buttons">
-                  <p><T id="Cart.amount" /> {item.amount}</p>
                   <button onClick={() => {props.dispatch(SustractOneProductToCart(item))}}>-</button>
+                  <p>{item.amount}</p>
                   <button onClick={() => {props.dispatch(AddOneProductToCart(item))}}>+</button>
                 </div>
+                { item.amount === item.stock ? <h5 className="lastUnits">Has llegado al máximo de stock</h5> : ""}
               </div>
             </div>
           ))}
         </div>}
         {props.cart.length>0 && <div className="tramitar">
-          <button onClick={() => { setGoToPay(true)}}> <T id="Cart.checkout" /> </button>
-          <h1><T id="Cart.summary" /></h1>
-          <h1>{suma} <T id="Cart.product" /></h1>
+          <h3><T id="Cart.summary" /></h3>
+          <h4>{suma} <T id="Cart.product" /></h4>
           <h2>Total: {newPrice} €</h2>
+          <button onClick={() => { setGoToPay(true)}}> <T id="Cart.checkout" /> </button>
         </div>}
       </div>
       {goToPay && (

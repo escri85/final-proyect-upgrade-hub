@@ -5,6 +5,8 @@ $pink: #d9aab7;
 $rose: #ba7e7e;
 $dark: #4e4e4e;
 
+
+
 @import './../../variables.scss';
 
 .container__all {
@@ -12,19 +14,20 @@ $dark: #4e4e4e;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
+
+  margin: 25px;
 
   & .items {
     & .container {
-      position: relative;
-      margin: auto;
-      overflow: hidden;
-      width: 520px;
-      height: 350px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: auto;
+      height: auto;
       background: $white;
-      box-shadow: 5px 5px 15px rgba($rose, 0.5);
+      box-shadow: 5px 5px 15px rgba($primary-shadow-color, 0.5);
       border-radius: 10px;
-      width: 600px;
       display: flex;
       flex-direction: row;
       justify-content: start;
@@ -33,21 +36,16 @@ $dark: #4e4e4e;
       & .images {
         align-items: center;
         & img {
-          width: 290px;
+          width: 150px;
+          height: auto;
         }
         
       }
 
       & .product {
-        position: absolute;
-        width: 40%;
-        height: 100%;
-        top: 10%;
-        left: 60%;
-        margin: -10px;
         & p {
-          font-size: 0.6em;
-          color: $rose;
+          font-size: 180%;
+          color: $secondary-text-color;
           letter-spacing: 1px;
         }
 
@@ -58,7 +56,7 @@ $dark: #4e4e4e;
         }
 
         & h2 {
-          color: $tan;
+          color: $secondary-text-color;
           margin-top: -5px;
         }
         & .desc {
@@ -76,8 +74,12 @@ $dark: #4e4e4e;
 
     & .buttons {
         margin: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
       button {
-        background: darken($light, 10%);
+        background: darken($primary-shadow-color, 10%);
+        box-shadow: 2px 2px 2px rgba($primary-shadow-color, 0.5);
         padding: 10px;
         display: inline-block;
         outline: 0;
@@ -90,27 +92,34 @@ $dark: #4e4e4e;
         font-size: 1em;
         cursor: pointer;
         &:hover {
-          background: $rose;
+          background: $primary-shadow-color;
           transition: all 0.4s ease-in-out;
         }
       }
     }
   }
   & .tramitar {
+
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
     & button {
-      background: darken($light, 10%);
+      background: darken($primary-shadow-color, 10%);
+      box-shadow: 5px 5px 15px rgba($primary-shadow-color, 0.5);
       padding: 10px;
       display: inline-block;
       outline: 0;
       border: 0;
-      margin: -1px;
       border-radius: 2px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: $white;
       cursor: pointer;
       &:hover {
-        background: $rose;
+        background: $primary-shadow-color;
         transition: all 0.4s ease-in-out;
       }
     }
@@ -120,12 +129,12 @@ $dark: #4e4e4e;
     }
 
     & h2 {
-      color: $tan;
+      color: $secondary-text-color;
     }   padding: 10px;
     width: 520px;
     height: auto;
     background: $white;
-    box-shadow: 5px 5px 15px rgba($rose, 0.5);
+    box-shadow: 5px 5px 15px rgba($primary-shadow-color, 0.5);
     border-radius: 10px;
 }
   }
@@ -139,15 +148,12 @@ $dark: #4e4e4e;
     align-items: baseline;
     & .items {
       & .container {
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        width: 520px;
-        height: 350px;
+       
+        // width: 520px;
+        // height: 350px;
         background: $white;
         box-shadow: 5px 5px 15px rgba($rose, 0.5);
         border-radius: 10px;
-        width: 600px;
         display: flex;
         flex-direction: row;
         justify-content: start;
@@ -163,12 +169,10 @@ $dark: #4e4e4e;
         }
   
         & .product {
-          position: absolute;
-          width: 40%;
-          height: 100%;
-          top: 10%;
-          left: 60%;
-          margin: -10px;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin-top: inherit;
           & p {
             font-size: 0.6em;
             color: $rose;
@@ -202,6 +206,7 @@ $dark: #4e4e4e;
           margin: 10px;
         button {
           background: darken($light, 10%);
+          box-shadow: 2px 2px 2px rgba($primary-shadow-color, 0.5);
           padding: 10px;
           display: inline-block;
           outline: 0;
@@ -259,47 +264,32 @@ $dark: #4e4e4e;
 /* On screens that are 600px or less,  */
 @media screen and (max-width: 600px) {
   .container__all {
-    
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    align-content: center;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: inherit;
     & .items {
       & .container {
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        width: 400px;
-        height: 250px;
         background: $white;
         box-shadow: 5px 5px 15px rgba($rose, 0.5);
         border-radius: 10px;
-        width: 300px;
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
+        width: auto;
         padding: 10px;
         margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         & .images {
           align-items: center;
           & img {
             width: 200px;
-           
           }
-          
         }
-  
         & .product {
           
-          position: absolute;
-          width: 40%;
-          height: 20%;
-          top: 10%;
-          left: 60%;
-          margin: -10px;
           & p {
-            font-size: 0.6em;
+            font-size: 190%;
             color: $rose;
             letter-spacing: 1px;
           }
@@ -331,6 +321,7 @@ $dark: #4e4e4e;
   
       & .buttons {
           margin: 5px;
+          letter-spacing: 10%;
         button {
           background: darken($light, 10%);
           padding: 10px;
@@ -352,13 +343,13 @@ $dark: #4e4e4e;
       }
     }
     & .tramitar {
+      margin-bottom: 12px;
       & button {
         background: darken($light, 10%);
         padding: 10px;
         display: inline-block;
         outline: 0;
         border: 0;
-        margin: -1px;
         border-radius: 2px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -372,8 +363,6 @@ $dark: #4e4e4e;
       & h1 {
         font-size: 0.9em;
         color: $dark;
-           
-     
       }
   
       & h2 {
@@ -381,7 +370,6 @@ $dark: #4e4e4e;
         font-size: 0.9em;
       }  
     
-      padding: 10px;
       width: 300px;
       height: auto;
       background: $white;
