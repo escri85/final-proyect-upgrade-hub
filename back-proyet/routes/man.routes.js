@@ -52,4 +52,16 @@ router.put('/man/edit/:id', [isAdmin], async(req, res, next) => {
         }
 });
 
+
+router.put('/man/delete/:id', [isAdmin], async(req, res, next) => {
+    try{
+        const {id} = req.params;
+        console.log(id);
+        const newAccessory = await ManProducts.findByIdAndDelete(id);
+        return res.status(200).json(newAccessory);
+        }catch(error){
+            return next(error);
+        }
+});
+
 module.exports = router;
