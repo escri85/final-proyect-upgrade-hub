@@ -12,6 +12,9 @@ import NoCart from "./ComponentsCart/NoCart.jsx/NoCart";
 import { FormattedMessage as T } from "react-intl";
 
 const Cart = (props) => {
+
+  console.log("Esta es la lista del carrito", props.cart);
+
   useEffect(() => {
     localStorage.setItem("productsCart", JSON.stringify(props.cart));
   }, [props.cart]);
@@ -43,8 +46,8 @@ const Cart = (props) => {
         )}
         {props.cart.length > 0 && (
           <div className="items">
-            {props.cart.map((item) => (
-              <div key={item.id} className="container">
+            {props.cart.map((item, index) => (
+              <div key={index} className="container">
                 <div className="images">
                   <img src={item.image} alt="" />
                 </div>

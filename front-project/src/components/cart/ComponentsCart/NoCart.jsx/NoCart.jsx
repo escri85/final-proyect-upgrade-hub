@@ -11,11 +11,12 @@ import "./NoCart.scss";
 import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { addProductToCart } from "../../../../redux/actions/cartActions";
+import { AddOneProductToCart, addProductToCart } from "../../../../redux/actions/cartActions";
 
 import { Card, Grid, Col, Text, Row, Button } from "@nextui-org/react";
 
 export const NoCart = (props) => {
+
   useEffect(() => {
     props.dispatch(getAccesoriesToApi());
     props.dispatch(getManClothesToApi());
@@ -54,8 +55,8 @@ export const NoCart = (props) => {
       </div>
 
       <div className="c-nocart__examples">
-        {productsResult.map((item) => (
-          <div className="c-nocart__examples__newCard" key={item.id}>
+        {productsResult.map((item, index) => (
+          <div className="c-nocart__examples__newCard" key={index}>
             <Grid xs={12} sm={12} md={12}>
               <Card cover css={{ w: "100%" }}   >
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
@@ -126,9 +127,7 @@ export const NoCart = (props) => {
                             transform="uppercase"
                           >
                             <IconButton
-                              onClick={() => {
-                                props.dispatch(addProductToCart(item));
-                              }}
+                              onClick={() => {props.dispatch(AddOneProductToCart(item))}}
                               aria-label="add to favorites"
                             >
                               <AddShoppingCartIcon color="action" />
