@@ -23,6 +23,11 @@ export const ModalPaid = (props) => {
         </Modal.Header>
         <Modal.Body>
         <Row justify="center">
+            <Text justify="center" size={16}>
+                El tiempo estimado de entrega será de: {props.timeToSend} días
+            </Text>
+        </Row>
+        <Row justify="center">
             <Text size={18}>
                 Valore su experiencia con Zarando
             </Text>

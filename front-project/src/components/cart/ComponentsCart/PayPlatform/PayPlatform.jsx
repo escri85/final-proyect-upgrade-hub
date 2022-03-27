@@ -136,6 +136,7 @@ const PayPlatform = (props) => {
                     {payType === 3 && <div>
                         <h5>**Vas a pagar con contrarrembolso</h5>
                         <h5>**Esto tendrá un sobrecoste de 2€ en el precio total</h5>
+                        <button className="c-platform__buttons__button"  onClick={()=>{setPayDone(true)}}>Aceptar</button>
                     </div>}
                 </div>
                 <div className="c-platform__modal__div">

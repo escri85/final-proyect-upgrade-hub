@@ -30,8 +30,10 @@ export const cartReducer = (state = PRODUCTS, action) => {
             
             const product = state.find(element => element._id === payload._id);
 
+            if(product.stock>product.amount){
             product.amount +=1;
-
+            }
+            
             return [...state]
         
         case REMOVE_CART_ONE:

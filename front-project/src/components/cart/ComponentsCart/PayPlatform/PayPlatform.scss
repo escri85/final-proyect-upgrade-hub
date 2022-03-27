@@ -20,11 +20,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
-    box-shadow: 10px 10px 15px rgba($primary-shadow-color, 0.5);
-    background: $detail-color;
-    background: -webkit-linear-gradient(0deg, $primary-bg-color 0%, $primary-shadow-color 100%);
-    background: linear-gradient(0deg, $primary-bg-color 0%, $primary-shadow-color 100%);
-
+    box-shadow: 5px 5px 5px rgba(grey, 0.5);
+    background: #F0F0F3;
     color: $primary-text-color;
 
         &__div{
@@ -79,7 +76,7 @@
 
         &__button{
 
-        background: darken($detail-color, 10%);
+        background: darken($primary-shadow-color, 10%);
         padding: 10px;
         display: inline-block;
         outline: 0;
@@ -88,7 +85,7 @@
         border-radius: 5px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: $primary-text-color;
+        color: white;
         font-weight: bold;
         cursor: pointer;
         margin: 10px;

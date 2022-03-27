@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Card from '../../../components/Card/Card';
 
 
-    const FavLis = ({listFav, dispatch}) => {
+    const FavLis = ({listFav, dispatch, favFlag, setFavFlag}) => {
     
     const list = listFav;
 
@@ -13,7 +13,7 @@ import Card from '../../../components/Card/Card';
         <div className="c-favlist">
         {
             list.map(product=>
-                <Card product={product}></Card>
+                <Card favFlag={favFlag} setFavFlag={setFavFlag}  product={product}></Card>
             )    
         }
         </div>
