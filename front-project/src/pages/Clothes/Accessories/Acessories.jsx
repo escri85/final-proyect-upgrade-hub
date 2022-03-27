@@ -92,7 +92,7 @@ const Accesories = (props) => {
                 </div>
 
                 <div className="c-finder__price">
-                    <label className="c-finder__label" htmlFor="precio"><T id='ckeckBox.item.price'/></label>
+                    <label className="c-finder__label"  htmlFor="precio"><T id='ckeckBox.item.price'/></label>
                     <input type="range" max="50" min="10" step="5" onChange={handleChangePrice} />
                     <p>{maxPrice}</p>
                 </div>
