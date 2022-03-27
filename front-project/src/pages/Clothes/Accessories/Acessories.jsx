@@ -63,6 +63,7 @@ const Accesories = (props) => {
 
     return (
         <>
+        <div className='bga'></div>
         <div className="c-">
             <div className="c-finder">
                 <div className="c-finder__div">

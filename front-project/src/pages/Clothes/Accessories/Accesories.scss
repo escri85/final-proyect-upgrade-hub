@@ -1,14 +1,23 @@
 @import '../../../variables.scss';
 
-.container{
+.bga{
+    background-image: url(https://theluxonomist.es/wp-content/uploads/2021/12/bolso-moda-complementos.jpg);
+    position: fixed;
+    top: 0;
+    left: -10%;
+    right: -10%;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    opacity: 80%;
+}
 
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #ffffff;
     padding: 15px;
-    box-shadow: $primary-shadow-color 0px 3px 12px;
 }
 
 .c-{
@@ -23,16 +32,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
         margin: 25px 0px;
         padding: 25px;
         width: 20%;
         min-width: 250px;
-
         // background: #F9FAFB;
         // border: 2px solid rgb(230, 225, 225) ;
         // border-radius: 10px;
-    
         &__div{
             display: flex;
             justify-content: center;
