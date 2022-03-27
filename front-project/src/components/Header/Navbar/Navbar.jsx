@@ -12,6 +12,7 @@ import { ThemeContext } from "../../../Contexts/ThemeContext";
 import './Navbar.scss';
 import { FormattedMessage  as T} from 'react-intl';
 import LanguageSelector from "../../LanguageSelector/LanguageSelector";
+import Search from "../../Search/Search";
 
 
 
@@ -180,6 +181,10 @@ const Navbar = ({dispatch, error, user}) => {
                 },
             ],
         },
+        // {
+        //     label:     <Search/>
+
+        // }
     ];
 
     const end = (
@@ -205,8 +210,9 @@ const Navbar = ({dispatch, error, user}) => {
     return (
         <div>
         <div className="card">
-            <Menubar model={items} />
+            <Menubar model={items}  />
         </div>
+       
         <Modal
         closeButton
         blur
