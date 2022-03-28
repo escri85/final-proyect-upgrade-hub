@@ -13,9 +13,10 @@ import { connect } from 'react-redux';
 import { cleanCartRedux } from '../../../../redux/actions/cartActions';
 import { ModalPaid } from './Components-Pay/ModalPaid';
 import { editStockToApi } from '../../../../redux/actions/apiActions';
+import { useNavigate } from 'react-router-dom';
 
 const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
-
+    const navigate = useNavigate();
     const [payType, setPayType] = React.useState('');
     const [totalPrice] = React.useState(price);
     const [payDone, setPayDone] = React.useState(false);
@@ -31,6 +32,7 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
     } 
 
     const closeAll = () => {
+        navigate('./cart')
         setOrderSent(false);
         setGoToPay(false);
         dispatch(cleanCartRedux())

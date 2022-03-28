@@ -4,6 +4,7 @@ import { PanelMenu } from 'primereact/panelmenu';
 import { ProfileContext } from '../../Contexts/ProfileContext';
 import {connect} from 'react-redux';
 import { changeEmail } from "../../redux/actions/authActions";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 const INITIAL_STATE = {
@@ -15,7 +16,7 @@ const UserSettingsModal = ({user, dispatch}) =>{
     const [profileNavbarActions, setProfileNavbarActions] = useContext(ProfileContext);
     const [visible, setVisible] = React.useState(true);
     const [formData, setFormData] = React.useState(INITIAL_STATE);
-
+    
     const closeHandler = () => {
         setVisible(false);
         console.log('closed');
