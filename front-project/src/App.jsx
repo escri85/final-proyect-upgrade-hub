@@ -1,5 +1,5 @@
 import { Accessories, ManClothesPage, ManShoesPage, WomanClothesPage, WomenShoesPage, CartPage, Access, Profile } from './pages';
-import { Footer, Header, AddProduct, PrivateRoute, Chat, Cookies, AdminSettings} from './components';
+import { Footer, Header, PrivateRoute, Chat, Cookies, AdminSettings} from './components';
 import { useContext, useEffect } from 'react';
 import {ThemeContext} from '../src/Contexts/ThemeContext';
 import { connect } from 'react-redux';

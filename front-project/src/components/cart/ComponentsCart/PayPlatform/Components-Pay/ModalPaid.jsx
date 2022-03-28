@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormattedMessage  as T} from 'react-intl';
-import Rating from '@mui/material/Rating';
-import { Row, Text, Input, Button, Modal, Checkbox, Avatar } from '@nextui-org/react';
-
+import './ModalPaid.scss'
+import { Rating } from 'primereact/rating';
 export const ModalPaid = ({timeToSend, closeAll}) => {
 
-    const [value, setValue] = React.useState(1);
-    const [visible, setVisible] = React.useState(true);
+    const [value, setValue] = useState(null);
 
     return (<div className="c-modalPaid">
-        <h3>Hola</h3>
-        <h4>{timeToSend}</h4>
-        <button onClick={closeAll}>Cerrar</button>
+        <h3><T id='ModalPaid.order.register' /></h3>
+        <h4> El tiempo estimado de entrega será de: {timeToSend} días</h4>
+        <h5> <T id='ModalPaid.order.Rating' /></h5>
+        <Rating value={value} cancel={false} onChange={(e) => setValue(e.value)} />
+        <button className='prueba-boton' onClick={closeAll}>OK</button>
     </div>
     )
 }
