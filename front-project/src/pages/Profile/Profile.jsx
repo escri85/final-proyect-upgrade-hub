@@ -32,9 +32,9 @@ const Profile = ({dispatch, user}) =>{
                         <p>< T id='profile.session'/> <span>{userLoggedIn}</span></p>
                     </Card>
                 </div>
-                <div className="profile__header">
-                    <Button auto shadow color="gradient" onClick={()=>{ navigate('/admin')}} rounded>Admin Stocks</Button>
-                </div>
+                {user.role === "admin" && <div className="profile__header">
+                    <Button auto shadow color="secondary" onClick={()=>{ navigate('/admin')}} rounded>Admin Stocks</Button>
+                </div>}
                 <div className='profile__content'>
                     <div className='profile__content-leftbar'>
                         <ProfileNavbar/>
