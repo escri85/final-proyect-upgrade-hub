@@ -130,8 +130,8 @@ const Access = ({dispatch, error, user, loginFailed, registerFailed}) =>{
                 ref={captcha}
     sitekey='6LdkchMfAAAAANivlu4Xpc0Hj-sHRbQyV8cas_vP'
     onChange={onChangeCaptcha}
-  />
-  {captchaValido === false && <div className='messages'>Debes aceptar el captcha</div>}
+    />
+    {captchaValido === false && <div className='messages'>Debes aceptar el captcha</div>}
                 <div>
                     {/* <button className="register__form-btn">Registrar</button> */}
                     <Button auto flat color="primary" className="access__forms-register-btn">

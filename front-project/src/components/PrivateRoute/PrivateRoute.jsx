@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import { Navigate, useLocation } from "react-router-dom";
 import { FormattedMessage  as T} from 'react-intl';
 
+
 const PrivateRoute = ({user, component, dispatch}) =>{
+
 
     const location = useLocation();
 
