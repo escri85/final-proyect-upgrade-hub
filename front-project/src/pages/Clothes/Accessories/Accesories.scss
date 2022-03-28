@@ -1,5 +1,7 @@
 @import '../../../variables.scss';
 
+
+
 .bga{
     background-image: url(https://theluxonomist.es/wp-content/uploads/2021/12/bolso-moda-complementos.jpg);
     position: fixed;
@@ -54,8 +56,10 @@
         }
 
         &__input{
+            width: 30px;
+            height:30px ;
             margin-top: 2px;
-            border-radius: 5px;
+            border-radius: 100%;
         }
 
         &__price{
