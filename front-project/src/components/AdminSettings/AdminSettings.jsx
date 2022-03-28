@@ -100,7 +100,7 @@ const AdminSettings = (props) => {
             <div className='adminpanel__header'>
                 <Panel header = "Panel de administración" toggleable>
                     <p><i className='pi pi-pencil'></i> <T id="AdminSettings.Stock.Need" />d</p>
-                    <p><i className='pi pi-plus'></i> <T id='AdminSettings.Preview' /></p>
+                    <p><i className='pi pi-plus'></i> <T id='AdminSettings.Stock.Preview' /></p>
                     <p><i className='pi pi-trash'></i><T id='AdminSettings.Stock.Delete' /></p>
                 </Panel>
             </div>
