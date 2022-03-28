@@ -68,7 +68,7 @@ const Accesories = (props) => {
             <div className="c-finder">
                 <div className="c-finder__div">
                     <label className="c-finder__label" htmlFor="checkbox"><T id='ckeckBox.item.scarf'/></label>
-                    <input className="c-finder__input" type="checkbox" onChange={handleChangePañuelos} />
+                    <input className="c-finder__input" type="checkbox" onChange={handleChangePañuelos}/>
                 </div>
 
                 <div className="c-finder__div" >
