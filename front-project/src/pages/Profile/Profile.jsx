@@ -9,6 +9,7 @@ import FavLis from './Components/FavLis';
 import Nofavs from '../../assets/img/Nofavs.jpeg'
 import { useNavigate } from "react-router-dom";
 
+
 const Profile = ({dispatch, user}) =>{
 
     const navigate = useNavigate();
@@ -31,12 +32,9 @@ const Profile = ({dispatch, user}) =>{
                         <p>< T id='profile.session'/> <span>{userLoggedIn}</span></p>
                     </Card>
                 </div>
-                { user.role === "admin" && <><h5 className='profile__header__h5'>Puedes acceder a Administración para gestionar stocks y productos</h5>
-                    <div className='profile__subheader'>
-                    <Button onClick={()=>{navigate('/admin')}} shadow color="error" auto rounded>
-                        Admin stocks 
-                    </Button>
-                </div></>}
+                {user.role === "admin" && <div className="profile__header">
+                    <Button auto shadow color="secondary" onClick={()=>{ navigate('/admin')}} rounded>Admin Stocks</Button>
+                </div>}
                 <div className='profile__content'>
                     <div className='profile__content-leftbar'>
                         <ProfileNavbar/>
@@ -52,7 +50,9 @@ const Profile = ({dispatch, user}) =>{
                             :
                             <img src={Nofavs} alt="Nofavs" />
                         :
-                        <p>< T id='profile.menu'/></p>
+                        <div>
+                            <img src="https://cdn.discordapp.com/attachments/954061730814787637/957947920815120445/Crema_Marron_Pareja_Foto_Apunta_la_Fecha_Boda_Postal.jpg" alt="img-perfil" />
+                        </div>
                         
                         }
                         </div>
