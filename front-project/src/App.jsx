@@ -14,6 +14,7 @@ import './App.scss';
 import Navbar from './components/Header/Navbar/Navbar';
 import { checkUserSession } from './redux/actions/authActions';
 import Map from './components/GoogleMaps/Map';
+import PrivateRouteAdmin from './components/PrivateRouteAdmin/PrivateRouteAdmin';
 
 
 function App({user, error, dispatch}) {
@@ -45,7 +46,7 @@ function App({user, error, dispatch}) {
                   <Route path="/access" element={<Access/>} />
                   <Route path="/profile" element={<PrivateRoute component={<Profile/>}/>}> </Route>
                   <Route path='/work' element={<WorkwithUS/>}/>
-                  <Route path='/admin' element={<AdminSettings/>} />
+                  <Route path='/admin' element={<PrivateRouteAdmin user={user} component={<AdminSettings/>}/>}> </Route>
                 </Route>
             </Routes>
             <Chat/>

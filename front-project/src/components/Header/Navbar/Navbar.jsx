@@ -79,7 +79,7 @@ const Navbar = ({dispatch, error, user}) => {
 
 console.log('este el el loginData ->',loginData);
 console.log('este el el user ->',user);
-console.log('esta es la sesion  ->',sesionGoogle);
+// console.log('esta es la sesion  ->',sesionGoogle);
     const items = [
 
         // {
@@ -153,7 +153,7 @@ console.log('esta es la sesion  ->',sesionGoogle);
             },
             { label: <T id="navbar.item.login" />,
             icon: "pi pi-fw pi-power-off",
-            className: user && sesionGoogle===true ? 'hiddenItem' : 'showItem',
+            className: user ? 'hiddenItem' : 'showItem',
             command: () =>{
                 setVisible(true);
             }

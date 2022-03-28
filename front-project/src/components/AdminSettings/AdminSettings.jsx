@@ -116,7 +116,7 @@ const AdminSettings = (props) => {
                     <div className="card__accesories">
                         <DataTable value={allProducts.accessories} responsiveLayout="scroll">
                             <Column field="Nombre" header="Nombre" body={getNames}></Column>
-                            <Column field="Imagen" header="Imagen" body={getImage}></Column>
+                            <Column style={{width: "150px", height: "auto"}} field="Imagen" header="Imagen" body={getImage}></Column>
                             <Column field="Categoría" header="Categoría" body={getCategorie}></Column>
                             <Column field="Precio" header="Precio" body={getPrice}></Column>
                             <Column field="Rating" header="Rating" body={getRating}></Column>
