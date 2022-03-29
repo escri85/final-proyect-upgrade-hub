@@ -14,7 +14,7 @@ router.get('/sneakers', async(req, res, next) =>{
 
 router.post('/sneakers', async (req, res, next) =>{
     try{
-        const {title, description, price, stock, shoppingFrom, image, rating, categorie, subcategorie} = req.body;
+        const {title, description, price, stock, shoppingFrom, image, rating, categorie, subcategorie, filter} = req.body;
         const newSneakers = new SneakersModel({
             title,
             description,
@@ -24,7 +24,8 @@ router.post('/sneakers', async (req, res, next) =>{
             image,
             rating,
             categorie,
-            subcategorie
+            subcategorie,
+            filter
         })
         const sneakersCreated = await newSneakers.save();
         return res.status(201).json(sneakersCreated);

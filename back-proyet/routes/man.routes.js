@@ -12,9 +12,10 @@ router.get('/manproducts', async (req, res, next) =>{
     }
 });
 
-router.post('manproducts', async(req, res, next) =>{
+router.post('/manproducts', async(req, res, next) =>{
+    console.log("1.Esto es lo requerido", req.body);
     try{
-        const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
+        const {title, description, price, stock, shoppingFrom, image, rating, categorie, filter} = req.body;
         const newManProduct = new ManProducts({
             title,
             description,
@@ -23,9 +24,13 @@ router.post('manproducts', async(req, res, next) =>{
             shoppingFrom,
             rating,
             categorie,
-            image
+            image,
+            filter
         });
+        console.log("2. El nuevo producto", newManProduct);
         const manProductCreated = await newManProduct.save();
+        console.log("3.Se ha creado", manProductCreated);
+        return res.status(201).json(manProductCreated);
     }catch(error){
         return next(error);
     }

@@ -14,7 +14,7 @@ router.get('/woman', async(req, res, next) =>{
 
 router.post('/woman', async(req, res, next) =>{
     try{
-        const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
+        const {title, description, price, stock, shoppingFrom, image, rating, categorie, filter} = req.body;
         const newWomanProduct = new WomensProducts({
             title,
             description,
@@ -23,7 +23,8 @@ router.post('/woman', async(req, res, next) =>{
             shoppingFrom,
             rating,
             categorie,
-            image
+            image,
+            filter
         });
         const womanProductCreated = await newWomanProduct.save();
         return res.status(201).json(womanProductCreated);

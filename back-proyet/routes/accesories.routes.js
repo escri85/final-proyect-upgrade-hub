@@ -16,7 +16,7 @@ router.get('/accessories', async(req, res, next) =>{
 
 router.post('/accessories', async (req, res, next) =>{
     try{
-        const {title, description, price, stock, shoppingFrom, image, rating, categorie} = req.body;
+        const {title, description, price, stock, shoppingFrom, image, rating, categorie, filter} = req.body;
         const newAccessory = new AccessoriesModel({
             title,
             description,
@@ -26,7 +26,7 @@ router.post('/accessories', async (req, res, next) =>{
             rating,
             categorie,
             image,
-            amount,
+            filter,
         });
         const accessoryCreated = await newAccessory.save();
         return res.status(201).json(accessoryCreated);
