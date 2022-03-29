@@ -78,16 +78,15 @@ const UserSettingsModal = ({user, dispatch}) =>{
                         />
                     <Row justify="space-between">
                     <Text size={14}>
-                        Has olvidado tu contraseña?
                     </Text>
                     </Row>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button auto flat color="error" onClick={closeHandler}>
-                    Close
+                    Cancelar
                     </Button>
                     <Button auto onClick={submitForm}>
-                    Sign in
+                    Actualizar Email
                     </Button>
                 </Modal.Footer>
             </Modal>
