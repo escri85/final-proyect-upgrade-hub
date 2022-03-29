@@ -72,11 +72,10 @@ const Card = (props) => {
           </div>
           <div className="a-size">
             {product.description}{" "}
-            
             {product.stock < 4 && product.stock >0 ? (
               <h5 className="lastUnits"><T id="card.stock"/> {product.stock} </h5>
             ) : ("")}{}
-            {product.stock=== 0 && (<h5><T id="card.rep" /></h5>)} 
+            {product.stock=== 0 && (<h5 className="lastUnits"><T id="card.rep"/></h5>)}
           </div>
         </div>
       </div>
