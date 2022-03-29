@@ -7,67 +7,76 @@ $dark: #4e4e4e;
 
 @import '../../variables.scss';
 
-.contenedor__cookies{
-
+.contenedor__cookies {
+    z-index: 320;
     display: flex;
     flex-direction: column;
     color: white;
-    background-color:$primary-shadow-color;
-    & .texto{
-        & p{
+    background-color: $primary-shadow-color;
+
+    & .texto {
+        & p {
             text-align: left;
             font-size: 20px;
             padding: 10px;
         }
     }
-    & .botones{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin-bottom: 2%;
-      & button{
-          width: auto;
-          color: $primary-bg-color;
-          background-color:$primary-text-color;
-      }
+
+    & .botones {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 2%;
+
+        & button {
+            width: auto;
+            color: $primary-bg-color;
+            background-color: $primary-text-color;
+        }
     }
 }
+
 .contenedor__cookies {
-    & .App{
+    & .App {
         opacity: 1;
     }
+
     -webkit-animation-name: contenedor__cookies;
     animation-name: contenedor__cookies;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    }
-    @-webkit-keyframes contenedor__cookies {
+}
+
+@-webkit-keyframes contenedor__cookies {
     0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -2000px, 0);
-    transform: translate3d(0, -2000px, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+        transform: translate3d(0, -2000px, 0);
     }
+
     100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-    }
-    }
-    @keyframes contenedor__cookies {
-    0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -2000px, 0);
-    transform: translate3d(0, -2000px, 0);
-    }
-    100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-    & .App{
         opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
+}
+
+@keyframes contenedor__cookies {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -2000px, 0);
+        transform: translate3d(0, -2000px, 0);
     }
-    } 
-  
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+
+        & .App {
+            opacity: 1;
+        }
+    }
+}

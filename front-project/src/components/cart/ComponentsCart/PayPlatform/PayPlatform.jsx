@@ -32,7 +32,7 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
     } 
 
     const closeAll = () => {
-        navigate('./cart')
+        navigate('/')
         setOrderSent(false);
         setGoToPay(false);
         dispatch(cleanCartRedux())
@@ -105,7 +105,6 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
                             >
                             <MenuItem value={1}><T id='PlayPlatform.CreditCard' /></MenuItem>
                             <MenuItem value={2}>PayPal</MenuItem>
-                            <MenuItem value={3}><T id='PlayPlatform.CashOnDelivery' /></MenuItem>
                             </Select>
                         </FormControl>
                     </Box>
@@ -134,10 +133,6 @@ const PayPlatform = ({price, cart, dispatch, setGoToPay}) => {
                             onChange={()=>{setPayDone(true)}}
                             />
                         </Box>
-                    </div>}
-                    {payType === 3 && <div>
-                        <h5>**<T id='PlayPlatform.pay.CashOnDelivery' /></h5>
-                        <h5>**<T id='PlayPlatform.pay.overCost' /></h5>
                     </div>}
                 </div>
                 <div className="c-platform__modal__div">

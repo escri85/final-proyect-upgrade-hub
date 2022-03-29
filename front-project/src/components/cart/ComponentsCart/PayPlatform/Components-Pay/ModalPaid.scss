@@ -1,7 +1,9 @@
-@import '../../../../../variables.scss';
+@import './../../../../../variables.scss';
+
 
 .c-modalPaid{
 width: 400px;
+min-width: 300px;
 height: auto;
 padding: 10%;
     
@@ -9,6 +11,7 @@ padding: 10%;
     background: white;
     z-index: 100;
     padding: 15px;
+    border-radius: 25px;
 
     display: flex;
     flex-direction: column;
@@ -22,5 +25,10 @@ padding: 10%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    &__button{
+        width: 100px;
+        background-color: blue;
+    }
 
 }

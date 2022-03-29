@@ -23,6 +23,7 @@ const UserSettingsModal = ({user, dispatch}) =>{
         setProfileNavbarActions({
             showUserMailSettings: false,
         })
+        window.location.reload() 
     };
 
     const handleInput = (ev) =>{
@@ -33,6 +34,7 @@ const UserSettingsModal = ({user, dispatch}) =>{
     const submitForm = (ev) =>{
         console.log(formData);
         dispatch(changeEmail(formData, user._id))
+        // window.location.reload() 
     }
 
     return (
@@ -62,6 +64,7 @@ const UserSettingsModal = ({user, dispatch}) =>{
                             type="email"
                             name="email"
                             onChange={handleInput}
+                            required={true}
     /*                        ICONO -> contentLeft={<Mail />} */
                         />
                         <Input
