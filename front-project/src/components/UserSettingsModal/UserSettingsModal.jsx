@@ -19,7 +19,6 @@ const UserSettingsModal = ({user, dispatch}) =>{
     
     const closeHandler = () => {
         setVisible(false);
-        console.log('closed');
         setProfileNavbarActions({
             showUserMailSettings: false,
         })
@@ -32,7 +31,6 @@ const UserSettingsModal = ({user, dispatch}) =>{
     }
 
     const submitForm = (ev) =>{
-        console.log(formData);
         dispatch(changeEmail(formData, user._id))
         // window.location.reload() 
     }

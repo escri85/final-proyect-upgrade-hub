@@ -18,7 +18,6 @@ const Register = ({dispatch, error, ...restProps}) =>{
 
     const submitForm = (ev) =>{
         ev.preventDefault();
-        console.log(formData);
         dispatch(registerUser(formData));
         setFormData(INITIAL_STATE);
         /* navigate('/profile'); */

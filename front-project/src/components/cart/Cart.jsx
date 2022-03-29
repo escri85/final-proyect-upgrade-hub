@@ -13,7 +13,6 @@ import { FormattedMessage as T } from "react-intl";
 
 const Cart = (props) => {
 
-  console.log("Esta es la lista del carrito", props.cart);
 
   useEffect(() => {
     localStorage.setItem("productsCart", JSON.stringify(props.cart));

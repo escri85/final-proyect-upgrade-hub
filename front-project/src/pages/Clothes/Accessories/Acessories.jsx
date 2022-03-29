@@ -9,8 +9,6 @@ import { FormattedMessage  as T} from 'react-intl';
 
 const Accesories = (props) => {
 
-    console.log(props);
-
     useEffect(() => {
         props.dispatch(getAccesoriesToApi())
             //eslint-disable-next-line react-hooks/exhaustive-deps

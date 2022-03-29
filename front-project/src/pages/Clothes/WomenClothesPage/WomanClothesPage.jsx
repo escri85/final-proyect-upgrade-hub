@@ -6,11 +6,9 @@ import Card from '../../../components/Card/Card';
 import { FormattedMessage  as T} from 'react-intl';
 
 const WomanClothesPage = (props) => {
-    console.log(props.data);
 
     useEffect(() => {
         props.dispatch(getWomenClothesToApi())
-        console.log(props.data);
             //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -24,17 +24,12 @@ const Navbar = ({dispatch, error, user}) => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [{theme, isDark }, toggleTheme] = useContext(ThemeContext)
     const [sesionGoogle, setSesionGoogle] = useState(false)
-    console.log(user);
 
     // const client_id=process.env.GOOGLE_CLIENT_ID
 
     const local_Storage= localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null
 
     const [loginData,setLoginData]=useState(local_Storage)
-
-    const registerUserForGoogl = ()=>{
-        console.log(loginData);
-    }
 
     const needToRegister = () =>{
         setVisible(false);
@@ -46,7 +41,6 @@ const Navbar = ({dispatch, error, user}) => {
     };
 
     const responseGoogle=(response)=>{
-        console.log('esta es otro login',response);
         localStorage.setItem('loginData',JSON.stringify(response))
         setLoginData(response)
         setVisible(false)
@@ -54,10 +48,6 @@ const Navbar = ({dispatch, error, user}) => {
     }
 
 
-//////  LOGIN Y LOGOUT GOOGLE?  //////
-    // const handleLogin=(googleData)=>{
-    //     console.log(googleData);
-    // }
     const handleLogout=()=>{
         localStorage.removeItem('loginData')
         setSesionGoogle(false)
@@ -77,9 +67,6 @@ const Navbar = ({dispatch, error, user}) => {
         setFormData({...formData, [name]: value});
     };
 
-console.log('este el el loginData ->',loginData);
-console.log('este el el user ->',user);
-// console.log('esta es la sesion  ->',sesionGoogle);
     const items = [
 
         // {
