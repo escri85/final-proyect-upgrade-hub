@@ -6,13 +6,16 @@ export const ModalPaid = ({timeToSend, closeAll}) => {
 
     const [value, setValue] = useState(null);
 
-    return (<div className="c-modalPaid">
-        <h3><T id='ModalPaid.order.register' /></h3>
-        <h4> El tiempo estimado de entrega será de: {timeToSend} días</h4>
-        <h5> <T id='ModalPaid.order.Rating' /></h5>
-        <Rating value={value} cancel={false} onChange={(e) => setValue(e.value)} />
-        <button className='prueba-boton' onClick={closeAll}>OK</button>
-    </div>
+    return (
+        <div className="c-modalPaid__container">
+            <div className="c-modalPaid">
+                <h3><T id='ModalPaid.order.register' /></h3>
+                <h4> El tiempo estimado de entrega será de: {timeToSend} días</h4>
+                <h5> <T id='ModalPaid.order.Rating' /></h5>
+                <Rating value={value} cancel={false} onChange={(e) => setValue(e.value)} />
+                <button className='c-modalPaid__button' onClick={closeAll}>OK</button>
+            </div>
+        </div>
     )
 }
 
