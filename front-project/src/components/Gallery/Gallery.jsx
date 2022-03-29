@@ -7,11 +7,6 @@ import { FormattedMessage  as T} from 'react-intl';
 
 const Gallery = (props) => {
 
-    // useEffect(() => {
-    //     props.dispatch(getToApi())
-    //     console.log(props.data);
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
     
     return (<div className="container">
         {

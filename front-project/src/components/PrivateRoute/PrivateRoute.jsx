@@ -12,10 +12,8 @@ const PrivateRoute = ({user, component, dispatch}) =>{
     if (!component) throw new Error('Jose, Luispa, Sergi y Hector no han pasado un componente :/');
 
     if (user === null) return <div><T id='Register.noUser'/></div>
-    console.log('USUARIO->', user, 'USER.EMAIL->',user.email);
 
     if (user === false){
-        {/* <Access userError = {user}/> */}
         return <Navigate to='/access' state={{prevRoute: location.pathname}} />
     }
 

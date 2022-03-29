@@ -25,7 +25,6 @@ const ProfileNavbar = () =>{
                             showUserMailSettings: showUserMailSettingsFlag,
                             showOrders: showOrdersFlag,
                         });
-                        console.log(profileNavbarActions)
                     }
                 },
             ]
@@ -43,7 +42,6 @@ const ProfileNavbar = () =>{
                             showUserMailSettings: !showUserMailSettingsFlag,
                             showOrders: showOrdersFlag
                         })
-                        console.log(profileNavbarActions);
                     }
                 },
                 // {
@@ -69,7 +67,6 @@ const ProfileNavbar = () =>{
                             showUserMailSettings: showUserMailSettingsFlag,
                             showOrders: !showOrdersFlag
                         });
-                        console.log(profileNavbarActions)
                     }
                 },
             ]

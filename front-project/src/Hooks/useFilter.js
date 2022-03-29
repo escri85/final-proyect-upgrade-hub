@@ -4,23 +4,7 @@ import { connect } from 'react-redux';
 
 /* ACCESSORIES */
 const useFilter = () =>{
-/*     const [accessories, setAccessories] = useState(
-        {
-            scarves: false,
-            slopes: false,
-            necklaces: false,
-            cap: false,
-            bel: false
-        }
-    )
 
-    const filterScarves = (arg1) => setAccessories({...accessories, scarves: arg1});
-
-    console.log(accessories);
-    return [
-        accessories,
-        filterScarves
-    ] */
 
     const [inputValue, setInputValue] = useState('JOSE');
 

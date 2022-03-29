@@ -9,7 +9,6 @@ const WomenShoesPage = (props) => {
 
     useEffect(() => {
         props.dispatch(getShoesToApi())
-        console.log(props.data);
           //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
@@ -53,8 +52,6 @@ const WomenShoesPage = (props) => {
     }
 
     const filterResults = props.data.filter((element => isCategorySelected(element.filter) && element.price < maxPrice))
-    
-    console.log("Esto es filter results", filterResults);
 
     const [inputValue, setInputValue] = useState(170);
 
