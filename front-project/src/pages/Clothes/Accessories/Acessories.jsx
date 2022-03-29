@@ -21,6 +21,8 @@ const Accesories = (props) => {
     const accessories = props.data.filter(product => 
         product.price < maxPrice )
 
+    console.log(accessories);
+
     //NEW FILTER
 
     const [panuelosActived, setPanuelosActived] = useState();

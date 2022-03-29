@@ -20,6 +20,9 @@ const ManClothesPage = (props) => {
     const manClothes = props.data.filter(product => 
         product.price < maxPrice )
 
+
+        console.log(manClothes);
+
     //NEW FILTER
 
     const [pantalonesActived, setPantalonesActived] = useState();
