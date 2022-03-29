@@ -31,7 +31,7 @@ const AdmingModalSettings = () => {
         <Modal.Header>
             <Text id="modal-title" size={18}>
             <Text b size={18}>
-                <T id='AdminEdit'/>
+                <T id='Admin.Edit'/>
             </Text>
             </Text>
         </Modal.Header>
@@ -51,13 +51,13 @@ const AdmingModalSettings = () => {
                 />
             <Row justify="space-between">
             <Text color="error" size={14}>
-                <T id='Admin.Update' />
+            <T id='Admin.Stock.Warning' />
             </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
             <Button auto onClick={(setProductStocks)}>
-            <T id='Admin.update.Stock' />
+            <T id='Admin.update.stock' />
             </Button>
         </Modal.Footer>
     </Modal>

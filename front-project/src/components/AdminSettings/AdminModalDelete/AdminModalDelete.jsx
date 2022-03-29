@@ -32,13 +32,13 @@ const AdmingModalSettings = () => {
         <Modal.Body>
             <Row justify="space-between">
             <Text color="error" size={14}>
-            <T id="AdminSettings.Stock.Update" />
+            <T id="Admin.Delete.Warning" />
             </Text>
             </Row>
         </Modal.Body>
         <Modal.Footer>
             <Button auto onClick={(deleteProduct)}>
-            <T id="AdminSettings.Stock.Delete" />
+            <T id="Admin.delete.product" />
             </Button>
         </Modal.Footer>
     </Modal>
