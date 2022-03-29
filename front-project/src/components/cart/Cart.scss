@@ -58,16 +58,22 @@ $dark: #4e4e4e;
       }
 
       & .product {
+        align-items: inherit;
+    display: flex;
+    flex-direction: column;
         & p {
+          text-align: center;
           font-size: 180%;
           color: $secondary-text-color;
           letter-spacing: 1px;
         }
 
         & h1 {
+          text-transform: uppercase;
           font-size: 1.2em;
           color: $dark;
           margin-top: -5px;
+          text-align: center;
         }
 
         & h2 {

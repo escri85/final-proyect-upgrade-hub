@@ -4,9 +4,9 @@ import{render, screen}from '@testing-library/react'
 import AddProduct from './AddProduct'
 import { connect } from "react-redux";
 
-// beforeEach(()=>{
+beforeEach(()=>{
   
-// })
+})
 
 test('render title component AddProduct',()=>{
   render(<AddProduct/>)
