@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { InputNumber } from "primereact/inputnumber";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
+import axios from "axios";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import swal from "sweetalert";
@@ -53,11 +54,23 @@ const AddProduct = () => {
       image: newProduct.image,
       rating: Math.random()*4 + 1,
       shoppingFrom: "España",
+      filter: "Filtro",
     };
+    console.log("Este es el producto a añadir", addProduct);
+
+    const sendProduct = axios.post(`http://localhost:4000/${routesCategorie}`,
+      addProduct
+    )
+    ;
 
 
+    console.log("sendproduct", routesCategorie);
+    console.log(
+      "el producto se envio desde el front correctamente",
+      sendProduct
+    );
 
-
+    
   };
 
   const onSubmit = (event) => {
@@ -65,13 +78,14 @@ const AddProduct = () => {
 
     setSpinner(true);
     setTimeout(() => {
-      swal(<T id="AddProduct.uploaded" />);
+      swal("El producto se ha subido correctamente");
       setSpinner(false);
     }, 3000);
     postApi();
   };
 
   const onCategorieChange = (event) => {
+    console.log(event.value);
     const values = event.target.value.name;
     setCatego(event.value);
     switch (values) {
